@@ -33,8 +33,8 @@
             tab_Home = new TabPage();
             sPanel_Welcome = new Student_Information_System.UI.SPanel();
             lbl_WelcomeUser = new Label();
-            hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
             tab_Create = new TabPage();
+            hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
             TabControl = new ReaLTaiizor.Controls.TabPage();
             TabControl.SuspendLayout();
             tab_Home.SuspendLayout();
@@ -92,6 +92,7 @@
             sPanel_Welcome.BorderColor = Color.White;
             sPanel_Welcome.Controls.Add(lbl_WelcomeUser);
             sPanel_Welcome.Dock = DockStyle.Top;
+            sPanel_Welcome.Font = new Font("Poppins", 12F);
             sPanel_Welcome.Location = new Point(3, 3);
             sPanel_Welcome.Name = "sPanel_Welcome";
             sPanel_Welcome.Size = new Size(1051, 71);
@@ -102,28 +103,12 @@
             lbl_WelcomeUser.Anchor = AnchorStyles.Left;
             lbl_WelcomeUser.AutoSize = true;
             lbl_WelcomeUser.BackColor = Color.White;
-            lbl_WelcomeUser.Font = new Font("Poppins", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lbl_WelcomeUser.Location = new Point(28, 21);
+            lbl_WelcomeUser.Font = new Font("Poppins", 16F);
+            lbl_WelcomeUser.Location = new Point(26, 19);
             lbl_WelcomeUser.Name = "lbl_WelcomeUser";
-            lbl_WelcomeUser.Size = new Size(116, 37);
+            lbl_WelcomeUser.Size = new Size(121, 39);
             lbl_WelcomeUser.TabIndex = 0;
             lbl_WelcomeUser.Text = "Welcome";
-            // 
-            // hope_AdminDashboard
-            // 
-            hope_AdminDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
-            hope_AdminDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
-            hope_AdminDashboard.ControlBoxColorN = Color.White;
-            hope_AdminDashboard.Dock = DockStyle.Top;
-            hope_AdminDashboard.Font = new Font("Poppins", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
-            hope_AdminDashboard.Image = Properties.Resources.FormIcon;
-            hope_AdminDashboard.Location = new Point(0, 0);
-            hope_AdminDashboard.Name = "hope_AdminDashboard";
-            hope_AdminDashboard.Size = new Size(1200, 40);
-            hope_AdminDashboard.TabIndex = 0;
-            hope_AdminDashboard.Text = "Admin Dashboard";
-            hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
             // tab_Create
             // 
@@ -134,6 +119,22 @@
             tab_Create.Size = new Size(1057, 652);
             tab_Create.TabIndex = 1;
             tab_Create.Text = "Create";
+            // 
+            // hope_AdminDashboard
+            // 
+            hope_AdminDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            hope_AdminDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            hope_AdminDashboard.ControlBoxColorN = Color.White;
+            hope_AdminDashboard.Dock = DockStyle.Top;
+            hope_AdminDashboard.Font = new Font("Poppins", 14.25F);
+            hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
+            hope_AdminDashboard.Image = Properties.Resources.FormIcon;
+            hope_AdminDashboard.Location = new Point(0, 0);
+            hope_AdminDashboard.Name = "hope_AdminDashboard";
+            hope_AdminDashboard.Size = new Size(1200, 40);
+            hope_AdminDashboard.TabIndex = 0;
+            hope_AdminDashboard.Text = "Admin Dashboard";
+            hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
             // AdminDashboard
             // 

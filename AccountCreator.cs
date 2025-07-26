@@ -83,7 +83,15 @@ namespace Student_Information_System
 
         private void btn_Test_Click(object sender, EventArgs e)
         {
-            string queryUser = $"SELECT user_id FROM User WHERE email = {tb_Email.Text}";
+            string basePath = AppContext.BaseDirectory;
+            string relativePath = Path.Combine(basePath, @"..\..\..\SIS.db");
+            string fullPath = Path.GetFullPath(relativePath);
+            string connectionString = $"Data Source={fullPath}";
+
+            using var conn = new SqliteConnection(connectionString);
+            conn.Open();
+
+            Account.QueryAccountLogin(conn, tb_Username.Text, tb_Password.Text);
         }
     }
 }

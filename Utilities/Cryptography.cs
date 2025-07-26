@@ -31,5 +31,10 @@ namespace Student_Information_System.Utilities
             }
         }
 
+        public static bool VerifyPassword(string password, byte[] salt, byte[] hash)
+        {
+            var checkPasswordHash = HashPassword(password, salt);
+            return checkPasswordHash.SequenceEqual(hash);
+        }
     }
 }
