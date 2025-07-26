@@ -37,6 +37,7 @@
             tb_Password = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_Username = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pb_Mascot = new PictureBox();
+            hope_LoginForm = new ReaLTaiizor.Forms.HopeForm();
             pnl_LoginForm.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_Mascot).BeginInit();
             SuspendLayout();
@@ -61,7 +62,7 @@
             pnl_LoginForm.Controls.Add(lbl_Login);
             pnl_LoginForm.Controls.Add(tb_Password);
             pnl_LoginForm.Controls.Add(tb_Username);
-            pnl_LoginForm.Location = new Point(47, 62);
+            pnl_LoginForm.Location = new Point(38, 77);
             pnl_LoginForm.Name = "pnl_LoginForm";
             pnl_LoginForm.Size = new Size(400, 600);
             pnl_LoginForm.TabIndex = 1;
@@ -75,7 +76,7 @@
             nightButton1.HoverBackColor = Color.Black;
             nightButton1.HoverForeColor = Color.Gray;
             nightButton1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.High;
-            nightButton1.Location = new Point(61, 317);
+            nightButton1.Location = new Point(61, 328);
             nightButton1.MinimumSize = new Size(144, 47);
             nightButton1.Name = "nightButton1";
             nightButton1.NormalBackColor = Color.WhiteSmoke;
@@ -181,22 +182,43 @@
             // pb_Mascot
             // 
             pb_Mascot.Image = Properties.Resources.Login_Pics;
-            pb_Mascot.Location = new Point(625, 482);
+            pb_Mascot.Location = new Point(522, 471);
             pb_Mascot.Name = "pb_Mascot";
             pb_Mascot.Size = new Size(496, 235);
             pb_Mascot.TabIndex = 2;
             pb_Mascot.TabStop = false;
+            // 
+            // hope_LoginForm
+            // 
+            hope_LoginForm.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            hope_LoginForm.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            hope_LoginForm.ControlBoxColorN = Color.White;
+            hope_LoginForm.Dock = DockStyle.Top;
+            hope_LoginForm.Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            hope_LoginForm.ForeColor = Color.FromArgb(242, 246, 252);
+            hope_LoginForm.Image = Properties.Resources.FormIcon;
+            hope_LoginForm.Location = new Point(0, 0);
+            hope_LoginForm.Margin = new Padding(2, 2, 2, 2);
+            hope_LoginForm.Name = "hope_LoginForm";
+            hope_LoginForm.Size = new Size(1200, 40);
+            hope_LoginForm.TabIndex = 3;
+            hope_LoginForm.Text = "Student Information System";
+            hope_LoginForm.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
             // Login
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(231, 231, 231);
-            ClientSize = new Size(1184, 729);
+            ClientSize = new Size(1200, 700);
+            Controls.Add(hope_LoginForm);
             Controls.Add(pb_Mascot);
             Controls.Add(pnl_LoginForm);
             Controls.Add(lbl_StudentInformationSystem);
+            FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximumSize = new Size(1920, 1040);
+            MinimumSize = new Size(190, 40);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Student Information System";
@@ -217,5 +239,6 @@
         private Label lbl_Login;
         private Label lbl_LoginDescription;
         private ReaLTaiizor.Controls.NightButton nightButton1;
+        private ReaLTaiizor.Forms.HopeForm hope_LoginForm;
     }
 }

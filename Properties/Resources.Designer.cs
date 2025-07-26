@@ -63,6 +63,16 @@ namespace Student_Information_System.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FormIcon {
+            get {
+                object obj = ResourceManager.GetObject("FormIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Login_Pics {
             get {
                 object obj = ResourceManager.GetObject("Login Pics", resourceCulture);
