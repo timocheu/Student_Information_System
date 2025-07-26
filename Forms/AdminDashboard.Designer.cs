@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            ReaLTaiizor.Controls.TabPage TabControl;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
-            hopeTabPage1 = new ReaLTaiizor.Controls.HopeTabPage();
-            tabPage1 = new TabPage();
-            tabPage2 = new TabPage();
-            hopeTabPage1.SuspendLayout();
+            tab_Home = new TabPage();
+            tab_Settings = new TabPage();
+            lbl_WelcomeUser = new Label();
+            sPanel1 = new Student_Information_System.UI.SPanel();
+            TabControl = new ReaLTaiizor.Controls.TabPage();
+            TabControl.SuspendLayout();
+            tab_Home.SuspendLayout();
+            sPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // hope_AdminDashboard
@@ -52,50 +57,83 @@
             hope_AdminDashboard.Text = "Admin Dashboard";
             hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
-            // hopeTabPage1
+            // TabControl
             // 
-            hopeTabPage1.BaseColor = Color.FromArgb(44, 55, 66);
-            hopeTabPage1.Controls.Add(tabPage1);
-            hopeTabPage1.Controls.Add(tabPage2);
-            hopeTabPage1.Dock = DockStyle.Fill;
-            hopeTabPage1.Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            hopeTabPage1.ForeColorA = Color.Silver;
-            hopeTabPage1.ForeColorB = Color.Gray;
-            hopeTabPage1.ForeColorC = Color.FromArgb(150, 255, 255, 255);
-            hopeTabPage1.ItemSize = new Size(120, 40);
-            hopeTabPage1.Location = new Point(0, 40);
-            hopeTabPage1.Name = "hopeTabPage1";
-            hopeTabPage1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            hopeTabPage1.SelectedIndex = 0;
-            hopeTabPage1.Size = new Size(1200, 660);
-            hopeTabPage1.SizeMode = TabSizeMode.Fixed;
-            hopeTabPage1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            hopeTabPage1.TabIndex = 1;
-            hopeTabPage1.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
-            hopeTabPage1.ThemeColorA = Color.FromArgb(64, 158, 255);
-            hopeTabPage1.ThemeColorB = Color.FromArgb(150, 64, 158, 255);
-            hopeTabPage1.TitleTextState = ReaLTaiizor.Controls.HopeTabPage.TextState.Normal;
+            TabControl.ActiveForeColor = Color.FromArgb(254, 255, 255);
+            TabControl.ActiveLineTabColor = Color.FromArgb(187, 134, 252);
+            TabControl.ActiveTabColor = Color.FromArgb(35, 36, 38);
+            TabControl.Alignment = TabAlignment.Left;
+            TabControl.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            TabControl.CompositingType = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+            TabControl.ControlBackColor = Color.FromArgb(54, 57, 64);
+            TabControl.Controls.Add(tab_Home);
+            TabControl.Controls.Add(tab_Settings);
+            TabControl.Dock = DockStyle.Fill;
+            TabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
+            TabControl.Font = new Font("Poppins", 12F);
+            TabControl.FrameColor = Color.FromArgb(238, 242, 245);
+            TabControl.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            TabControl.ItemSize = new Size(44, 135);
+            TabControl.LineColor = Color.FromArgb(25, 26, 28);
+            TabControl.LineTabColor = Color.FromArgb(54, 57, 64);
+            TabControl.Location = new Point(0, 40);
+            TabControl.Multiline = true;
+            TabControl.Name = "TabControl";
+            TabControl.NormalForeColor = Color.FromArgb(159, 162, 167);
+            TabControl.PageColor = Color.FromArgb(238, 242, 245);
+            TabControl.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            TabControl.SelectedIndex = 0;
+            TabControl.Size = new Size(1200, 660);
+            TabControl.SizeMode = TabSizeMode.Fixed;
+            TabControl.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            TabControl.StringType = StringAlignment.Near;
+            TabControl.TabColor = Color.FromArgb(54, 57, 64);
+            TabControl.TabIndex = 2;
+            TabControl.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // tabPage1
+            // tab_Home
             // 
-            tabPage1.BackColor = Color.FromArgb(238, 242, 245);
-            tabPage1.Location = new Point(0, 40);
-            tabPage1.Name = "tabPage1";
-            tabPage1.Padding = new Padding(3);
-            tabPage1.Size = new Size(1200, 620);
-            tabPage1.TabIndex = 0;
-            tabPage1.Text = "Home";
+            tab_Home.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Home.Controls.Add(sPanel1);
+            tab_Home.Location = new Point(139, 4);
+            tab_Home.Name = "tab_Home";
+            tab_Home.Padding = new Padding(3);
+            tab_Home.Size = new Size(1057, 652);
+            tab_Home.TabIndex = 0;
+            tab_Home.Text = "Home";
             // 
-            // tabPage2
+            // tab_Settings
             // 
-            tabPage2.Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            tabPage2.Location = new Point(0, 40);
-            tabPage2.Name = "tabPage2";
-            tabPage2.Padding = new Padding(3);
-            tabPage2.Size = new Size(1200, 620);
-            tabPage2.TabIndex = 1;
-            tabPage2.Text = "tabPage2";
-            tabPage2.UseVisualStyleBackColor = true;
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.Location = new Point(139, 4);
+            tab_Settings.Name = "tab_Settings";
+            tab_Settings.Padding = new Padding(3);
+            tab_Settings.Size = new Size(1057, 652);
+            tab_Settings.TabIndex = 1;
+            tab_Settings.Text = "Settings";
+            // 
+            // lbl_WelcomeUser
+            // 
+            lbl_WelcomeUser.Anchor = AnchorStyles.Left;
+            lbl_WelcomeUser.AutoSize = true;
+            lbl_WelcomeUser.BackColor = Color.White;
+            lbl_WelcomeUser.Font = new Font("Poppins", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_WelcomeUser.Location = new Point(28, 21);
+            lbl_WelcomeUser.Name = "lbl_WelcomeUser";
+            lbl_WelcomeUser.Size = new Size(116, 37);
+            lbl_WelcomeUser.TabIndex = 0;
+            lbl_WelcomeUser.Text = "Welcome";
+            // 
+            // sPanel1
+            // 
+            sPanel1.BackgroundFillColor = Color.White;
+            sPanel1.BorderColor = Color.White;
+            sPanel1.Controls.Add(lbl_WelcomeUser);
+            sPanel1.Dock = DockStyle.Top;
+            sPanel1.Location = new Point(3, 3);
+            sPanel1.Name = "sPanel1";
+            sPanel1.Size = new Size(1051, 71);
+            sPanel1.TabIndex = 1;
             // 
             // AdminDashboard
             // 
@@ -103,7 +141,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(231, 231, 231);
             ClientSize = new Size(1200, 700);
-            Controls.Add(hopeTabPage1);
+            Controls.Add(TabControl);
             Controls.Add(hope_AdminDashboard);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -112,15 +150,19 @@
             Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "themeForm1";
-            hopeTabPage1.ResumeLayout(false);
+            TabControl.ResumeLayout(false);
+            tab_Home.ResumeLayout(false);
+            sPanel1.ResumeLayout(false);
+            sPanel1.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
 
         private ReaLTaiizor.Forms.HopeForm hope_AdminDashboard;
-        private ReaLTaiizor.Controls.HopeTabPage hopeTabPage1;
-        private TabPage tabPage1;
-        private TabPage tabPage2;
+        private TabPage tab_Home;
+        private TabPage tab_Settings;
+        private UI.SPanel sPanel1;
+        private Label lbl_WelcomeUser;
     }
 }

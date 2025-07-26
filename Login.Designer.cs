@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             lbl_StudentInformationSystem = new Label();
             pnl_LoginForm = new Panel();
-            nightButton1 = new ReaLTaiizor.Controls.NightButton();
+            btn_Login = new ReaLTaiizor.Controls.NightButton();
             lbl_LoginDescription = new Label();
             lbl_Login = new Label();
             tb_Password = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -57,7 +57,7 @@
             // 
             pnl_LoginForm.BackColor = Color.LightGray;
             pnl_LoginForm.BackgroundImage = Properties.Resources.LoginForm;
-            pnl_LoginForm.Controls.Add(nightButton1);
+            pnl_LoginForm.Controls.Add(btn_Login);
             pnl_LoginForm.Controls.Add(lbl_LoginDescription);
             pnl_LoginForm.Controls.Add(lbl_Login);
             pnl_LoginForm.Controls.Add(tb_Password);
@@ -67,27 +67,27 @@
             pnl_LoginForm.Size = new Size(400, 600);
             pnl_LoginForm.TabIndex = 1;
             // 
-            // nightButton1
+            // btn_Login
             // 
-            nightButton1.BackColor = Color.Transparent;
-            nightButton1.DialogResult = DialogResult.None;
-            nightButton1.Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            nightButton1.ForeColor = Color.WhiteSmoke;
-            nightButton1.HoverBackColor = Color.Black;
-            nightButton1.HoverForeColor = Color.Gray;
-            nightButton1.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.High;
-            nightButton1.Location = new Point(61, 328);
-            nightButton1.MinimumSize = new Size(144, 47);
-            nightButton1.Name = "nightButton1";
-            nightButton1.NormalBackColor = Color.WhiteSmoke;
-            nightButton1.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighSpeed;
-            nightButton1.PressedBackColor = Color.DarkGray;
-            nightButton1.PressedForeColor = Color.DimGray;
-            nightButton1.Radius = 5;
-            nightButton1.Size = new Size(144, 47);
-            nightButton1.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            nightButton1.TabIndex = 4;
-            nightButton1.Text = "Login";
+            btn_Login.BackColor = Color.Transparent;
+            btn_Login.DialogResult = DialogResult.None;
+            btn_Login.Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            btn_Login.ForeColor = Color.WhiteSmoke;
+            btn_Login.HoverBackColor = Color.Black;
+            btn_Login.HoverForeColor = Color.Gray;
+            btn_Login.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.High;
+            btn_Login.Location = new Point(61, 328);
+            btn_Login.MinimumSize = new Size(144, 47);
+            btn_Login.Name = "btn_Login";
+            btn_Login.NormalBackColor = Color.WhiteSmoke;
+            btn_Login.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighSpeed;
+            btn_Login.PressedBackColor = Color.DarkGray;
+            btn_Login.PressedForeColor = Color.DimGray;
+            btn_Login.Radius = 5;
+            btn_Login.Size = new Size(144, 47);
+            btn_Login.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btn_Login.TabIndex = 4;
+            btn_Login.Text = "Login";
             // 
             // lbl_LoginDescription
             // 
@@ -198,7 +198,7 @@
             hope_LoginForm.ForeColor = Color.FromArgb(242, 246, 252);
             hope_LoginForm.Image = Properties.Resources.FormIcon;
             hope_LoginForm.Location = new Point(0, 0);
-            hope_LoginForm.Margin = new Padding(2, 2, 2, 2);
+            hope_LoginForm.Margin = new Padding(2);
             hope_LoginForm.Name = "hope_LoginForm";
             hope_LoginForm.Size = new Size(1200, 40);
             hope_LoginForm.TabIndex = 3;
@@ -238,7 +238,7 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Username;
         private Label lbl_Login;
         private Label lbl_LoginDescription;
-        private ReaLTaiizor.Controls.NightButton nightButton1;
+        private ReaLTaiizor.Controls.NightButton btn_Login;
         private ReaLTaiizor.Forms.HopeForm hope_LoginForm;
     }
 }
