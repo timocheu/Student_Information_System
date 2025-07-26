@@ -33,8 +33,8 @@
             tab_Home = new TabPage();
             sPanel_Welcome = new Student_Information_System.UI.SPanel();
             lbl_WelcomeUser = new Label();
-            tab_Settings = new TabPage();
             hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
+            tab_Create = new TabPage();
             TabControl = new ReaLTaiizor.Controls.TabPage();
             TabControl.SuspendLayout();
             tab_Home.SuspendLayout();
@@ -51,7 +51,7 @@
             TabControl.CompositingType = System.Drawing.Drawing2D.CompositingMode.SourceOver;
             TabControl.ControlBackColor = Color.FromArgb(54, 57, 64);
             TabControl.Controls.Add(tab_Home);
-            TabControl.Controls.Add(tab_Settings);
+            TabControl.Controls.Add(tab_Create);
             TabControl.Dock = DockStyle.Fill;
             TabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
             TabControl.Font = new Font("Poppins", 12F);
@@ -72,7 +72,7 @@
             TabControl.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             TabControl.StringType = StringAlignment.Near;
             TabControl.TabColor = Color.FromArgb(54, 57, 64);
-            TabControl.TabIndex = 2;
+            TabControl.TabIndex = 3;
             TabControl.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // tab_Home
@@ -109,16 +109,6 @@
             lbl_WelcomeUser.TabIndex = 0;
             lbl_WelcomeUser.Text = "Welcome";
             // 
-            // tab_Settings
-            // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Settings.Location = new Point(139, 4);
-            tab_Settings.Name = "tab_Settings";
-            tab_Settings.Padding = new Padding(3);
-            tab_Settings.Size = new Size(1057, 652);
-            tab_Settings.TabIndex = 1;
-            tab_Settings.Text = "Settings";
-            // 
             // hope_AdminDashboard
             // 
             hope_AdminDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
@@ -134,6 +124,16 @@
             hope_AdminDashboard.TabIndex = 0;
             hope_AdminDashboard.Text = "Admin Dashboard";
             hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
+            // 
+            // tab_Create
+            // 
+            tab_Create.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Create.Location = new Point(139, 4);
+            tab_Create.Name = "tab_Create";
+            tab_Create.Padding = new Padding(3);
+            tab_Create.Size = new Size(1057, 652);
+            tab_Create.TabIndex = 1;
+            tab_Create.Text = "Create";
             // 
             // AdminDashboard
             // 
@@ -161,8 +161,8 @@
 
         private ReaLTaiizor.Forms.HopeForm hope_AdminDashboard;
         private TabPage tab_Home;
-        private TabPage tab_Settings;
         private UI.SPanel sPanel_Welcome;
         private Label lbl_WelcomeUser;
+        private TabPage tab_Create;
     }
 }

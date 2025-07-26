@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <Folder Include="Fonts\" />
+    <Folder Include="Password\" />
   </ItemGroup>
 
   <ItemGroup>
