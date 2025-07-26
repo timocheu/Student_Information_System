@@ -1,3 +1,5 @@
+using ReaLTaiizor.Controls;
+
 namespace Student_Information_System
 {
     public partial class Login : Form

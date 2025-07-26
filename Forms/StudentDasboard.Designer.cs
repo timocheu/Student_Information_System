@@ -1,6 +1,6 @@
 ﻿namespace Student_Information_System.Forms
 {
-    partial class AdminDashboard
+    partial class StudentDasboard
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             ReaLTaiizor.Controls.TabPage TabControl;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentDasboard));
             tab_Home = new TabPage();
             sPanel_Welcome = new Student_Information_System.UI.SPanel();
             lbl_WelcomeUser = new Label();
             tab_Settings = new TabPage();
-            hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
+            hope_StudentDashboard = new ReaLTaiizor.Forms.HopeForm();
             TabControl = new ReaLTaiizor.Controls.TabPage();
             TabControl.SuspendLayout();
             tab_Home.SuspendLayout();
@@ -72,7 +72,7 @@
             TabControl.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
             TabControl.StringType = StringAlignment.Near;
             TabControl.TabColor = Color.FromArgb(54, 57, 64);
-            TabControl.TabIndex = 2;
+            TabControl.TabIndex = 3;
             TabControl.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
             // tab_Home
@@ -119,37 +119,39 @@
             tab_Settings.TabIndex = 1;
             tab_Settings.Text = "Settings";
             // 
-            // hope_AdminDashboard
+            // hope_StudentDashboard
             // 
-            hope_AdminDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
-            hope_AdminDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
-            hope_AdminDashboard.ControlBoxColorN = Color.White;
-            hope_AdminDashboard.Dock = DockStyle.Top;
-            hope_AdminDashboard.Font = new Font("Poppins", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
-            hope_AdminDashboard.Image = Properties.Resources.FormIcon;
-            hope_AdminDashboard.Location = new Point(0, 0);
-            hope_AdminDashboard.Name = "hope_AdminDashboard";
-            hope_AdminDashboard.Size = new Size(1200, 40);
-            hope_AdminDashboard.TabIndex = 0;
-            hope_AdminDashboard.Text = "Admin Dashboard";
-            hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
+            hope_StudentDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            hope_StudentDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            hope_StudentDashboard.ControlBoxColorN = Color.White;
+            hope_StudentDashboard.Dock = DockStyle.Top;
+            hope_StudentDashboard.Font = new Font("Poppins", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            hope_StudentDashboard.ForeColor = Color.FromArgb(242, 246, 252);
+            hope_StudentDashboard.Image = Properties.Resources.FormIcon;
+            hope_StudentDashboard.Location = new Point(0, 0);
+            hope_StudentDashboard.Name = "hope_StudentDashboard";
+            hope_StudentDashboard.Size = new Size(1200, 40);
+            hope_StudentDashboard.TabIndex = 1;
+            hope_StudentDashboard.Text = "Student Dashboard";
+            hope_StudentDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
-            // AdminDashboard
+            // StudentDasboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(10F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(231, 231, 231);
+            BackColor = Color.FromArgb(254, 255, 255);
             ClientSize = new Size(1200, 700);
             Controls.Add(TabControl);
-            Controls.Add(hope_AdminDashboard);
+            Controls.Add(hope_StudentDashboard);
+            Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
+            Margin = new Padding(4, 6, 4, 6);
             MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(190, 40);
-            Name = "AdminDashboard";
+            Name = "StudentDasboard";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "themeForm1";
+            Text = "StudentDasboard";
             TabControl.ResumeLayout(false);
             tab_Home.ResumeLayout(false);
             sPanel_Welcome.ResumeLayout(false);
@@ -159,10 +161,10 @@
 
         #endregion
 
-        private ReaLTaiizor.Forms.HopeForm hope_AdminDashboard;
+        private ReaLTaiizor.Forms.HopeForm hope_StudentDashboard;
         private TabPage tab_Home;
-        private TabPage tab_Settings;
         private UI.SPanel sPanel_Welcome;
         private Label lbl_WelcomeUser;
+        private TabPage tab_Settings;
     }
 }
