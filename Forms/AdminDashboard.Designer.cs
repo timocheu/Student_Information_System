@@ -29,8 +29,14 @@
         private void InitializeComponent()
         {
             ReaLTaiizor.Controls.TabPage TabControl;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             tab_Home = new TabPage();
+            poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
+            asd = new DataGridViewTextBoxColumn();
+            Column1 = new DataGridViewTextBoxColumn();
             sPanel_Welcome = new Student_Information_System.UI.SPanel();
             lbl_WelcomeUser = new Label();
             tab_Create = new TabPage();
@@ -38,6 +44,7 @@
             TabControl = new ReaLTaiizor.Controls.TabPage();
             TabControl.SuspendLayout();
             tab_Home.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
             sPanel_Welcome.SuspendLayout();
             SuspendLayout();
             // 
@@ -78,6 +85,7 @@
             // tab_Home
             // 
             tab_Home.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Home.Controls.Add(poisonDataGridView1);
             tab_Home.Controls.Add(sPanel_Welcome);
             tab_Home.Location = new Point(139, 4);
             tab_Home.Name = "tab_Home";
@@ -85,6 +93,61 @@
             tab_Home.Size = new Size(1057, 652);
             tab_Home.TabIndex = 0;
             tab_Home.Text = "Home";
+            // 
+            // poisonDataGridView1
+            // 
+            poisonDataGridView1.AllowUserToResizeRows = false;
+            poisonDataGridView1.BackgroundColor = Color.FromArgb(17, 17, 17);
+            poisonDataGridView1.BorderStyle = BorderStyle.None;
+            poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.ForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            poisonDataGridView1.Columns.AddRange(new DataGridViewColumn[] { asd, Column1 });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.FromArgb(109, 109, 109);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            poisonDataGridView1.EnableHeadersVisualStyles = false;
+            poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            poisonDataGridView1.GridColor = Color.FromArgb(17, 17, 17);
+            poisonDataGridView1.Location = new Point(48, 118);
+            poisonDataGridView1.Name = "poisonDataGridView1";
+            poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            poisonDataGridView1.Size = new Size(752, 150);
+            poisonDataGridView1.TabIndex = 2;
+            poisonDataGridView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            // 
+            // asd
+            // 
+            asd.HeaderText = "Column1";
+            asd.Name = "asd";
+            // 
+            // Column1
+            // 
+            Column1.HeaderText = "Column1";
+            Column1.Name = "Column1";
             // 
             // sPanel_Welcome
             // 
@@ -153,6 +216,7 @@
             Text = "themeForm1";
             TabControl.ResumeLayout(false);
             tab_Home.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
             sPanel_Welcome.ResumeLayout(false);
             sPanel_Welcome.PerformLayout();
             ResumeLayout(false);
@@ -165,5 +229,8 @@
         private UI.SPanel sPanel_Welcome;
         private Label lbl_WelcomeUser;
         private TabPage tab_Create;
+        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
+        private DataGridViewTextBoxColumn asd;
+        private DataGridViewTextBoxColumn Column1;
     }
 }

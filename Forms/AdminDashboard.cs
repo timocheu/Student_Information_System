@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Data.Sqlite;
+using Student_Information_System.Utilities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,28 @@ namespace Student_Information_System.Forms
 {
     public partial class AdminDashboard : Form
     {
-        public AdminDashboard()
+        object[]? user = new object[9];
+
+        public AdminDashboard(int user_id)
         {
             InitializeComponent();
+
+            GetUserInfo(user_id);
+            lbl_WelcomeUser.Text = $"Welcome to the imba mode {user![1]}";
+        }
+
+        private async void GetUserInfo(int user_id)
+        {
+            using var conn = new SqliteConnection(Account.SqliteDbPath());
+            conn.Open();
+
+            using var cmd = new SqliteCommand($"SELECT * FROM User WHERE user_id = {user_id}", conn);
+            using var r = cmd.ExecuteReader();
+
+            if (!r.Read()) return;
+
+            int fields = r.GetValues(user!);
+            MessageBox.Show($"the fields of user is: {fields}");
         }
     }
 }

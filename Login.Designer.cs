@@ -126,7 +126,7 @@
             tb_Password.MaxLength = 50;
             tb_Password.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Password.Name = "tb_Password";
-            tb_Password.PasswordChar = '\0';
+            tb_Password.PasswordChar = '●';
             tb_Password.PrefixSuffixText = null;
             tb_Password.ReadOnly = false;
             tb_Password.RightToLeft = RightToLeft.No;
@@ -138,8 +138,9 @@
             tb_Password.TabIndex = 1;
             tb_Password.TabStop = false;
             tb_Password.TextAlign = HorizontalAlignment.Left;
-            tb_Password.TrailingIcon = null;
-            tb_Password.UseSystemPasswordChar = false;
+            tb_Password.TrailingIcon = Properties.Resources.eye;
+            tb_Password.UseSystemPasswordChar = true;
+            tb_Password.TrailingIconClick += tb_Password_TrailingIconClick;
             // 
             // tb_Username
             // 

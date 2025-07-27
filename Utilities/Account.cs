@@ -9,7 +9,7 @@ namespace Student_Information_System.Utilities
 {
     public class Account
     {
-        public static string sqliteDbPath()
+        public static string SqliteDbPath()
         {
             string basePath = AppContext.BaseDirectory;
             string relativePath = Path.Combine(basePath, @"..\..\..\SIS.db");

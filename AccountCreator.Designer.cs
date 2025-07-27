@@ -279,7 +279,7 @@
             Controls.Add(tb_Lastname);
             Controls.Add(tb_Firstname);
             Name = "AccountCreator";
-            Text = "AccountCreator";
+            Text = "eswxd23erqsadfzxc";
             ResumeLayout(false);
             PerformLayout();
         }
