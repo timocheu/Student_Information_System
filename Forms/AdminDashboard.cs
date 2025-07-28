@@ -21,7 +21,6 @@ namespace Student_Information_System.Forms
             InitializeComponent();
 
             GetUserInfo(user_id);
-            lbl_WelcomeUser.Text = $"Welcome to the imba mode {user![1]}";
         }
 
         private async void GetUserInfo(int user_id)
@@ -36,6 +35,11 @@ namespace Student_Information_System.Forms
 
             int fields = r.GetValues(user!);
             MessageBox.Show($"the fields of user is: {fields}");
+        }
+
+        private void tab_Logout_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

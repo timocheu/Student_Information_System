@@ -28,160 +28,130 @@
         /// </summary>
         private void InitializeComponent()
         {
-            ReaLTaiizor.Controls.TabPage TabControl;
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            ReaLTaiizor.Controls.TabPage tab_Control;
+            TabPage tab_Logout;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            tab_Home = new TabPage();
-            poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
-            asd = new DataGridViewTextBoxColumn();
-            Column1 = new DataGridViewTextBoxColumn();
-            sPanel_Welcome = new Student_Information_System.UI.SPanel();
-            lbl_WelcomeUser = new Label();
-            tab_Create = new TabPage();
+            tab_Dashboard = new TabPage();
+            tab_Student = new TabPage();
+            tab_Teacher = new TabPage();
+            tab_Subject = new TabPage();
+            tab_Logs = new TabPage();
+            tab_Reports = new TabPage();
             hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
-            TabControl = new ReaLTaiizor.Controls.TabPage();
-            TabControl.SuspendLayout();
-            tab_Home.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
-            sPanel_Welcome.SuspendLayout();
+            tab_Control = new ReaLTaiizor.Controls.TabPage();
+            tab_Logout = new TabPage();
+            tab_Control.SuspendLayout();
             SuspendLayout();
             // 
-            // TabControl
+            // tab_Control
             // 
-            TabControl.ActiveForeColor = Color.FromArgb(254, 255, 255);
-            TabControl.ActiveLineTabColor = Color.FromArgb(187, 134, 252);
-            TabControl.ActiveTabColor = Color.FromArgb(35, 36, 38);
-            TabControl.Alignment = TabAlignment.Left;
-            TabControl.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-            TabControl.CompositingType = System.Drawing.Drawing2D.CompositingMode.SourceOver;
-            TabControl.ControlBackColor = Color.FromArgb(54, 57, 64);
-            TabControl.Controls.Add(tab_Home);
-            TabControl.Controls.Add(tab_Create);
-            TabControl.Dock = DockStyle.Fill;
-            TabControl.DrawMode = TabDrawMode.OwnerDrawFixed;
-            TabControl.Font = new Font("Poppins", 12F);
-            TabControl.FrameColor = Color.FromArgb(238, 242, 245);
-            TabControl.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            TabControl.ItemSize = new Size(44, 135);
-            TabControl.LineColor = Color.FromArgb(25, 26, 28);
-            TabControl.LineTabColor = Color.FromArgb(54, 57, 64);
-            TabControl.Location = new Point(0, 40);
-            TabControl.Multiline = true;
-            TabControl.Name = "TabControl";
-            TabControl.NormalForeColor = Color.FromArgb(159, 162, 167);
-            TabControl.PageColor = Color.FromArgb(238, 242, 245);
-            TabControl.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-            TabControl.SelectedIndex = 0;
-            TabControl.Size = new Size(1200, 660);
-            TabControl.SizeMode = TabSizeMode.Fixed;
-            TabControl.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-            TabControl.StringType = StringAlignment.Near;
-            TabControl.TabColor = Color.FromArgb(54, 57, 64);
-            TabControl.TabIndex = 3;
-            TabControl.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
+            tab_Control.ActiveForeColor = Color.FromArgb(254, 255, 255);
+            tab_Control.ActiveLineTabColor = Color.FromArgb(187, 134, 252);
+            tab_Control.ActiveTabColor = Color.FromArgb(35, 36, 38);
+            tab_Control.Alignment = TabAlignment.Left;
+            tab_Control.CompositingQualityType = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+            tab_Control.CompositingType = System.Drawing.Drawing2D.CompositingMode.SourceOver;
+            tab_Control.ControlBackColor = Color.FromArgb(54, 57, 64);
+            tab_Control.Controls.Add(tab_Dashboard);
+            tab_Control.Controls.Add(tab_Student);
+            tab_Control.Controls.Add(tab_Teacher);
+            tab_Control.Controls.Add(tab_Subject);
+            tab_Control.Controls.Add(tab_Logs);
+            tab_Control.Controls.Add(tab_Reports);
+            tab_Control.Controls.Add(tab_Logout);
+            tab_Control.Dock = DockStyle.Fill;
+            tab_Control.DrawMode = TabDrawMode.OwnerDrawFixed;
+            tab_Control.Font = new Font("Poppins", 12F);
+            tab_Control.FrameColor = Color.FromArgb(238, 242, 245);
+            tab_Control.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            tab_Control.ItemSize = new Size(44, 135);
+            tab_Control.LineColor = Color.FromArgb(25, 26, 28);
+            tab_Control.LineTabColor = Color.FromArgb(54, 57, 64);
+            tab_Control.Location = new Point(0, 40);
+            tab_Control.Multiline = true;
+            tab_Control.Name = "tab_Control";
+            tab_Control.NormalForeColor = Color.FromArgb(159, 162, 167);
+            tab_Control.PageColor = Color.FromArgb(238, 242, 245);
+            tab_Control.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            tab_Control.SelectedIndex = 0;
+            tab_Control.Size = new Size(1200, 660);
+            tab_Control.SizeMode = TabSizeMode.Fixed;
+            tab_Control.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+            tab_Control.StringType = StringAlignment.Near;
+            tab_Control.TabColor = Color.FromArgb(54, 57, 64);
+            tab_Control.TabIndex = 3;
+            tab_Control.TextRenderingType = System.Drawing.Text.TextRenderingHint.ClearTypeGridFit;
             // 
-            // tab_Home
+            // tab_Dashboard
             // 
-            tab_Home.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Home.Controls.Add(poisonDataGridView1);
-            tab_Home.Controls.Add(sPanel_Welcome);
-            tab_Home.Location = new Point(139, 4);
-            tab_Home.Name = "tab_Home";
-            tab_Home.Padding = new Padding(3);
-            tab_Home.Size = new Size(1057, 652);
-            tab_Home.TabIndex = 0;
-            tab_Home.Text = "Home";
+            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.Location = new Point(139, 4);
+            tab_Dashboard.Name = "tab_Dashboard";
+            tab_Dashboard.Padding = new Padding(3);
+            tab_Dashboard.Size = new Size(1057, 652);
+            tab_Dashboard.TabIndex = 0;
+            tab_Dashboard.Text = "Dashboard";
             // 
-            // poisonDataGridView1
+            // tab_Student
             // 
-            poisonDataGridView1.AllowUserToResizeRows = false;
-            poisonDataGridView1.BackgroundColor = Color.FromArgb(17, 17, 17);
-            poisonDataGridView1.BorderStyle = BorderStyle.None;
-            poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            poisonDataGridView1.Columns.AddRange(new DataGridViewColumn[] { asd, Column1 });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(109, 109, 109);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
-            poisonDataGridView1.EnableHeadersVisualStyles = false;
-            poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            poisonDataGridView1.GridColor = Color.FromArgb(17, 17, 17);
-            poisonDataGridView1.Location = new Point(48, 118);
-            poisonDataGridView1.Name = "poisonDataGridView1";
-            poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView1.Size = new Size(752, 150);
-            poisonDataGridView1.TabIndex = 2;
-            poisonDataGridView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Dark;
+            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.Location = new Point(139, 4);
+            tab_Student.Name = "tab_Student";
+            tab_Student.Padding = new Padding(3);
+            tab_Student.Size = new Size(1057, 652);
+            tab_Student.TabIndex = 1;
+            tab_Student.Text = "Student";
             // 
-            // asd
+            // tab_Teacher
             // 
-            asd.HeaderText = "Column1";
-            asd.Name = "asd";
+            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.Location = new Point(139, 4);
+            tab_Teacher.Name = "tab_Teacher";
+            tab_Teacher.Padding = new Padding(3);
+            tab_Teacher.Size = new Size(1057, 652);
+            tab_Teacher.TabIndex = 2;
+            tab_Teacher.Text = "Teacher";
             // 
-            // Column1
+            // tab_Subject
             // 
-            Column1.HeaderText = "Column1";
-            Column1.Name = "Column1";
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.Location = new Point(139, 4);
+            tab_Subject.Name = "tab_Subject";
+            tab_Subject.Padding = new Padding(3);
+            tab_Subject.Size = new Size(1057, 652);
+            tab_Subject.TabIndex = 3;
+            tab_Subject.Text = "Subject";
             // 
-            // sPanel_Welcome
+            // tab_Logs
             // 
-            sPanel_Welcome.BackgroundFillColor = Color.White;
-            sPanel_Welcome.BorderColor = Color.White;
-            sPanel_Welcome.Controls.Add(lbl_WelcomeUser);
-            sPanel_Welcome.Dock = DockStyle.Top;
-            sPanel_Welcome.Font = new Font("Poppins", 12F);
-            sPanel_Welcome.Location = new Point(3, 3);
-            sPanel_Welcome.Name = "sPanel_Welcome";
-            sPanel_Welcome.Size = new Size(1051, 71);
-            sPanel_Welcome.TabIndex = 1;
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.Location = new Point(139, 4);
+            tab_Logs.Name = "tab_Logs";
+            tab_Logs.Padding = new Padding(3);
+            tab_Logs.Size = new Size(1057, 652);
+            tab_Logs.TabIndex = 4;
+            tab_Logs.Text = "Logs";
             // 
-            // lbl_WelcomeUser
+            // tab_Reports
             // 
-            lbl_WelcomeUser.Anchor = AnchorStyles.Left;
-            lbl_WelcomeUser.AutoSize = true;
-            lbl_WelcomeUser.BackColor = Color.White;
-            lbl_WelcomeUser.Font = new Font("Poppins", 16F);
-            lbl_WelcomeUser.Location = new Point(26, 19);
-            lbl_WelcomeUser.Name = "lbl_WelcomeUser";
-            lbl_WelcomeUser.Size = new Size(121, 39);
-            lbl_WelcomeUser.TabIndex = 0;
-            lbl_WelcomeUser.Text = "Welcome";
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.Location = new Point(139, 4);
+            tab_Reports.Name = "tab_Reports";
+            tab_Reports.Padding = new Padding(3);
+            tab_Reports.Size = new Size(1057, 652);
+            tab_Reports.TabIndex = 5;
+            tab_Reports.Text = "Reports";
             // 
-            // tab_Create
+            // tab_Logout
             // 
-            tab_Create.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Create.Location = new Point(139, 4);
-            tab_Create.Name = "tab_Create";
-            tab_Create.Padding = new Padding(3);
-            tab_Create.Size = new Size(1057, 652);
-            tab_Create.TabIndex = 1;
-            tab_Create.Text = "Create";
+            tab_Logout.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logout.Location = new Point(139, 4);
+            tab_Logout.Name = "tab_Logout";
+            tab_Logout.Padding = new Padding(3);
+            tab_Logout.Size = new Size(1057, 652);
+            tab_Logout.TabIndex = 6;
+            tab_Logout.Text = "Logout";
+            tab_Logout.Click += tab_Logout_Click;
             // 
             // hope_AdminDashboard
             // 
@@ -205,7 +175,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(231, 231, 231);
             ClientSize = new Size(1200, 700);
-            Controls.Add(TabControl);
+            Controls.Add(tab_Control);
             Controls.Add(hope_AdminDashboard);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
@@ -214,23 +184,19 @@
             Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "themeForm1";
-            TabControl.ResumeLayout(false);
-            tab_Home.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
-            sPanel_Welcome.ResumeLayout(false);
-            sPanel_Welcome.PerformLayout();
+            tab_Control.ResumeLayout(false);
             ResumeLayout(false);
         }
 
         #endregion
 
         private ReaLTaiizor.Forms.HopeForm hope_AdminDashboard;
-        private TabPage tab_Home;
-        private UI.SPanel sPanel_Welcome;
-        private Label lbl_WelcomeUser;
-        private TabPage tab_Create;
-        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
-        private DataGridViewTextBoxColumn asd;
-        private DataGridViewTextBoxColumn Column1;
+        private TabPage tab_Dashboard;
+        private TabPage tab_Student;
+        private TabPage tab_Teacher;
+        private TabPage tab_Subject;
+        private TabPage tab_Logs;
+        private TabPage tab_Reports;
+        private TabPage tab_Logout;
     }
 }
