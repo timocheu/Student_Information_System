@@ -109,21 +109,13 @@
             btn_UpdateStudent = new ReaLTaiizor.Controls.HopeButton();
             tb_SearchStudent = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             dgv_Student = new ReaLTaiizor.Controls.PoisonDataGridView();
-            col_Name = new DataGridViewTextBoxColumn();
-            col_Age = new DataGridViewTextBoxColumn();
-            col_Nickname = new DataGridViewTextBoxColumn();
-            col_Employee = new DataGridViewTextBoxColumn();
             tab_Teacher = new TabPage();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
-            hopeButton2 = new ReaLTaiizor.Controls.HopeButton();
-            hopeButton3 = new ReaLTaiizor.Controls.HopeButton();
-            materialTextBoxEdit1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            poisonDataGridView1 = new ReaLTaiizor.Controls.PoisonDataGridView();
-            dataGridViewTextBoxColumn1 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
-            dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            btn_AddTeacher = new ReaLTaiizor.Controls.HopeButton();
+            btn_DeleteTeacher = new ReaLTaiizor.Controls.HopeButton();
+            btn_UpdateTeacher = new ReaLTaiizor.Controls.HopeButton();
+            tb_SearchTeacher = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            dgv_Teacher = new ReaLTaiizor.Controls.PoisonDataGridView();
             tab_Subject = new TabPage();
             tab_Logs = new TabPage();
             tab_Reports = new TabPage();
@@ -138,7 +130,7 @@
             ((System.ComponentModel.ISupportInitialize)dgv_Student).BeginInit();
             tab_Teacher.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Teacher).BeginInit();
             tab_Settings.SuspendLayout();
             SuspendLayout();
             // 
@@ -160,7 +152,7 @@
             tab_Control.Controls.Add(tab_Settings);
             tab_Control.Dock = DockStyle.Fill;
             tab_Control.DrawMode = TabDrawMode.OwnerDrawFixed;
-            tab_Control.Font = new Font("Poppins", 12F);
+            tab_Control.Font = new Font("Microsoft Sans Serif", 12F);
             tab_Control.FrameColor = Color.FromArgb(238, 242, 245);
             tab_Control.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBilinear;
             tab_Control.ItemSize = new Size(50, 200);
@@ -201,7 +193,7 @@
             lbl_Welcome.AutoSize = true;
             lbl_Welcome.Location = new Point(31, 23);
             lbl_Welcome.Name = "lbl_Welcome";
-            lbl_Welcome.Size = new Size(132, 28);
+            lbl_Welcome.Size = new Size(117, 20);
             lbl_Welcome.TabIndex = 4;
             lbl_Welcome.Text = "Welcome User!";
             // 
@@ -371,7 +363,7 @@
             btn_AddStudent.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             btn_AddStudent.DangerColor = Color.FromArgb(245, 108, 108);
             btn_AddStudent.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_AddStudent.Font = new Font("Poppins", 14F);
+            btn_AddStudent.Font = new Font("Microsoft Sans Serif", 14F);
             btn_AddStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_AddStudent.InfoColor = Color.FromArgb(144, 147, 153);
             btn_AddStudent.Location = new Point(30, 3);
@@ -391,7 +383,7 @@
             btn_DeleteStudent.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             btn_DeleteStudent.DangerColor = Color.FromArgb(245, 108, 108);
             btn_DeleteStudent.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_DeleteStudent.Font = new Font("Poppins", 14F);
+            btn_DeleteStudent.Font = new Font("Microsoft Sans Serif", 14F);
             btn_DeleteStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_DeleteStudent.InfoColor = Color.FromArgb(144, 147, 153);
             btn_DeleteStudent.Location = new Point(207, 3);
@@ -411,7 +403,7 @@
             btn_UpdateStudent.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
             btn_UpdateStudent.DangerColor = Color.FromArgb(245, 108, 108);
             btn_UpdateStudent.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_UpdateStudent.Font = new Font("Poppins", 14F);
+            btn_UpdateStudent.Font = new Font("Microsoft Sans Serif", 14F);
             btn_UpdateStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_UpdateStudent.InfoColor = Color.FromArgb(144, 147, 153);
             btn_UpdateStudent.Location = new Point(384, 3);
@@ -433,7 +425,7 @@
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
-            tb_SearchStudent.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tb_SearchStudent.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tb_SearchStudent.HideSelection = true;
             tb_SearchStudent.LeadingIcon = (Image)resources.GetObject("tb_SearchStudent.LeadingIcon");
             tb_SearchStudent.Location = new Point(700, 66);
@@ -467,20 +459,19 @@
             dgv_Student.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgv_Student.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 0, 0);
-            dataGridViewCellStyle1.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgv_Student.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Student.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgv_Student.Columns.AddRange(new DataGridViewColumn[] { col_Name, col_Age, col_Nickname, col_Employee });
             dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgv_Student.DefaultCellStyle = dataGridViewCellStyle2;
@@ -492,50 +483,25 @@
             dgv_Student.ReadOnly = true;
             dgv_Student.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgv_Student.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_Student.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_Student.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Student.Size = new Size(900, 400);
-            dgv_Student.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
+            dgv_Student.Style = ReaLTaiizor.Enum.Poison.ColorStyle.White;
             dgv_Student.TabIndex = 0;
-            dgv_Student.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            // 
-            // col_Name
-            // 
-            col_Name.HeaderText = "Name (job title)";
-            col_Name.Name = "col_Name";
-            col_Name.ReadOnly = true;
-            // 
-            // col_Age
-            // 
-            col_Age.HeaderText = "Age";
-            col_Age.Name = "col_Age";
-            col_Age.ReadOnly = true;
-            // 
-            // col_Nickname
-            // 
-            col_Nickname.HeaderText = "Nickname";
-            col_Nickname.Name = "col_Nickname";
-            col_Nickname.ReadOnly = true;
-            // 
-            // col_Employee
-            // 
-            col_Employee.HeaderText = "Employee";
-            col_Employee.Name = "col_Employee";
-            col_Employee.ReadOnly = true;
             // 
             // tab_Teacher
             // 
             tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
             tab_Teacher.Controls.Add(flowLayoutPanel1);
-            tab_Teacher.Controls.Add(materialTextBoxEdit1);
-            tab_Teacher.Controls.Add(poisonDataGridView1);
+            tab_Teacher.Controls.Add(tb_SearchTeacher);
+            tab_Teacher.Controls.Add(dgv_Teacher);
             tab_Teacher.Location = new Point(204, 4);
             tab_Teacher.Name = "tab_Teacher";
             tab_Teacher.Padding = new Padding(3);
@@ -546,178 +512,152 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.AutoSize = true;
-            flowLayoutPanel1.Controls.Add(hopeButton1);
-            flowLayoutPanel1.Controls.Add(hopeButton2);
-            flowLayoutPanel1.Controls.Add(hopeButton3);
+            flowLayoutPanel1.Controls.Add(btn_AddTeacher);
+            flowLayoutPanel1.Controls.Add(btn_DeleteTeacher);
+            flowLayoutPanel1.Controls.Add(btn_UpdateTeacher);
             flowLayoutPanel1.Location = new Point(200, 550);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(556, 50);
             flowLayoutPanel1.TabIndex = 8;
             // 
-            // hopeButton1
+            // btn_AddTeacher
             // 
-            hopeButton1.BorderColor = Color.Black;
-            hopeButton1.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            hopeButton1.DangerColor = Color.FromArgb(245, 108, 108);
-            hopeButton1.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeButton1.Font = new Font("Poppins", 14F);
-            hopeButton1.HoverTextColor = Color.FromArgb(48, 49, 51);
-            hopeButton1.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton1.Location = new Point(30, 3);
-            hopeButton1.Margin = new Padding(30, 3, 3, 3);
-            hopeButton1.Name = "hopeButton1";
-            hopeButton1.PrimaryColor = Color.FromArgb(0, 192, 0);
-            hopeButton1.Size = new Size(144, 40);
-            hopeButton1.SuccessColor = Color.FromArgb(103, 194, 58);
-            hopeButton1.TabIndex = 2;
-            hopeButton1.Text = "Add New";
-            hopeButton1.TextColor = Color.White;
-            hopeButton1.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_AddTeacher.BorderColor = Color.Black;
+            btn_AddTeacher.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_AddTeacher.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_AddTeacher.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_AddTeacher.Font = new Font("Microsoft Sans Serif", 14F);
+            btn_AddTeacher.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_AddTeacher.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_AddTeacher.Location = new Point(30, 3);
+            btn_AddTeacher.Margin = new Padding(30, 3, 3, 3);
+            btn_AddTeacher.Name = "btn_AddTeacher";
+            btn_AddTeacher.PrimaryColor = Color.FromArgb(0, 192, 0);
+            btn_AddTeacher.Size = new Size(144, 40);
+            btn_AddTeacher.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_AddTeacher.TabIndex = 2;
+            btn_AddTeacher.Text = "Add New";
+            btn_AddTeacher.TextColor = Color.White;
+            btn_AddTeacher.WarningColor = Color.FromArgb(230, 162, 60);
             // 
-            // hopeButton2
+            // btn_DeleteTeacher
             // 
-            hopeButton2.BorderColor = Color.FromArgb(220, 223, 230);
-            hopeButton2.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            hopeButton2.DangerColor = Color.FromArgb(245, 108, 108);
-            hopeButton2.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeButton2.Font = new Font("Poppins", 14F);
-            hopeButton2.HoverTextColor = Color.FromArgb(48, 49, 51);
-            hopeButton2.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton2.Location = new Point(207, 3);
-            hopeButton2.Margin = new Padding(30, 3, 3, 3);
-            hopeButton2.Name = "hopeButton2";
-            hopeButton2.PrimaryColor = Color.Red;
-            hopeButton2.Size = new Size(144, 40);
-            hopeButton2.SuccessColor = Color.FromArgb(103, 194, 58);
-            hopeButton2.TabIndex = 3;
-            hopeButton2.Text = "Delete";
-            hopeButton2.TextColor = Color.White;
-            hopeButton2.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_DeleteTeacher.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_DeleteTeacher.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_DeleteTeacher.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_DeleteTeacher.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_DeleteTeacher.Font = new Font("Microsoft Sans Serif", 14F);
+            btn_DeleteTeacher.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_DeleteTeacher.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_DeleteTeacher.Location = new Point(207, 3);
+            btn_DeleteTeacher.Margin = new Padding(30, 3, 3, 3);
+            btn_DeleteTeacher.Name = "btn_DeleteTeacher";
+            btn_DeleteTeacher.PrimaryColor = Color.Red;
+            btn_DeleteTeacher.Size = new Size(144, 40);
+            btn_DeleteTeacher.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_DeleteTeacher.TabIndex = 3;
+            btn_DeleteTeacher.Text = "Delete";
+            btn_DeleteTeacher.TextColor = Color.White;
+            btn_DeleteTeacher.WarningColor = Color.FromArgb(230, 162, 60);
             // 
-            // hopeButton3
+            // btn_UpdateTeacher
             // 
-            hopeButton3.BorderColor = Color.FromArgb(220, 223, 230);
-            hopeButton3.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            hopeButton3.DangerColor = Color.FromArgb(245, 108, 108);
-            hopeButton3.DefaultColor = Color.FromArgb(255, 255, 255);
-            hopeButton3.Font = new Font("Poppins", 14F);
-            hopeButton3.HoverTextColor = Color.FromArgb(48, 49, 51);
-            hopeButton3.InfoColor = Color.FromArgb(144, 147, 153);
-            hopeButton3.Location = new Point(384, 3);
-            hopeButton3.Margin = new Padding(30, 3, 3, 3);
-            hopeButton3.Name = "hopeButton3";
-            hopeButton3.PrimaryColor = Color.FromArgb(255, 128, 0);
-            hopeButton3.Size = new Size(144, 40);
-            hopeButton3.SuccessColor = Color.FromArgb(103, 194, 58);
-            hopeButton3.TabIndex = 4;
-            hopeButton3.Text = "Update";
-            hopeButton3.TextColor = Color.White;
-            hopeButton3.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_UpdateTeacher.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_UpdateTeacher.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_UpdateTeacher.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_UpdateTeacher.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_UpdateTeacher.Font = new Font("Microsoft Sans Serif", 14F);
+            btn_UpdateTeacher.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_UpdateTeacher.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_UpdateTeacher.Location = new Point(384, 3);
+            btn_UpdateTeacher.Margin = new Padding(30, 3, 3, 3);
+            btn_UpdateTeacher.Name = "btn_UpdateTeacher";
+            btn_UpdateTeacher.PrimaryColor = Color.FromArgb(255, 128, 0);
+            btn_UpdateTeacher.Size = new Size(144, 40);
+            btn_UpdateTeacher.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_UpdateTeacher.TabIndex = 4;
+            btn_UpdateTeacher.Text = "Update";
+            btn_UpdateTeacher.TextColor = Color.White;
+            btn_UpdateTeacher.WarningColor = Color.FromArgb(230, 162, 60);
             // 
-            // materialTextBoxEdit1
+            // tb_SearchTeacher
             // 
-            materialTextBoxEdit1.AnimateReadOnly = false;
-            materialTextBoxEdit1.AutoCompleteMode = AutoCompleteMode.None;
-            materialTextBoxEdit1.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit1.BackgroundImageLayout = ImageLayout.None;
-            materialTextBoxEdit1.CharacterCasing = CharacterCasing.Normal;
-            materialTextBoxEdit1.Depth = 0;
-            materialTextBoxEdit1.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            materialTextBoxEdit1.HideSelection = true;
-            materialTextBoxEdit1.LeadingIcon = (Image)resources.GetObject("materialTextBoxEdit1.LeadingIcon");
-            materialTextBoxEdit1.Location = new Point(700, 66);
-            materialTextBoxEdit1.MaxLength = 100;
-            materialTextBoxEdit1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            materialTextBoxEdit1.Name = "materialTextBoxEdit1";
-            materialTextBoxEdit1.PasswordChar = '\0';
-            materialTextBoxEdit1.PrefixSuffixText = null;
-            materialTextBoxEdit1.ReadOnly = false;
-            materialTextBoxEdit1.RightToLeft = RightToLeft.No;
-            materialTextBoxEdit1.SelectedText = "";
-            materialTextBoxEdit1.SelectionLength = 0;
-            materialTextBoxEdit1.SelectionStart = 0;
-            materialTextBoxEdit1.ShortcutsEnabled = true;
-            materialTextBoxEdit1.Size = new Size(250, 48);
-            materialTextBoxEdit1.TabIndex = 7;
-            materialTextBoxEdit1.TabStop = false;
-            materialTextBoxEdit1.Text = "Search";
-            materialTextBoxEdit1.TextAlign = HorizontalAlignment.Left;
-            materialTextBoxEdit1.TrailingIcon = null;
-            materialTextBoxEdit1.UseSystemPasswordChar = false;
+            tb_SearchTeacher.AnimateReadOnly = false;
+            tb_SearchTeacher.AutoCompleteMode = AutoCompleteMode.None;
+            tb_SearchTeacher.AutoCompleteSource = AutoCompleteSource.None;
+            tb_SearchTeacher.BackgroundImageLayout = ImageLayout.None;
+            tb_SearchTeacher.CharacterCasing = CharacterCasing.Normal;
+            tb_SearchTeacher.Depth = 0;
+            tb_SearchTeacher.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tb_SearchTeacher.HideSelection = true;
+            tb_SearchTeacher.LeadingIcon = (Image)resources.GetObject("tb_SearchTeacher.LeadingIcon");
+            tb_SearchTeacher.Location = new Point(700, 66);
+            tb_SearchTeacher.MaxLength = 100;
+            tb_SearchTeacher.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_SearchTeacher.Name = "tb_SearchTeacher";
+            tb_SearchTeacher.PasswordChar = '\0';
+            tb_SearchTeacher.PrefixSuffixText = null;
+            tb_SearchTeacher.ReadOnly = false;
+            tb_SearchTeacher.RightToLeft = RightToLeft.No;
+            tb_SearchTeacher.SelectedText = "";
+            tb_SearchTeacher.SelectionLength = 0;
+            tb_SearchTeacher.SelectionStart = 0;
+            tb_SearchTeacher.ShortcutsEnabled = true;
+            tb_SearchTeacher.Size = new Size(250, 48);
+            tb_SearchTeacher.TabIndex = 7;
+            tb_SearchTeacher.TabStop = false;
+            tb_SearchTeacher.Text = "Search";
+            tb_SearchTeacher.TextAlign = HorizontalAlignment.Left;
+            tb_SearchTeacher.TrailingIcon = null;
+            tb_SearchTeacher.UseSystemPasswordChar = false;
             // 
-            // poisonDataGridView1
+            // dgv_Teacher
             // 
-            poisonDataGridView1.AllowUserToAddRows = false;
-            poisonDataGridView1.AllowUserToDeleteRows = false;
-            poisonDataGridView1.AllowUserToResizeRows = false;
-            poisonDataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            poisonDataGridView1.BackgroundColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.BorderStyle = BorderStyle.None;
-            poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv_Teacher.AllowUserToAddRows = false;
+            dgv_Teacher.AllowUserToDeleteRows = false;
+            dgv_Teacher.AllowUserToResizeRows = false;
+            dgv_Teacher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Teacher.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Teacher.BorderStyle = BorderStyle.None;
+            dgv_Teacher.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgv_Teacher.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 0);
-            dataGridViewCellStyle4.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            poisonDataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
+            dgv_Teacher.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv_Teacher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
-            poisonDataGridView1.EnableHeadersVisualStyles = false;
-            poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
-            poisonDataGridView1.Location = new Point(50, 120);
-            poisonDataGridView1.Name = "poisonDataGridView1";
-            poisonDataGridView1.ReadOnly = true;
-            poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgv_Teacher.DefaultCellStyle = dataGridViewCellStyle5;
+            dgv_Teacher.EnableHeadersVisualStyles = false;
+            dgv_Teacher.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_Teacher.GridColor = Color.FromArgb(255, 255, 255);
+            dgv_Teacher.Location = new Point(50, 120);
+            dgv_Teacher.Name = "dgv_Teacher";
+            dgv_Teacher.ReadOnly = true;
+            dgv_Teacher.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            poisonDataGridView1.Size = new Size(900, 400);
-            poisonDataGridView1.Style = ReaLTaiizor.Enum.Poison.ColorStyle.Black;
-            poisonDataGridView1.TabIndex = 6;
-            poisonDataGridView1.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            dataGridViewTextBoxColumn1.HeaderText = "Name (job title)";
-            dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            dataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            dataGridViewTextBoxColumn2.HeaderText = "Age";
-            dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            dataGridViewTextBoxColumn2.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            dataGridViewTextBoxColumn3.HeaderText = "Nickname";
-            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            dataGridViewTextBoxColumn4.HeaderText = "Employee";
-            dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            dataGridViewTextBoxColumn4.ReadOnly = true;
+            dgv_Teacher.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_Teacher.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_Teacher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Teacher.Size = new Size(900, 400);
+            dgv_Teacher.Style = ReaLTaiizor.Enum.Poison.ColorStyle.White;
+            dgv_Teacher.TabIndex = 6;
             // 
             // tab_Subject
             // 
@@ -789,7 +729,7 @@
             hope_AdminDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
             hope_AdminDashboard.ControlBoxColorN = Color.White;
             hope_AdminDashboard.Dock = DockStyle.Top;
-            hope_AdminDashboard.Font = new Font("Poppins", 14.25F);
+            hope_AdminDashboard.Font = new Font("Microsoft Sans Serif", 14.25F);
             hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
             hope_AdminDashboard.Image = Properties.Resources.FormIcon;
             hope_AdminDashboard.Location = new Point(0, 0);
@@ -825,7 +765,7 @@
             tab_Teacher.ResumeLayout(false);
             tab_Teacher.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Teacher).EndInit();
             tab_Settings.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -841,25 +781,17 @@
         private TabPage tab_Reports;
         private ReaLTaiizor.Controls.PoisonDataGridView dgv_Student;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_SearchStudent;
-        private DataGridViewTextBoxColumn col_Name;
-        private DataGridViewTextBoxColumn col_Age;
-        private DataGridViewTextBoxColumn col_Nickname;
-        private DataGridViewTextBoxColumn col_Employee;
         private ReaLTaiizor.Controls.HopeButton btn_AddStudent;
         private ReaLTaiizor.Controls.HopeButton btn_UpdateStudent;
         private ReaLTaiizor.Controls.HopeButton btn_DeleteStudent;
         private TabPage tab_Settings;
         private FlowLayoutPanel layout_Buttons;
         private FlowLayoutPanel flowLayoutPanel1;
-        private ReaLTaiizor.Controls.HopeButton hopeButton1;
-        private ReaLTaiizor.Controls.HopeButton hopeButton2;
-        private ReaLTaiizor.Controls.HopeButton hopeButton3;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit1;
-        private ReaLTaiizor.Controls.PoisonDataGridView poisonDataGridView1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private ReaLTaiizor.Controls.HopeButton btn_AddTeacher;
+        private ReaLTaiizor.Controls.HopeButton btn_DeleteTeacher;
+        private ReaLTaiizor.Controls.HopeButton btn_UpdateTeacher;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_SearchTeacher;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Teacher;
         private ReaLTaiizor.Controls.NightButton btn_Logout;
         private Guna.Charts.WinForms.GunaChart gunaChart4;
         private Guna.Charts.WinForms.GunaChart gunaChart3;

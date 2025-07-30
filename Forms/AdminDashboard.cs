@@ -1,5 +1,6 @@
 ﻿using Microsoft.Data.Sqlite;
 using ReaLTaiizor.Controls;
+using Student_Information_System.Models;
 using Student_Information_System.Utilities;
 using System;
 using System.Collections.Generic;
@@ -23,6 +24,42 @@ namespace Student_Information_System.Forms
 
             GetUserInfo(user_id);
             lbl_Welcome.Text = $"Welcom {user[1]}";
+
+            using (var context = new SisContext())
+            {
+                var users = context.Users
+                                   .Select(u => new
+                                   {
+                                       u.UserId,
+                                       u.FirstName,
+                                       u.LastName,
+                                       u.Email,
+                                       u.Phone,
+                                       u.Role,
+                                   })
+                                   .Where(u => u.Role == 3)
+                                   .ToList();
+
+                dgv_Student.DataSource = users;
+            }
+
+            using (var context = new SisContext())
+            {
+                var users = context.Users
+                                   .Select(u => new
+                                   {
+                                       u.UserId,
+                                       u.FirstName,
+                                       u.LastName,
+                                       u.Email,
+                                       u.Phone,
+                                       u.Role,
+                                   })
+                                   .Where(u => u.Role == 2)
+                                   .ToList();
+
+                dgv_Teacher.DataSource = users;
+            }
         }
 
         private void GetUserInfo(int user_id)

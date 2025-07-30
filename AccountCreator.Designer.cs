@@ -39,6 +39,9 @@
             cb_Role = new ComboBox();
             tb_Firstname = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_Lastname = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            dtp_Birth = new DateTimePicker();
+            tb_Phone = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tb_Address = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             SuspendLayout();
             // 
             // tb_Email
@@ -262,11 +265,84 @@
             tb_Lastname.TrailingIcon = null;
             tb_Lastname.UseSystemPasswordChar = false;
             // 
+            // dtp_Birth
+            // 
+            dtp_Birth.Format = DateTimePickerFormat.Short;
+            dtp_Birth.Location = new Point(330, 97);
+            dtp_Birth.Name = "dtp_Birth";
+            dtp_Birth.Size = new Size(200, 23);
+            dtp_Birth.TabIndex = 16;
+            // 
+            // tb_Phone
+            // 
+            tb_Phone.AnimateReadOnly = false;
+            tb_Phone.AutoCompleteMode = AutoCompleteMode.None;
+            tb_Phone.AutoCompleteSource = AutoCompleteSource.None;
+            tb_Phone.BackgroundImageLayout = ImageLayout.None;
+            tb_Phone.CharacterCasing = CharacterCasing.Normal;
+            tb_Phone.Depth = 0;
+            tb_Phone.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tb_Phone.HideSelection = true;
+            tb_Phone.Hint = "Number";
+            tb_Phone.LeadingIcon = null;
+            tb_Phone.Location = new Point(330, 172);
+            tb_Phone.MaxLength = 32767;
+            tb_Phone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_Phone.Name = "tb_Phone";
+            tb_Phone.PasswordChar = '\0';
+            tb_Phone.PrefixSuffixText = null;
+            tb_Phone.ReadOnly = false;
+            tb_Phone.RightToLeft = RightToLeft.No;
+            tb_Phone.SelectedText = "";
+            tb_Phone.SelectionLength = 0;
+            tb_Phone.SelectionStart = 0;
+            tb_Phone.ShortcutsEnabled = true;
+            tb_Phone.Size = new Size(239, 48);
+            tb_Phone.TabIndex = 17;
+            tb_Phone.TabStop = false;
+            tb_Phone.TextAlign = HorizontalAlignment.Left;
+            tb_Phone.TrailingIcon = null;
+            tb_Phone.UseSystemPasswordChar = false;
+            // 
+            // tb_Address
+            // 
+            tb_Address.AnimateReadOnly = false;
+            tb_Address.AutoCompleteMode = AutoCompleteMode.None;
+            tb_Address.AutoCompleteSource = AutoCompleteSource.None;
+            tb_Address.BackgroundImageLayout = ImageLayout.None;
+            tb_Address.CharacterCasing = CharacterCasing.Normal;
+            tb_Address.Depth = 0;
+            tb_Address.Font = new Font("Microsoft Sans Serif", 10F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tb_Address.HideSelection = true;
+            tb_Address.Hint = "Address";
+            tb_Address.LeadingIcon = null;
+            tb_Address.Location = new Point(330, 236);
+            tb_Address.MaxLength = 32767;
+            tb_Address.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_Address.Name = "tb_Address";
+            tb_Address.PasswordChar = '\0';
+            tb_Address.PrefixSuffixText = null;
+            tb_Address.ReadOnly = false;
+            tb_Address.RightToLeft = RightToLeft.No;
+            tb_Address.SelectedText = "";
+            tb_Address.SelectionLength = 0;
+            tb_Address.SelectionStart = 0;
+            tb_Address.ShortcutsEnabled = true;
+            tb_Address.Size = new Size(239, 48);
+            tb_Address.TabIndex = 18;
+            tb_Address.TabStop = false;
+            tb_Address.TextAlign = HorizontalAlignment.Left;
+            tb_Address.TrailingIcon = null;
+            tb_Address.UseSystemPasswordChar = false;
+            // 
             // AccountCreator
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(919, 649);
+            Controls.Add(tb_Address);
+            Controls.Add(tb_Phone);
+            Controls.Add(dtp_Birth);
             Controls.Add(cb_Role);
             Controls.Add(cb_Gender);
             Controls.Add(btn_Test);
@@ -296,5 +372,8 @@
         private ComboBox cb_Role;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Firstname;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Lastname;
+        private DateTimePicker dtp_Birth;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Phone;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Address;
     }
 }
