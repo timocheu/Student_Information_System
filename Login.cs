@@ -18,6 +18,7 @@ namespace Student_Information_System
         {
             if (string.IsNullOrEmpty(tb_Username.Text) || string.IsNullOrEmpty(tb_Password.Text))
             {
+                var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 MaterialSnackBar Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true);
                 Snackbar.Show(this);
 
@@ -60,24 +61,44 @@ namespace Student_Information_System
                     return -1;
                 });
 
-
-                // Role-based redirection
-                switch (role)
+                Form? directedForm = role switch
                 {
-                    case 1:
-                        new AdminDashboard(user_id).Show();
-                        break;
-                    case 2:
+                    1 => new AdminDashboard(user_id),
+                    2 => new TeacherDashboard(),
+                    3 => new StudentDasboard(),
+                    _ => null
+                };
 
-                        new TeacherDashboard().Show();
-                        break;
-                    case 3:
-                        new StudentDasboard().Show();
-                        break;
-                    default:
-                        MessageBox.Show("Unable to find the corresponding role of the account.");
-                        break;
+                if (directedForm is null)
+                {
+                    MessageBox.Show("Unable to find the corresponding role of the account.");
+                    return;
                 }
+
+                directedForm.FormClosed += (s, args) => this.Show();
+                directedForm.Show();
+
+                this.Hide();
+
+                //// Role-based redirection
+                //switch (role)
+                //{
+                //    case 1:
+                //        new AdminDashboard(user_id).Show();
+                //        break;
+                //    case 2:
+
+                //        new TeacherDashboard().Show();
+                //        break;
+                //    case 3:
+                //        new StudentDasboard().Show();
+                //        break;
+                //    default:
+                //        MessageBox.Show("Unable to find the corresponding role of the account.");
+                //        break;
+                //}
+
+
             }
             catch (Exception ex)
             {

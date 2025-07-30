@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using ReaLTaiizor.Controls;
 using Student_Information_System.Utilities;
 using System;
 using System.Collections.Generic;
@@ -23,7 +24,7 @@ namespace Student_Information_System.Forms
             GetUserInfo(user_id);
         }
 
-        private async void GetUserInfo(int user_id)
+        private void GetUserInfo(int user_id)
         {
             using var conn = new SqliteConnection(Account.SqliteDbPath());
             conn.Open();
@@ -39,6 +40,7 @@ namespace Student_Information_System.Forms
 
         private void tab_Logout_Click(object sender, EventArgs e)
         {
+            MaterialMessageBox.Show("Confirmation", true, ReaLTaiizor.Forms.MaterialFlexibleForm.ButtonsPosition.Right);
 
         }
     }
