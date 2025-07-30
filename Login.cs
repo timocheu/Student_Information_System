@@ -25,6 +25,9 @@ namespace Student_Information_System
                 return;
             }
 
+            string password = tb_Password.Text;
+            tb_Password.Clear();
+
             btn_Login.Enabled = false;
 
             try
@@ -33,7 +36,7 @@ namespace Student_Information_System
                 int user_id = await Task.Run(() =>
                 {
                     conn.Open();
-                    return Account.QueryAccountLogin(conn, tb_Username.Text, tb_Password.Text);
+                    return Account.QueryAccountLogin(conn, tb_Username.Text, password);
                 });
 
                 if (user_id == -1)
@@ -75,30 +78,11 @@ namespace Student_Information_System
                     return;
                 }
 
+                // Add delegate to FormClosed event
                 directedForm.FormClosed += (s, args) => this.Show();
                 directedForm.Show();
 
                 this.Hide();
-
-                //// Role-based redirection
-                //switch (role)
-                //{
-                //    case 1:
-                //        new AdminDashboard(user_id).Show();
-                //        break;
-                //    case 2:
-
-                //        new TeacherDashboard().Show();
-                //        break;
-                //    case 3:
-                //        new StudentDasboard().Show();
-                //        break;
-                //    default:
-                //        MessageBox.Show("Unable to find the corresponding role of the account.");
-                //        break;
-                //}
-
-
             }
             catch (Exception ex)
             {
