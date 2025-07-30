@@ -30,12 +30,12 @@
         {
             ReaLTaiizor.Controls.TabPage tab_Control;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             tab_Dashboard = new TabPage();
             tab_Student = new TabPage();
             layout_Buttons = new FlowLayoutPanel();
@@ -49,11 +49,6 @@
             col_Nickname = new DataGridViewTextBoxColumn();
             col_Employee = new DataGridViewTextBoxColumn();
             tab_Teacher = new TabPage();
-            tab_Subject = new TabPage();
-            tab_Logs = new TabPage();
-            tab_Reports = new TabPage();
-            tab_Settings = new TabPage();
-            hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
             flowLayoutPanel1 = new FlowLayoutPanel();
             hopeButton1 = new ReaLTaiizor.Controls.HopeButton();
             hopeButton2 = new ReaLTaiizor.Controls.HopeButton();
@@ -64,6 +59,12 @@
             dataGridViewTextBoxColumn2 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
             dataGridViewTextBoxColumn4 = new DataGridViewTextBoxColumn();
+            tab_Subject = new TabPage();
+            tab_Logs = new TabPage();
+            tab_Reports = new TabPage();
+            tab_Settings = new TabPage();
+            btn_Logout = new ReaLTaiizor.Controls.NightButton();
+            hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
             tab_Control = new ReaLTaiizor.Controls.TabPage();
             tab_Control.SuspendLayout();
             tab_Student.SuspendLayout();
@@ -72,6 +73,7 @@
             tab_Teacher.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).BeginInit();
+            tab_Settings.SuspendLayout();
             SuspendLayout();
             // 
             // tab_Control
@@ -248,24 +250,24 @@
             dgv_Student.BorderStyle = BorderStyle.None;
             dgv_Student.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgv_Student.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 0, 0);
-            dataGridViewCellStyle1.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgv_Student.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle7.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle7.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle7.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle7.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgv_Student.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgv_Student.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgv_Student.Columns.AddRange(new DataGridViewColumn[] { col_Name, col_Age, col_Nickname, col_Employee });
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgv_Student.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle8.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgv_Student.DefaultCellStyle = dataGridViewCellStyle8;
             dgv_Student.EnableHeadersVisualStyles = false;
             dgv_Student.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Student.GridColor = Color.FromArgb(255, 255, 255);
@@ -273,14 +275,14 @@
             dgv_Student.Name = "dgv_Student";
             dgv_Student.ReadOnly = true;
             dgv_Student.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 0, 0);
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgv_Student.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgv_Student.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgv_Student.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_Student.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Student.Size = new Size(900, 400);
@@ -324,62 +326,6 @@
             tab_Teacher.Size = new Size(992, 652);
             tab_Teacher.TabIndex = 2;
             tab_Teacher.Text = "Teacher";
-            // 
-            // tab_Subject
-            // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Subject.Location = new Point(204, 4);
-            tab_Subject.Name = "tab_Subject";
-            tab_Subject.Padding = new Padding(3);
-            tab_Subject.Size = new Size(992, 652);
-            tab_Subject.TabIndex = 3;
-            tab_Subject.Text = "Subject";
-            // 
-            // tab_Logs
-            // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Logs.Location = new Point(204, 4);
-            tab_Logs.Name = "tab_Logs";
-            tab_Logs.Padding = new Padding(3);
-            tab_Logs.Size = new Size(992, 652);
-            tab_Logs.TabIndex = 4;
-            tab_Logs.Text = "Logs";
-            // 
-            // tab_Reports
-            // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Reports.Location = new Point(204, 4);
-            tab_Reports.Name = "tab_Reports";
-            tab_Reports.Padding = new Padding(3);
-            tab_Reports.Size = new Size(992, 652);
-            tab_Reports.TabIndex = 5;
-            tab_Reports.Text = "Reports";
-            // 
-            // tab_Settings
-            // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
-            tab_Settings.Location = new Point(204, 4);
-            tab_Settings.Name = "tab_Settings";
-            tab_Settings.Padding = new Padding(3);
-            tab_Settings.Size = new Size(992, 652);
-            tab_Settings.TabIndex = 6;
-            tab_Settings.Text = "Settings";
-            // 
-            // hope_AdminDashboard
-            // 
-            hope_AdminDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
-            hope_AdminDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
-            hope_AdminDashboard.ControlBoxColorN = Color.White;
-            hope_AdminDashboard.Dock = DockStyle.Top;
-            hope_AdminDashboard.Font = new Font("Poppins", 14.25F);
-            hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
-            hope_AdminDashboard.Image = Properties.Resources.FormIcon;
-            hope_AdminDashboard.Location = new Point(0, 0);
-            hope_AdminDashboard.Name = "hope_AdminDashboard";
-            hope_AdminDashboard.Size = new Size(1200, 40);
-            hope_AdminDashboard.TabIndex = 0;
-            hope_AdminDashboard.Text = "Admin Dashboard";
-            hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
             // flowLayoutPanel1
             // 
@@ -493,24 +439,24 @@
             poisonDataGridView1.BorderStyle = BorderStyle.None;
             poisonDataGridView1.CellBorderStyle = DataGridViewCellBorderStyle.None;
             poisonDataGridView1.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 0, 0);
-            dataGridViewCellStyle4.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle10.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle10.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle10.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle10.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             poisonDataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             poisonDataGridView1.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn1, dataGridViewTextBoxColumn2, dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn4 });
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle11.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle11.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            poisonDataGridView1.DefaultCellStyle = dataGridViewCellStyle11;
             poisonDataGridView1.EnableHeadersVisualStyles = false;
             poisonDataGridView1.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             poisonDataGridView1.GridColor = Color.FromArgb(255, 255, 255);
@@ -518,14 +464,14 @@
             poisonDataGridView1.Name = "poisonDataGridView1";
             poisonDataGridView1.ReadOnly = true;
             poisonDataGridView1.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 0, 0);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(25, 25, 25);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(0, 0, 0);
+            dataGridViewCellStyle12.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(25, 25, 25);
+            dataGridViewCellStyle12.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            poisonDataGridView1.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             poisonDataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             poisonDataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             poisonDataGridView1.Size = new Size(900, 400);
@@ -557,6 +503,86 @@
             dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // tab_Subject
+            // 
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.Location = new Point(204, 4);
+            tab_Subject.Name = "tab_Subject";
+            tab_Subject.Padding = new Padding(3);
+            tab_Subject.Size = new Size(992, 652);
+            tab_Subject.TabIndex = 3;
+            tab_Subject.Text = "Subject";
+            // 
+            // tab_Logs
+            // 
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.Location = new Point(204, 4);
+            tab_Logs.Name = "tab_Logs";
+            tab_Logs.Padding = new Padding(3);
+            tab_Logs.Size = new Size(992, 652);
+            tab_Logs.TabIndex = 4;
+            tab_Logs.Text = "Logs";
+            // 
+            // tab_Reports
+            // 
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.Location = new Point(204, 4);
+            tab_Reports.Name = "tab_Reports";
+            tab_Reports.Padding = new Padding(3);
+            tab_Reports.Size = new Size(992, 652);
+            tab_Reports.TabIndex = 5;
+            tab_Reports.Text = "Reports";
+            // 
+            // tab_Settings
+            // 
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.Controls.Add(btn_Logout);
+            tab_Settings.Location = new Point(204, 4);
+            tab_Settings.Name = "tab_Settings";
+            tab_Settings.Padding = new Padding(3);
+            tab_Settings.Size = new Size(992, 652);
+            tab_Settings.TabIndex = 6;
+            tab_Settings.Text = "Settings";
+            // 
+            // btn_Logout
+            // 
+            btn_Logout.BackColor = Color.Transparent;
+            btn_Logout.DialogResult = DialogResult.None;
+            btn_Logout.Font = new Font("Segoe UI", 10F);
+            btn_Logout.ForeColor = Color.FromArgb(242, 93, 89);
+            btn_Logout.HoverBackColor = Color.FromArgb(50, 242, 93, 89);
+            btn_Logout.HoverForeColor = Color.White;
+            btn_Logout.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+            btn_Logout.Location = new Point(6, 6);
+            btn_Logout.MinimumSize = new Size(144, 47);
+            btn_Logout.Name = "btn_Logout";
+            btn_Logout.NormalBackColor = Color.FromArgb(242, 93, 89);
+            btn_Logout.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+            btn_Logout.PressedBackColor = Color.FromArgb(100, 242, 93, 89);
+            btn_Logout.PressedForeColor = Color.White;
+            btn_Logout.Radius = 20;
+            btn_Logout.Size = new Size(144, 47);
+            btn_Logout.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+            btn_Logout.TabIndex = 0;
+            btn_Logout.Text = "Logout";
+            btn_Logout.Click += btn_Logout_Click;
+            // 
+            // hope_AdminDashboard
+            // 
+            hope_AdminDashboard.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            hope_AdminDashboard.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            hope_AdminDashboard.ControlBoxColorN = Color.White;
+            hope_AdminDashboard.Dock = DockStyle.Top;
+            hope_AdminDashboard.Font = new Font("Poppins", 14.25F);
+            hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
+            hope_AdminDashboard.Image = Properties.Resources.FormIcon;
+            hope_AdminDashboard.Location = new Point(0, 0);
+            hope_AdminDashboard.Name = "hope_AdminDashboard";
+            hope_AdminDashboard.Size = new Size(1200, 40);
+            hope_AdminDashboard.TabIndex = 0;
+            hope_AdminDashboard.Text = "Admin Dashboard";
+            hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
+            // 
             // AdminDashboard
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -582,6 +608,7 @@
             tab_Teacher.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)poisonDataGridView1).EndInit();
+            tab_Settings.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -615,5 +642,6 @@
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private ReaLTaiizor.Controls.NightButton btn_Logout;
     }
 }

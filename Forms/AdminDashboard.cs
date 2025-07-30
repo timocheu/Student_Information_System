@@ -38,10 +38,14 @@ namespace Student_Information_System.Forms
             MessageBox.Show($"the fields of user is: {fields}");
         }
 
-        private void tab_Logout_Click(object sender, EventArgs e)
+        private void btn_Logout_Click(object sender, EventArgs e)
         {
-            MaterialMessageBox.Show("Confirmation", true, ReaLTaiizor.Forms.MaterialFlexibleForm.ButtonsPosition.Right);
+            var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
 
+            if (result == DialogResult.Yes)
+            {
+                this.Close();
+            }
         }
     }
 }
