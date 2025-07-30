@@ -22,6 +22,7 @@ namespace Student_Information_System.Forms
             InitializeComponent();
 
             GetUserInfo(user_id);
+            lbl_Welcome.Text = $"Welcom {user[1]}";
         }
 
         private void GetUserInfo(int user_id)
@@ -35,7 +36,6 @@ namespace Student_Information_System.Forms
             if (!r.Read()) return;
 
             int fields = r.GetValues(user!);
-            MessageBox.Show($"the fields of user is: {fields}");
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
