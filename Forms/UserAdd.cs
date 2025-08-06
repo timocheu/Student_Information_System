@@ -16,5 +16,10 @@ namespace Student_Information_System.Forms
         {
             InitializeComponent();
         }
+
+        private void btn_Confirm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
