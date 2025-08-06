@@ -49,11 +49,11 @@
             pnl_TeacherEnabled = new Panel();
             tb_Specialization = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_Department = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            sPanel1 = new Student_Information_System.UI.SPanel();
-            sPanel2 = new Student_Information_System.UI.SPanel();
+            pnl_UserDetails = new Student_Information_System.UI.SPanel();
+            pnl_UserLogin = new Student_Information_System.UI.SPanel();
             pnl_TeacherEnabled.SuspendLayout();
-            sPanel1.SuspendLayout();
-            sPanel2.SuspendLayout();
+            pnl_UserDetails.SuspendLayout();
+            pnl_UserLogin.SuspendLayout();
             SuspendLayout();
             // 
             // hope_UserAdd
@@ -143,6 +143,7 @@
             btn_Next.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_Next.UseAccentColor = false;
             btn_Next.UseVisualStyleBackColor = true;
+            btn_Next.Click += btn_Next_Click;
             // 
             // lbl_Gender
             // 
@@ -514,40 +515,40 @@
             tb_Department.TrailingIcon = null;
             tb_Department.UseSystemPasswordChar = false;
             // 
-            // sPanel1
+            // pnl_UserDetails
             // 
-            sPanel1.BackgroundFillColor = Color.White;
-            sPanel1.BorderColor = Color.White;
-            sPanel1.Controls.Add(tb_Lastname);
-            sPanel1.Controls.Add(pnl_TeacherEnabled);
-            sPanel1.Controls.Add(tb_Firstname);
-            sPanel1.Controls.Add(dt_BirthDate);
-            sPanel1.Controls.Add(poisonComboBox1);
-            sPanel1.Controls.Add(btn_Next);
-            sPanel1.Controls.Add(lbl_Name);
-            sPanel1.Controls.Add(lbl_bod);
-            sPanel1.Controls.Add(tb_Address);
-            sPanel1.Controls.Add(lbl_Gender);
-            sPanel1.Controls.Add(tb_Phone);
-            sPanel1.Controls.Add(tb_Email);
-            sPanel1.Location = new Point(2, 46);
-            sPanel1.Name = "sPanel1";
-            sPanel1.Size = new Size(570, 567);
-            sPanel1.TabIndex = 55;
+            pnl_UserDetails.BackgroundFillColor = Color.White;
+            pnl_UserDetails.BorderColor = Color.White;
+            pnl_UserDetails.Controls.Add(tb_Lastname);
+            pnl_UserDetails.Controls.Add(pnl_TeacherEnabled);
+            pnl_UserDetails.Controls.Add(tb_Firstname);
+            pnl_UserDetails.Controls.Add(dt_BirthDate);
+            pnl_UserDetails.Controls.Add(poisonComboBox1);
+            pnl_UserDetails.Controls.Add(btn_Next);
+            pnl_UserDetails.Controls.Add(lbl_Name);
+            pnl_UserDetails.Controls.Add(lbl_bod);
+            pnl_UserDetails.Controls.Add(tb_Address);
+            pnl_UserDetails.Controls.Add(lbl_Gender);
+            pnl_UserDetails.Controls.Add(tb_Phone);
+            pnl_UserDetails.Controls.Add(tb_Email);
+            pnl_UserDetails.Location = new Point(2, 46);
+            pnl_UserDetails.Name = "pnl_UserDetails";
+            pnl_UserDetails.Size = new Size(570, 567);
+            pnl_UserDetails.TabIndex = 55;
             // 
-            // sPanel2
+            // pnl_UserLogin
             // 
-            sPanel2.BackgroundFillColor = Color.White;
-            sPanel2.BorderColor = Color.White;
-            sPanel2.Controls.Add(tb_UserLogin);
-            sPanel2.Controls.Add(lbl_UserLogin);
-            sPanel2.Controls.Add(tb_UserPassword);
-            sPanel2.Controls.Add(btn_Confirm);
-            sPanel2.Controls.Add(btn_Back);
-            sPanel2.Location = new Point(586, 48);
-            sPanel2.Name = "sPanel2";
-            sPanel2.Size = new Size(289, 273);
-            sPanel2.TabIndex = 56;
+            pnl_UserLogin.BackgroundFillColor = Color.White;
+            pnl_UserLogin.BorderColor = Color.White;
+            pnl_UserLogin.Controls.Add(tb_UserLogin);
+            pnl_UserLogin.Controls.Add(lbl_UserLogin);
+            pnl_UserLogin.Controls.Add(tb_UserPassword);
+            pnl_UserLogin.Controls.Add(btn_Confirm);
+            pnl_UserLogin.Controls.Add(btn_Back);
+            pnl_UserLogin.Location = new Point(586, 48);
+            pnl_UserLogin.Name = "pnl_UserLogin";
+            pnl_UserLogin.Size = new Size(289, 273);
+            pnl_UserLogin.TabIndex = 56;
             // 
             // UserAdd
             // 
@@ -555,8 +556,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 242, 245);
             ClientSize = new Size(887, 611);
-            Controls.Add(sPanel2);
-            Controls.Add(sPanel1);
+            Controls.Add(pnl_UserLogin);
+            Controls.Add(pnl_UserDetails);
             Controls.Add(hope_UserAdd);
             Controls.Add(pnl_LineDesign);
             FormBorderStyle = FormBorderStyle.None;
@@ -566,10 +567,10 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "UserAdd";
             pnl_TeacherEnabled.ResumeLayout(false);
-            sPanel1.ResumeLayout(false);
-            sPanel1.PerformLayout();
-            sPanel2.ResumeLayout(false);
-            sPanel2.PerformLayout();
+            pnl_UserDetails.ResumeLayout(false);
+            pnl_UserDetails.PerformLayout();
+            pnl_UserLogin.ResumeLayout(false);
+            pnl_UserLogin.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -596,7 +597,7 @@
         private Panel pnl_TeacherEnabled;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Specialization;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Department;
-        private UI.SPanel sPanel1;
-        private UI.SPanel sPanel2;
+        private UI.SPanel pnl_UserDetails;
+        private UI.SPanel pnl_UserLogin;
     }
 }

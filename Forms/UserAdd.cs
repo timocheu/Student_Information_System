@@ -12,14 +12,37 @@ namespace Student_Information_System.Forms
 {
     public partial class UserAdd : Form
     {
-        public UserAdd()
+        public UserAdd(bool IsTeacher = false)
         {
             InitializeComponent();
+
+            if (IsTeacher)
+            {
+                pnl_TeacherEnabled.Enabled = true;
+                pnl_TeacherEnabled.Visible = true;
+            }
+
+            hope_UserAdd.Text = (IsTeacher) ? "Add Teacher" : "Add Student";
         }
 
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btn_Next_Click(object sender, EventArgs e)
+        {
+            // Check if all textbox in user panel is fillouted
+            foreach (var control in pnl_UserDetails.Controls)
+            {
+                if (control is TextBox textbox)
+                {
+                    if (textbox.Enabled && string.IsNullOrEmpty(textbox.Text))
+                    {
+
+                    }
+                }
+            }
         }
     }
 }
