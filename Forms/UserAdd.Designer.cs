@@ -66,8 +66,9 @@
             hope_UserAdd.ForeColor = Color.FromArgb(242, 246, 252);
             hope_UserAdd.Image = Properties.Resources.FormIcon;
             hope_UserAdd.Location = new Point(0, 0);
+            hope_UserAdd.Margin = new Padding(3, 4, 3, 4);
             hope_UserAdd.Name = "hope_UserAdd";
-            hope_UserAdd.Size = new Size(887, 40);
+            hope_UserAdd.Size = new Size(1014, 40);
             hope_UserAdd.TabIndex = 1;
             hope_UserAdd.Text = "Add";
             hope_UserAdd.ThemeColor = Color.DarkRed;
@@ -75,9 +76,10 @@
             // pnl_LineDesign
             // 
             pnl_LineDesign.BackColor = Color.FromArgb(64, 64, 64);
-            pnl_LineDesign.Location = new Point(575, 35);
+            pnl_LineDesign.Location = new Point(657, 47);
+            pnl_LineDesign.Margin = new Padding(3, 4, 3, 4);
             pnl_LineDesign.Name = "pnl_LineDesign";
-            pnl_LineDesign.Size = new Size(5, 600);
+            pnl_LineDesign.Size = new Size(6, 800);
             pnl_LineDesign.TabIndex = 51;
             // 
             // btn_Back
@@ -89,8 +91,8 @@
             btn_Back.HighEmphasis = true;
             btn_Back.Icon = null;
             btn_Back.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_Back.Location = new Point(22, 211);
-            btn_Back.Margin = new Padding(4, 6, 4, 6);
+            btn_Back.Location = new Point(25, 281);
+            btn_Back.Margin = new Padding(5, 8, 5, 8);
             btn_Back.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btn_Back.Name = "btn_Back";
             btn_Back.NoAccentTextColor = Color.Empty;
@@ -111,8 +113,8 @@
             btn_Confirm.HighEmphasis = true;
             btn_Confirm.Icon = null;
             btn_Confirm.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_Confirm.Location = new Point(186, 211);
-            btn_Confirm.Margin = new Padding(4, 6, 4, 6);
+            btn_Confirm.Location = new Point(213, 281);
+            btn_Confirm.Margin = new Padding(5, 8, 5, 8);
             btn_Confirm.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btn_Confirm.Name = "btn_Confirm";
             btn_Confirm.NoAccentTextColor = Color.Empty;
@@ -133,8 +135,8 @@
             btn_Next.HighEmphasis = true;
             btn_Next.Icon = null;
             btn_Next.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_Next.Location = new Point(485, 487);
-            btn_Next.Margin = new Padding(4, 6, 4, 6);
+            btn_Next.Location = new Point(554, 649);
+            btn_Next.Margin = new Padding(5, 8, 5, 8);
             btn_Next.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btn_Next.Name = "btn_Next";
             btn_Next.NoAccentTextColor = Color.Empty;
@@ -151,9 +153,9 @@
             lbl_Gender.AutoSize = true;
             lbl_Gender.BackColor = Color.White;
             lbl_Gender.Font = new Font("Poppins", 12F);
-            lbl_Gender.Location = new Point(299, 150);
+            lbl_Gender.Location = new Point(342, 200);
             lbl_Gender.Name = "lbl_Gender";
-            lbl_Gender.Size = new Size(71, 28);
+            lbl_Gender.Size = new Size(89, 36);
             lbl_Gender.TabIndex = 47;
             lbl_Gender.Text = "Gender";
             // 
@@ -162,9 +164,9 @@
             lbl_bod.AutoSize = true;
             lbl_bod.BackColor = Color.White;
             lbl_bod.Font = new Font("Poppins", 12F);
-            lbl_bod.Location = new Point(32, 150);
+            lbl_bod.Location = new Point(37, 200);
             lbl_bod.Name = "lbl_bod";
-            lbl_bod.Size = new Size(109, 28);
+            lbl_bod.Size = new Size(136, 36);
             lbl_bod.TabIndex = 46;
             lbl_bod.Text = "Date of Birth";
             // 
@@ -173,21 +175,23 @@
             lbl_Name.AutoSize = true;
             lbl_Name.BackColor = Color.White;
             lbl_Name.Font = new Font("Poppins", 12F);
-            lbl_Name.Location = new Point(32, 42);
+            lbl_Name.Location = new Point(37, 56);
             lbl_Name.Name = "lbl_Name";
-            lbl_Name.Size = new Size(105, 28);
+            lbl_Name.Size = new Size(130, 36);
             lbl_Name.TabIndex = 45;
             lbl_Name.Text = "User details";
             // 
             // poisonComboBox1
             // 
+            poisonComboBox1.DisplayMember = "Male";
             poisonComboBox1.Font = new Font("Poppins", 12F);
             poisonComboBox1.FormattingEnabled = true;
-            poisonComboBox1.ItemHeight = 32;
+            poisonComboBox1.ItemHeight = 40;
             poisonComboBox1.Items.AddRange(new object[] { "Male", "Female", "Other" });
-            poisonComboBox1.Location = new Point(299, 181);
+            poisonComboBox1.Location = new Point(342, 241);
+            poisonComboBox1.Margin = new Padding(3, 4, 3, 4);
             poisonComboBox1.Name = "poisonComboBox1";
-            poisonComboBox1.Size = new Size(250, 38);
+            poisonComboBox1.Size = new Size(285, 46);
             poisonComboBox1.TabIndex = 44;
             poisonComboBox1.UseCustomFont = true;
             poisonComboBox1.UseSelectable = true;
@@ -197,12 +201,18 @@
             dt_BirthDate.CalendarFont = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Pixel);
             dt_BirthDate.Font = new Font("Poppins", 12F);
             dt_BirthDate.FontSize = ReaLTaiizor.Extension.Poison.PoisonDateTimeSize.Tall;
-            dt_BirthDate.Location = new Point(32, 181);
-            dt_BirthDate.MinimumSize = new Size(0, 38);
+            dt_BirthDate.Format = DateTimePickerFormat.Custom;
+            dt_BirthDate.Location = new Point(37, 241);
+            dt_BirthDate.Margin = new Padding(3, 4, 3, 4);
+            dt_BirthDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
+            dt_BirthDate.MinimumSize = new Size(0, 46);
             dt_BirthDate.Name = "dt_BirthDate";
-            dt_BirthDate.Size = new Size(250, 38);
+            dt_BirthDate.RightToLeft = RightToLeft.Yes;
+            dt_BirthDate.RightToLeftLayout = true;
+            dt_BirthDate.Size = new Size(285, 46);
             dt_BirthDate.TabIndex = 43;
             dt_BirthDate.UseCustomFont = true;
+            dt_BirthDate.Value = new DateTime(2000, 1, 1, 0, 0, 0, 0);
             // 
             // tb_Address
             // 
@@ -216,8 +226,8 @@
             tb_Address.HideSelection = true;
             tb_Address.Hint = "Address";
             tb_Address.LeadingIcon = null;
-            tb_Address.Location = new Point(32, 325);
-            tb_Address.Margin = new Padding(3, 4, 3, 4);
+            tb_Address.Location = new Point(37, 433);
+            tb_Address.Margin = new Padding(3, 5, 3, 5);
             tb_Address.MaxLength = 32767;
             tb_Address.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Address.Name = "tb_Address";
@@ -229,7 +239,7 @@
             tb_Address.SelectionLength = 0;
             tb_Address.SelectionStart = 0;
             tb_Address.ShortcutsEnabled = true;
-            tb_Address.Size = new Size(517, 48);
+            tb_Address.Size = new Size(591, 48);
             tb_Address.TabIndex = 42;
             tb_Address.TabStop = false;
             tb_Address.TextAlign = HorizontalAlignment.Left;
@@ -248,8 +258,8 @@
             tb_Phone.HideSelection = true;
             tb_Phone.Hint = "Number";
             tb_Phone.LeadingIcon = null;
-            tb_Phone.Location = new Point(299, 246);
-            tb_Phone.Margin = new Padding(3, 4, 3, 4);
+            tb_Phone.Location = new Point(342, 328);
+            tb_Phone.Margin = new Padding(3, 5, 3, 5);
             tb_Phone.MaxLength = 32767;
             tb_Phone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Phone.Name = "tb_Phone";
@@ -261,7 +271,7 @@
             tb_Phone.SelectionLength = 0;
             tb_Phone.SelectionStart = 0;
             tb_Phone.ShortcutsEnabled = true;
-            tb_Phone.Size = new Size(250, 48);
+            tb_Phone.Size = new Size(286, 48);
             tb_Phone.TabIndex = 41;
             tb_Phone.TabStop = false;
             tb_Phone.TextAlign = HorizontalAlignment.Left;
@@ -280,8 +290,8 @@
             tb_Email.HideSelection = true;
             tb_Email.Hint = "Email";
             tb_Email.LeadingIcon = null;
-            tb_Email.Location = new Point(32, 246);
-            tb_Email.Margin = new Padding(3, 4, 3, 4);
+            tb_Email.Location = new Point(37, 328);
+            tb_Email.Margin = new Padding(3, 5, 3, 5);
             tb_Email.MaxLength = 32767;
             tb_Email.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Email.Name = "tb_Email";
@@ -293,7 +303,7 @@
             tb_Email.SelectionLength = 0;
             tb_Email.SelectionStart = 0;
             tb_Email.ShortcutsEnabled = true;
-            tb_Email.Size = new Size(250, 48);
+            tb_Email.Size = new Size(286, 48);
             tb_Email.TabIndex = 40;
             tb_Email.TabStop = false;
             tb_Email.TextAlign = HorizontalAlignment.Left;
@@ -312,8 +322,8 @@
             tb_Lastname.HideSelection = true;
             tb_Lastname.Hint = "Lastname";
             tb_Lastname.LeadingIcon = null;
-            tb_Lastname.Location = new Point(299, 74);
-            tb_Lastname.Margin = new Padding(3, 4, 3, 4);
+            tb_Lastname.Location = new Point(342, 99);
+            tb_Lastname.Margin = new Padding(3, 5, 3, 5);
             tb_Lastname.MaxLength = 32767;
             tb_Lastname.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Lastname.Name = "tb_Lastname";
@@ -325,7 +335,7 @@
             tb_Lastname.SelectionLength = 0;
             tb_Lastname.SelectionStart = 0;
             tb_Lastname.ShortcutsEnabled = true;
-            tb_Lastname.Size = new Size(250, 48);
+            tb_Lastname.Size = new Size(286, 48);
             tb_Lastname.TabIndex = 39;
             tb_Lastname.TabStop = false;
             tb_Lastname.TextAlign = HorizontalAlignment.Left;
@@ -344,8 +354,8 @@
             tb_Firstname.HideSelection = true;
             tb_Firstname.Hint = "Firstname";
             tb_Firstname.LeadingIcon = null;
-            tb_Firstname.Location = new Point(32, 74);
-            tb_Firstname.Margin = new Padding(3, 4, 3, 4);
+            tb_Firstname.Location = new Point(37, 99);
+            tb_Firstname.Margin = new Padding(3, 5, 3, 5);
             tb_Firstname.MaxLength = 32767;
             tb_Firstname.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Firstname.Name = "tb_Firstname";
@@ -357,7 +367,7 @@
             tb_Firstname.SelectionLength = 0;
             tb_Firstname.SelectionStart = 0;
             tb_Firstname.ShortcutsEnabled = true;
-            tb_Firstname.Size = new Size(250, 48);
+            tb_Firstname.Size = new Size(286, 48);
             tb_Firstname.TabIndex = 38;
             tb_Firstname.TabStop = false;
             tb_Firstname.TextAlign = HorizontalAlignment.Left;
@@ -377,8 +387,8 @@
             tb_UserLogin.HideSelection = true;
             tb_UserLogin.Hint = "User-ID";
             tb_UserLogin.LeadingIcon = null;
-            tb_UserLogin.Location = new Point(22, 64);
-            tb_UserLogin.Margin = new Padding(3, 4, 3, 4);
+            tb_UserLogin.Location = new Point(25, 85);
+            tb_UserLogin.Margin = new Padding(3, 5, 3, 5);
             tb_UserLogin.MaxLength = 32767;
             tb_UserLogin.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_UserLogin.Name = "tb_UserLogin";
@@ -390,7 +400,7 @@
             tb_UserLogin.SelectionLength = 0;
             tb_UserLogin.SelectionStart = 0;
             tb_UserLogin.ShortcutsEnabled = true;
-            tb_UserLogin.Size = new Size(250, 48);
+            tb_UserLogin.Size = new Size(286, 48);
             tb_UserLogin.TabIndex = 52;
             tb_UserLogin.TabStop = false;
             tb_UserLogin.TextAlign = HorizontalAlignment.Left;
@@ -409,8 +419,8 @@
             tb_UserPassword.HideSelection = true;
             tb_UserPassword.Hint = "Password";
             tb_UserPassword.LeadingIcon = null;
-            tb_UserPassword.Location = new Point(22, 140);
-            tb_UserPassword.Margin = new Padding(3, 4, 3, 4);
+            tb_UserPassword.Location = new Point(25, 187);
+            tb_UserPassword.Margin = new Padding(3, 5, 3, 5);
             tb_UserPassword.MaxLength = 32767;
             tb_UserPassword.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_UserPassword.Name = "tb_UserPassword";
@@ -422,7 +432,7 @@
             tb_UserPassword.SelectionLength = 0;
             tb_UserPassword.SelectionStart = 0;
             tb_UserPassword.ShortcutsEnabled = true;
-            tb_UserPassword.Size = new Size(250, 48);
+            tb_UserPassword.Size = new Size(286, 48);
             tb_UserPassword.TabIndex = 53;
             tb_UserPassword.TabStop = false;
             tb_UserPassword.TextAlign = HorizontalAlignment.Left;
@@ -434,9 +444,9 @@
             lbl_UserLogin.AutoSize = true;
             lbl_UserLogin.BackColor = Color.White;
             lbl_UserLogin.Font = new Font("Poppins", 12F);
-            lbl_UserLogin.Location = new Point(22, 32);
+            lbl_UserLogin.Location = new Point(25, 43);
             lbl_UserLogin.Name = "lbl_UserLogin";
-            lbl_UserLogin.Size = new Size(93, 28);
+            lbl_UserLogin.Size = new Size(117, 36);
             lbl_UserLogin.TabIndex = 54;
             lbl_UserLogin.Text = "User Login";
             // 
@@ -446,9 +456,10 @@
             pnl_TeacherEnabled.Controls.Add(tb_Specialization);
             pnl_TeacherEnabled.Controls.Add(tb_Department);
             pnl_TeacherEnabled.Enabled = false;
-            pnl_TeacherEnabled.Location = new Point(32, 395);
+            pnl_TeacherEnabled.Location = new Point(37, 527);
+            pnl_TeacherEnabled.Margin = new Padding(3, 4, 3, 4);
             pnl_TeacherEnabled.Name = "pnl_TeacherEnabled";
-            pnl_TeacherEnabled.Size = new Size(285, 143);
+            pnl_TeacherEnabled.Size = new Size(326, 191);
             pnl_TeacherEnabled.TabIndex = 56;
             pnl_TeacherEnabled.Visible = false;
             // 
@@ -464,8 +475,8 @@
             tb_Specialization.HideSelection = true;
             tb_Specialization.Hint = "Specialization";
             tb_Specialization.LeadingIcon = null;
-            tb_Specialization.Location = new Point(0, 80);
-            tb_Specialization.Margin = new Padding(3, 4, 3, 4);
+            tb_Specialization.Location = new Point(0, 107);
+            tb_Specialization.Margin = new Padding(3, 5, 3, 5);
             tb_Specialization.MaxLength = 32767;
             tb_Specialization.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Specialization.Name = "tb_Specialization";
@@ -477,7 +488,7 @@
             tb_Specialization.SelectionLength = 0;
             tb_Specialization.SelectionStart = 0;
             tb_Specialization.ShortcutsEnabled = true;
-            tb_Specialization.Size = new Size(250, 48);
+            tb_Specialization.Size = new Size(286, 48);
             tb_Specialization.TabIndex = 43;
             tb_Specialization.TabStop = false;
             tb_Specialization.TextAlign = HorizontalAlignment.Left;
@@ -496,8 +507,8 @@
             tb_Department.HideSelection = true;
             tb_Department.Hint = "Department";
             tb_Department.LeadingIcon = null;
-            tb_Department.Location = new Point(0, 15);
-            tb_Department.Margin = new Padding(3, 4, 3, 4);
+            tb_Department.Location = new Point(0, 20);
+            tb_Department.Margin = new Padding(3, 5, 3, 5);
             tb_Department.MaxLength = 32767;
             tb_Department.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Department.Name = "tb_Department";
@@ -509,7 +520,7 @@
             tb_Department.SelectionLength = 0;
             tb_Department.SelectionStart = 0;
             tb_Department.ShortcutsEnabled = true;
-            tb_Department.Size = new Size(250, 48);
+            tb_Department.Size = new Size(286, 48);
             tb_Department.TabIndex = 42;
             tb_Department.TabStop = false;
             tb_Department.TextAlign = HorizontalAlignment.Left;
@@ -532,9 +543,10 @@
             pnl_UserDetails.Controls.Add(lbl_Gender);
             pnl_UserDetails.Controls.Add(tb_Phone);
             pnl_UserDetails.Controls.Add(tb_Email);
-            pnl_UserDetails.Location = new Point(2, 46);
+            pnl_UserDetails.Location = new Point(2, 61);
+            pnl_UserDetails.Margin = new Padding(3, 4, 3, 4);
             pnl_UserDetails.Name = "pnl_UserDetails";
-            pnl_UserDetails.Size = new Size(570, 567);
+            pnl_UserDetails.Size = new Size(651, 756);
             pnl_UserDetails.TabIndex = 55;
             // 
             // pnl_UserLogin
@@ -546,23 +558,25 @@
             pnl_UserLogin.Controls.Add(tb_UserPassword);
             pnl_UserLogin.Controls.Add(btn_Confirm);
             pnl_UserLogin.Controls.Add(btn_Back);
-            pnl_UserLogin.Location = new Point(586, 48);
+            pnl_UserLogin.Location = new Point(670, 64);
+            pnl_UserLogin.Margin = new Padding(3, 4, 3, 4);
             pnl_UserLogin.Name = "pnl_UserLogin";
-            pnl_UserLogin.Size = new Size(289, 273);
+            pnl_UserLogin.Size = new Size(330, 364);
             pnl_UserLogin.TabIndex = 56;
             // 
             // UserAdd
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 242, 245);
-            ClientSize = new Size(887, 611);
+            ClientSize = new Size(1014, 815);
             Controls.Add(pnl_UserLogin);
             Controls.Add(pnl_UserDetails);
             Controls.Add(hope_UserAdd);
             Controls.Add(pnl_LineDesign);
             FormBorderStyle = FormBorderStyle.None;
-            MaximumSize = new Size(1920, 1040);
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(2194, 1387);
             MinimumSize = new Size(190, 40);
             Name = "UserAdd";
             StartPosition = FormStartPosition.CenterScreen;

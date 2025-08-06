@@ -18,7 +18,6 @@ namespace Student_Information_System
         {
             if (string.IsNullOrEmpty(tb_Username.Text) || string.IsNullOrEmpty(tb_Password.Text))
             {
-                // var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 MaterialSnackBar Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true);
                 Snackbar.Show(this);
 

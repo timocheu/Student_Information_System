@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ReaLTaiizor.Controls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,66 +8,92 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Student_Information_System.Forms
 {
-  public partial class UserAdd : Form
-  {
-    public UserAdd(bool IsTeacher = false)
+    public partial class UserAdd : Form
     {
-      InitializeComponent();
+        bool isTeacher = false;
 
-      if (IsTeacher)
-      {
-        pnl_TeacherEnabled.Enabled = true;
-        pnl_TeacherEnabled.Visible = true;
-      }
-
-      hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
-    }
-
-    private void btn_Confirm_Click(object sender, EventArgs e)
-    {
-
-    }
-
-    private void btn_Next_Click(object sender, EventArgs e)
-    {
-      // Check if all textbox in user panel is fillouted
-      foreach (var control in pnl_UserDetails.Controls)
-      {
-        if (control is TextBox textbox)
+        public UserAdd(bool IsTeacher)
         {
-          if (textbox.Enabled && string.IsNullOrEmpty(textbox.Text))
-          {
-            // Snackbar error
-            var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            return;
-          }
+            this.isTeacher = IsTeacher;
+
+            InitializeComponent();
+
+            if (IsTeacher)
+            {
+                pnl_TeacherEnabled.Enabled = true;
+                pnl_TeacherEnabled.Visible = true;
+            }
+
+            hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
         }
-      }
 
-      // Email verification using regex
+        private void btn_Confirm_Click(object sender, EventArgs e)
+        {
 
-      // Disable userdetail panel
-      if (pnl_UserDetails.Enable)
-      {
-        pnl_UserDetails.Enable = false;
-        pnl_UserLogin.Enable = true;
-      }
+        }
+
+        private void btn_Next_Click(object sender, EventArgs e)
+        {
+            if (isTeacher)
+            {
+                foreach (Control c in pnl_TeacherEnabled.Controls)
+                {
+                    if (c is MaterialMultiLineTextBoxEdit tb)
+                    {
+                        if (tb.Enabled && string.IsNullOrEmpty(tb.Text))
+                        {
+                            // Snackbar error
+                            MaterialSnackBar Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true);
+                            Snackbar.Show(this);
+
+                            return;
+                        }
+                    }
+                }
+            }
+            
+
+            // Check if all textbox in user panel is fillouted
+            foreach (Control control in pnl_UserDetails.Controls)
+            {
+                if (control is MaterialTextBoxEdit textbox)
+                {
+                    if (textbox.Enabled && string.IsNullOrEmpty(textbox.Text))
+                    {
+                        // Snackbar error
+                        MaterialSnackBar Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true);
+                        Snackbar.Show(this); 
+
+                        return;
+                    }
+                }
+            }
+
+            // Email verification using regex
+
+            // Disable userdetail panel
+            if (pnl_UserDetails.Enabled)
+            {
+                pnl_UserDetails.Enabled = false;
+                pnl_UserLogin.Enabled = true;
+            }
+        }
+
+
+        private void btn_Back_Click(object sender, EventArgs e)
+        {
+            // Clear text on password box
+            tb_UserPassword.Clear();
+
+            if (pnl_UserLogin.Enabled)
+            {
+                pnl_UserLogin.Enabled = false;
+                pnl_UserDetails.Enabled = true;
+            }
+        }
     }
-
-
-    private void btn_Back_Click(object sender, EventArgs e)
-    {
-      // Clear text on password box
-      tb_UserPassword.Clear();
-
-      if (pnl_UserLogin.Enable)
-      {
-        pnl_UserLogin.Enable = false;
-        pnl_UserDetails.Enable = true;
-      }
-    }
-  }
 }
