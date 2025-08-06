@@ -100,6 +100,7 @@
             btn_Back.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_Back.UseAccentColor = false;
             btn_Back.UseVisualStyleBackColor = true;
+            btn_Back.Click += btn_Back_Click;
             // 
             // btn_Confirm
             // 
