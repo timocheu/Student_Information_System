@@ -36,7 +36,7 @@
             lbl_Gender = new Label();
             lbl_bod = new Label();
             lbl_Name = new Label();
-            poisonComboBox1 = new ReaLTaiizor.Controls.PoisonComboBox();
+            cb_Gender = new ReaLTaiizor.Controls.PoisonComboBox();
             dt_BirthDate = new ReaLTaiizor.Controls.PoisonDateTime();
             tb_Address = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_Phone = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -181,20 +181,22 @@
             lbl_Name.TabIndex = 45;
             lbl_Name.Text = "User details";
             // 
-            // poisonComboBox1
+            // cb_Gender
             // 
-            poisonComboBox1.DisplayMember = "Male";
-            poisonComboBox1.Font = new Font("Poppins", 12F);
-            poisonComboBox1.FormattingEnabled = true;
-            poisonComboBox1.ItemHeight = 40;
-            poisonComboBox1.Items.AddRange(new object[] { "Male", "Female", "Other" });
-            poisonComboBox1.Location = new Point(342, 241);
-            poisonComboBox1.Margin = new Padding(3, 4, 3, 4);
-            poisonComboBox1.Name = "poisonComboBox1";
-            poisonComboBox1.Size = new Size(285, 46);
-            poisonComboBox1.TabIndex = 44;
-            poisonComboBox1.UseCustomFont = true;
-            poisonComboBox1.UseSelectable = true;
+            cb_Gender.DisplayMember = "Male";
+            cb_Gender.Font = new Font("Poppins", 12F);
+            cb_Gender.FormattingEnabled = true;
+            cb_Gender.ItemHeight = 40;
+            cb_Gender.Items.AddRange(new object[] { "Male", "Female", "Other" });
+            cb_Gender.Location = new Point(342, 241);
+            cb_Gender.Margin = new Padding(3, 4, 3, 4);
+            cb_Gender.Name = "cb_Gender";
+            cb_Gender.PromptText = "Male";
+            cb_Gender.Size = new Size(285, 46);
+            cb_Gender.TabIndex = 44;
+            cb_Gender.Text = "Male";
+            cb_Gender.UseCustomFont = true;
+            cb_Gender.UseSelectable = true;
             // 
             // dt_BirthDate
             // 
@@ -535,7 +537,7 @@
             pnl_UserDetails.Controls.Add(pnl_TeacherEnabled);
             pnl_UserDetails.Controls.Add(tb_Firstname);
             pnl_UserDetails.Controls.Add(dt_BirthDate);
-            pnl_UserDetails.Controls.Add(poisonComboBox1);
+            pnl_UserDetails.Controls.Add(cb_Gender);
             pnl_UserDetails.Controls.Add(btn_Next);
             pnl_UserDetails.Controls.Add(lbl_Name);
             pnl_UserDetails.Controls.Add(lbl_bod);
@@ -558,6 +560,7 @@
             pnl_UserLogin.Controls.Add(tb_UserPassword);
             pnl_UserLogin.Controls.Add(btn_Confirm);
             pnl_UserLogin.Controls.Add(btn_Back);
+            pnl_UserLogin.Enabled = false;
             pnl_UserLogin.Location = new Point(670, 64);
             pnl_UserLogin.Margin = new Padding(3, 4, 3, 4);
             pnl_UserLogin.Name = "pnl_UserLogin";
@@ -599,7 +602,7 @@
         private Label lbl_Gender;
         private Label lbl_bod;
         private Label lbl_Name;
-        private ReaLTaiizor.Controls.PoisonComboBox poisonComboBox1;
+        private ReaLTaiizor.Controls.PoisonComboBox cb_Gender;
         private ReaLTaiizor.Controls.PoisonDateTime dt_BirthDate;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Address;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Phone;

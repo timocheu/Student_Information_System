@@ -1,4 +1,6 @@
 ﻿using ReaLTaiizor.Controls;
+using Student_Information_System.Models;
+using Student_Information_System.Utilities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,7 +16,10 @@ namespace Student_Information_System.Forms
 {
     public partial class UserAdd : Form
     {
-        bool isTeacher = false;
+        private bool isTeacher = false;
+        private User _user = null;
+        private UserLogin _userLogin = null;
+
 
         public UserAdd(bool IsTeacher)
         {
@@ -38,16 +43,22 @@ namespace Student_Information_System.Forms
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
-            if (isTeacher)
+            using (var Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true))
             {
-                foreach (Control c in pnl_TeacherEnabled.Controls)
+                if (isTeacher && (string.IsNullOrEmpty(tb_Department.Text) || string.IsNullOrEmpty(tb_Specialization.Text)))
                 {
-                    if (c is MaterialMultiLineTextBoxEdit tb)
+                    Snackbar.Show(this);
+                    return;
+                }
+
+                // Check if all textbox in user panel is fillouted
+                foreach (Control control in pnl_UserDetails.Controls)
+                {
+                    if (control is MaterialTextBoxEdit textbox)
                     {
-                        if (tb.Enabled && string.IsNullOrEmpty(tb.Text))
+                        if (textbox.Enabled && string.IsNullOrEmpty(textbox.Text))
                         {
                             // Snackbar error
-                            MaterialSnackBar Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true);
                             Snackbar.Show(this);
 
                             return;
@@ -55,25 +66,15 @@ namespace Student_Information_System.Forms
                     }
                 }
             }
-            
-
-            // Check if all textbox in user panel is fillouted
-            foreach (Control control in pnl_UserDetails.Controls)
-            {
-                if (control is MaterialTextBoxEdit textbox)
-                {
-                    if (textbox.Enabled && string.IsNullOrEmpty(textbox.Text))
-                    {
-                        // Snackbar error
-                        MaterialSnackBar Snackbar = new MaterialSnackBar("Please fill up the following input", 3000, "OK", true);
-                        Snackbar.Show(this); 
-
-                        return;
-                    }
-                }
-            }
 
             // Email verification using regex
+            if (!StringExtension.IsValidEmail(tb_Email.Text))
+            {
+                var Snackbar = new MaterialSnackBar("Invalid email, please try again.", 3000, "OK", true);
+                Snackbar.Show(this);
+
+                return;
+            }
 
             // Disable userdetail panel
             if (pnl_UserDetails.Enabled)
@@ -81,6 +82,18 @@ namespace Student_Information_System.Forms
                 pnl_UserDetails.Enabled = false;
                 pnl_UserLogin.Enabled = true;
             }
+
+            _user = new User()
+            {
+                FirstName = tb_Firstname.Text,
+                LastName = tb_Lastname.Text,
+                Email = tb_Email.Text,
+                DateOfBirth = dt_BirthDate.Text,
+                Gender = cb_Gender.Text,
+                Address = tb_Address.Text,
+                Role = isTeacher ? 2 : 3,
+                Phone = tb_Phone.Text,
+            };
         }
 
 
