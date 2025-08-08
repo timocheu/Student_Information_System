@@ -109,5 +109,18 @@ namespace Student_Information_System.Forms
             this.Hide();
             StudentAddForm.Show();
         }
+
+        private void btn_AddTeacher_Click(object sender, EventArgs e)
+        {
+            Form TeacherAddForm = new UserAdd(false);
+            TeacherAddForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                RefreshStudent();
+            };
+
+            this.Hide();
+            TeacherAddForm.Show();
+        }
     }
 }

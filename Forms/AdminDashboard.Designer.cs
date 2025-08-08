@@ -95,13 +95,14 @@
             tab_Control.LineColor = Color.FromArgb(25, 26, 28);
             tab_Control.LineTabColor = Color.FromArgb(54, 57, 64);
             tab_Control.Location = new Point(0, 40);
+            tab_Control.Margin = new Padding(3, 4, 3, 4);
             tab_Control.Multiline = true;
             tab_Control.Name = "tab_Control";
             tab_Control.NormalForeColor = Color.FromArgb(159, 162, 167);
             tab_Control.PageColor = Color.FromArgb(238, 242, 245);
             tab_Control.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             tab_Control.SelectedIndex = 0;
-            tab_Control.Size = new Size(1200, 660);
+            tab_Control.Size = new Size(1371, 893);
             tab_Control.SizeMode = TabSizeMode.Fixed;
             tab_Control.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             tab_Control.StringType = StringAlignment.Near;
@@ -114,18 +115,19 @@
             tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
+            tab_Dashboard.Margin = new Padding(3, 4, 3, 4);
             tab_Dashboard.Name = "tab_Dashboard";
-            tab_Dashboard.Padding = new Padding(3);
-            tab_Dashboard.Size = new Size(992, 652);
+            tab_Dashboard.Padding = new Padding(3, 4, 3, 4);
+            tab_Dashboard.Size = new Size(1163, 885);
             tab_Dashboard.TabIndex = 0;
             tab_Dashboard.Text = "Dashboard";
             // 
             // lbl_Welcome
             // 
             lbl_Welcome.AutoSize = true;
-            lbl_Welcome.Location = new Point(31, 23);
+            lbl_Welcome.Location = new Point(35, 31);
             lbl_Welcome.Name = "lbl_Welcome";
-            lbl_Welcome.Size = new Size(117, 20);
+            lbl_Welcome.Size = new Size(147, 25);
             lbl_Welcome.TabIndex = 4;
             lbl_Welcome.Text = "Welcome User!";
             // 
@@ -136,9 +138,10 @@
             tab_Student.Controls.Add(tb_SearchStudent);
             tab_Student.Controls.Add(dgv_Student);
             tab_Student.Location = new Point(204, 4);
+            tab_Student.Margin = new Padding(3, 4, 3, 4);
             tab_Student.Name = "tab_Student";
-            tab_Student.Padding = new Padding(3);
-            tab_Student.Size = new Size(992, 652);
+            tab_Student.Padding = new Padding(3, 4, 3, 4);
+            tab_Student.Size = new Size(1163, 872);
             tab_Student.TabIndex = 1;
             tab_Student.Text = "Student";
             // 
@@ -148,9 +151,10 @@
             layout_Buttons.Controls.Add(btn_AddStudent);
             layout_Buttons.Controls.Add(btn_DeleteStudent);
             layout_Buttons.Controls.Add(btn_UpdateStudent);
-            layout_Buttons.Location = new Point(200, 550);
+            layout_Buttons.Location = new Point(229, 733);
+            layout_Buttons.Margin = new Padding(3, 4, 3, 4);
             layout_Buttons.Name = "layout_Buttons";
-            layout_Buttons.Size = new Size(556, 50);
+            layout_Buttons.Size = new Size(635, 67);
             layout_Buttons.TabIndex = 5;
             // 
             // btn_AddStudent
@@ -162,11 +166,11 @@
             btn_AddStudent.Font = new Font("Microsoft Sans Serif", 14F);
             btn_AddStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_AddStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_AddStudent.Location = new Point(30, 3);
-            btn_AddStudent.Margin = new Padding(30, 3, 3, 3);
+            btn_AddStudent.Location = new Point(34, 4);
+            btn_AddStudent.Margin = new Padding(34, 4, 3, 4);
             btn_AddStudent.Name = "btn_AddStudent";
             btn_AddStudent.PrimaryColor = Color.FromArgb(0, 192, 0);
-            btn_AddStudent.Size = new Size(144, 40);
+            btn_AddStudent.Size = new Size(165, 53);
             btn_AddStudent.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_AddStudent.TabIndex = 2;
             btn_AddStudent.Text = "Add New";
@@ -183,11 +187,11 @@
             btn_DeleteStudent.Font = new Font("Microsoft Sans Serif", 14F);
             btn_DeleteStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_DeleteStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_DeleteStudent.Location = new Point(207, 3);
-            btn_DeleteStudent.Margin = new Padding(30, 3, 3, 3);
+            btn_DeleteStudent.Location = new Point(236, 4);
+            btn_DeleteStudent.Margin = new Padding(34, 4, 3, 4);
             btn_DeleteStudent.Name = "btn_DeleteStudent";
             btn_DeleteStudent.PrimaryColor = Color.Red;
-            btn_DeleteStudent.Size = new Size(144, 40);
+            btn_DeleteStudent.Size = new Size(165, 53);
             btn_DeleteStudent.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_DeleteStudent.TabIndex = 3;
             btn_DeleteStudent.Text = "Delete";
@@ -203,11 +207,11 @@
             btn_UpdateStudent.Font = new Font("Microsoft Sans Serif", 14F);
             btn_UpdateStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_UpdateStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_UpdateStudent.Location = new Point(384, 3);
-            btn_UpdateStudent.Margin = new Padding(30, 3, 3, 3);
+            btn_UpdateStudent.Location = new Point(438, 4);
+            btn_UpdateStudent.Margin = new Padding(34, 4, 3, 4);
             btn_UpdateStudent.Name = "btn_UpdateStudent";
             btn_UpdateStudent.PrimaryColor = Color.FromArgb(255, 128, 0);
-            btn_UpdateStudent.Size = new Size(144, 40);
+            btn_UpdateStudent.Size = new Size(165, 53);
             btn_UpdateStudent.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_UpdateStudent.TabIndex = 4;
             btn_UpdateStudent.Text = "Update";
@@ -225,7 +229,8 @@
             tb_SearchStudent.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tb_SearchStudent.HideSelection = true;
             tb_SearchStudent.LeadingIcon = (Image)resources.GetObject("tb_SearchStudent.LeadingIcon");
-            tb_SearchStudent.Location = new Point(700, 66);
+            tb_SearchStudent.Location = new Point(800, 88);
+            tb_SearchStudent.Margin = new Padding(3, 4, 3, 4);
             tb_SearchStudent.MaxLength = 100;
             tb_SearchStudent.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_SearchStudent.Name = "tb_SearchStudent";
@@ -237,7 +242,7 @@
             tb_SearchStudent.SelectionLength = 0;
             tb_SearchStudent.SelectionStart = 0;
             tb_SearchStudent.ShortcutsEnabled = true;
-            tb_SearchStudent.Size = new Size(250, 48);
+            tb_SearchStudent.Size = new Size(286, 48);
             tb_SearchStudent.TabIndex = 1;
             tb_SearchStudent.TabStop = false;
             tb_SearchStudent.Text = "Search";
@@ -275,7 +280,8 @@
             dgv_Student.EnableHeadersVisualStyles = false;
             dgv_Student.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Student.GridColor = Color.FromArgb(255, 255, 255);
-            dgv_Student.Location = new Point(50, 120);
+            dgv_Student.Location = new Point(57, 160);
+            dgv_Student.Margin = new Padding(3, 4, 3, 4);
             dgv_Student.Name = "dgv_Student";
             dgv_Student.ReadOnly = true;
             dgv_Student.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -287,9 +293,10 @@
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgv_Student.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dgv_Student.RowHeadersWidth = 51;
             dgv_Student.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_Student.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Student.Size = new Size(900, 400);
+            dgv_Student.Size = new Size(1029, 533);
             dgv_Student.TabIndex = 0;
             dgv_Student.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             dgv_Student.UseCustomBackColor = true;
@@ -303,9 +310,10 @@
             tab_Teacher.Controls.Add(flowLayoutPanel1);
             tab_Teacher.Controls.Add(tb_SearchTeacher);
             tab_Teacher.Location = new Point(204, 4);
+            tab_Teacher.Margin = new Padding(3, 4, 3, 4);
             tab_Teacher.Name = "tab_Teacher";
-            tab_Teacher.Padding = new Padding(3);
-            tab_Teacher.Size = new Size(992, 652);
+            tab_Teacher.Padding = new Padding(3, 4, 3, 4);
+            tab_Teacher.Size = new Size(1163, 885);
             tab_Teacher.TabIndex = 2;
             tab_Teacher.Text = "Teacher";
             // 
@@ -339,7 +347,8 @@
             dgv_Teacher.EnableHeadersVisualStyles = false;
             dgv_Teacher.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Teacher.GridColor = Color.FromArgb(255, 255, 255);
-            dgv_Teacher.Location = new Point(50, 120);
+            dgv_Teacher.Location = new Point(57, 160);
+            dgv_Teacher.Margin = new Padding(3, 4, 3, 4);
             dgv_Teacher.Name = "dgv_Teacher";
             dgv_Teacher.ReadOnly = true;
             dgv_Teacher.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -351,9 +360,10 @@
             dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             dgv_Teacher.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_Teacher.RowHeadersWidth = 51;
             dgv_Teacher.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_Teacher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Teacher.Size = new Size(900, 400);
+            dgv_Teacher.Size = new Size(1029, 533);
             dgv_Teacher.TabIndex = 9;
             dgv_Teacher.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
             dgv_Teacher.UseCustomBackColor = true;
@@ -366,9 +376,10 @@
             flowLayoutPanel1.Controls.Add(btn_AddTeacher);
             flowLayoutPanel1.Controls.Add(btn_DeleteTeacher);
             flowLayoutPanel1.Controls.Add(btn_UpdateTeacher);
-            flowLayoutPanel1.Location = new Point(200, 550);
+            flowLayoutPanel1.Location = new Point(229, 733);
+            flowLayoutPanel1.Margin = new Padding(3, 4, 3, 4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(556, 50);
+            flowLayoutPanel1.Size = new Size(635, 67);
             flowLayoutPanel1.TabIndex = 8;
             // 
             // btn_AddTeacher
@@ -380,16 +391,17 @@
             btn_AddTeacher.Font = new Font("Microsoft Sans Serif", 14F);
             btn_AddTeacher.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_AddTeacher.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_AddTeacher.Location = new Point(30, 3);
-            btn_AddTeacher.Margin = new Padding(30, 3, 3, 3);
+            btn_AddTeacher.Location = new Point(34, 4);
+            btn_AddTeacher.Margin = new Padding(34, 4, 3, 4);
             btn_AddTeacher.Name = "btn_AddTeacher";
             btn_AddTeacher.PrimaryColor = Color.FromArgb(0, 192, 0);
-            btn_AddTeacher.Size = new Size(144, 40);
+            btn_AddTeacher.Size = new Size(165, 53);
             btn_AddTeacher.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_AddTeacher.TabIndex = 2;
             btn_AddTeacher.Text = "Add New";
             btn_AddTeacher.TextColor = Color.White;
             btn_AddTeacher.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_AddTeacher.Click += btn_AddTeacher_Click;
             // 
             // btn_DeleteTeacher
             // 
@@ -400,11 +412,11 @@
             btn_DeleteTeacher.Font = new Font("Microsoft Sans Serif", 14F);
             btn_DeleteTeacher.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_DeleteTeacher.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_DeleteTeacher.Location = new Point(207, 3);
-            btn_DeleteTeacher.Margin = new Padding(30, 3, 3, 3);
+            btn_DeleteTeacher.Location = new Point(236, 4);
+            btn_DeleteTeacher.Margin = new Padding(34, 4, 3, 4);
             btn_DeleteTeacher.Name = "btn_DeleteTeacher";
             btn_DeleteTeacher.PrimaryColor = Color.Red;
-            btn_DeleteTeacher.Size = new Size(144, 40);
+            btn_DeleteTeacher.Size = new Size(165, 53);
             btn_DeleteTeacher.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_DeleteTeacher.TabIndex = 3;
             btn_DeleteTeacher.Text = "Delete";
@@ -420,11 +432,11 @@
             btn_UpdateTeacher.Font = new Font("Microsoft Sans Serif", 14F);
             btn_UpdateTeacher.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_UpdateTeacher.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_UpdateTeacher.Location = new Point(384, 3);
-            btn_UpdateTeacher.Margin = new Padding(30, 3, 3, 3);
+            btn_UpdateTeacher.Location = new Point(438, 4);
+            btn_UpdateTeacher.Margin = new Padding(34, 4, 3, 4);
             btn_UpdateTeacher.Name = "btn_UpdateTeacher";
             btn_UpdateTeacher.PrimaryColor = Color.FromArgb(255, 128, 0);
-            btn_UpdateTeacher.Size = new Size(144, 40);
+            btn_UpdateTeacher.Size = new Size(165, 53);
             btn_UpdateTeacher.SuccessColor = Color.FromArgb(103, 194, 58);
             btn_UpdateTeacher.TabIndex = 4;
             btn_UpdateTeacher.Text = "Update";
@@ -442,7 +454,8 @@
             tb_SearchTeacher.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tb_SearchTeacher.HideSelection = true;
             tb_SearchTeacher.LeadingIcon = (Image)resources.GetObject("tb_SearchTeacher.LeadingIcon");
-            tb_SearchTeacher.Location = new Point(700, 66);
+            tb_SearchTeacher.Location = new Point(800, 88);
+            tb_SearchTeacher.Margin = new Padding(3, 4, 3, 4);
             tb_SearchTeacher.MaxLength = 100;
             tb_SearchTeacher.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_SearchTeacher.Name = "tb_SearchTeacher";
@@ -454,7 +467,7 @@
             tb_SearchTeacher.SelectionLength = 0;
             tb_SearchTeacher.SelectionStart = 0;
             tb_SearchTeacher.ShortcutsEnabled = true;
-            tb_SearchTeacher.Size = new Size(250, 48);
+            tb_SearchTeacher.Size = new Size(286, 48);
             tb_SearchTeacher.TabIndex = 7;
             tb_SearchTeacher.TabStop = false;
             tb_SearchTeacher.Text = "Search";
@@ -466,9 +479,10 @@
             // 
             tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
             tab_Subject.Location = new Point(204, 4);
+            tab_Subject.Margin = new Padding(3, 4, 3, 4);
             tab_Subject.Name = "tab_Subject";
-            tab_Subject.Padding = new Padding(3);
-            tab_Subject.Size = new Size(992, 652);
+            tab_Subject.Padding = new Padding(3, 4, 3, 4);
+            tab_Subject.Size = new Size(1163, 885);
             tab_Subject.TabIndex = 3;
             tab_Subject.Text = "Subject";
             // 
@@ -476,9 +490,10 @@
             // 
             tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
             tab_Logs.Location = new Point(204, 4);
+            tab_Logs.Margin = new Padding(3, 4, 3, 4);
             tab_Logs.Name = "tab_Logs";
-            tab_Logs.Padding = new Padding(3);
-            tab_Logs.Size = new Size(992, 652);
+            tab_Logs.Padding = new Padding(3, 4, 3, 4);
+            tab_Logs.Size = new Size(1163, 872);
             tab_Logs.TabIndex = 4;
             tab_Logs.Text = "Logs";
             // 
@@ -486,9 +501,10 @@
             // 
             tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
             tab_Reports.Location = new Point(204, 4);
+            tab_Reports.Margin = new Padding(3, 4, 3, 4);
             tab_Reports.Name = "tab_Reports";
-            tab_Reports.Padding = new Padding(3);
-            tab_Reports.Size = new Size(992, 652);
+            tab_Reports.Padding = new Padding(3, 4, 3, 4);
+            tab_Reports.Size = new Size(1163, 872);
             tab_Reports.TabIndex = 5;
             tab_Reports.Text = "Reports";
             // 
@@ -497,9 +513,10 @@
             tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
+            tab_Settings.Margin = new Padding(3, 4, 3, 4);
             tab_Settings.Name = "tab_Settings";
-            tab_Settings.Padding = new Padding(3);
-            tab_Settings.Size = new Size(992, 652);
+            tab_Settings.Padding = new Padding(3, 4, 3, 4);
+            tab_Settings.Size = new Size(1163, 872);
             tab_Settings.TabIndex = 6;
             tab_Settings.Text = "Settings";
             // 
@@ -512,15 +529,16 @@
             btn_Logout.HoverBackColor = Color.FromArgb(50, 242, 93, 89);
             btn_Logout.HoverForeColor = Color.White;
             btn_Logout.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            btn_Logout.Location = new Point(6, 6);
-            btn_Logout.MinimumSize = new Size(144, 47);
+            btn_Logout.Location = new Point(7, 8);
+            btn_Logout.Margin = new Padding(3, 4, 3, 4);
+            btn_Logout.MinimumSize = new Size(165, 63);
             btn_Logout.Name = "btn_Logout";
             btn_Logout.NormalBackColor = Color.FromArgb(242, 93, 89);
             btn_Logout.PixelOffsetType = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
             btn_Logout.PressedBackColor = Color.FromArgb(100, 242, 93, 89);
             btn_Logout.PressedForeColor = Color.White;
             btn_Logout.Radius = 20;
-            btn_Logout.Size = new Size(144, 47);
+            btn_Logout.Size = new Size(165, 63);
             btn_Logout.SmoothingType = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             btn_Logout.TabIndex = 0;
             btn_Logout.Text = "Logout";
@@ -536,23 +554,25 @@
             hope_AdminDashboard.ForeColor = Color.FromArgb(242, 246, 252);
             hope_AdminDashboard.Image = Properties.Resources.FormIcon;
             hope_AdminDashboard.Location = new Point(0, 0);
+            hope_AdminDashboard.Margin = new Padding(3, 4, 3, 4);
             hope_AdminDashboard.Name = "hope_AdminDashboard";
-            hope_AdminDashboard.Size = new Size(1200, 40);
+            hope_AdminDashboard.Size = new Size(1371, 40);
             hope_AdminDashboard.TabIndex = 0;
             hope_AdminDashboard.Text = "Admin Dashboard";
             hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
             // AdminDashboard
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.ControlDarkDark;
-            ClientSize = new Size(1200, 700);
+            ClientSize = new Size(1371, 933);
             Controls.Add(tab_Control);
             Controls.Add(hope_AdminDashboard);
             FormBorderStyle = FormBorderStyle.None;
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(1920, 1040);
+            Margin = new Padding(3, 4, 3, 4);
+            MaximumSize = new Size(2194, 1387);
             MinimumSize = new Size(190, 40);
             Name = "AdminDashboard";
             StartPosition = FormStartPosition.CenterScreen;
