@@ -46,12 +46,12 @@
             tb_SearchStudent = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             dgv_Student = new ReaLTaiizor.Controls.PoisonDataGridView();
             tab_Teacher = new TabPage();
+            dgv_Teacher = new ReaLTaiizor.Controls.PoisonDataGridView();
             flowLayoutPanel1 = new FlowLayoutPanel();
             btn_AddTeacher = new ReaLTaiizor.Controls.HopeButton();
             btn_DeleteTeacher = new ReaLTaiizor.Controls.HopeButton();
             btn_UpdateTeacher = new ReaLTaiizor.Controls.HopeButton();
             tb_SearchTeacher = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            dgv_Teacher = new ReaLTaiizor.Controls.PoisonDataGridView();
             tab_Subject = new TabPage();
             tab_Logs = new TabPage();
             tab_Reports = new TabPage();
@@ -65,8 +65,8 @@
             layout_Buttons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Student).BeginInit();
             tab_Teacher.SuspendLayout();
-            flowLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Teacher).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             tab_Settings.SuspendLayout();
             SuspendLayout();
             // 
@@ -172,6 +172,7 @@
             btn_AddStudent.Text = "Add New";
             btn_AddStudent.TextColor = Color.White;
             btn_AddStudent.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_AddStudent.Click += btn_AddStudent_Click;
             // 
             // btn_DeleteStudent
             // 
@@ -255,10 +256,10 @@
             dgv_Student.CellBorderStyle = DataGridViewCellBorderStyle.None;
             dgv_Student.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle1.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle1.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle1.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgv_Student.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
@@ -267,7 +268,7 @@
             dataGridViewCellStyle2.BackColor = Color.FromArgb(255, 255, 255);
             dataGridViewCellStyle2.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle2.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle2.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
             dgv_Student.DefaultCellStyle = dataGridViewCellStyle2;
@@ -279,31 +280,85 @@
             dgv_Student.ReadOnly = true;
             dgv_Student.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(0, 174, 219);
             dataGridViewCellStyle3.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(0, 198, 247);
             dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(17, 17, 17);
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
             dgv_Student.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_Student.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_Student.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv_Student.Size = new Size(900, 400);
-            dgv_Student.Style = ReaLTaiizor.Enum.Poison.ColorStyle.White;
             dgv_Student.TabIndex = 0;
+            dgv_Student.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            dgv_Student.UseCustomBackColor = true;
+            dgv_Student.UseCustomForeColor = true;
+            dgv_Student.UseStyleColors = true;
             // 
             // tab_Teacher
             // 
             tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.Controls.Add(dgv_Teacher);
             tab_Teacher.Controls.Add(flowLayoutPanel1);
             tab_Teacher.Controls.Add(tb_SearchTeacher);
-            tab_Teacher.Controls.Add(dgv_Teacher);
             tab_Teacher.Location = new Point(204, 4);
             tab_Teacher.Name = "tab_Teacher";
             tab_Teacher.Padding = new Padding(3);
             tab_Teacher.Size = new Size(992, 652);
             tab_Teacher.TabIndex = 2;
             tab_Teacher.Text = "Teacher";
+            // 
+            // dgv_Teacher
+            // 
+            dgv_Teacher.AllowUserToAddRows = false;
+            dgv_Teacher.AllowUserToDeleteRows = false;
+            dgv_Teacher.AllowUserToResizeRows = false;
+            dgv_Teacher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Teacher.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Teacher.BorderStyle = BorderStyle.None;
+            dgv_Teacher.CellBorderStyle = DataGridViewCellBorderStyle.None;
+            dgv_Teacher.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Teacher.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv_Teacher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Teacher.DefaultCellStyle = dataGridViewCellStyle5;
+            dgv_Teacher.EnableHeadersVisualStyles = false;
+            dgv_Teacher.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_Teacher.GridColor = Color.FromArgb(255, 255, 255);
+            dgv_Teacher.Location = new Point(50, 120);
+            dgv_Teacher.Name = "dgv_Teacher";
+            dgv_Teacher.ReadOnly = true;
+            dgv_Teacher.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(0, 174, 219);
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(0, 198, 247);
+            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Teacher.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_Teacher.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_Teacher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Teacher.Size = new Size(900, 400);
+            dgv_Teacher.TabIndex = 9;
+            dgv_Teacher.Theme = ReaLTaiizor.Enum.Poison.ThemeStyle.Light;
+            dgv_Teacher.UseCustomBackColor = true;
+            dgv_Teacher.UseCustomForeColor = true;
+            dgv_Teacher.UseStyleColors = true;
             // 
             // flowLayoutPanel1
             // 
@@ -406,54 +461,6 @@
             tb_SearchTeacher.TextAlign = HorizontalAlignment.Left;
             tb_SearchTeacher.TrailingIcon = null;
             tb_SearchTeacher.UseSystemPasswordChar = false;
-            // 
-            // dgv_Teacher
-            // 
-            dgv_Teacher.AllowUserToAddRows = false;
-            dgv_Teacher.AllowUserToDeleteRows = false;
-            dgv_Teacher.AllowUserToResizeRows = false;
-            dgv_Teacher.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_Teacher.BackgroundColor = Color.FromArgb(255, 255, 255);
-            dgv_Teacher.BorderStyle = BorderStyle.None;
-            dgv_Teacher.CellBorderStyle = DataGridViewCellBorderStyle.None;
-            dgv_Teacher.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.Font = new Font("Microsoft Sans Serif", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle4.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle4.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgv_Teacher.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgv_Teacher.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.FromArgb(136, 136, 136);
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle5.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgv_Teacher.DefaultCellStyle = dataGridViewCellStyle5;
-            dgv_Teacher.EnableHeadersVisualStyles = false;
-            dgv_Teacher.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dgv_Teacher.GridColor = Color.FromArgb(255, 255, 255);
-            dgv_Teacher.Location = new Point(50, 120);
-            dgv_Teacher.Name = "dgv_Teacher";
-            dgv_Teacher.ReadOnly = true;
-            dgv_Teacher.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(17, 17, 17);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgv_Teacher.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dgv_Teacher.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgv_Teacher.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Teacher.Size = new Size(900, 400);
-            dgv_Teacher.Style = ReaLTaiizor.Enum.Poison.ColorStyle.White;
-            dgv_Teacher.TabIndex = 6;
             // 
             // tab_Subject
             // 
@@ -560,8 +567,8 @@
             ((System.ComponentModel.ISupportInitialize)dgv_Student).EndInit();
             tab_Teacher.ResumeLayout(false);
             tab_Teacher.PerformLayout();
-            flowLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgv_Teacher).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             tab_Settings.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -587,8 +594,8 @@
         private ReaLTaiizor.Controls.HopeButton btn_DeleteTeacher;
         private ReaLTaiizor.Controls.HopeButton btn_UpdateTeacher;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_SearchTeacher;
-        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Teacher;
         private ReaLTaiizor.Controls.NightButton btn_Logout;
         private Label lbl_Welcome;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Teacher;
     }
 }

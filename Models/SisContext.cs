@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using Student_Information_System.Utilities;
 
 namespace Student_Information_System.Models;
 
@@ -31,7 +32,7 @@ public partial class SisContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlite(@"C:\Users\Admin\Source\Repos\SIS_tim\SIS.db");
+        => optionsBuilder.UseSqlite(Account.SqliteDbPath());
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

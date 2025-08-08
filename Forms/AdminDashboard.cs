@@ -25,6 +25,11 @@ namespace Student_Information_System.Forms
             GetUserInfo(user_id);
             lbl_Welcome.Text = $"Welcom {user[1]}";
 
+            RefreshTable();
+        }
+
+        private void RefreshTable()
+        {
             using (var context = new SisContext())
             {
                 var users = context.Users
@@ -60,6 +65,7 @@ namespace Student_Information_System.Forms
 
                 dgv_Teacher.DataSource = users;
             }
+
         }
 
         private void GetUserInfo(int user_id)
@@ -83,6 +89,18 @@ namespace Student_Information_System.Forms
             {
                 this.Close();
             }
+        }
+
+        private void btn_AddStudent_Click(object sender, EventArgs e)
+        {
+            Form StudentAddForm = new UserAdd(false);
+            StudentAddForm.FormClosed += (s, args) =>
+            {
+                this.Show();
+                RefreshTable();
+            };
+
+            StudentAddForm.Show();
         }
     }
 }

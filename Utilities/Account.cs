@@ -36,10 +36,28 @@ namespace Student_Information_System.Utilities
                     Cryptography.VerifyPassword(password, (byte[])r["password_salt"], (byte[])r["password_hash"]))
                 {
                     return r.GetInt32(0);
-                }      
-                
+                }
+
                 return -1;
             }
+        }
+
+        public static int GetLastId()
+        {
+            string query = $"SELECT MAX(user_id) FROM User";
+
+            using (var conn = new SqliteConnection(SqliteDbPath()))
+            {
+                conn.Open();
+
+                var reader = new SqliteCommand(query, conn).ExecuteReader();
+                if (reader.Read())
+                {
+                    return reader.GetInt32(0) + 1;
+                }
+            }
+
+            return -1;
         }
     }
 }
