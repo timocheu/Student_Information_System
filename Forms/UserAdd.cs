@@ -18,11 +18,11 @@ namespace Student_Information_System.Forms
     {
         private bool isTeacher = false;
         private int currentID = -1;
+        private bool showPass = false;
 
         private User? _user;
         private UserLogin? _userLogin;
-        private Teacher teacher;
-        private Student student;
+
 
         public UserAdd(bool IsTeacher)
         {
@@ -52,28 +52,29 @@ namespace Student_Information_System.Forms
 
             using (SisContext db = new SisContext())
             {
-                db.Users.Add(_user!);
-                db.UserLogins.Add(_userLogin);
-
-
                 if (isTeacher)
                 {
-                    teacher.UserId = currentID;
-                    teacher.HireDate = DateTime.Now.ToShortDateString();
-                    teacher.Department = tb_Department.Text;
-                    teacher.Specialization = tb_Specialization.Text;
-                    teacher.Status = 1;
-
-                    db.Teachers.Add(teacher);
+                    _user.Teacher = new Teacher
+                    {
+                        UserId = currentID,
+                        HireDate = DateTime.Now.ToShortDateString(),
+                        Department = tb_Department.Text,
+                        Specialization = tb_Specialization.Text,
+                        Status = 1
+                    };
                 }
                 else
                 {
-                    student.UserId = currentID;
-                    student.EnrollmentDate = DateTime.Now.ToShortDateString();
-                    student.Status = 1;
-
-                    db.Students.Add(student);
+                    _user.Student = new Student
+                    {
+                        UserId = currentID,
+                        EnrollmentDate = DateTime.Now.ToShortDateString(),
+                        Status = 1
+                    };
                 }
+
+                db.Users.Add(_user!);
+                db.UserLogins.Add(_userLogin);
 
                 db.SaveChanges();
             }
@@ -159,6 +160,22 @@ namespace Student_Information_System.Forms
             {
                 pnl_UserLogin.Enabled = false;
                 pnl_UserDetails.Enabled = true;
+            }
+        }
+
+        private void ShowPassword(object sender, EventArgs e)
+        {
+            tb_UserPassword.UseSystemPasswordChar ^= true;
+            showPass ^= true;
+
+            if (showPass)
+            {
+                tb_UserPassword.PasswordChar = '\0';
+                tb_UserPassword.TrailingIcon = Properties.Resources.view;
+            } 
+            else
+            {
+                tb_UserPassword.TrailingIcon = Properties.Resources.eye;
             }
         }
     }

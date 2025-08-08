@@ -141,7 +141,7 @@
             tab_Student.Margin = new Padding(3, 4, 3, 4);
             tab_Student.Name = "tab_Student";
             tab_Student.Padding = new Padding(3, 4, 3, 4);
-            tab_Student.Size = new Size(1163, 872);
+            tab_Student.Size = new Size(1163, 885);
             tab_Student.TabIndex = 1;
             tab_Student.Text = "Student";
             // 
@@ -493,7 +493,7 @@
             tab_Logs.Margin = new Padding(3, 4, 3, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3, 4, 3, 4);
-            tab_Logs.Size = new Size(1163, 872);
+            tab_Logs.Size = new Size(1163, 885);
             tab_Logs.TabIndex = 4;
             tab_Logs.Text = "Logs";
             // 
@@ -504,7 +504,7 @@
             tab_Reports.Margin = new Padding(3, 4, 3, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3, 4, 3, 4);
-            tab_Reports.Size = new Size(1163, 872);
+            tab_Reports.Size = new Size(1163, 885);
             tab_Reports.TabIndex = 5;
             tab_Reports.Text = "Reports";
             // 
@@ -516,7 +516,7 @@
             tab_Settings.Margin = new Padding(3, 4, 3, 4);
             tab_Settings.Name = "tab_Settings";
             tab_Settings.Padding = new Padding(3, 4, 3, 4);
-            tab_Settings.Size = new Size(1163, 872);
+            tab_Settings.Size = new Size(1163, 885);
             tab_Settings.TabIndex = 6;
             tab_Settings.Text = "Settings";
             // 
