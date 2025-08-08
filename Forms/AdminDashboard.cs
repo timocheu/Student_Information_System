@@ -43,7 +43,6 @@ namespace Student_Information_System.Forms
                                        u.Gender,
                                        u.Email,
                                        u.Phone,
-                                       u.Role,
                                        Enrollment_Date = u.Student.EnrollmentDate,
                                    })
                                    .ToList();
@@ -57,7 +56,7 @@ namespace Student_Information_System.Forms
             using (var context = new SisContext())
             {
                 var users = context.Users
-                                   .Where(u => u.Role == 2 && u.Teacher.Status == 1)
+                                   .Where(u => u.Role == 2 && u.Teacher != null && u.Teacher.Status == 1)
                                    .Select(u => new
                                    {
                                        u.UserId,
@@ -66,8 +65,8 @@ namespace Student_Information_System.Forms
                                        u.Gender,
                                        u.Email,
                                        u.Phone,
-                                       u.Teacher.Department,
-                                       u.Teacher.Specialization,
+                                       Department = u.Teacher != null ? u.Teacher.Department : null,
+                                       Specialization = u.Teacher != null ? u.Teacher.Specialization : null,
                                    })
                                    .ToList();
 
@@ -91,35 +90,25 @@ namespace Student_Information_System.Forms
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
-            if (result == DialogResult.Yes)
-            {
-                this.Close();
-            }
+
+            if (result == DialogResult.Yes) this.Close();
         }
 
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
-            Form StudentAddForm = new UserAdd(false);
-            StudentAddForm.FormClosed += (s, args) =>
-            {
-                this.Show();
-                RefreshStudent();
-            };
+            Form StudentAddForm = new UserAdd(IsTeacher: false);
+            StudentAddForm.FormClosed += (s, args) => this.Enabled = true;
 
-            this.Hide();
+            this.Enabled = false;
             StudentAddForm.Show();
         }
 
         private void btn_AddTeacher_Click(object sender, EventArgs e)
         {
-            Form TeacherAddForm = new UserAdd(false);
-            TeacherAddForm.FormClosed += (s, args) =>
-            {
-                this.Show();
-                RefreshStudent();
-            };
+            Form TeacherAddForm = new UserAdd(IsTeacher: true);
+            TeacherAddForm.FormClosed += (s, args) => this.Enabled = true;
 
-            this.Hide();
+            this.Enabled = false;
             TeacherAddForm.Show();
         }
 

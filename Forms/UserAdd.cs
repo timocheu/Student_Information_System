@@ -47,41 +47,38 @@ namespace Student_Information_System.Forms
             var result = PoisonMessageBox.Show(this, "Are you sure this is the correct information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
             if (result == DialogResult.Yes)
             {
+                using (SisContext db = new SisContext())
+                {
+                    if (isTeacher)
+                    {
+                        _user.Teacher = new Teacher
+                        {
+                            UserId = currentID,
+                            HireDate = DateTime.Now.ToShortDateString(),
+                            Department = tb_Department.Text,
+                            Specialization = tb_Specialization.Text,
+                            Status = 1
+                        };
+                    }
+                    else
+                    {
+                        _user.Student = new Student
+                        {
+                            UserId = currentID,
+                            EnrollmentDate = DateTime.Now.ToShortDateString(),
+                            Status = 1
+                        };
+                    }
+
+                    db.Users.Add(_user!);
+                    db.UserLogins.Add(_userLogin);
+
+                    db.SaveChanges();
+                }
+
                 this.Close();
             }
-
-            using (SisContext db = new SisContext())
-            {
-                if (isTeacher)
-                {
-                    _user.Teacher = new Teacher
-                    {
-                        UserId = currentID,
-                        HireDate = DateTime.Now.ToShortDateString(),
-                        Department = tb_Department.Text,
-                        Specialization = tb_Specialization.Text,
-                        Status = 1
-                    };
-                }
-                else
-                {
-                    _user.Student = new Student
-                    {
-                        UserId = currentID,
-                        EnrollmentDate = DateTime.Now.ToShortDateString(),
-                        Status = 1
-                    };
-                }
-
-                db.Users.Add(_user!);
-                db.UserLogins.Add(_userLogin);
-
-                db.SaveChanges();
-            }
-
-            this.Close();
         }
-
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -148,8 +145,6 @@ namespace Student_Information_System.Forms
                 pnl_UserLogin.Enabled = true;
             }
         }
-        
-
 
         private void btn_Back_Click(object sender, EventArgs e)
         {
