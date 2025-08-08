@@ -122,5 +122,8 @@ namespace Student_Information_System.Forms
             this.Hide();
             TeacherAddForm.Show();
         }
+
+        private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudent();
+        private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
     }
 }
