@@ -25,49 +25,56 @@ namespace Student_Information_System.Forms
             GetUserInfo(user_id);
             lbl_Welcome.Text = $"Welcom {user[1]}";
 
-            RefreshTable();
+            RefreshTeacher();
+            RefreshStudent();
         }
 
-        private void RefreshTable()
+        private void RefreshStudent()
         {
             using (var context = new SisContext())
             {
                 var users = context.Users
+                                   .Where(u => u.Role == 3 && u.Student.Status == 1)
                                    .Select(u => new
                                    {
                                        u.UserId,
                                        u.FirstName,
                                        u.LastName,
+                                       u.Gender,
                                        u.Email,
                                        u.Phone,
                                        u.Role,
+                                       Enrollment_Date = u.Student.EnrollmentDate,
                                    })
-                                   .Where(u => u.Role == 3)
                                    .ToList();
 
                 dgv_Student.DataSource = users;
             }
+        }
 
+        private void RefreshTeacher()
+        {
             using (var context = new SisContext())
             {
                 var users = context.Users
+                                   .Where(u => u.Role == 2 && u.Teacher.Status == 1)
                                    .Select(u => new
                                    {
                                        u.UserId,
                                        u.FirstName,
                                        u.LastName,
+                                       u.Gender,
                                        u.Email,
                                        u.Phone,
-                                       u.Role,
+                                       u.Teacher.Department,
+                                       u.Teacher.Specialization,
                                    })
-                                   .Where(u => u.Role == 2)
                                    .ToList();
 
                 dgv_Teacher.DataSource = users;
             }
 
         }
-
         private void GetUserInfo(int user_id)
         {
             using var conn = new SqliteConnection(Account.SqliteDbPath());
@@ -84,7 +91,6 @@ namespace Student_Information_System.Forms
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
-
             if (result == DialogResult.Yes)
             {
                 this.Close();
@@ -97,9 +103,10 @@ namespace Student_Information_System.Forms
             StudentAddForm.FormClosed += (s, args) =>
             {
                 this.Show();
-                RefreshTable();
+                RefreshStudent();
             };
 
+            this.Hide();
             StudentAddForm.Show();
         }
     }

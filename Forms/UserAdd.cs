@@ -17,11 +17,12 @@ namespace Student_Information_System.Forms
     public partial class UserAdd : Form
     {
         private bool isTeacher = false;
-        private User? _user;
-        private UserLogin? _userLogin;
         private int currentID = -1;
 
-
+        private User? _user;
+        private UserLogin? _userLogin;
+        private Teacher teacher;
+        private Student student;
 
         public UserAdd(bool IsTeacher)
         {
@@ -54,11 +55,32 @@ namespace Student_Information_System.Forms
                 db.Users.Add(_user!);
                 db.UserLogins.Add(_userLogin);
 
+
+                if (isTeacher)
+                {
+                    teacher.UserId = currentID;
+                    teacher.HireDate = DateTime.Now.ToShortDateString();
+                    teacher.Department = tb_Department.Text;
+                    teacher.Specialization = tb_Specialization.Text;
+                    teacher.Status = 1;
+
+                    db.Teachers.Add(teacher);
+                }
+                else
+                {
+                    student.UserId = currentID;
+                    student.EnrollmentDate = DateTime.Now.ToShortDateString();
+                    student.Status = 1;
+
+                    db.Students.Add(student);
+                }
+
                 db.SaveChanges();
             }
 
             this.Close();
         }
+
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -107,6 +129,8 @@ namespace Student_Information_System.Forms
                 Phone = tb_Phone.Text,
             };
 
+
+            // Add login
             _userLogin = new UserLogin()
             {
                 UserId = currentID,
@@ -123,6 +147,7 @@ namespace Student_Information_System.Forms
                 pnl_UserLogin.Enabled = true;
             }
         }
+        
 
 
         private void btn_Back_Click(object sender, EventArgs e)
