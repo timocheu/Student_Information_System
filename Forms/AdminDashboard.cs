@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
 using Student_Information_System.Utilities;
@@ -29,6 +30,28 @@ namespace Student_Information_System.Forms
             RefreshStudent();
         }
 
+        private void GetUserInfo(int user_id)
+        {
+            using var conn = new SqliteConnection(Account.SqliteDbPath());
+            conn.Open();
+
+            using var cmd = new SqliteCommand($"SELECT * FROM User WHERE user_id = {user_id}", conn);
+            using var r = cmd.ExecuteReader();
+
+            if (!r.Read()) return;
+
+            int fields = r.GetValues(user!);
+        }
+
+        private void btn_Logout_Click(object sender, EventArgs e)
+        {
+            var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+
+            if (result == DialogResult.Yes) this.Close();
+        }
+
+
+        #region Student features
         private void RefreshStudent()
         {
             using (var context = new SisContext())
@@ -50,7 +73,49 @@ namespace Student_Information_System.Forms
                 dgv_Student.DataSource = users;
             }
         }
+        private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudent();
 
+
+        private void btn_AddStudent_Click(object sender, EventArgs e)
+        {
+            Form StudentAddForm = new UserAdd(IsTeacher: false);
+            StudentAddForm.FormClosed += (s, args) => this.Enabled = true;
+
+            this.Enabled = false;
+            StudentAddForm.Show();
+        }
+
+        private void btn_DeleteStudent_Click(object sender, EventArgs e)
+        {
+            if (dgv_Student.SelectedRows.Count > 0)
+            {
+                var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+                if (result == DialogResult.Yes)
+                {
+                    using SisContext db = new();
+
+                    HashSet<int> ids = dgv_Student.SelectedRows
+                        .Cast<DataGridViewRow>()
+                        .Select(row => (int)row.Cells[0].Value)
+                        // use hashset for more effecient look up
+                        .ToHashSet<int>();
+
+                    db.Students
+                        .Where(s => ids.Contains(s.UserId))
+                        .ExecuteUpdateAsync(s => s.SetProperty(
+                            s => s.Status,
+                            s => 0));
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select rows first");
+            }
+        }
+
+        #endregion
+
+        #region Teacher features
         private void RefreshTeacher()
         {
             using (var context = new SisContext())
@@ -72,36 +137,8 @@ namespace Student_Information_System.Forms
 
                 dgv_Teacher.DataSource = users;
             }
-
         }
-        private void GetUserInfo(int user_id)
-        {
-            using var conn = new SqliteConnection(Account.SqliteDbPath());
-            conn.Open();
-
-            using var cmd = new SqliteCommand($"SELECT * FROM User WHERE user_id = {user_id}", conn);
-            using var r = cmd.ExecuteReader();
-
-            if (!r.Read()) return;
-
-            int fields = r.GetValues(user!);
-        }
-
-        private void btn_Logout_Click(object sender, EventArgs e)
-        {
-            var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
-
-            if (result == DialogResult.Yes) this.Close();
-        }
-
-        private void btn_AddStudent_Click(object sender, EventArgs e)
-        {
-            Form StudentAddForm = new UserAdd(IsTeacher: false);
-            StudentAddForm.FormClosed += (s, args) => this.Enabled = true;
-
-            this.Enabled = false;
-            StudentAddForm.Show();
-        }
+        private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
 
         private void btn_AddTeacher_Click(object sender, EventArgs e)
         {
@@ -112,23 +149,8 @@ namespace Student_Information_System.Forms
             TeacherAddForm.Show();
         }
 
-        private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudent();
-        private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
+        #endregion
 
-        private void btn_DeleteStudent_Click(object sender, EventArgs e)
-        {
-            if (dgv_Student.SelectedRows.Count > 0)
-            {
-                foreach (DataGridViewRow row in dgv_Student.SelectedRows)
-                {
-                    string message = $"The id selected: {row.Cells[0].Value}";
-                    MessageBox.Show(message);
-                }
-            }
-            else
-            {
-                MessageBox.Show("Select rows first");
-            }
-        }
+
     }
 }

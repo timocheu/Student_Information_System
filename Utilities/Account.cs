@@ -1,9 +1,11 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.Sqlite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Student_Information_System.Models;
 
 namespace Student_Information_System.Utilities
 {
@@ -58,6 +60,17 @@ namespace Student_Information_System.Utilities
             }
 
             return -1;
+        }
+
+        public static async Task DeleteUser(HashSet<int> ids, int role, SisContext database)
+        {
+            // This only changes the status 1 -> 0
+            await database.Students
+                .Where(s => ids.Contains(s.UserId))
+                .ExecuteUpdateAsync(s => s.SetProperty(
+                    s => s.Status,
+                    s => 0));
+
         }
     }
 }
