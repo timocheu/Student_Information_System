@@ -114,5 +114,21 @@ namespace Student_Information_System.Forms
 
         private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudent();
         private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
+
+        private void btn_DeleteStudent_Click(object sender, EventArgs e)
+        {
+            if (dgv_Student.SelectedRows.Count > 0)
+            {
+                foreach (DataGridViewRow row in dgv_Student.SelectedRows)
+                {
+                    string message = $"The id selected: {row.Cells[0].Value}";
+                    MessageBox.Show(message);
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select rows first");
+            }
+        }
     }
 }
