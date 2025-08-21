@@ -113,7 +113,34 @@ namespace Student_Information_System.Forms
             }
         }
 
+        private void btn_UpdateStudent_Click(object sender, EventArgs e)
+        {
+            if (dgv_Student.SelectedRows.Count == 1)
+            {
+                var row = dgv_Student.SelectedRows[0];
+
+                User user;
+                using (SisContext db = new())
+                {
+                    user = db.Users.First(u => u.UserId == (int)row.Cells[0].Value);
+                }
+
+                Form form = new UserAdd(false, user);
+                form.FormClosed += (s, args) => this.Enabled = true;
+
+                this.Enabled = false;
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a single row first");
+            }
+        }
+
         #endregion
+
+
+
 
         #region Teacher features
         private void RefreshTeacher()

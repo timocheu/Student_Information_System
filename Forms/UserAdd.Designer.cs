@@ -205,8 +205,7 @@
             dt_BirthDate.MinDate = new DateTime(1900, 1, 1, 0, 0, 0, 0);
             dt_BirthDate.MinimumSize = new Size(0, 38);
             dt_BirthDate.Name = "dt_BirthDate";
-            dt_BirthDate.RightToLeft = RightToLeft.Yes;
-            dt_BirthDate.RightToLeftLayout = true;
+            dt_BirthDate.RightToLeft = RightToLeft.No;
             dt_BirthDate.Size = new Size(250, 38);
             dt_BirthDate.TabIndex = 43;
             dt_BirthDate.UseCustomFont = true;

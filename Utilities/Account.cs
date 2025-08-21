@@ -62,15 +62,10 @@ namespace Student_Information_System.Utilities
             return -1;
         }
 
-        public static async Task DeleteUser(HashSet<int> ids, int role, SisContext database)
+        public static User GetUser(int user_id, SisContext db)
         {
-            // This only changes the status 1 -> 0
-            await database.Students
-                .Where(s => ids.Contains(s.UserId))
-                .ExecuteUpdateAsync(s => s.SetProperty(
-                    s => s.Status,
-                    s => 0));
 
+            return null;
         }
     }
 }

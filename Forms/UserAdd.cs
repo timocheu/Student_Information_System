@@ -39,6 +39,35 @@ namespace Student_Information_System.Forms
             hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
         }
 
+        // TODO: Transfer to other form for updates
+        // For updating userId
+        public UserAdd(bool IsTeacher, User user)
+        {
+            this.isTeacher = IsTeacher;
+            this.currentID = user.UserId;
+            InitializeComponent();
+
+            if (IsTeacher)
+            {
+                pnl_TeacherEnabled.Enabled = true;
+                pnl_TeacherEnabled.Visible = true;
+
+                tb_Department.Text = user.Teacher?.Department;
+                tb_Specialization.Text = user.Teacher?.Specialization;
+            }
+            // Set ui text
+            hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
+            tb_UserLogin.Text = user.UserLogin?.Username.ToString();
+
+            tb_Firstname.Text = user.FirstName;
+            tb_Lastname.Text = user.LastName;
+            tb_Phone.Text = user.Phone;
+            tb_Email.Text = user.Email;
+            tb_Address.Text = user.Address;
+            cb_Gender.SelectedItem = user.Gender;
+            dt_BirthDate.Value = DateTime.Parse(user.DateOfBirth);
+        }
+
         private void btn_Confirm_Click(object sender, EventArgs e)
         {
             _userLogin!.PasswordSalt = Cryptography.GenerateSalt();
