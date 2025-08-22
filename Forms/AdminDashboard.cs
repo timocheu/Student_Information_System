@@ -17,14 +17,14 @@ namespace Student_Information_System.Forms
 {
     public partial class AdminDashboard : Form
     {
-        object[]? user = new object[9];
+        User current_User;
 
-        public AdminDashboard(int user_id)
+        public AdminDashboard(int userId)
         {
             InitializeComponent();
 
-            GetUserInfo(user_id);
-            lbl_Welcome.Text = $"Welcom {user[1]}";
+            GetUserInfo(userId);
+            lbl_Welcome.Text = $"Welcome {current_User?.FirstName}";
 
             RefreshTeacher();
             RefreshStudent();
@@ -32,15 +32,16 @@ namespace Student_Information_System.Forms
 
         private void GetUserInfo(int user_id)
         {
-            using var conn = new SqliteConnection(Account.SqliteDbPath());
-            conn.Open();
+            using (var context = new SisContext())
+            {
+                User? current_User = context.Users.FirstOrDefault(u => u.UserId == user_id);
+                if (current_User is null)
+                {
+                    throw new Exception("Unable to find the user in the database.");
+                }
 
-            using var cmd = new SqliteCommand($"SELECT * FROM User WHERE user_id = {user_id}", conn);
-            using var r = cmd.ExecuteReader();
-
-            if (!r.Read()) return;
-
-            int fields = r.GetValues(user!);
+                this.current_User = current_User;
+            }
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
@@ -50,24 +51,25 @@ namespace Student_Information_System.Forms
             if (result == DialogResult.Yes) this.Close();
         }
 
-
         #region Student features
         private void RefreshStudent()
         {
             using (var context = new SisContext())
             {
                 var users = context.Users
-                                   .Where(u => u.Role == 3 && u.Student.Status == 1)
+                                   .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1)
                                    .Select(u => new
                                    {
                                        u.UserId,
                                        u.FirstName,
                                        u.LastName,
                                        u.Gender,
+                                       u.DateOfBirth,
                                        u.Email,
                                        u.Phone,
                                        Enrollment_Date = u.Student.EnrollmentDate,
                                    })
+                                   .OrderByDescending(u => u.UserId)
                                    .ToList();
 
                 dgv_Student.DataSource = users;
