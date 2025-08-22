@@ -181,5 +181,9 @@ namespace Student_Information_System.Forms
         #endregion
 
 
+        private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
+        {
+            string filter = tb_SearchStudent.Text;
+        }
     }
 }
