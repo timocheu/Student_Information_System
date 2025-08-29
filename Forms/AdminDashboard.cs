@@ -68,12 +68,13 @@ namespace Student_Information_System.Forms
                                    u.DateOfBirth,
                                    u.Email,
                                    u.Phone,
-                                   Enrollment_Date = u.Student.EnrollmentDate,
+                                   Enrollment_date = u.Student.EnrollmentDate,
                                })
                                .OrderByDescending(u => u.UserId)
                                .ToList();
 
             dgv_Student.DataSource = users;
+            lbl_StudentResult.Text = $"Result: {users.Count}";
         }
         private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudents();
 
@@ -192,14 +193,30 @@ namespace Student_Information_System.Forms
             else
             {
                 var user = db.Users
-                    .Where(u =>
-                    u.FirstName.ToLower().Contains(filter) ||
-                    u.LastName.ToLower().Contains(filter) ||
-                    u.Address.ToLower().Contains(filter) ||
-                    u.Email.ToLower().Contains(filter))
+                    .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1 &&
+                    ((!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter))))
+                    .Select(u => new
+                    {
+                        u.UserId,
+                        u.FirstName,
+                        u.LastName,
+                        u.Gender,
+                        u.DateOfBirth,
+                        u.Email,
+                        u.Phone,
+                        Enrollment_date = u.Student.EnrollmentDate,
+                    })
+                    .OrderByDescending(u => u.UserId)
                     .ToList();
 
                 dgv_Student.DataSource = user;
+                lbl_StudentResult.Text = $"Result: {user.Count}";
             }
         }
     }

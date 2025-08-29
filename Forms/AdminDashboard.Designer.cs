@@ -39,11 +39,11 @@
             tab_Dashboard = new TabPage();
             lbl_Welcome = new Label();
             tab_Student = new TabPage();
+            lbl_StudentResult = new Label();
             sPanel1 = new Student_Information_System.UI.SPanel();
             btn_UpdateStudent = new ReaLTaiizor.Controls.HopeButton();
             btn_DeleteStudent = new ReaLTaiizor.Controls.HopeButton();
             btn_AddStudent = new ReaLTaiizor.Controls.HopeButton();
-            btn_RefreshStudent = new ReaLTaiizor.Controls.HopeRoundButton();
             tb_SearchStudent = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             dgv_Student = new ReaLTaiizor.Controls.PoisonDataGridView();
             tab_Teacher = new TabPage();
@@ -134,8 +134,8 @@
             // tab_Student
             // 
             tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.Controls.Add(lbl_StudentResult);
             tab_Student.Controls.Add(sPanel1);
-            tab_Student.Controls.Add(btn_RefreshStudent);
             tab_Student.Controls.Add(tb_SearchStudent);
             tab_Student.Controls.Add(dgv_Student);
             tab_Student.Location = new Point(204, 4);
@@ -145,6 +145,16 @@
             tab_Student.TabIndex = 1;
             tab_Student.Text = "Student";
             // 
+            // lbl_StudentResult
+            // 
+            lbl_StudentResult.AutoSize = true;
+            lbl_StudentResult.Font = new Font("Poppins", 12F);
+            lbl_StudentResult.Location = new Point(6, 93);
+            lbl_StudentResult.Name = "lbl_StudentResult";
+            lbl_StudentResult.Size = new Size(67, 28);
+            lbl_StudentResult.TabIndex = 8;
+            lbl_StudentResult.Text = "Result: ";
+            // 
             // sPanel1
             // 
             sPanel1.BackgroundFillColor = Color.White;
@@ -152,9 +162,10 @@
             sPanel1.Controls.Add(btn_UpdateStudent);
             sPanel1.Controls.Add(btn_DeleteStudent);
             sPanel1.Controls.Add(btn_AddStudent);
-            sPanel1.Location = new Point(196, 544);
+            sPanel1.Dock = DockStyle.Bottom;
+            sPanel1.Location = new Point(3, 565);
             sPanel1.Name = "sPanel1";
-            sPanel1.Size = new Size(589, 84);
+            sPanel1.Size = new Size(986, 84);
             sPanel1.TabIndex = 7;
             // 
             // btn_UpdateStudent
@@ -166,7 +177,7 @@
             btn_UpdateStudent.Font = new Font("Poppins", 16F);
             btn_UpdateStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_UpdateStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_UpdateStudent.Location = new Point(411, 22);
+            btn_UpdateStudent.Location = new Point(384, 22);
             btn_UpdateStudent.Margin = new Padding(30, 3, 3, 3);
             btn_UpdateStudent.Name = "btn_UpdateStudent";
             btn_UpdateStudent.PrimaryColor = Color.FromArgb(255, 128, 0);
@@ -187,7 +198,7 @@
             btn_DeleteStudent.Font = new Font("Poppins", 16F);
             btn_DeleteStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_DeleteStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_DeleteStudent.Location = new Point(225, 22);
+            btn_DeleteStudent.Location = new Point(207, 22);
             btn_DeleteStudent.Margin = new Padding(30, 3, 3, 3);
             btn_DeleteStudent.Name = "btn_DeleteStudent";
             btn_DeleteStudent.PrimaryColor = Color.Red;
@@ -220,27 +231,6 @@
             btn_AddStudent.WarningColor = Color.FromArgb(230, 162, 60);
             btn_AddStudent.Click += btn_AddStudent_Click;
             // 
-            // btn_RefreshStudent
-            // 
-            btn_RefreshStudent.BorderColor = Color.FromArgb(220, 223, 230);
-            btn_RefreshStudent.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_RefreshStudent.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_RefreshStudent.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_RefreshStudent.Font = new Font("Poppins", 14F);
-            btn_RefreshStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_RefreshStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_RefreshStudent.Location = new Point(50, 76);
-            btn_RefreshStudent.Margin = new Padding(3, 2, 3, 2);
-            btn_RefreshStudent.Name = "btn_RefreshStudent";
-            btn_RefreshStudent.PrimaryColor = Color.FromArgb(64, 158, 255);
-            btn_RefreshStudent.Size = new Size(125, 38);
-            btn_RefreshStudent.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_RefreshStudent.TabIndex = 6;
-            btn_RefreshStudent.Text = "Refresh";
-            btn_RefreshStudent.TextColor = Color.White;
-            btn_RefreshStudent.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_RefreshStudent.Click += btn_RefreshStudent_Click;
-            // 
             // tb_SearchStudent
             // 
             tb_SearchStudent.AnimateReadOnly = false;
@@ -251,8 +241,9 @@
             tb_SearchStudent.Depth = 0;
             tb_SearchStudent.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
             tb_SearchStudent.HideSelection = true;
+            tb_SearchStudent.Hint = "Search";
             tb_SearchStudent.LeadingIcon = (Image)resources.GetObject("tb_SearchStudent.LeadingIcon");
-            tb_SearchStudent.Location = new Point(700, 66);
+            tb_SearchStudent.Location = new Point(733, 70);
             tb_SearchStudent.MaxLength = 100;
             tb_SearchStudent.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_SearchStudent.Name = "tb_SearchStudent";
@@ -267,7 +258,6 @@
             tb_SearchStudent.Size = new Size(250, 48);
             tb_SearchStudent.TabIndex = 1;
             tb_SearchStudent.TabStop = false;
-            tb_SearchStudent.Text = "Search";
             tb_SearchStudent.TextAlign = HorizontalAlignment.Left;
             tb_SearchStudent.TrailingIcon = null;
             tb_SearchStudent.UseSystemPasswordChar = false;
@@ -279,7 +269,7 @@
             dgv_Student.AllowUserToDeleteRows = false;
             dgv_Student.AllowUserToResizeColumns = false;
             dgv_Student.AllowUserToResizeRows = false;
-            dgv_Student.Anchor = AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Student.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dgv_Student.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv_Student.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
             dgv_Student.BackgroundColor = Color.FromArgb(255, 255, 255);
@@ -306,7 +296,7 @@
             dgv_Student.EnableHeadersVisualStyles = false;
             dgv_Student.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Student.GridColor = Color.FromArgb(255, 255, 255);
-            dgv_Student.Location = new Point(6, 135);
+            dgv_Student.Location = new Point(3, 124);
             dgv_Student.Name = "dgv_Student";
             dgv_Student.ReadOnly = true;
             dgv_Student.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
@@ -321,7 +311,7 @@
             dgv_Student.RowHeadersWidth = 51;
             dgv_Student.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             dgv_Student.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Student.Size = new Size(980, 400);
+            dgv_Student.Size = new Size(980, 378);
             dgv_Student.TabIndex = 0;
             dgv_Student.UseCustomBackColor = true;
             dgv_Student.UseCustomForeColor = true;
@@ -618,6 +608,7 @@
             tab_Dashboard.ResumeLayout(false);
             tab_Dashboard.PerformLayout();
             tab_Student.ResumeLayout(false);
+            tab_Student.PerformLayout();
             sPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgv_Student).EndInit();
             tab_Teacher.ResumeLayout(false);
@@ -653,5 +644,6 @@
         private ReaLTaiizor.Controls.HopeButton hopeButton1;
         private ReaLTaiizor.Controls.HopeButton hopeButton2;
         private ReaLTaiizor.Controls.HopeButton hopeButton3;
+        private Label lbl_StudentResult;
     }
 }
