@@ -17,6 +17,7 @@ namespace Student_Information_System.Forms
 {
     public partial class AdminDashboard : Form
     {
+        private SisContext db = new SisContext();
         User current_User;
 
         public AdminDashboard(int userId)
@@ -26,8 +27,10 @@ namespace Student_Information_System.Forms
             GetUserInfo(userId);
             lbl_Welcome.Text = $"Welcome {current_User?.FirstName}";
 
+            // Query all students
+            RefreshStudents();
+
             RefreshTeacher();
-            RefreshStudent();
         }
 
         private void GetUserInfo(int user_id)
@@ -52,30 +55,27 @@ namespace Student_Information_System.Forms
         }
 
         #region Student features
-        private void RefreshStudent()
+        private void RefreshStudents()
         {
-            using (var context = new SisContext())
-            {
-                var users = context.Users
-                                   .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1)
-                                   .Select(u => new
-                                   {
-                                       u.UserId,
-                                       u.FirstName,
-                                       u.LastName,
-                                       u.Gender,
-                                       u.DateOfBirth,
-                                       u.Email,
-                                       u.Phone,
-                                       Enrollment_Date = u.Student.EnrollmentDate,
-                                   })
-                                   .OrderByDescending(u => u.UserId)
-                                   .ToList();
+            var users = db.Users
+                               .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1)
+                               .Select(u => new
+                               {
+                                   u.UserId,
+                                   u.FirstName,
+                                   u.LastName,
+                                   u.Gender,
+                                   u.DateOfBirth,
+                                   u.Email,
+                                   u.Phone,
+                                   Enrollment_Date = u.Student.EnrollmentDate,
+                               })
+                               .OrderByDescending(u => u.UserId)
+                               .ToList();
 
-                dgv_Student.DataSource = users;
-            }
+            dgv_Student.DataSource = users;
         }
-        private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudent();
+        private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudents();
 
 
         private void btn_AddStudent_Click(object sender, EventArgs e)
@@ -183,7 +183,24 @@ namespace Student_Information_System.Forms
 
         private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
         {
-            string filter = tb_SearchStudent.Text;
+            string filter = tb_SearchStudent.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                RefreshStudents();
+            }
+            else
+            {
+                var user = db.Users
+                    .Where(u =>
+                    u.FirstName.ToLower().Contains(filter) ||
+                    u.LastName.ToLower().Contains(filter) ||
+                    u.Address.ToLower().Contains(filter) ||
+                    u.Email.ToLower().Contains(filter))
+                    .ToList();
+
+                dgv_Student.DataSource = user;
+            }
         }
     }
 }
