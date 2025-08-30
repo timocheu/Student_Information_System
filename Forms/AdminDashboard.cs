@@ -35,16 +35,13 @@ namespace Student_Information_System.Forms
 
         private void GetUserInfo(int user_id)
         {
-            using (var context = new SisContext())
+            User? current_User = db.Users.FirstOrDefault(u => u.UserId == user_id);
+            if (current_User is null)
             {
-                User? current_User = context.Users.FirstOrDefault(u => u.UserId == user_id);
-                if (current_User is null)
-                {
-                    throw new Exception("Unable to find the user in the database.");
-                }
-
-                this.current_User = current_User;
+                throw new Exception("Unable to find the user in the database.");
             }
+
+            this.current_User = current_User;
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
@@ -95,8 +92,6 @@ namespace Student_Information_System.Forms
                 var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
                 if (result == DialogResult.Yes)
                 {
-                    using SisContext db = new();
-
                     HashSet<int> ids = dgv_Student.SelectedRows
                         .Cast<DataGridViewRow>()
                         .Select(row => (int)row.Cells[0].Value)
@@ -123,10 +118,7 @@ namespace Student_Information_System.Forms
                 var row = dgv_Student.SelectedRows[0];
 
                 User user;
-                using (SisContext db = new())
-                {
-                    user = db.Users.First(u => u.UserId == (int)row.Cells[0].Value);
-                }
+                user = db.Users.First(u => u.UserId == (int)row.Cells[0].Value);
 
                 Form form = new UserAdd(false, user);
                 form.FormClosed += (s, args) => this.Enabled = true;
@@ -148,25 +140,22 @@ namespace Student_Information_System.Forms
         #region Teacher features
         private void RefreshTeacher()
         {
-            using (var context = new SisContext())
-            {
-                var users = context.Users
-                                   .Where(u => u.Role == 2 && u.Teacher != null && u.Teacher.Status == 1)
-                                   .Select(u => new
-                                   {
-                                       u.UserId,
-                                       u.FirstName,
-                                       u.LastName,
-                                       u.Gender,
-                                       u.Email,
-                                       u.Phone,
-                                       Department = u.Teacher != null ? u.Teacher.Department : null,
-                                       Specialization = u.Teacher != null ? u.Teacher.Specialization : null,
-                                   })
-                                   .ToList();
+            var users = db.Users
+                               .Where(u => u.Role == 2 && u.Teacher != null && u.Teacher.Status == 1)
+                               .Select(u => new
+                               {
+                                   u.UserId,
+                                   u.FirstName,
+                                   u.LastName,
+                                   u.Gender,
+                                   u.Email,
+                                   u.Phone,
+                                   Department = u.Teacher != null ? u.Teacher.Department : null,
+                                   Specialization = u.Teacher != null ? u.Teacher.Specialization : null,
+                               })
+                               .ToList();
 
-                dgv_Teacher.DataSource = users;
-            }
+            dgv_Teacher.DataSource = users;
         }
         private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
 
