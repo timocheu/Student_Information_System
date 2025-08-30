@@ -122,7 +122,7 @@
             tb_Password.HideSelection = true;
             tb_Password.Hint = "Password";
             tb_Password.LeadingIcon = Properties.Resources.padlock;
-            tb_Password.Location = new Point(64, 257);
+            tb_Password.Location = new Point(61, 253);
             tb_Password.MaxLength = 50;
             tb_Password.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Password.Name = "tb_Password";
@@ -141,6 +141,7 @@
             tb_Password.TrailingIcon = Properties.Resources.eye;
             tb_Password.UseSystemPasswordChar = true;
             tb_Password.TrailingIconClick += tb_Password_TrailingIconClick;
+            tb_Password.KeyPress += tb_Password_KeyPress;
             // 
             // tb_Username
             // 
@@ -172,6 +173,7 @@
             tb_Username.TextAlign = HorizontalAlignment.Left;
             tb_Username.TrailingIcon = null;
             tb_Username.UseSystemPasswordChar = false;
+            tb_Username.KeyPress += tb_Username_KeyPress;
             // 
             // pb_Mascot
             // 

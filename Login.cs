@@ -102,10 +102,29 @@ namespace Student_Information_System
             {
                 tb_Password.PasswordChar = '\0';
                 tb_Password.TrailingIcon = Properties.Resources.view;
-            } 
+            }
             else
             {
                 tb_Password.TrailingIcon = Properties.Resources.eye;
+            }
+        }
+
+        private void tb_Password_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btn_Login_Click(sender, e);
+                e.Handled = true;
+            }
+
+        }
+
+        private void tb_Username_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btn_Login_Click(sender, e);
+                e.Handled = true;
             }
         }
     }

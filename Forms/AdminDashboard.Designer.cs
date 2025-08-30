@@ -118,7 +118,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
             tab_Dashboard.Name = "tab_Dashboard";
@@ -138,7 +138,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
             tab_Student.Controls.Add(dgv_Students);
             tab_Student.Controls.Add(lbl_ShowInactiveStudent);
             tab_Student.Controls.Add(toggle_InactiveStudent);
@@ -356,7 +356,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_ShowInactiveTeacher);
             tab_Teacher.Controls.Add(toggle_InactiveTeacher);
@@ -569,7 +569,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
             tab_Subject.Location = new Point(204, 4);
             tab_Subject.Name = "tab_Subject";
             tab_Subject.Padding = new Padding(3);
@@ -579,7 +579,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -589,7 +589,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -599,7 +599,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";
