@@ -92,7 +92,11 @@ namespace Student_Information_System.Forms
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
             UserAdd StudentAddForm = new UserAdd(IsTeacher: false);
-            StudentAddForm.FormClosed += (s, args) => this.Enabled = true;
+            StudentAddForm.FormClosed += (s, args) =>
+            {
+                this.Enabled = true;
+                RefreshStudents();
+            };
 
             this.Enabled = false;
             StudentAddForm.Show();
