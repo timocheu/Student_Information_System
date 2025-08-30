@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             ReaLTaiizor.Controls.TabPage tab_Control;
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             ReaLTaiizor.Controls.PoisonDataGridView dgv_Teachers;
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             tab_Dashboard = new TabPage();
             lbl_Welcome = new Label();
             tab_Student = new TabPage();
@@ -118,7 +118,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
             tab_Dashboard.Name = "tab_Dashboard";
@@ -138,7 +138,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
             tab_Student.Controls.Add(dgv_Students);
             tab_Student.Controls.Add(lbl_ShowInactiveStudent);
             tab_Student.Controls.Add(toggle_InactiveStudent);
@@ -164,23 +164,23 @@
             dgv_Students.BorderStyle = BorderStyle.None;
             dgv_Students.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Students.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = Color.White;
-            dataGridViewCellStyle7.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold);
-            dataGridViewCellStyle7.ForeColor = Color.Black;
-            dataGridViewCellStyle7.SelectionBackColor = Color.White;
-            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Students.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = Color.White;
-            dataGridViewCellStyle8.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle8.ForeColor = Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle8.SelectionForeColor = Color.White;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgv_Students.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_Students.DefaultCellStyle = dataGridViewCellStyle2;
             dgv_Students.EnableHeadersVisualStyles = false;
             dgv_Students.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Students.GridColor = Color.Black;
@@ -188,14 +188,14 @@
             dgv_Students.Name = "dgv_Students";
             dgv_Students.ReadOnly = true;
             dgv_Students.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle9.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle3.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_Students.RowHeadersVisible = false;
             dgv_Students.RowHeadersWidth = 20;
             dgv_Students.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -232,6 +232,7 @@
             toggle_InactiveStudent.TabIndex = 12;
             toggle_InactiveStudent.Text = "Show Inactive";
             toggle_InactiveStudent.UseVisualStyleBackColor = true;
+            toggle_InactiveStudent.MouseCaptureChanged += toggle_InactiveStudent_MouseCaptureChanged;
             // 
             // pnl_Modifiers
             // 
@@ -276,6 +277,7 @@
             tb_SearchStudent.TextAlign = HorizontalAlignment.Left;
             tb_SearchStudent.TrailingIcon = null;
             tb_SearchStudent.UseSystemPasswordChar = false;
+            tb_SearchStudent.TextChanged += tb_SearchStudent_TextChanged;
             // 
             // btn_UpdateStudent
             // 
@@ -354,7 +356,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_ShowInactiveTeacher);
             tab_Teacher.Controls.Add(toggle_InactiveTeacher);
@@ -380,23 +382,23 @@
             dgv_Teachers.BorderStyle = BorderStyle.None;
             dgv_Teachers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Teachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold);
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Poppins SemiBold", 9F, FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv_Teachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.White;
-            dataGridViewCellStyle11.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle11.SelectionForeColor = Color.White;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle5;
             dgv_Teachers.EnableHeadersVisualStyles = false;
             dgv_Teachers.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Teachers.GridColor = Color.Black;
@@ -404,14 +406,14 @@
             dgv_Teachers.Name = "dgv_Teachers";
             dgv_Teachers.ReadOnly = true;
             dgv_Teachers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle12.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgv_Teachers.RowHeadersVisible = false;
             dgv_Teachers.RowHeadersWidth = 20;
             dgv_Teachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -567,7 +569,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
             tab_Subject.Location = new Point(204, 4);
             tab_Subject.Name = "tab_Subject";
             tab_Subject.Padding = new Padding(3);
@@ -577,7 +579,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -587,7 +589,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -597,7 +599,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";

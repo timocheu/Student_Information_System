@@ -18,13 +18,29 @@ namespace Student_Information_System.Forms
     public partial class AdminDashboard : Form
     {
         private SisContext db = new SisContext();
-        User current_User;
+        private User current_User;
+
+        // Stored data for filters
+        private IQueryable<User> Students;
+        private IQueryable<User> Teachers;
+
+        // Toggles
+        private bool ShowInactiveStudents = false;
+        private bool ShowInactiveTeachers = false;
+
 
         public AdminDashboard(int userId)
         {
             InitializeComponent();
 
             GetUserInfo(userId);
+
+            // Initialize data
+            Students = db.Users
+                .Where(u => u.Role == 3 && u.Student != null)
+                .OrderByDescending(u => u.UserId);
+
+            RefreshStudents();
         }
 
         private void GetUserInfo(int user_id)
@@ -39,7 +55,6 @@ namespace Student_Information_System.Forms
             this.current_User = current_User;
             lbl_Welcome.Text = $"Welcome {current_User?.FirstName}";
         }
-
         private void btn_Logout_Click(object sender, EventArgs e)
         {
             var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm logout", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
@@ -47,7 +62,33 @@ namespace Student_Information_System.Forms
             if (result == DialogResult.Yes) this.Close();
         }
 
+
         #region Student features
+        private void RefreshStudents()
+        {
+            var user = Students;
+
+            if (!ShowInactiveStudents)
+            {
+                user = user.Where(u => u.Student.Status == 1);
+            }
+
+            dgv_Students.DataSource = user
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.FirstName,
+                    u.LastName,
+                    u.Gender,
+                    u.DateOfBirth,
+                    u.Email,
+                    u.Phone,
+                    Enrollment_date = u.Student.EnrollmentDate,
+                })
+                .ToList();
+
+            lbl_StudentResult.Text = $"{user.Count()} Out of {user.Count()}";
+        }
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
             UserAdd StudentAddForm = new UserAdd(IsTeacher: false);
@@ -56,12 +97,6 @@ namespace Student_Information_System.Forms
             this.Enabled = false;
             StudentAddForm.Show();
         }
-
-        private void StudentAddForm_FormClosed(object? sender, FormClosedEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         private void btn_DeleteStudent_Click(object sender, EventArgs e)
         {
             if (dgv_Students.SelectedRows.Count > 0)
@@ -87,7 +122,6 @@ namespace Student_Information_System.Forms
                 MessageBox.Show("Select rows first");
             }
         }
-
         private void btn_UpdateStudent_Click(object sender, EventArgs e)
         {
             if (dgv_Students.SelectedRows.Count == 1)
@@ -108,6 +142,53 @@ namespace Student_Information_System.Forms
                 MessageBox.Show("Select a single row first");
             }
         }
+        private void toggle_InactiveStudent_MouseCaptureChanged(object sender, EventArgs e)
+        {
+            ShowInactiveStudents ^= true;
+            RefreshStudents();
+        }
+        private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
+        {
+            string filter = tb_SearchStudent.Text.Trim().ToLower();
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                RefreshStudents();
+                return;
+            }
+
+            var user = Students.Where(u =>
+                (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter)));
+
+            if (!ShowInactiveStudents)
+            {
+                user = user.Where(u => u.Student.Status == 1);
+            }
+
+            dgv_Students.DataSource = user
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.FirstName,
+                    u.LastName,
+                    u.Gender,
+                    u.DateOfBirth,
+                    u.Email,
+                    u.Phone,
+                    Enrollment_date = u.Student.EnrollmentDate,
+                })
+                .OrderByDescending(u => u.UserId)
+                .ToList();
+
+            lbl_StudentResult.Text = $"{10} Out of {user.Count()}";
+        }
+
 
         #endregion
 
@@ -120,46 +201,6 @@ namespace Student_Information_System.Forms
             this.Enabled = false;
             TeacherAddForm.Show();
         }
-
         #endregion
-
-
-        //private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
-        //{
-        //    string filter = tb_SearchStudent.Text.Trim().ToLower();
-
-        //    if (string.IsNullOrEmpty(filter))
-        //    {
-        //        RefreshStudents();
-        //    }
-        //    else
-        //    {
-        //        var user = db.Users
-        //            .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1 &&
-        //            ((!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
-        //            (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
-        //            (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
-        //            (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
-        //            (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
-        //            (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
-        //            (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter))))
-        //            .Select(u => new
-        //            {
-        //                u.UserId,
-        //                u.FirstName,
-        //                u.LastName,
-        //                u.Gender,
-        //                u.DateOfBirth,
-        //                u.Email,
-        //                u.Phone,
-        //                Enrollment_date = u.Student.EnrollmentDate,
-        //            })
-        //            .OrderByDescending(u => u.UserId)
-        //            .ToList();
-
-        //        dgv_Students.DataSource = user;
-        //        lbl_StudentResult.Text = $"Result: {user.Count}";
-        //    }
-        //}
     }
 }
