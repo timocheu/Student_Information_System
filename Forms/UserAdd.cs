@@ -73,7 +73,8 @@ namespace Student_Information_System.Forms
             _userLogin!.PasswordSalt = Cryptography.GenerateSalt();
             _userLogin.PasswordHash = Cryptography.HashPassword(tb_UserPassword.Text, _userLogin.PasswordSalt);
 
-            var result = PoisonMessageBox.Show(this, "Are you sure this is the correct information?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+            var result = CrownMessageBox.ShowInformation("Are you sure that the information are correct?", "Confirm create", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
             if (result == DialogResult.Yes)
             {
                 using (SisContext db = new SisContext())

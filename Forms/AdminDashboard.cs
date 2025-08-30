@@ -25,64 +25,41 @@ namespace Student_Information_System.Forms
             InitializeComponent();
 
             GetUserInfo(userId);
-            lbl_Welcome.Text = $"Welcome {current_User?.FirstName}";
-
-            // Query all students
-            RefreshStudents();
-
-            RefreshTeacher();
         }
 
         private void GetUserInfo(int user_id)
         {
             User? current_User = db.Users.FirstOrDefault(u => u.UserId == user_id);
+
             if (current_User is null)
             {
                 throw new Exception("Unable to find the user in the database.");
             }
 
             this.current_User = current_User;
+            lbl_Welcome.Text = $"Welcome {current_User?.FirstName}";
         }
 
         private void btn_Logout_Click(object sender, EventArgs e)
         {
-            var result = PoisonMessageBox.Show(this, "Are you sure you want to logout?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+            var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm logout", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
 
             if (result == DialogResult.Yes) this.Close();
         }
 
         #region Student features
-        private void RefreshStudents()
-        {
-            var users = db.Users
-                               .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1)
-                               .Select(u => new
-                               {
-                                   u.UserId,
-                                   u.FirstName,
-                                   u.LastName,
-                                   u.Gender,
-                                   u.DateOfBirth,
-                                   u.Email,
-                                   u.Phone,
-                                   Enrollment_date = u.Student.EnrollmentDate,
-                               })
-                               .OrderByDescending(u => u.UserId)
-                               .ToList();
-
-            dgv_Students.DataSource = users;
-            lbl_StudentResult.Text = $"Result: {users.Count}";
-        }
-        private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudents();
-
-
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
-            Form StudentAddForm = new UserAdd(IsTeacher: false);
+            UserAdd StudentAddForm = new UserAdd(IsTeacher: false);
             StudentAddForm.FormClosed += (s, args) => this.Enabled = true;
 
             this.Enabled = false;
             StudentAddForm.Show();
+        }
+
+        private void StudentAddForm_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void btn_DeleteStudent_Click(object sender, EventArgs e)
@@ -134,30 +111,7 @@ namespace Student_Information_System.Forms
 
         #endregion
 
-
-
-
         #region Teacher features
-        private void RefreshTeacher()
-        {
-            var users = db.Users
-                               .Where(u => u.Role == 2 && u.Teacher != null && u.Teacher.Status == 1)
-                               .Select(u => new
-                               {
-                                   u.UserId,
-                                   u.FirstName,
-                                   u.LastName,
-                                   u.Gender,
-                                   u.Email,
-                                   u.Phone,
-                                   Department = u.Teacher != null ? u.Teacher.Department : null,
-                                   Specialization = u.Teacher != null ? u.Teacher.Specialization : null,
-                               })
-                               .ToList();
-        }
-
-        private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
-
         private void btn_AddTeacher_Click(object sender, EventArgs e)
         {
             Form TeacherAddForm = new UserAdd(IsTeacher: true);
@@ -170,52 +124,42 @@ namespace Student_Information_System.Forms
         #endregion
 
 
-        private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
-        {
-            string filter = tb_SearchStudent.Text.Trim().ToLower();
+        //private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
+        //{
+        //    string filter = tb_SearchStudent.Text.Trim().ToLower();
 
-            if (string.IsNullOrEmpty(filter))
-            {
-                RefreshStudents();
-            }
-            else
-            {
-                var user = db.Users
-                    .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1 &&
-                    ((!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
-                    (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
-                    (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
-                    (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
-                    (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
-                    (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
-                    (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter))))
-                    .Select(u => new
-                    {
-                        u.UserId,
-                        u.FirstName,
-                        u.LastName,
-                        u.Gender,
-                        u.DateOfBirth,
-                        u.Email,
-                        u.Phone,
-                        Enrollment_date = u.Student.EnrollmentDate,
-                    })
-                    .OrderByDescending(u => u.UserId)
-                    .ToList();
+        //    if (string.IsNullOrEmpty(filter))
+        //    {
+        //        RefreshStudents();
+        //    }
+        //    else
+        //    {
+        //        var user = db.Users
+        //            .Where(u => u.Role == 3 && u.Student != null && u.Student.Status == 1 &&
+        //            ((!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
+        //            (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
+        //            (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
+        //            (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
+        //            (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
+        //            (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
+        //            (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter))))
+        //            .Select(u => new
+        //            {
+        //                u.UserId,
+        //                u.FirstName,
+        //                u.LastName,
+        //                u.Gender,
+        //                u.DateOfBirth,
+        //                u.Email,
+        //                u.Phone,
+        //                Enrollment_date = u.Student.EnrollmentDate,
+        //            })
+        //            .OrderByDescending(u => u.UserId)
+        //            .ToList();
 
-                dgv_Students.DataSource = user;
-                lbl_StudentResult.Text = $"Result: {user.Count}";
-            }
-        }
-
-        private void tab_Student_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgv_Student_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
+        //        dgv_Students.DataSource = user;
+        //        lbl_StudentResult.Text = $"Result: {user.Count}";
+        //    }
+        //}
     }
 }
