@@ -70,7 +70,7 @@ namespace Student_Information_System.Forms
                                .OrderByDescending(u => u.UserId)
                                .ToList();
 
-            dgv_Student.DataSource = users;
+            dgv_Students.DataSource = users;
             lbl_StudentResult.Text = $"Result: {users.Count}";
         }
         private void btn_RefreshStudent_Click(object sender, EventArgs e) => RefreshStudents();
@@ -87,12 +87,12 @@ namespace Student_Information_System.Forms
 
         private void btn_DeleteStudent_Click(object sender, EventArgs e)
         {
-            if (dgv_Student.SelectedRows.Count > 0)
+            if (dgv_Students.SelectedRows.Count > 0)
             {
                 var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
                 if (result == DialogResult.Yes)
                 {
-                    HashSet<int> ids = dgv_Student.SelectedRows
+                    HashSet<int> ids = dgv_Students.SelectedRows
                         .Cast<DataGridViewRow>()
                         .Select(row => (int)row.Cells[0].Value)
                         // use hashset for more effecient look up
@@ -113,9 +113,9 @@ namespace Student_Information_System.Forms
 
         private void btn_UpdateStudent_Click(object sender, EventArgs e)
         {
-            if (dgv_Student.SelectedRows.Count == 1)
+            if (dgv_Students.SelectedRows.Count == 1)
             {
-                var row = dgv_Student.SelectedRows[0];
+                var row = dgv_Students.SelectedRows[0];
 
                 User user;
                 user = db.Users.First(u => u.UserId == (int)row.Cells[0].Value);
@@ -154,9 +154,8 @@ namespace Student_Information_System.Forms
                                    Specialization = u.Teacher != null ? u.Teacher.Specialization : null,
                                })
                                .ToList();
-
-            dgv_Teacher.DataSource = users;
         }
+
         private void btn_RefreshTeacher_Click(object sender, EventArgs e) => RefreshTeacher();
 
         private void btn_AddTeacher_Click(object sender, EventArgs e)
@@ -204,9 +203,19 @@ namespace Student_Information_System.Forms
                     .OrderByDescending(u => u.UserId)
                     .ToList();
 
-                dgv_Student.DataSource = user;
+                dgv_Students.DataSource = user;
                 lbl_StudentResult.Text = $"Result: {user.Count}";
             }
+        }
+
+        private void tab_Student_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_Student_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
