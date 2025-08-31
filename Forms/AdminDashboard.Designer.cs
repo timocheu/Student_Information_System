@@ -229,7 +229,6 @@
             lbl_ShowInactiveStudent.Size = new Size(122, 28);
             lbl_ShowInactiveStudent.TabIndex = 13;
             lbl_ShowInactiveStudent.Text = "Show Inactive";
-            lbl_ShowInactiveStudent.Click += lbl_ShowInactiveStudent_Click;
             // 
             // toggle_InactiveStudent
             // 
@@ -248,7 +247,6 @@
             toggle_InactiveStudent.TabIndex = 12;
             toggle_InactiveStudent.Text = "Show Inactive";
             toggle_InactiveStudent.UseVisualStyleBackColor = false;
-            toggle_InactiveStudent.CheckedChanged += toggle_InactiveStudent_CheckedChanged;
             toggle_InactiveStudent.MouseCaptureChanged += toggle_InactiveStudent_MouseCaptureChanged;
             // 
             // pnl_Modifiers
@@ -664,7 +662,6 @@
             hope_AdminDashboard.TabIndex = 0;
             hope_AdminDashboard.Text = "Admin Dashboard";
             hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
-            hope_AdminDashboard.Click += hope_AdminDashboard_Click;
             // 
             // AdminDashboard
             // 

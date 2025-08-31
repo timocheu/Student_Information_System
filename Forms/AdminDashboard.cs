@@ -17,17 +17,18 @@ namespace Student_Information_System.Forms
 {
     public partial class AdminDashboard : Form
     {
-        private SisContext db = new SisContext();
-        private User current_User;
+        private readonly SisContext db = new SisContext();
+        private User? current_User;
 
         // Stored data for filters
-        private IQueryable<User> Students;
-        private IQueryable<User> Teachers;
+        private IQueryable<User>? students;
+        private IQueryable<User>? Teachers;
 
         // Toggles
         private bool ShowInactiveStudents = false;
         private bool ShowInactiveTeachers = false;
 
+        private BindingSource studentSource = new();
 
         public AdminDashboard(int userId)
         {
@@ -35,12 +36,33 @@ namespace Student_Information_System.Forms
 
             GetUserInfo(userId);
 
-            // Initialize data
-            Students = db.Users
-                .Where(u => u.Role == 3 && u.Student != null)
+            // Initialize data for students
+            LoadStudentsData();
+            dgv_Students.DataSource = studentSource;
+        }
+
+        private void LoadStudentsData()
+        {
+            students = db.Users
+                .Where(u => u != null && u.Role == 3 && u.Student != null && u.Student.Status == 1)
                 .OrderByDescending(u => u.UserId);
 
-            RefreshStudents();
+            var initialStudents = students?
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.FirstName,
+                    u.LastName,
+                    u.Gender,
+                    u.DateOfBirth,
+                    u.Email,
+                    u.Phone,
+                    Enrollment_date = u.Student!.EnrollmentDate,
+                })
+                .ToList();
+
+            // Set the binding sources for the student data grid view
+            studentSource.DataSource = initialStudents;
         }
 
         private void GetUserInfo(int user_id)
@@ -66,14 +88,14 @@ namespace Student_Information_System.Forms
         #region Student features
         private void RefreshStudents()
         {
-            var user = Students;
+            var user = students!;
 
             if (!ShowInactiveStudents)
             {
-                user = user.Where(u => u.Student.Status == 1);
+                user = user.Where(u => u.Student != null && u.Student.Status == 1);
             }
 
-            dgv_Students.DataSource = user
+            var refreshedUser = user
                 .Select(u => new
                 {
                     u.UserId,
@@ -83,11 +105,12 @@ namespace Student_Information_System.Forms
                     u.DateOfBirth,
                     u.Email,
                     u.Phone,
-                    Enrollment_date = u.Student.EnrollmentDate,
+                    Enrollment_date = u.Student!.EnrollmentDate,
                 })
                 .ToList();
 
-            lbl_StudentResult.Text = $"{user.Count()} Out of {user.Count()}";
+            studentSource.DataSource = refreshedUser;
+            lbl_StudentResult.Text = $"{refreshedUser.Count} Out of {students?.Count()}";
         }
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
@@ -95,7 +118,7 @@ namespace Student_Information_System.Forms
             StudentAddForm.FormClosed += (s, args) =>
             {
                 this.Enabled = true;
-                RefreshStudents();
+                LoadStudentsData();
             };
 
             this.Enabled = false;
@@ -161,21 +184,21 @@ namespace Student_Information_System.Forms
                 return;
             }
 
-            var user = Students.Where(u =>
-                (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter)));
+            var user = students!.Where(u =>
+                (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(u.LastName) && u.LastName.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(u.Address) && u.Address.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(u.Gender) && u.Gender.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(u.Phone) && u.Phone.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
+                (!string.IsNullOrEmpty(u.Email) && u.Email.Contains(filter, StringComparison.OrdinalIgnoreCase)));
 
             if (!ShowInactiveStudents)
             {
-                user = user.Where(u => u.Student.Status == 1);
+                user = user.Where(u => u.Student != null && u.Student.Status == 1);
             }
 
-            dgv_Students.DataSource = user
+            var filteredStudents = user
                 .Select(u => new
                 {
                     u.UserId,
@@ -185,12 +208,13 @@ namespace Student_Information_System.Forms
                     u.DateOfBirth,
                     u.Email,
                     u.Phone,
-                    Enrollment_date = u.Student.EnrollmentDate,
+                    Enrollment_date = u.Student!.EnrollmentDate,
                 })
                 .OrderByDescending(u => u.UserId)
                 .ToList();
 
-            lbl_StudentResult.Text = $"{10} Out of {user.Count()}";
+            studentSource.DataSource = filteredStudents;
+            lbl_StudentResult.Text = $"{filteredStudents.Count} Out of {students!.Count()}";
         }
 
 
@@ -206,20 +230,5 @@ namespace Student_Information_System.Forms
             TeacherAddForm.Show();
         }
         #endregion
-
-        private void toggle_InactiveStudent_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_ShowInactiveStudent_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hope_AdminDashboard_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
