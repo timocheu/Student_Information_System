@@ -206,5 +206,20 @@ namespace Student_Information_System.Forms
             TeacherAddForm.Show();
         }
         #endregion
+
+        private void toggle_InactiveStudent_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_ShowInactiveStudent_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void hope_AdminDashboard_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
