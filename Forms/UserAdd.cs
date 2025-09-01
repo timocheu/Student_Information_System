@@ -21,8 +21,6 @@ namespace Student_Information_System.Forms
         private bool showPass = false;
 
         private User? _user;
-        private UserLogin? _userLogin;
-
 
         public UserAdd(bool IsTeacher)
         {
@@ -68,47 +66,6 @@ namespace Student_Information_System.Forms
             dt_BirthDate.Value = DateTime.Parse(user.DateOfBirth);
         }
 
-        private void btn_Confirm_Click(object sender, EventArgs e)
-        {
-            _userLogin!.PasswordSalt = Cryptography.GenerateSalt();
-            _userLogin.PasswordHash = Cryptography.HashPassword(tb_UserPassword.Text, _userLogin.PasswordSalt);
-
-            var result = CrownMessageBox.ShowInformation("Are you sure that the information are correct?", "Confirm create", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
-
-            if (result == DialogResult.Yes)
-            {
-                using (SisContext db = new SisContext())
-                {
-                    if (isTeacher)
-                    {
-                        _user.Teacher = new Teacher
-                        {
-                            UserId = currentID,
-                            HireDate = DateTime.Now.ToShortDateString(),
-                            Department = tb_Department.Text,
-                            Specialization = tb_Specialization.Text,
-                            Status = 1
-                        };
-                    }
-                    else
-                    {
-                        _user.Student = new Student
-                        {
-                            UserId = currentID,
-                            EnrollmentDate = DateTime.Now.ToShortDateString(),
-                            Status = 1
-                        };
-                    }
-
-                    db.Users.Add(_user!);
-                    db.UserLogins.Add(_userLogin);
-
-                    db.SaveChanges();
-                }
-
-                this.Close();
-            }
-        }
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -155,24 +112,59 @@ namespace Student_Information_System.Forms
                 Address = tb_Address.Text,
                 Role = isTeacher ? 2 : 3,
                 Phone = tb_Phone.Text,
-            };
-
-
-            // Add login
-            _userLogin = new UserLogin()
-            {
-                UserId = currentID,
-                Username = $"{DateTime.Now.Year % 2_000}-{currentID.ToString("D6")}",
+                UserLogin = new()
+                {
+                    Username = $"{DateTime.Now.Year % 2_000}-{currentID.ToString("D6")}"
+                }
             };
 
             // Set the auto generated userlogin
-            tb_UserLogin.Text = _userLogin.Username;
+            tb_UserLogin.Text = _user.UserLogin.Username;
 
             // Disable userdetail panel
             if (pnl_UserDetails.Enabled)
             {
                 pnl_UserDetails.Enabled = false;
                 pnl_UserLogin.Enabled = true;
+            }
+        }
+        private void btn_Confirm_Click(object sender, EventArgs e)
+        {
+            _user.UserLogin!.PasswordSalt = Cryptography.GenerateSalt();
+            _user.UserLogin.PasswordHash = Cryptography.HashPassword(tb_UserPassword.Text, _user.UserLogin.PasswordSalt);
+
+            var result = CrownMessageBox.ShowInformation("Are you sure that the information are correct?", "Confirm create", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                using (SisContext db = new SisContext())
+                {
+                    if (isTeacher)
+                    {
+                        _user.Teacher = new Teacher
+                        {
+                            UserId = currentID,
+                            HireDate = DateTime.Now.ToShortDateString(),
+                            Department = tb_Department.Text,
+                            Specialization = tb_Specialization.Text,
+                            Status = 1
+                        };
+                    }
+                    else
+                    {
+                        _user.Student = new Student
+                        {
+                            UserId = currentID,
+                            EnrollmentDate = DateTime.Now.ToShortDateString(),
+                            Status = 1
+                        };
+                    }
+
+                    db.Users.Add(_user!);
+                    db.SaveChanges();
+                }
+
+                this.Close();
             }
         }
 
