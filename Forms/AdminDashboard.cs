@@ -38,31 +38,16 @@ namespace Student_Information_System.Forms
 
             // Initialize data for students
             LoadStudentsData();
-            dgv_Students.DataSource = studentSource;
         }
 
         private void LoadStudentsData()
         {
             students = db.Users
-                .Where(u => u != null && u.Role == 3 && u.Student != null && u.Student.Status == 1)
+                .Where(u => u != null && u.Role == 3 && u.Student != null)
                 .OrderByDescending(u => u.UserId);
 
-            var initialStudents = students?
-                .Select(u => new
-                {
-                    u.UserId,
-                    u.FirstName,
-                    u.LastName,
-                    u.Gender,
-                    u.DateOfBirth,
-                    u.Email,
-                    u.Phone,
-                    Enrollment_date = u.Student!.EnrollmentDate,
-                })
-                .ToList();
-
-            // Set the binding sources for the student data grid view
-            studentSource.DataSource = initialStudents;
+            RefreshStudents();
+            dgv_Students.DataSource = studentSource;
         }
 
         private void GetUserInfo(int user_id)
