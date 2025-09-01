@@ -29,6 +29,7 @@ namespace Student_Information_System.Forms
         private bool ShowInactiveTeachers = false;
 
         private BindingSource studentSource = new();
+        private int totalStudents = 0;
 
         public AdminDashboard(int userId)
         {
@@ -45,6 +46,8 @@ namespace Student_Information_System.Forms
             students = db.Users
                 .Where(u => u != null && u.Role == 3 && u.Student != null)
                 .OrderByDescending(u => u.UserId);
+
+            totalStudents = students.Count();
 
             RefreshStudents();
             dgv_Students.DataSource = studentSource;
@@ -95,8 +98,9 @@ namespace Student_Information_System.Forms
                 .ToList();
 
             studentSource.DataSource = refreshedUser;
-            lbl_StudentResult.Text = $"{refreshedUser.Count} Out of {students?.Count()}";
+            lbl_StudentResult.Text = $"{refreshedUser.Count} Out of {totalStudents}";
         }
+
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
             UserAdd StudentAddForm = new UserAdd(IsTeacher: false);
@@ -169,14 +173,15 @@ namespace Student_Information_System.Forms
                 return;
             }
 
-            var user = students!.Where(u =>
-                (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(u.LastName) && u.LastName.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(u.Address) && u.Address.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(u.Gender) && u.Gender.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(u.Phone) && u.Phone.Contains(filter, StringComparison.OrdinalIgnoreCase)) ||
-                (!string.IsNullOrEmpty(u.Email) && u.Email.Contains(filter, StringComparison.OrdinalIgnoreCase)));
+            var user = students!
+                .Where(u =>
+                (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter)));
 
             if (!ShowInactiveStudents)
             {
@@ -195,11 +200,10 @@ namespace Student_Information_System.Forms
                     u.Phone,
                     Enrollment_date = u.Student!.EnrollmentDate,
                 })
-                .OrderByDescending(u => u.UserId)
                 .ToList();
 
             studentSource.DataSource = filteredStudents;
-            lbl_StudentResult.Text = $"{filteredStudents.Count} Out of {students!.Count()}";
+            lbl_StudentResult.Text = $"{filteredStudents.Count} Out of {totalStudents}";
         }
 
 
