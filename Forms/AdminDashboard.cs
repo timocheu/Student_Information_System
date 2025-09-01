@@ -131,6 +131,8 @@ namespace Student_Information_System.Forms
                         .ExecuteUpdateAsync(s => s.SetProperty(
                             s => s.Status,
                             s => 0));
+
+                    RefreshStudents();
                 }
             }
             else
