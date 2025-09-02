@@ -176,14 +176,15 @@ namespace Student_Information_System.Forms
             }
 
             var user = students!
-                .Where(u =>
+                .Where(u => u.Student != null && (u.UserId.ToString().Contains(filter) ||
                 (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
                 (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)) ||
                 (!string.IsNullOrEmpty(u.Address) && u.Address.ToLower().Contains(filter)) ||
                 (!string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter)) ||
                 (!string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower().Contains(filter)) ||
                 (!string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter)) ||
-                (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter)));
+                (!string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter)) ||
+                (!string.IsNullOrEmpty(u.Student.EnrollmentDate) && u.Student.EnrollmentDate.ToLower().Contains(filter))));
 
             if (!ShowInactiveStudents)
             {
@@ -207,8 +208,6 @@ namespace Student_Information_System.Forms
             studentSource.DataSource = filteredStudents;
             lbl_StudentResult.Text = $"{filteredStudents.Count} Out of {totalStudents}";
         }
-
-
         #endregion
 
         #region Teacher features
