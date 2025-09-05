@@ -1,4 +1,6 @@
-﻿using Microsoft.Data.Sqlite;
+﻿using LinqKit;
+using LinqKit.Core;
+using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
@@ -20,10 +22,6 @@ namespace Student_Information_System.Forms
         private readonly SisContext db = new SisContext();
         private User? current_User;
 
-        // Stored data for filters
-        private IQueryable<User>? students;
-        private IQueryable<User>? Teachers;
-
         // Toggles
         private bool ShowInactiveStudents = false;
         private bool ShowInactiveTeachers = false;
@@ -38,17 +36,6 @@ namespace Student_Information_System.Forms
             GetUserInfo(userId);
 
             // Initialize data for students
-            LoadStudentsData();
-        }
-
-        private void LoadStudentsData()
-        {
-            students = db.Users
-                .Where(u => u != null && u.Role == 3 && u.Student != null)
-                .OrderByDescending(u => u.UserId);
-
-            totalStudents = students.Count();
-
             RefreshStudents();
             dgv_Students.DataSource = studentSource;
         }
@@ -76,14 +63,15 @@ namespace Student_Information_System.Forms
         #region Student features
         private void RefreshStudents()
         {
-            var user = students!;
+            var predicate = PredicateBuilder.New<User>(false);
 
             if (!ShowInactiveStudents)
             {
-                user = user.Where(u => u.Student != null && u.Student.Status == 1);
+                predicate = predicate.And(u => u.Student != null && u.Student.Status == 1);
             }
 
-            var refreshedUser = user
+            var refreshedUser = db.Users
+                .Where(predicate)
                 .Select(u => new
                 {
                     u.UserId,
@@ -107,7 +95,7 @@ namespace Student_Information_System.Forms
             StudentAddForm.FormClosed += (s, args) =>
             {
                 this.Enabled = true;
-                LoadStudentsData();
+                RefreshStudents();
             };
 
             this.Enabled = false;
@@ -167,54 +155,61 @@ namespace Student_Information_System.Forms
         }
         private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
         {
-            string filter = tb_SearchStudent.Text.Trim().ToLower();
+            string filter = tb_SearchStudent.Text.ToLower();
 
             if (string.IsNullOrEmpty(filter))
             {
                 RefreshStudents();
                 return;
             }
-            var user = students!;
+            var predicates = PredicateBuilder.New<User>(false);
 
             if (cb_UserId.Checked)
             {
-                user = user
-                    .Where(u => u.UserId.ToString().Contains(filter));
+                predicates = predicates
+                    .Or(u => u.UserId.ToString().Contains(filter));
             }
 
             if (cb_Name.Checked)
             {
-                user = user
-                    .Where(u => (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
+                predicates = predicates
+                    .Or(u => (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
                     (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)));
             }
 
             if (cb_DateOfBirth.Checked)
             {
-                user = user.Where(u => !string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter));
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter));
+            }
+
+            if (cb_Gender.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower() == filter);
             }
 
             if (cb_Email.Checked)
             {
-                user = user.Where(u => !string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter));
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter));
             }
 
             if (cb_Phone.Checked)
             {
-                user = user.Where(u => !string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter));
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter));
             }
 
             if (cb_EnrollmentDate.Checked)
             {
-                user = user.Where(u => u.Student != null && !string.IsNullOrEmpty(u.Student.EnrollmentDate) && u.Student.EnrollmentDate.ToLower().Contains(filter));
+                predicates = predicates.Or(u => u.Student != null && !string.IsNullOrEmpty(u.Student.EnrollmentDate) && u.Student.EnrollmentDate.ToLower().Contains(filter));
             }
 
             if (!ShowInactiveStudents)
             {
-                user = user.Where(u => u.Student != null && u.Student.Status == 1);
+                predicates = predicates.And(u => u.Student != null && u.Student.Status == 1);
             }
 
-            var filteredStudents = user
+            var filteredStudents = db.Users
+                .AsExpandable()
+                .Where(predicates)
                 .Select(u => new
                 {
                     u.UserId,
