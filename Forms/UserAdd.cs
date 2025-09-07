@@ -16,8 +16,9 @@ namespace Student_Information_System.Forms
 {
     public partial class UserAdd : Form
     {
-        private bool isTeacher = false;
         private int currentID = -1;
+
+        private bool isTeacher = false;
         private bool showPass = false;
 
         private User? _user;
@@ -36,36 +37,6 @@ namespace Student_Information_System.Forms
 
             hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
         }
-
-        // TODO: Transfer to other form for updates
-        // For updating userId
-        public UserAdd(bool IsTeacher, User user)
-        {
-            this.isTeacher = IsTeacher;
-            this.currentID = user.UserId;
-            InitializeComponent();
-
-            if (IsTeacher)
-            {
-                pnl_TeacherEnabled.Enabled = true;
-                pnl_TeacherEnabled.Visible = true;
-
-                tb_Department.Text = user.Teacher?.Department;
-                tb_Specialization.Text = user.Teacher?.Specialization;
-            }
-            // Set ui text
-            hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
-            tb_UserLogin.Text = user.UserLogin?.Username.ToString();
-
-            tb_Firstname.Text = user.FirstName;
-            tb_Lastname.Text = user.LastName;
-            tb_Phone.Text = user.Phone;
-            tb_Email.Text = user.Email;
-            tb_Address.Text = user.Address;
-            cb_Gender.SelectedItem = user.Gender;
-            dt_BirthDate.Value = DateTime.Parse(user.DateOfBirth);
-        }
-
 
         private void btn_Next_Click(object sender, EventArgs e)
         {
@@ -101,6 +72,24 @@ namespace Student_Information_System.Forms
                 return;
             }
 
+            // Check for existing unique attributes
+            using (SisContext db = new SisContext())
+            {
+                if (db.Users.Any(u => u.Email == tb_Email.Text))
+                {
+                    var Snackbar = new MaterialSnackBar("Email already exist. Please try other email", 3000, "OK", true);
+                    Snackbar.Show(this);
+
+                    return;
+                }
+                else if (db.Users.Any(u => u.Phone == tb_Phone.Text))
+                {
+                    var Snackbar = new MaterialSnackBar("Phone number is taken. Please try other number", 3000, "OK", true);
+                    Snackbar.Show(this);
+
+                    return;
+                }
+            }
 
             _user = new User()
             {
@@ -189,7 +178,7 @@ namespace Student_Information_System.Forms
             {
                 tb_UserPassword.PasswordChar = '\0';
                 tb_UserPassword.TrailingIcon = Properties.Resources.view;
-            } 
+            }
             else
             {
                 tb_UserPassword.TrailingIcon = Properties.Resources.eye;
