@@ -67,7 +67,7 @@
             hope_UserAdd.Image = Properties.Resources.FormIcon;
             hope_UserAdd.Location = new Point(0, 0);
             hope_UserAdd.Name = "hope_UserAdd";
-            hope_UserAdd.Size = new Size(887, 40);
+            hope_UserAdd.Size = new Size(900, 40);
             hope_UserAdd.TabIndex = 1;
             hope_UserAdd.Text = "Add";
             hope_UserAdd.ThemeColor = Color.DarkRed;
@@ -75,9 +75,9 @@
             // pnl_LineDesign
             // 
             pnl_LineDesign.BackColor = Color.FromArgb(64, 64, 64);
-            pnl_LineDesign.Location = new Point(575, 35);
+            pnl_LineDesign.Location = new Point(584, 35);
             pnl_LineDesign.Name = "pnl_LineDesign";
-            pnl_LineDesign.Size = new Size(5, 600);
+            pnl_LineDesign.Size = new Size(5, 617);
             pnl_LineDesign.TabIndex = 51;
             // 
             // btn_Back
@@ -423,7 +423,7 @@
             pnl_TeacherEnabled.Enabled = false;
             pnl_TeacherEnabled.Location = new Point(32, 395);
             pnl_TeacherEnabled.Name = "pnl_TeacherEnabled";
-            pnl_TeacherEnabled.Size = new Size(285, 143);
+            pnl_TeacherEnabled.Size = new Size(435, 143);
             pnl_TeacherEnabled.TabIndex = 56;
             pnl_TeacherEnabled.Visible = false;
             // 
@@ -452,7 +452,7 @@
             tb_Specialization.SelectionLength = 0;
             tb_Specialization.SelectionStart = 0;
             tb_Specialization.ShortcutsEnabled = true;
-            tb_Specialization.Size = new Size(250, 48);
+            tb_Specialization.Size = new Size(406, 48);
             tb_Specialization.TabIndex = 43;
             tb_Specialization.TabStop = false;
             tb_Specialization.TextAlign = HorizontalAlignment.Left;
@@ -484,7 +484,7 @@
             tb_Department.SelectionLength = 0;
             tb_Department.SelectionStart = 0;
             tb_Department.ShortcutsEnabled = true;
-            tb_Department.Size = new Size(250, 48);
+            tb_Department.Size = new Size(406, 48);
             tb_Department.TabIndex = 42;
             tb_Department.TabStop = false;
             tb_Department.TextAlign = HorizontalAlignment.Left;
@@ -493,6 +493,7 @@
             // 
             // pnl_UserDetails
             // 
+            pnl_UserDetails.BackColor = Color.Transparent;
             pnl_UserDetails.BackgroundFillColor = Color.White;
             pnl_UserDetails.BorderColor = Color.White;
             pnl_UserDetails.Controls.Add(tb_Lastname);
@@ -507,13 +508,14 @@
             pnl_UserDetails.Controls.Add(lbl_Gender);
             pnl_UserDetails.Controls.Add(tb_Phone);
             pnl_UserDetails.Controls.Add(tb_Email);
-            pnl_UserDetails.Location = new Point(2, 46);
+            pnl_UserDetails.Location = new Point(11, 56);
             pnl_UserDetails.Name = "pnl_UserDetails";
             pnl_UserDetails.Size = new Size(570, 567);
             pnl_UserDetails.TabIndex = 55;
             // 
             // pnl_UserLogin
             // 
+            pnl_UserLogin.BackColor = Color.Transparent;
             pnl_UserLogin.BackgroundFillColor = Color.White;
             pnl_UserLogin.BorderColor = Color.White;
             pnl_UserLogin.Controls.Add(tb_UserPassword);
@@ -522,7 +524,7 @@
             pnl_UserLogin.Controls.Add(btn_Confirm);
             pnl_UserLogin.Controls.Add(btn_Back);
             pnl_UserLogin.Enabled = false;
-            pnl_UserLogin.Location = new Point(586, 48);
+            pnl_UserLogin.Location = new Point(595, 56);
             pnl_UserLogin.Name = "pnl_UserLogin";
             pnl_UserLogin.Size = new Size(289, 273);
             pnl_UserLogin.TabIndex = 56;
@@ -564,7 +566,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(238, 242, 245);
-            ClientSize = new Size(887, 611);
+            ClientSize = new Size(900, 650);
             Controls.Add(pnl_UserLogin);
             Controls.Add(pnl_UserDetails);
             Controls.Add(hope_UserAdd);
