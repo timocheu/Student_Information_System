@@ -30,6 +30,7 @@
         {
             hope_UpdateCredentials = new ReaLTaiizor.Forms.HopeForm();
             pnl_UserDetails = new Student_Information_System.UI.SPanel();
+            btn_UpdateUserDetail = new ReaLTaiizor.Controls.MaterialButton();
             tb_Lastname = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnl_TeacherEnabled = new Panel();
             tb_Specialization = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -49,7 +50,6 @@
             lbl_UserLogin = new Label();
             btn_UpdateUserLogin = new ReaLTaiizor.Controls.MaterialButton();
             btn_Back = new ReaLTaiizor.Controls.MaterialButton();
-            btn_UpdateUserDetail = new ReaLTaiizor.Controls.MaterialButton();
             pnl_UserDetails.SuspendLayout();
             pnl_TeacherEnabled.SuspendLayout();
             pnl_UserLogin.SuspendLayout();
@@ -92,6 +92,27 @@
             pnl_UserDetails.Name = "pnl_UserDetails";
             pnl_UserDetails.Size = new Size(570, 567);
             pnl_UserDetails.TabIndex = 56;
+            // 
+            // btn_UpdateUserDetail
+            // 
+            btn_UpdateUserDetail.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_UpdateUserDetail.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btn_UpdateUserDetail.Depth = 0;
+            btn_UpdateUserDetail.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_UpdateUserDetail.HighEmphasis = true;
+            btn_UpdateUserDetail.Icon = null;
+            btn_UpdateUserDetail.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btn_UpdateUserDetail.Location = new Point(472, 502);
+            btn_UpdateUserDetail.Margin = new Padding(4, 6, 4, 6);
+            btn_UpdateUserDetail.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btn_UpdateUserDetail.Name = "btn_UpdateUserDetail";
+            btn_UpdateUserDetail.NoAccentTextColor = Color.Empty;
+            btn_UpdateUserDetail.Size = new Size(77, 36);
+            btn_UpdateUserDetail.TabIndex = 57;
+            btn_UpdateUserDetail.Text = "Update";
+            btn_UpdateUserDetail.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_UpdateUserDetail.UseAccentColor = true;
+            btn_UpdateUserDetail.UseVisualStyleBackColor = true;
             // 
             // tb_Lastname
             // 
@@ -504,6 +525,7 @@
             btn_UpdateUserLogin.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_UpdateUserLogin.UseAccentColor = true;
             btn_UpdateUserLogin.UseVisualStyleBackColor = true;
+            btn_UpdateUserLogin.Click += btn_UpdateUserLogin_Click;
             // 
             // btn_Back
             // 
@@ -525,27 +547,6 @@
             btn_Back.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_Back.UseAccentColor = false;
             btn_Back.UseVisualStyleBackColor = true;
-            // 
-            // btn_UpdateUserDetail
-            // 
-            btn_UpdateUserDetail.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_UpdateUserDetail.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
-            btn_UpdateUserDetail.Depth = 0;
-            btn_UpdateUserDetail.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_UpdateUserDetail.HighEmphasis = true;
-            btn_UpdateUserDetail.Icon = null;
-            btn_UpdateUserDetail.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_UpdateUserDetail.Location = new Point(472, 502);
-            btn_UpdateUserDetail.Margin = new Padding(4, 6, 4, 6);
-            btn_UpdateUserDetail.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btn_UpdateUserDetail.Name = "btn_UpdateUserDetail";
-            btn_UpdateUserDetail.NoAccentTextColor = Color.Empty;
-            btn_UpdateUserDetail.Size = new Size(77, 36);
-            btn_UpdateUserDetail.TabIndex = 57;
-            btn_UpdateUserDetail.Text = "Update";
-            btn_UpdateUserDetail.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btn_UpdateUserDetail.UseAccentColor = true;
-            btn_UpdateUserDetail.UseVisualStyleBackColor = true;
             // 
             // UpdateCredentials
             // 

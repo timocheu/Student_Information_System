@@ -1,13 +1,6 @@
-﻿using Student_Information_System.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using ReaLTaiizor.Controls;
+using Student_Information_System.Models;
+using Student_Information_System.Utilities;
 
 namespace Student_Information_System.Forms
 {
@@ -17,9 +10,8 @@ namespace Student_Information_System.Forms
         private int currentID = -1;
         private bool showPass = false;
 
-        private User? _user;
-
-        public UpdateCredentials(bool IsTeacher, User user) {
+        public UpdateCredentials(bool IsTeacher, User user)
+        {
             this.isTeacher = IsTeacher;
             this.currentID = user.UserId;
             InitializeComponent();
@@ -34,7 +26,6 @@ namespace Student_Information_System.Forms
             }
 
             // Set ui text details
-            tb_UserLogin.Text = user.UserLogin?.Username.ToString();
             tb_Firstname.Text = user.FirstName;
             tb_Lastname.Text = user.LastName;
             tb_Phone.Text = user.Phone;
@@ -50,7 +41,47 @@ namespace Student_Information_System.Forms
 
         private void pnl_UserDetails_Paint(object sender, PaintEventArgs e)
         {
+            using (SisContext db = new())
+            {
+                if (db.Users.Any(u => u.Email == tb_Email.Text))
+                {
+                    var Snackbar = new MaterialSnackBar("Email already exist. Please try other email", 3000, "OK", true);
+                    Snackbar.Show(this);
 
+                    return;
+                }
+                else if (db.Users.Any(u => u.Phone == tb_Phone.Text))
+                {
+                    var Snackbar = new MaterialSnackBar("Phone number is taken. Please try other number", 3000, "OK", true);
+                    Snackbar.Show(this);
+
+                    return;
+                }
+
+                var user = db.Users.FirstOrDefault(u => u.UserId == currentID);
+                user.FirstName = tb_Firstname.Text;
+                user.LastName = tb_Lastname.Text;
+                user.Phone = tb_Phone.Text;
+                user.Email = tb_Email.Text;
+                user.Address = tb_Address.Text;
+                user.Gender = tb_Address.Text;
+                user.DateOfBirth = dt_BirthDate.Text;
+
+                db.SaveChanges();
+            }
+        }
+
+        private void btn_UpdateUserLogin_Click(object sender, EventArgs e)
+        {
+            using (SisContext db = new())
+            {
+                var user = db.Users.FirstOrDefault(u => u.UserId == currentID);
+                // Change password
+                user.UserLogin.PasswordSalt = Cryptography.GenerateSalt();
+                user.UserLogin.PasswordHash = Cryptography.HashPassword(tb_UserPassword.Text, user.UserLogin.PasswordSalt);
+
+                db.SaveChanges();
+            }
         }
     }
 }
