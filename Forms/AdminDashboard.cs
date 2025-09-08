@@ -61,7 +61,7 @@ namespace Student_Information_System.Forms
 
 
         #region Student features
-        private void RefreshStudents()
+        public void RefreshStudents()
         {
             var predicate = PredicateBuilder.New<User>(false);
 
@@ -134,7 +134,7 @@ namespace Student_Information_System.Forms
             {
                 int userID = (int) dgv_Students.SelectedRows[0].Cells[0].Value;
 
-                Form form = new UpdateCredentials(IsTeacher: false, userID);
+                Form form = new UpdateCredentials(IsTeacher: false, userID, this);
                 form.FormClosed += (s, args) => this.Enabled = true;
 
                 this.Enabled = false;

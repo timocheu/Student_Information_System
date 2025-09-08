@@ -7,15 +7,18 @@ namespace Student_Information_System.Forms
 {
     public partial class UpdateCredentials : Form
     {
-        SisContext db = new();
+        private AdminDashboard parentReference;
+        private SisContext db = new();
+
         private bool isTeacher = false;
         private bool showPass = false;
 
         User user;
 
-        public UpdateCredentials(bool IsTeacher, int userID)
+        public UpdateCredentials(bool IsTeacher, int userID, AdminDashboard parent)
         {
             this.isTeacher = IsTeacher;
+            this.parentReference = parent;
 
             // Set user
             user = db.Users
@@ -76,6 +79,8 @@ namespace Student_Information_System.Forms
                 user.DateOfBirth = dt_BirthDate.Text.Trim();
 
                 db.SaveChanges();
+
+                parentReference.RefreshStudents();
             }
         }
 
@@ -89,8 +94,9 @@ namespace Student_Information_System.Forms
             if (result == DialogResult.Yes)
             {
                 db.SaveChanges();
+
+                parentReference.RefreshStudents();
             }
         }
-
     }
 }
