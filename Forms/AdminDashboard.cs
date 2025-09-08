@@ -132,12 +132,9 @@ namespace Student_Information_System.Forms
         {
             if (dgv_Students.SelectedRows.Count == 1)
             {
-                var row = dgv_Students.SelectedRows[0];
+                int userID = (int) dgv_Students.SelectedRows[0].Cells[0].Value;
 
-                User user;
-                user = db.Users.First(u => u.UserId == (int)row.Cells[0].Value);
-
-                Form form = new UserAdd(false, user);
+                Form form = new UpdateCredentials(IsTeacher: false, userID);
                 form.FormClosed += (s, args) => this.Enabled = true;
 
                 this.Enabled = false;

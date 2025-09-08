@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Controls;
+﻿using Microsoft.EntityFrameworkCore;
+using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
 using Student_Information_System.Utilities;
 
@@ -6,14 +7,21 @@ namespace Student_Information_System.Forms
 {
     public partial class UpdateCredentials : Form
     {
+        SisContext db = new();
         private bool isTeacher = false;
-        private int currentID = -1;
         private bool showPass = false;
 
-        public UpdateCredentials(bool IsTeacher, User user)
+        User user;
+
+        public UpdateCredentials(bool IsTeacher, int userID)
         {
             this.isTeacher = IsTeacher;
-            this.currentID = user.UserId;
+
+            // Set user
+            user = db.Users
+                .Include(u => u.UserLogin)
+                .FirstOrDefault(u => u.UserId == userID) ?? new User();
+
             InitializeComponent();
 
             if (IsTeacher)
@@ -32,40 +40,40 @@ namespace Student_Information_System.Forms
             tb_Email.Text = user.Email;
             tb_Address.Text = user.Address;
             cb_Gender.SelectedItem = user.Gender;
-            dt_BirthDate.Value = DateTime.Parse(user.DateOfBirth);
+            dt_BirthDate.Value = DateTime.Parse(user.DateOfBirth ?? "01/01/2000");
 
             // Set userlogin
             tb_UserLogin.Text = user.UserLogin.Username;
-            tb_UserLogin.Enabled = false;
         }
-
-        private void pnl_UserDetails_Paint(object sender, PaintEventArgs e)
+        private void btn_UpdateUserDetail_Click(object sender, EventArgs e)
         {
-            using (SisContext db = new())
+            if (db.Users.Any(u => u.Email == tb_Email.Text && user.Email != tb_Email.Text))
             {
-                if (db.Users.Any(u => u.Email == tb_Email.Text))
-                {
-                    var Snackbar = new MaterialSnackBar("Email already exist. Please try other email", 3000, "OK", true);
-                    Snackbar.Show(this);
+                var Snackbar = new MaterialSnackBar("Email already exist. Please try other email", 3000, "OK", true);
+                Snackbar.Show(this);
 
-                    return;
-                }
-                else if (db.Users.Any(u => u.Phone == tb_Phone.Text))
-                {
-                    var Snackbar = new MaterialSnackBar("Phone number is taken. Please try other number", 3000, "OK", true);
-                    Snackbar.Show(this);
+                return;
+            }
+            else if (db.Users.Any(u => u.Phone == tb_Phone.Text && user.Phone != tb_Phone.Text))
+            {
+                var Snackbar = new MaterialSnackBar("Phone number is taken. Please try other number", 3000, "OK", true);
+                Snackbar.Show(this);
 
-                    return;
-                }
+                return;
+            }
 
-                var user = db.Users.FirstOrDefault(u => u.UserId == currentID);
-                user.FirstName = tb_Firstname.Text;
-                user.LastName = tb_Lastname.Text;
-                user.Phone = tb_Phone.Text;
-                user.Email = tb_Email.Text;
-                user.Address = tb_Address.Text;
-                user.Gender = tb_Address.Text;
-                user.DateOfBirth = dt_BirthDate.Text;
+            var result = CrownMessageBox.ShowInformation("Are you sure this is the correct information?", "Update Credentials", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                //var user = db.Users.FirstOrDefault(u => u.UserId == currentID);
+                user.FirstName = tb_Firstname.Text.Trim();
+                user.LastName = tb_Lastname.Text.Trim();
+                user.Phone = tb_Phone.Text.Trim();
+                user.Email = tb_Email.Text.Trim();
+                user.Address = tb_Address.Text.Trim();
+                user.Gender = cb_Gender.Text.Trim();
+                user.DateOfBirth = dt_BirthDate.Text.Trim();
 
                 db.SaveChanges();
             }
@@ -73,15 +81,16 @@ namespace Student_Information_System.Forms
 
         private void btn_UpdateUserLogin_Click(object sender, EventArgs e)
         {
-            using (SisContext db = new())
-            {
-                var user = db.Users.FirstOrDefault(u => u.UserId == currentID);
-                // Change password
-                user.UserLogin.PasswordSalt = Cryptography.GenerateSalt();
-                user.UserLogin.PasswordHash = Cryptography.HashPassword(tb_UserPassword.Text, user.UserLogin.PasswordSalt);
+            user.UserLogin.PasswordSalt = Cryptography.GenerateSalt();
+            user.UserLogin.PasswordHash = Cryptography.HashPassword(tb_UserPassword.Text, user.UserLogin.PasswordSalt);
 
+            var result = CrownMessageBox.ShowInformation("Are you sure this is the correct information?", "Update Credentials", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
                 db.SaveChanges();
             }
         }
+
     }
 }

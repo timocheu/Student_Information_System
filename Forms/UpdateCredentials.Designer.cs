@@ -49,7 +49,6 @@
             tb_UserLogin = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lbl_UserLogin = new Label();
             btn_UpdateUserLogin = new ReaLTaiizor.Controls.MaterialButton();
-            btn_Back = new ReaLTaiizor.Controls.MaterialButton();
             pnl_UserDetails.SuspendLayout();
             pnl_TeacherEnabled.SuspendLayout();
             pnl_UserLogin.SuspendLayout();
@@ -98,7 +97,7 @@
             btn_UpdateUserDetail.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_UpdateUserDetail.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btn_UpdateUserDetail.Depth = 0;
-            btn_UpdateUserDetail.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_UpdateUserDetail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_UpdateUserDetail.HighEmphasis = true;
             btn_UpdateUserDetail.Icon = null;
             btn_UpdateUserDetail.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
@@ -113,6 +112,7 @@
             btn_UpdateUserDetail.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_UpdateUserDetail.UseAccentColor = true;
             btn_UpdateUserDetail.UseVisualStyleBackColor = true;
+            btn_UpdateUserDetail.Click += btn_UpdateUserDetail_Click;
             // 
             // tb_Lastname
             // 
@@ -424,8 +424,6 @@
             pnl_UserLogin.Controls.Add(tb_UserLogin);
             pnl_UserLogin.Controls.Add(lbl_UserLogin);
             pnl_UserLogin.Controls.Add(btn_UpdateUserLogin);
-            pnl_UserLogin.Controls.Add(btn_Back);
-            pnl_UserLogin.Enabled = false;
             pnl_UserLogin.Location = new Point(599, 60);
             pnl_UserLogin.Name = "pnl_UserLogin";
             pnl_UserLogin.Size = new Size(289, 273);
@@ -510,7 +508,7 @@
             btn_UpdateUserLogin.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_UpdateUserLogin.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btn_UpdateUserLogin.Depth = 0;
-            btn_UpdateUserLogin.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_UpdateUserLogin.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn_UpdateUserLogin.HighEmphasis = true;
             btn_UpdateUserLogin.Icon = null;
             btn_UpdateUserLogin.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
@@ -526,27 +524,6 @@
             btn_UpdateUserLogin.UseAccentColor = true;
             btn_UpdateUserLogin.UseVisualStyleBackColor = true;
             btn_UpdateUserLogin.Click += btn_UpdateUserLogin_Click;
-            // 
-            // btn_Back
-            // 
-            btn_Back.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_Back.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
-            btn_Back.Depth = 0;
-            btn_Back.Font = new Font("Poppins SemiBold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btn_Back.HighEmphasis = true;
-            btn_Back.Icon = null;
-            btn_Back.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_Back.Location = new Point(22, 211);
-            btn_Back.Margin = new Padding(4, 6, 4, 6);
-            btn_Back.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btn_Back.Name = "btn_Back";
-            btn_Back.NoAccentTextColor = Color.Empty;
-            btn_Back.Size = new Size(64, 36);
-            btn_Back.TabIndex = 50;
-            btn_Back.Text = "Back";
-            btn_Back.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btn_Back.UseAccentColor = false;
-            btn_Back.UseVisualStyleBackColor = true;
             // 
             // UpdateCredentials
             // 
@@ -595,7 +572,6 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_UserLogin;
         private Label lbl_UserLogin;
         private ReaLTaiizor.Controls.MaterialButton btn_UpdateUserLogin;
-        private ReaLTaiizor.Controls.MaterialButton btn_Back;
         private ReaLTaiizor.Controls.MaterialButton btn_UpdateUserDetail;
     }
 }
