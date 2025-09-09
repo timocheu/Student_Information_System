@@ -47,6 +47,7 @@ namespace Student_Information_System.Forms
 
             // Set userlogin
             tb_UserLogin.Text = user.UserLogin.Username;
+            tb_UserLogin.Enabled = false;
         }
         private void btn_UpdateUserDetail_Click(object sender, EventArgs e)
         {
