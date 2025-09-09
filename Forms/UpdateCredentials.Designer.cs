@@ -64,6 +64,7 @@
             hope_UpdateCredentials.ForeColor = Color.FromArgb(242, 246, 252);
             hope_UpdateCredentials.Image = Properties.Resources.FormIcon;
             hope_UpdateCredentials.Location = new Point(0, 0);
+            hope_UpdateCredentials.MaximizeBox = false;
             hope_UpdateCredentials.Name = "hope_UpdateCredentials";
             hope_UpdateCredentials.Size = new Size(900, 40);
             hope_UpdateCredentials.TabIndex = 2;
@@ -536,6 +537,7 @@
             Font = new Font("Poppins", 9F);
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 4, 3, 4);
+            MaximizeBox = false;
             MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(190, 40);
             Name = "UpdateCredentials";
