@@ -132,9 +132,26 @@ namespace Student_Information_System.Forms
         {
             if (dgv_Students.SelectedRows.Count == 1)
             {
-                int userID = (int) dgv_Students.SelectedRows[0].Cells[0].Value;
+                int userID = (int)dgv_Students.SelectedRows[0].Cells[0].Value;
 
                 Form form = new UpdateCredentials(IsTeacher: false, userID, this);
+                form.FormClosed += (s, args) => this.Enabled = true;
+
+                this.Enabled = false;
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a single row first");
+            }
+        }
+        private void btn_ShowCourse_Click(object sender, EventArgs e)
+        {
+            if (dgv_Students.SelectedRows.Count == 1)
+            {
+                int userID = (int)dgv_Students.SelectedRows[0].Cells[0].Value;
+
+                Form form = new ShowDetailStudent(userID);
                 form.FormClosed += (s, args) => this.Enabled = true;
 
                 this.Enabled = false;
@@ -245,5 +262,6 @@ namespace Student_Information_System.Forms
         {
 
         }
+
     }
 }

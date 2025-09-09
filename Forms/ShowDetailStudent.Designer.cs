@@ -32,12 +32,12 @@
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             hope_StudentDetails = new ReaLTaiizor.Forms.HopeForm();
-            dgv_Students = new ReaLTaiizor.Controls.PoisonDataGridView();
+            dgv_Courses = new ReaLTaiizor.Controls.PoisonDataGridView();
             btn_AddCourse = new ReaLTaiizor.Controls.HopeButton();
             btn_RemoveCourse = new ReaLTaiizor.Controls.HopeButton();
             lbl_StudentName = new Label();
             lbl_StudentID = new Label();
-            ((System.ComponentModel.ISupportInitialize)dgv_Students).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Courses).BeginInit();
             SuspendLayout();
             // 
             // hope_StudentDetails
@@ -57,19 +57,19 @@
             hope_StudentDetails.Text = "Student Details";
             hope_StudentDetails.ThemeColor = Color.FromArgb(204, 102, 0);
             // 
-            // dgv_Students
+            // dgv_Courses
             // 
-            dgv_Students.AllowUserToAddRows = false;
-            dgv_Students.AllowUserToDeleteRows = false;
-            dgv_Students.AllowUserToResizeColumns = false;
-            dgv_Students.AllowUserToResizeRows = false;
-            dgv_Students.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv_Students.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_Students.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            dgv_Students.BackgroundColor = Color.FromArgb(255, 255, 255);
-            dgv_Students.BorderStyle = BorderStyle.None;
-            dgv_Students.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgv_Students.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgv_Courses.AllowUserToAddRows = false;
+            dgv_Courses.AllowUserToDeleteRows = false;
+            dgv_Courses.AllowUserToResizeColumns = false;
+            dgv_Courses.AllowUserToResizeRows = false;
+            dgv_Courses.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Courses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Courses.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            dgv_Courses.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Courses.BorderStyle = BorderStyle.None;
+            dgv_Courses.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv_Courses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = Color.White;
             dataGridViewCellStyle4.Font = new Font("Poppins", 9F);
@@ -77,8 +77,8 @@
             dataGridViewCellStyle4.SelectionBackColor = Color.White;
             dataGridViewCellStyle4.SelectionForeColor = Color.Black;
             dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            dgv_Students.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv_Courses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = Color.White;
             dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -86,14 +86,14 @@
             dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
             dataGridViewCellStyle5.SelectionForeColor = Color.White;
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgv_Students.DefaultCellStyle = dataGridViewCellStyle5;
-            dgv_Students.EnableHeadersVisualStyles = false;
-            dgv_Students.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dgv_Students.GridColor = Color.Black;
-            dgv_Students.Location = new Point(33, 186);
-            dgv_Students.Name = "dgv_Students";
-            dgv_Students.ReadOnly = true;
-            dgv_Students.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle5;
+            dgv_Courses.EnableHeadersVisualStyles = false;
+            dgv_Courses.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_Courses.GridColor = Color.Black;
+            dgv_Courses.Location = new Point(33, 186);
+            dgv_Courses.Name = "dgv_Courses";
+            dgv_Courses.ReadOnly = true;
+            dgv_Courses.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
             dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -101,16 +101,16 @@
             dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
             dataGridViewCellStyle6.SelectionForeColor = Color.Black;
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            dgv_Students.RowHeadersVisible = false;
-            dgv_Students.RowHeadersWidth = 20;
-            dgv_Students.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgv_Students.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Students.Size = new Size(836, 347);
-            dgv_Students.TabIndex = 4;
-            dgv_Students.UseCustomBackColor = true;
-            dgv_Students.UseCustomForeColor = true;
-            dgv_Students.UseStyleColors = true;
+            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_Courses.RowHeadersVisible = false;
+            dgv_Courses.RowHeadersWidth = 20;
+            dgv_Courses.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_Courses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Courses.Size = new Size(836, 347);
+            dgv_Courses.TabIndex = 4;
+            dgv_Courses.UseCustomBackColor = true;
+            dgv_Courses.UseCustomForeColor = true;
+            dgv_Courses.UseStyleColors = true;
             // 
             // btn_AddCourse
             // 
@@ -181,7 +181,7 @@
             Controls.Add(lbl_StudentName);
             Controls.Add(btn_AddCourse);
             Controls.Add(btn_RemoveCourse);
-            Controls.Add(dgv_Students);
+            Controls.Add(dgv_Courses);
             Controls.Add(hope_StudentDetails);
             Font = new Font("Poppins", 9F);
             FormBorderStyle = FormBorderStyle.None;
@@ -192,7 +192,7 @@
             Name = "ShowDetailStudent";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ShowDetailStudent";
-            ((System.ComponentModel.ISupportInitialize)dgv_Students).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgv_Courses).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -200,7 +200,7 @@
         #endregion
 
         private ReaLTaiizor.Forms.HopeForm hope_StudentDetails;
-        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Students;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Courses;
         private ReaLTaiizor.Controls.HopeButton btn_AddCourse;
         private ReaLTaiizor.Controls.HopeButton btn_RemoveCourse;
         private Label lbl_StudentName;

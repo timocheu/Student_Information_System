@@ -54,6 +54,7 @@
             cb_Address = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Phone = new ReaLTaiizor.Controls.HopeCheckBox();
             pnl_Modifiers = new Student_Information_System.UI.SPanel();
+            btn_ShowCourse = new ReaLTaiizor.Controls.HopeButton();
             tb_SearchStudent = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btn_UpdateStudent = new ReaLTaiizor.Controls.HopeButton();
             btn_CreateStudent = new ReaLTaiizor.Controls.HopeButton();
@@ -129,7 +130,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
             tab_Dashboard.Name = "tab_Dashboard";
@@ -149,7 +150,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
             tab_Student.Controls.Add(dgv_Students);
             tab_Student.Controls.Add(pnl_Toggles);
             tab_Student.Controls.Add(pnl_Modifiers);
@@ -444,21 +445,43 @@
             // 
             pnl_Modifiers.BackgroundFillColor = Color.White;
             pnl_Modifiers.BorderColor = Color.White;
+            pnl_Modifiers.Controls.Add(btn_ShowCourse);
             pnl_Modifiers.Controls.Add(tb_SearchStudent);
             pnl_Modifiers.Controls.Add(btn_UpdateStudent);
             pnl_Modifiers.Controls.Add(btn_CreateStudent);
             pnl_Modifiers.Controls.Add(btn_DeleteStudent);
-            pnl_Modifiers.Location = new Point(-5, 42);
+            pnl_Modifiers.Location = new Point(-5, 16);
             pnl_Modifiers.Name = "pnl_Modifiers";
-            pnl_Modifiers.Size = new Size(629, 94);
+            pnl_Modifiers.Size = new Size(629, 120);
             pnl_Modifiers.TabIndex = 9;
+            // 
+            // btn_ShowCourse
+            // 
+            btn_ShowCourse.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_ShowCourse.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_ShowCourse.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_ShowCourse.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_ShowCourse.Font = new Font("Poppins", 12F);
+            btn_ShowCourse.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_ShowCourse.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_ShowCourse.Location = new Point(477, 64);
+            btn_ShowCourse.Margin = new Padding(30, 3, 3, 3);
+            btn_ShowCourse.Name = "btn_ShowCourse";
+            btn_ShowCourse.PrimaryColor = Color.FromArgb(204, 102, 0);
+            btn_ShowCourse.Size = new Size(121, 40);
+            btn_ShowCourse.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_ShowCourse.TabIndex = 5;
+            btn_ShowCourse.Text = "Course Taken";
+            btn_ShowCourse.TextColor = Color.White;
+            btn_ShowCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_ShowCourse.Click += btn_ShowCourse_Click;
             // 
             // tb_SearchStudent
             // 
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -495,7 +518,7 @@
             btn_UpdateStudent.Font = new Font("Poppins", 12F);
             btn_UpdateStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_UpdateStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_UpdateStudent.Location = new Point(518, 26);
+            btn_UpdateStudent.Location = new Point(518, 20);
             btn_UpdateStudent.Margin = new Padding(30, 3, 3, 3);
             btn_UpdateStudent.Name = "btn_UpdateStudent";
             btn_UpdateStudent.PrimaryColor = Color.FromArgb(204, 102, 0);
@@ -516,7 +539,7 @@
             btn_CreateStudent.Font = new Font("Poppins", 12F);
             btn_CreateStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_CreateStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CreateStudent.Location = new Point(293, 26);
+            btn_CreateStudent.Location = new Point(293, 19);
             btn_CreateStudent.Margin = new Padding(30, 3, 3, 3);
             btn_CreateStudent.Name = "btn_CreateStudent";
             btn_CreateStudent.PrimaryColor = Color.FromArgb(118, 74, 245);
@@ -537,7 +560,7 @@
             btn_DeleteStudent.Font = new Font("Poppins", 12F);
             btn_DeleteStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_DeleteStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_DeleteStudent.Location = new Point(427, 26);
+            btn_DeleteStudent.Location = new Point(427, 19);
             btn_DeleteStudent.Margin = new Padding(30, 3, 3, 3);
             btn_DeleteStudent.Name = "btn_DeleteStudent";
             btn_DeleteStudent.PrimaryColor = Color.FromArgb(166, 9, 22);
@@ -564,7 +587,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_ShowInactiveTeacher);
             tab_Teacher.Controls.Add(toggle_InactiveTeacher);
@@ -777,7 +800,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
             tab_Subject.Location = new Point(204, 4);
             tab_Subject.Name = "tab_Subject";
             tab_Subject.Padding = new Padding(3);
@@ -787,7 +810,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -797,7 +820,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -807,7 +830,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";
@@ -929,5 +952,6 @@
         private ReaLTaiizor.Controls.HopeCheckBox cb_Phone;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Gender;
         private ReaLTaiizor.Controls.HopeCheckBox cb_EnrollmentDate;
+        private ReaLTaiizor.Controls.HopeButton btn_ShowCourse;
     }
 }
