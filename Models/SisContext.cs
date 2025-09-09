@@ -18,6 +18,8 @@ public partial class SisContext : DbContext
 
     public virtual DbSet<Course> Courses { get; set; }
 
+    public virtual DbSet<CourseTaken> CourseTakens { get; set; }
+
     public virtual DbSet<Grade> Grades { get; set; }
 
     public virtual DbSet<Role> Roles { get; set; }
@@ -31,6 +33,7 @@ public partial class SisContext : DbContext
     public virtual DbSet<UserLogin> UserLogins { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlite(Account.SqliteDbPath());
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -51,6 +54,20 @@ public partial class SisContext : DbContext
             entity.Property(e => e.TeacherId).HasColumnName("teacher_id");
 
             entity.HasOne(d => d.Teacher).WithMany(p => p.Courses).HasForeignKey(d => d.TeacherId);
+        });
+
+        modelBuilder.Entity<CourseTaken>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToTable("Course_Taken");
+
+            entity.Property(e => e.CourseId).HasColumnName("course_id");
+            entity.Property(e => e.StudentId).HasColumnName("student_id");
+
+            entity.HasOne(d => d.Course).WithMany().HasForeignKey(d => d.CourseId);
+
+            entity.HasOne(d => d.Student).WithMany().HasForeignKey(d => d.StudentId);
         });
 
         modelBuilder.Entity<Grade>(entity =>
