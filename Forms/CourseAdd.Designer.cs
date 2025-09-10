@@ -45,7 +45,7 @@
             lbl_Name = new Label();
             lbl_CourseCredits = new Label();
             tb_SearchInstructor = new ReaLTaiizor.Controls.HopeTextBox();
-            cb_ = new ReaLTaiizor.Controls.HopeCheckBox();
+            cb_UserID = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Name = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Department = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Specialization = new ReaLTaiizor.Controls.HopeCheckBox();
@@ -78,7 +78,7 @@
             pnl_UserDetails.BorderColor = Color.White;
             pnl_UserDetails.Controls.Add(label1);
             pnl_UserDetails.Controls.Add(cb_Specialization);
-            pnl_UserDetails.Controls.Add(cb_);
+            pnl_UserDetails.Controls.Add(cb_UserID);
             pnl_UserDetails.Controls.Add(cb_Name);
             pnl_UserDetails.Controls.Add(cb_Department);
             pnl_UserDetails.Controls.Add(tb_SearchInstructor);
@@ -400,25 +400,25 @@
             tb_SearchInstructor.TabStop = false;
             tb_SearchInstructor.UseSystemPasswordChar = false;
             // 
-            // cb_
+            // cb_UserID
             // 
-            cb_.AutoSize = true;
-            cb_.BackColor = Color.White;
-            cb_.CheckedColor = Color.FromArgb(64, 158, 255);
-            cb_.DisabledColor = Color.FromArgb(196, 198, 202);
-            cb_.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            cb_.Enable = true;
-            cb_.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            cb_.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            cb_.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            cb_.Font = new Font("Poppins", 12F);
-            cb_.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_.Location = new Point(548, 50);
-            cb_.Name = "cb_";
-            cb_.Size = new Size(87, 20);
-            cb_.TabIndex = 71;
-            cb_.Text = "UserID";
-            cb_.UseVisualStyleBackColor = false;
+            cb_UserID.AutoSize = true;
+            cb_UserID.BackColor = Color.White;
+            cb_UserID.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_UserID.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_UserID.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_UserID.Enable = true;
+            cb_UserID.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_UserID.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_UserID.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_UserID.Font = new Font("Poppins", 12F);
+            cb_UserID.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_UserID.Location = new Point(548, 50);
+            cb_UserID.Name = "cb_";
+            cb_UserID.Size = new Size(87, 20);
+            cb_UserID.TabIndex = 71;
+            cb_UserID.Text = "UserID";
+            cb_UserID.UseVisualStyleBackColor = false;
             // 
             // cb_Name
             // 
@@ -528,7 +528,7 @@
         private ReaLTaiizor.Controls.MaterialButton btn_Back;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseDepartment;
         private ReaLTaiizor.Controls.HopeTextBox tb_SearchInstructor;
-        private ReaLTaiizor.Controls.HopeCheckBox cb_;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_UserID;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Name;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Department;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Specialization;
