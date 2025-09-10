@@ -37,6 +37,12 @@
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             tab_Dashboard = new TabPage();
             lbl_Welcome = new Label();
             tab_Student = new TabPage();
@@ -70,11 +76,27 @@
             btn_DeleteTeacher = new ReaLTaiizor.Controls.HopeButton();
             lbl_TeacherResults = new Label();
             tab_Subject = new TabPage();
+            lbl_Course = new Label();
+            dgv_Courses = new ReaLTaiizor.Controls.PoisonDataGridView();
+            sPanel1 = new Student_Information_System.UI.SPanel();
+            hopeCheckBox1 = new ReaLTaiizor.Controls.HopeCheckBox();
+            label1 = new Label();
+            lbl_Taken = new Label();
+            hopeCheckBox4 = new ReaLTaiizor.Controls.HopeCheckBox();
+            hopeToggle1 = new ReaLTaiizor.Controls.HopeToggle();
+            hopeCheckBox5 = new ReaLTaiizor.Controls.HopeCheckBox();
+            sPanel2 = new Student_Information_System.UI.SPanel();
+            materialTextBoxEdit1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            btn_AssignCourse = new ReaLTaiizor.Controls.HopeButton();
+            btn_CreateCourse = new ReaLTaiizor.Controls.HopeButton();
+            btn_DeleteCourse = new ReaLTaiizor.Controls.HopeButton();
             tab_Logs = new TabPage();
             tab_Reports = new TabPage();
             tab_Settings = new TabPage();
             btn_Logout = new ReaLTaiizor.Controls.NightButton();
             hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
+            dgv_StudentSelection = new ReaLTaiizor.Controls.PoisonDataGridView();
+            materialTextBoxEdit2 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tab_Control = new ReaLTaiizor.Controls.TabPage();
             dgv_Teachers = new ReaLTaiizor.Controls.PoisonDataGridView();
             tab_Control.SuspendLayout();
@@ -86,7 +108,12 @@
             tab_Teacher.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Teachers).BeginInit();
             pnl_TeacherModifiers.SuspendLayout();
+            tab_Subject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Courses).BeginInit();
+            sPanel1.SuspendLayout();
+            sPanel2.SuspendLayout();
             tab_Settings.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_StudentSelection).BeginInit();
             SuspendLayout();
             // 
             // tab_Control
@@ -130,7 +157,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
             tab_Dashboard.Name = "tab_Dashboard";
@@ -150,7 +177,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
             tab_Student.Controls.Add(dgv_Students);
             tab_Student.Controls.Add(pnl_Toggles);
             tab_Student.Controls.Add(pnl_Modifiers);
@@ -481,7 +508,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -587,7 +614,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_ShowInactiveTeacher);
             tab_Teacher.Controls.Add(toggle_InactiveTeacher);
@@ -800,7 +827,12 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.Controls.Add(dgv_StudentSelection);
+            tab_Subject.Controls.Add(lbl_Course);
+            tab_Subject.Controls.Add(dgv_Courses);
+            tab_Subject.Controls.Add(sPanel1);
+            tab_Subject.Controls.Add(sPanel2);
             tab_Subject.Location = new Point(204, 4);
             tab_Subject.Name = "tab_Subject";
             tab_Subject.Padding = new Padding(3);
@@ -808,9 +840,295 @@
             tab_Subject.TabIndex = 3;
             tab_Subject.Text = "Subject";
             // 
+            // lbl_Course
+            // 
+            lbl_Course.AutoSize = true;
+            lbl_Course.Location = new Point(6, 8);
+            lbl_Course.Name = "lbl_Course";
+            lbl_Course.Size = new Size(194, 39);
+            lbl_Course.TabIndex = 18;
+            lbl_Course.Text = "Offered Courses";
+            // 
+            // dgv_Courses
+            // 
+            dgv_Courses.AllowUserToAddRows = false;
+            dgv_Courses.AllowUserToDeleteRows = false;
+            dgv_Courses.AllowUserToResizeColumns = false;
+            dgv_Courses.AllowUserToResizeRows = false;
+            dgv_Courses.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Courses.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Courses.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            dgv_Courses.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Courses.BorderStyle = BorderStyle.None;
+            dgv_Courses.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv_Courses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dgv_Courses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.White;
+            dataGridViewCellStyle11.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle11.SelectionForeColor = Color.White;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle11;
+            dgv_Courses.EnableHeadersVisualStyles = false;
+            dgv_Courses.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_Courses.GridColor = Color.Black;
+            dgv_Courses.Location = new Point(11, 151);
+            dgv_Courses.Name = "dgv_Courses";
+            dgv_Courses.ReadOnly = true;
+            dgv_Courses.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle12.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dgv_Courses.RowHeadersVisible = false;
+            dgv_Courses.RowHeadersWidth = 20;
+            dgv_Courses.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_Courses.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Courses.Size = new Size(723, 428);
+            dgv_Courses.TabIndex = 15;
+            dgv_Courses.UseCustomBackColor = true;
+            dgv_Courses.UseCustomForeColor = true;
+            dgv_Courses.UseStyleColors = true;
+            // 
+            // sPanel1
+            // 
+            sPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            sPanel1.BackgroundFillColor = Color.White;
+            sPanel1.BorderColor = Color.White;
+            sPanel1.Controls.Add(materialTextBoxEdit2);
+            sPanel1.Controls.Add(hopeCheckBox1);
+            sPanel1.Controls.Add(label1);
+            sPanel1.Controls.Add(lbl_Taken);
+            sPanel1.Controls.Add(hopeCheckBox4);
+            sPanel1.Controls.Add(hopeToggle1);
+            sPanel1.Controls.Add(hopeCheckBox5);
+            sPanel1.Location = new Point(742, 8);
+            sPanel1.Name = "sPanel1";
+            sPanel1.Size = new Size(444, 136);
+            sPanel1.TabIndex = 17;
+            // 
+            // hopeCheckBox1
+            // 
+            hopeCheckBox1.AutoSize = true;
+            hopeCheckBox1.BackColor = Color.White;
+            hopeCheckBox1.CheckedColor = Color.FromArgb(64, 158, 255);
+            hopeCheckBox1.DisabledColor = Color.FromArgb(196, 198, 202);
+            hopeCheckBox1.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            hopeCheckBox1.Enable = true;
+            hopeCheckBox1.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            hopeCheckBox1.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            hopeCheckBox1.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            hopeCheckBox1.Font = new Font("Poppins", 12F);
+            hopeCheckBox1.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeCheckBox1.Location = new Point(267, 35);
+            hopeCheckBox1.Name = "hopeCheckBox1";
+            hopeCheckBox1.Size = new Size(96, 20);
+            hopeCheckBox1.TabIndex = 23;
+            hopeCheckBox1.Text = "Gender";
+            hopeCheckBox1.UseVisualStyleBackColor = false;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BackColor = Color.White;
+            label1.Font = new Font("Poppins", 14F);
+            label1.Location = new Point(474, 13);
+            label1.Name = "label1";
+            label1.Size = new Size(61, 34);
+            label1.TabIndex = 21;
+            label1.Text = "Filter";
+            // 
+            // lbl_Taken
+            // 
+            lbl_Taken.AutoSize = true;
+            lbl_Taken.BackColor = Color.White;
+            lbl_Taken.Font = new Font("Poppins", 12F);
+            lbl_Taken.Location = new Point(267, 83);
+            lbl_Taken.Name = "lbl_Taken";
+            lbl_Taken.Size = new Size(120, 28);
+            lbl_Taken.TabIndex = 13;
+            lbl_Taken.Text = "Course Taken";
+            // 
+            // hopeCheckBox4
+            // 
+            hopeCheckBox4.AutoSize = true;
+            hopeCheckBox4.BackColor = Color.White;
+            hopeCheckBox4.CheckedColor = Color.FromArgb(64, 158, 255);
+            hopeCheckBox4.DisabledColor = Color.FromArgb(196, 198, 202);
+            hopeCheckBox4.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            hopeCheckBox4.Enable = true;
+            hopeCheckBox4.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            hopeCheckBox4.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            hopeCheckBox4.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            hopeCheckBox4.Font = new Font("Poppins", 12F);
+            hopeCheckBox4.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeCheckBox4.Location = new Point(37, 35);
+            hopeCheckBox4.Name = "hopeCheckBox4";
+            hopeCheckBox4.Size = new Size(134, 20);
+            hopeCheckBox4.TabIndex = 15;
+            hopeCheckBox4.Text = "Department";
+            hopeCheckBox4.UseVisualStyleBackColor = false;
+            // 
+            // hopeToggle1
+            // 
+            hopeToggle1.AutoSize = true;
+            hopeToggle1.BackColor = Color.White;
+            hopeToggle1.BaseColor = Color.White;
+            hopeToggle1.BaseColorA = Color.FromArgb(220, 223, 230);
+            hopeToggle1.BaseColorB = Color.FromArgb(100, 64, 158, 255);
+            hopeToggle1.HeadColorA = Color.FromArgb(220, 223, 230);
+            hopeToggle1.HeadColorB = Color.FromArgb(32, 41, 50);
+            hopeToggle1.HeadColorC = Color.FromArgb(64, 158, 255);
+            hopeToggle1.HeadColorD = Color.FromArgb(64, 158, 255);
+            hopeToggle1.Location = new Point(385, 87);
+            hopeToggle1.Name = "hopeToggle1";
+            hopeToggle1.Size = new Size(48, 20);
+            hopeToggle1.TabIndex = 12;
+            hopeToggle1.Text = "Show Inactive";
+            hopeToggle1.UseVisualStyleBackColor = false;
+            // 
+            // hopeCheckBox5
+            // 
+            hopeCheckBox5.AutoSize = true;
+            hopeCheckBox5.BackColor = Color.White;
+            hopeCheckBox5.CheckedColor = Color.FromArgb(64, 158, 255);
+            hopeCheckBox5.DisabledColor = Color.FromArgb(196, 198, 202);
+            hopeCheckBox5.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            hopeCheckBox5.Enable = true;
+            hopeCheckBox5.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            hopeCheckBox5.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            hopeCheckBox5.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            hopeCheckBox5.Font = new Font("Poppins", 12F);
+            hopeCheckBox5.ForeColor = Color.FromArgb(48, 49, 51);
+            hopeCheckBox5.Location = new Point(176, 35);
+            hopeCheckBox5.Name = "hopeCheckBox5";
+            hopeCheckBox5.Size = new Size(85, 20);
+            hopeCheckBox5.TabIndex = 16;
+            hopeCheckBox5.Text = "Name";
+            hopeCheckBox5.UseVisualStyleBackColor = false;
+            // 
+            // sPanel2
+            // 
+            sPanel2.BackgroundFillColor = Color.White;
+            sPanel2.BorderColor = Color.White;
+            sPanel2.Controls.Add(materialTextBoxEdit1);
+            sPanel2.Controls.Add(btn_AssignCourse);
+            sPanel2.Controls.Add(btn_CreateCourse);
+            sPanel2.Controls.Add(btn_DeleteCourse);
+            sPanel2.Location = new Point(2, 50);
+            sPanel2.Name = "sPanel2";
+            sPanel2.Size = new Size(737, 94);
+            sPanel2.TabIndex = 16;
+            // 
+            // materialTextBoxEdit1
+            // 
+            materialTextBoxEdit1.AnimateReadOnly = false;
+            materialTextBoxEdit1.AutoCompleteMode = AutoCompleteMode.None;
+            materialTextBoxEdit1.AutoCompleteSource = AutoCompleteSource.None;
+            materialTextBoxEdit1.BackColor = Color.FromArgb(238, 242, 245);
+            materialTextBoxEdit1.BackgroundImageLayout = ImageLayout.None;
+            materialTextBoxEdit1.CharacterCasing = CharacterCasing.Normal;
+            materialTextBoxEdit1.Depth = 0;
+            materialTextBoxEdit1.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBoxEdit1.HideSelection = true;
+            materialTextBoxEdit1.Hint = "Search";
+            materialTextBoxEdit1.LeadingIcon = (Image)resources.GetObject("materialTextBoxEdit1.LeadingIcon");
+            materialTextBoxEdit1.Location = new Point(26, 23);
+            materialTextBoxEdit1.MaxLength = 100;
+            materialTextBoxEdit1.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBoxEdit1.Name = "materialTextBoxEdit1";
+            materialTextBoxEdit1.PasswordChar = '\0';
+            materialTextBoxEdit1.PrefixSuffixText = null;
+            materialTextBoxEdit1.ReadOnly = false;
+            materialTextBoxEdit1.RightToLeft = RightToLeft.No;
+            materialTextBoxEdit1.SelectedText = "";
+            materialTextBoxEdit1.SelectionLength = 0;
+            materialTextBoxEdit1.SelectionStart = 0;
+            materialTextBoxEdit1.ShortcutsEnabled = true;
+            materialTextBoxEdit1.Size = new Size(250, 48);
+            materialTextBoxEdit1.TabIndex = 1;
+            materialTextBoxEdit1.TabStop = false;
+            materialTextBoxEdit1.TextAlign = HorizontalAlignment.Left;
+            materialTextBoxEdit1.TrailingIcon = null;
+            materialTextBoxEdit1.UseSystemPasswordChar = false;
+            // 
+            // btn_AssignCourse
+            // 
+            btn_AssignCourse.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_AssignCourse.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_AssignCourse.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_AssignCourse.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_AssignCourse.Font = new Font("Poppins", 12F);
+            btn_AssignCourse.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_AssignCourse.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_AssignCourse.Location = new Point(565, 26);
+            btn_AssignCourse.Margin = new Padding(30, 3, 3, 3);
+            btn_AssignCourse.Name = "btn_AssignCourse";
+            btn_AssignCourse.PrimaryColor = Color.FromArgb(204, 102, 0);
+            btn_AssignCourse.Size = new Size(138, 40);
+            btn_AssignCourse.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_AssignCourse.TabIndex = 4;
+            btn_AssignCourse.Text = "Assign Student";
+            btn_AssignCourse.TextColor = Color.White;
+            btn_AssignCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            // 
+            // btn_CreateCourse
+            // 
+            btn_CreateCourse.BorderColor = Color.Black;
+            btn_CreateCourse.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_CreateCourse.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_CreateCourse.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_CreateCourse.Font = new Font("Poppins", 12F);
+            btn_CreateCourse.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_CreateCourse.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_CreateCourse.Location = new Point(293, 26);
+            btn_CreateCourse.Margin = new Padding(30, 3, 3, 3);
+            btn_CreateCourse.Name = "btn_CreateCourse";
+            btn_CreateCourse.PrimaryColor = Color.FromArgb(118, 74, 245);
+            btn_CreateCourse.Size = new Size(126, 40);
+            btn_CreateCourse.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_CreateCourse.TabIndex = 2;
+            btn_CreateCourse.Text = "Create New";
+            btn_CreateCourse.TextColor = Color.White;
+            btn_CreateCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            // 
+            // btn_DeleteCourse
+            // 
+            btn_DeleteCourse.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_DeleteCourse.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_DeleteCourse.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_DeleteCourse.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_DeleteCourse.Font = new Font("Poppins", 12F);
+            btn_DeleteCourse.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_DeleteCourse.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_DeleteCourse.Location = new Point(427, 26);
+            btn_DeleteCourse.Margin = new Padding(30, 3, 3, 3);
+            btn_DeleteCourse.Name = "btn_DeleteCourse";
+            btn_DeleteCourse.PrimaryColor = Color.FromArgb(166, 9, 22);
+            btn_DeleteCourse.Size = new Size(126, 40);
+            btn_DeleteCourse.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_DeleteCourse.TabIndex = 3;
+            btn_DeleteCourse.Text = "Delete Course";
+            btn_DeleteCourse.TextColor = Color.White;
+            btn_DeleteCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -820,7 +1138,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -830,7 +1148,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";
@@ -878,6 +1196,93 @@
             hope_AdminDashboard.Text = "Admin Dashboard";
             hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
+            // dgv_StudentSelection
+            // 
+            dgv_StudentSelection.AllowUserToAddRows = false;
+            dgv_StudentSelection.AllowUserToDeleteRows = false;
+            dgv_StudentSelection.AllowUserToResizeColumns = false;
+            dgv_StudentSelection.AllowUserToResizeRows = false;
+            dgv_StudentSelection.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_StudentSelection.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_StudentSelection.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            dgv_StudentSelection.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_StudentSelection.BorderStyle = BorderStyle.None;
+            dgv_StudentSelection.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv_StudentSelection.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgv_StudentSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dgv_StudentSelection.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgv_StudentSelection.DefaultCellStyle = dataGridViewCellStyle8;
+            dgv_StudentSelection.EnableHeadersVisualStyles = false;
+            dgv_StudentSelection.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_StudentSelection.GridColor = Color.Black;
+            dgv_StudentSelection.Location = new Point(748, 151);
+            dgv_StudentSelection.Name = "dgv_StudentSelection";
+            dgv_StudentSelection.ReadOnly = true;
+            dgv_StudentSelection.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle9.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgv_StudentSelection.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dgv_StudentSelection.RowHeadersVisible = false;
+            dgv_StudentSelection.RowHeadersWidth = 20;
+            dgv_StudentSelection.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_StudentSelection.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_StudentSelection.Size = new Size(436, 428);
+            dgv_StudentSelection.TabIndex = 19;
+            dgv_StudentSelection.UseCustomBackColor = true;
+            dgv_StudentSelection.UseCustomForeColor = true;
+            dgv_StudentSelection.UseStyleColors = true;
+            // 
+            // materialTextBoxEdit2
+            // 
+            materialTextBoxEdit2.AnimateReadOnly = false;
+            materialTextBoxEdit2.AutoCompleteMode = AutoCompleteMode.None;
+            materialTextBoxEdit2.AutoCompleteSource = AutoCompleteSource.None;
+            materialTextBoxEdit2.BackColor = Color.FromArgb(238, 242, 245);
+            materialTextBoxEdit2.BackgroundImageLayout = ImageLayout.None;
+            materialTextBoxEdit2.CharacterCasing = CharacterCasing.Normal;
+            materialTextBoxEdit2.Depth = 0;
+            materialTextBoxEdit2.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            materialTextBoxEdit2.HideSelection = true;
+            materialTextBoxEdit2.Hint = "Search";
+            materialTextBoxEdit2.LeadingIcon = (Image)resources.GetObject("materialTextBoxEdit2.LeadingIcon");
+            materialTextBoxEdit2.Location = new Point(31, 64);
+            materialTextBoxEdit2.MaxLength = 100;
+            materialTextBoxEdit2.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            materialTextBoxEdit2.Name = "materialTextBoxEdit2";
+            materialTextBoxEdit2.PasswordChar = '\0';
+            materialTextBoxEdit2.PrefixSuffixText = null;
+            materialTextBoxEdit2.ReadOnly = false;
+            materialTextBoxEdit2.RightToLeft = RightToLeft.No;
+            materialTextBoxEdit2.SelectedText = "";
+            materialTextBoxEdit2.SelectionLength = 0;
+            materialTextBoxEdit2.SelectionStart = 0;
+            materialTextBoxEdit2.ShortcutsEnabled = true;
+            materialTextBoxEdit2.Size = new Size(222, 48);
+            materialTextBoxEdit2.TabIndex = 24;
+            materialTextBoxEdit2.TabStop = false;
+            materialTextBoxEdit2.TextAlign = HorizontalAlignment.Left;
+            materialTextBoxEdit2.TrailingIcon = null;
+            materialTextBoxEdit2.UseSystemPasswordChar = false;
+            // 
             // AdminDashboard
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -907,7 +1312,14 @@
             tab_Teacher.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Teachers).EndInit();
             pnl_TeacherModifiers.ResumeLayout(false);
+            tab_Subject.ResumeLayout(false);
+            tab_Subject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Courses).EndInit();
+            sPanel1.ResumeLayout(false);
+            sPanel1.PerformLayout();
+            sPanel2.ResumeLayout(false);
             tab_Settings.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgv_StudentSelection).EndInit();
             ResumeLayout(false);
         }
 
@@ -953,5 +1365,21 @@
         private ReaLTaiizor.Controls.HopeCheckBox cb_Gender;
         private ReaLTaiizor.Controls.HopeCheckBox cb_EnrollmentDate;
         private ReaLTaiizor.Controls.HopeButton btn_ShowCourse;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Courses;
+        private UI.SPanel sPanel1;
+        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox1;
+        private Label label1;
+        private Label lbl_Taken;
+        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox4;
+        private ReaLTaiizor.Controls.HopeToggle hopeToggle1;
+        private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox5;
+        private UI.SPanel sPanel2;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit1;
+        private ReaLTaiizor.Controls.HopeButton btn_AssignCourse;
+        private ReaLTaiizor.Controls.HopeButton btn_CreateCourse;
+        private ReaLTaiizor.Controls.HopeButton btn_DeleteCourse;
+        private Label lbl_Course;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_StudentSelection;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit2;
     }
 }
