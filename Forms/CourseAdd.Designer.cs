@@ -28,23 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             hope_CourseAdd = new ReaLTaiizor.Forms.HopeForm();
             pnl_UserDetails = new Student_Information_System.UI.SPanel();
-            cb_Gender = new ReaLTaiizor.Controls.PoisonComboBox();
+            btn_Back = new ReaLTaiizor.Controls.MaterialButton();
+            btn_ConfirmAdd = new ReaLTaiizor.Controls.MaterialButton();
+            lbl_Assign = new Label();
+            dgv_Teachers = new ReaLTaiizor.Controls.PoisonDataGridView();
+            tb_CourseDepartment = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
+            tb_CourseDescription = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
+            cb_Credits = new ReaLTaiizor.Controls.PoisonComboBox();
             btn_UpdateUserDetail = new ReaLTaiizor.Controls.MaterialButton();
             tb_CourseCode = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_CourseName = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             lbl_Name = new Label();
             lbl_CourseCredits = new Label();
-            tb_CourseDescription = new ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit();
-            dgv_Teachers = new ReaLTaiizor.Controls.PoisonDataGridView();
-            lbl_Assign = new Label();
-            btn_ConfirmAdd = new ReaLTaiizor.Controls.MaterialButton();
-            btn_Back = new ReaLTaiizor.Controls.MaterialButton();
-            tb_CourseDepartment = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnl_UserDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Teachers).BeginInit();
             SuspendLayout();
@@ -77,33 +77,197 @@
             pnl_UserDetails.Controls.Add(dgv_Teachers);
             pnl_UserDetails.Controls.Add(tb_CourseDepartment);
             pnl_UserDetails.Controls.Add(tb_CourseDescription);
-            pnl_UserDetails.Controls.Add(cb_Gender);
+            pnl_UserDetails.Controls.Add(cb_Credits);
             pnl_UserDetails.Controls.Add(btn_UpdateUserDetail);
             pnl_UserDetails.Controls.Add(tb_CourseCode);
             pnl_UserDetails.Controls.Add(tb_CourseName);
             pnl_UserDetails.Controls.Add(lbl_Name);
             pnl_UserDetails.Controls.Add(lbl_CourseCredits);
-            pnl_UserDetails.Enabled = false;
             pnl_UserDetails.Location = new Point(28, 58);
             pnl_UserDetails.Name = "pnl_UserDetails";
             pnl_UserDetails.Size = new Size(745, 480);
             pnl_UserDetails.TabIndex = 57;
             // 
-            // cb_Gender
+            // btn_Back
             // 
-            cb_Gender.DisplayMember = "Male";
-            cb_Gender.Font = new Font("Poppins", 12F);
-            cb_Gender.FormattingEnabled = true;
-            cb_Gender.ItemHeight = 32;
-            cb_Gender.Items.AddRange(new object[] { "1", "2", "3" });
-            cb_Gender.Location = new Point(471, 70);
-            cb_Gender.Name = "cb_Gender";
-            cb_Gender.PromptText = "1";
-            cb_Gender.Size = new Size(49, 38);
-            cb_Gender.TabIndex = 61;
-            cb_Gender.Text = "1";
-            cb_Gender.UseCustomFont = true;
-            cb_Gender.UseSelectable = true;
+            btn_Back.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_Back.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btn_Back.Depth = 0;
+            btn_Back.Font = new Font("Poppins", 9F);
+            btn_Back.HighEmphasis = true;
+            btn_Back.Icon = null;
+            btn_Back.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btn_Back.Location = new Point(32, 417);
+            btn_Back.Margin = new Padding(4, 6, 4, 6);
+            btn_Back.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btn_Back.Name = "btn_Back";
+            btn_Back.NoAccentTextColor = Color.Empty;
+            btn_Back.Size = new Size(64, 36);
+            btn_Back.TabIndex = 69;
+            btn_Back.Text = "Back";
+            btn_Back.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_Back.UseAccentColor = false;
+            btn_Back.UseVisualStyleBackColor = true;
+            // 
+            // btn_ConfirmAdd
+            // 
+            btn_ConfirmAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            btn_ConfirmAdd.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
+            btn_ConfirmAdd.Depth = 0;
+            btn_ConfirmAdd.Font = new Font("Poppins", 9F);
+            btn_ConfirmAdd.HighEmphasis = true;
+            btn_ConfirmAdd.Icon = null;
+            btn_ConfirmAdd.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
+            btn_ConfirmAdd.Location = new Point(631, 417);
+            btn_ConfirmAdd.Margin = new Padding(4, 6, 4, 6);
+            btn_ConfirmAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
+            btn_ConfirmAdd.Name = "btn_ConfirmAdd";
+            btn_ConfirmAdd.NoAccentTextColor = Color.Empty;
+            btn_ConfirmAdd.Size = new Size(86, 36);
+            btn_ConfirmAdd.TabIndex = 68;
+            btn_ConfirmAdd.Text = "Confirm";
+            btn_ConfirmAdd.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
+            btn_ConfirmAdd.UseAccentColor = true;
+            btn_ConfirmAdd.UseVisualStyleBackColor = true;
+            // 
+            // lbl_Assign
+            // 
+            lbl_Assign.AutoSize = true;
+            lbl_Assign.Font = new Font("Poppins", 14F);
+            lbl_Assign.Location = new Point(299, 121);
+            lbl_Assign.Name = "lbl_Assign";
+            lbl_Assign.Size = new Size(178, 34);
+            lbl_Assign.TabIndex = 67;
+            lbl_Assign.Text = "Assign Instructor:";
+            // 
+            // dgv_Teachers
+            // 
+            dgv_Teachers.AllowUserToAddRows = false;
+            dgv_Teachers.AllowUserToDeleteRows = false;
+            dgv_Teachers.AllowUserToResizeColumns = false;
+            dgv_Teachers.AllowUserToResizeRows = false;
+            dgv_Teachers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Teachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Teachers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            dgv_Teachers.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Teachers.BorderStyle = BorderStyle.None;
+            dgv_Teachers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv_Teachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dgv_Teachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle5;
+            dgv_Teachers.EnableHeadersVisualStyles = false;
+            dgv_Teachers.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_Teachers.GridColor = Color.Black;
+            dgv_Teachers.Location = new Point(299, 159);
+            dgv_Teachers.Name = "dgv_Teachers";
+            dgv_Teachers.ReadOnly = true;
+            dgv_Teachers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dgv_Teachers.RowHeadersVisible = false;
+            dgv_Teachers.RowHeadersWidth = 20;
+            dgv_Teachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_Teachers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Teachers.Size = new Size(418, 242);
+            dgv_Teachers.TabIndex = 66;
+            dgv_Teachers.UseCustomBackColor = true;
+            dgv_Teachers.UseCustomForeColor = true;
+            dgv_Teachers.UseStyleColors = true;
+            // 
+            // tb_CourseDepartment
+            // 
+            tb_CourseDepartment.AnimateReadOnly = false;
+            tb_CourseDepartment.AutoCompleteMode = AutoCompleteMode.None;
+            tb_CourseDepartment.AutoCompleteSource = AutoCompleteSource.None;
+            tb_CourseDepartment.BackgroundImageLayout = ImageLayout.None;
+            tb_CourseDepartment.CharacterCasing = CharacterCasing.Normal;
+            tb_CourseDepartment.Depth = 0;
+            tb_CourseDepartment.Enabled = false;
+            tb_CourseDepartment.Font = new Font("Poppins", 12F);
+            tb_CourseDepartment.HideSelection = true;
+            tb_CourseDepartment.Hint = "Course Department";
+            tb_CourseDepartment.LeadingIcon = null;
+            tb_CourseDepartment.Location = new Point(32, 198);
+            tb_CourseDepartment.Margin = new Padding(3, 4, 3, 4);
+            tb_CourseDepartment.MaxLength = 100;
+            tb_CourseDepartment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_CourseDepartment.Name = "tb_CourseDepartment";
+            tb_CourseDepartment.PasswordChar = '\0';
+            tb_CourseDepartment.PrefixSuffixText = null;
+            tb_CourseDepartment.ReadOnly = false;
+            tb_CourseDepartment.RightToLeft = RightToLeft.No;
+            tb_CourseDepartment.SelectedText = "";
+            tb_CourseDepartment.SelectionLength = 0;
+            tb_CourseDepartment.SelectionStart = 0;
+            tb_CourseDepartment.ShortcutsEnabled = true;
+            tb_CourseDepartment.Size = new Size(250, 48);
+            tb_CourseDepartment.TabIndex = 65;
+            tb_CourseDepartment.TabStop = false;
+            tb_CourseDepartment.TextAlign = HorizontalAlignment.Left;
+            tb_CourseDepartment.TrailingIcon = null;
+            tb_CourseDepartment.UseSystemPasswordChar = false;
+            // 
+            // tb_CourseDescription
+            // 
+            tb_CourseDescription.AnimateReadOnly = false;
+            tb_CourseDescription.BackgroundImageLayout = ImageLayout.None;
+            tb_CourseDescription.CharacterCasing = CharacterCasing.Normal;
+            tb_CourseDescription.Depth = 0;
+            tb_CourseDescription.HideSelection = true;
+            tb_CourseDescription.Hint = "Course Description";
+            tb_CourseDescription.Location = new Point(32, 263);
+            tb_CourseDescription.MaxLength = 250;
+            tb_CourseDescription.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_CourseDescription.Name = "tb_CourseDescription";
+            tb_CourseDescription.PasswordChar = '\0';
+            tb_CourseDescription.ReadOnly = false;
+            tb_CourseDescription.ScrollBars = ScrollBars.None;
+            tb_CourseDescription.SelectedText = "";
+            tb_CourseDescription.SelectionLength = 0;
+            tb_CourseDescription.SelectionStart = 0;
+            tb_CourseDescription.ShortcutsEnabled = true;
+            tb_CourseDescription.Size = new Size(250, 138);
+            tb_CourseDescription.TabIndex = 64;
+            tb_CourseDescription.TabStop = false;
+            tb_CourseDescription.TextAlign = HorizontalAlignment.Left;
+            tb_CourseDescription.UseSystemPasswordChar = false;
+            // 
+            // cb_Credits
+            // 
+            cb_Credits.DisplayMember = "Male";
+            cb_Credits.Font = new Font("Poppins", 12F);
+            cb_Credits.FormattingEnabled = true;
+            cb_Credits.ItemHeight = 32;
+            cb_Credits.Items.AddRange(new object[] { "1", "2", "3" });
+            cb_Credits.Location = new Point(471, 70);
+            cb_Credits.Name = "cb_Credits";
+            cb_Credits.PromptText = "1";
+            cb_Credits.Size = new Size(56, 38);
+            cb_Credits.TabIndex = 61;
+            cb_Credits.Text = "1";
+            cb_Credits.UseCustomFont = true;
+            cb_Credits.UseSelectable = true;
             // 
             // btn_UpdateUserDetail
             // 
@@ -211,169 +375,6 @@
             lbl_CourseCredits.TabIndex = 62;
             lbl_CourseCredits.Text = "Course Credits: ";
             // 
-            // tb_CourseDescription
-            // 
-            tb_CourseDescription.AnimateReadOnly = false;
-            tb_CourseDescription.BackgroundImageLayout = ImageLayout.None;
-            tb_CourseDescription.CharacterCasing = CharacterCasing.Normal;
-            tb_CourseDescription.Depth = 0;
-            tb_CourseDescription.HideSelection = true;
-            tb_CourseDescription.Hint = "Course Description";
-            tb_CourseDescription.Location = new Point(32, 263);
-            tb_CourseDescription.MaxLength = 250;
-            tb_CourseDescription.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tb_CourseDescription.Name = "tb_CourseDescription";
-            tb_CourseDescription.PasswordChar = '\0';
-            tb_CourseDescription.ReadOnly = false;
-            tb_CourseDescription.ScrollBars = ScrollBars.None;
-            tb_CourseDescription.SelectedText = "";
-            tb_CourseDescription.SelectionLength = 0;
-            tb_CourseDescription.SelectionStart = 0;
-            tb_CourseDescription.ShortcutsEnabled = true;
-            tb_CourseDescription.Size = new Size(250, 138);
-            tb_CourseDescription.TabIndex = 64;
-            tb_CourseDescription.TabStop = false;
-            tb_CourseDescription.TextAlign = HorizontalAlignment.Left;
-            tb_CourseDescription.UseSystemPasswordChar = false;
-            // 
-            // dgv_Teachers
-            // 
-            dgv_Teachers.AllowUserToAddRows = false;
-            dgv_Teachers.AllowUserToDeleteRows = false;
-            dgv_Teachers.AllowUserToResizeColumns = false;
-            dgv_Teachers.AllowUserToResizeRows = false;
-            dgv_Teachers.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dgv_Teachers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgv_Teachers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
-            dgv_Teachers.BackgroundColor = Color.FromArgb(255, 255, 255);
-            dgv_Teachers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-            dgv_Teachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = Color.White;
-            dataGridViewCellStyle10.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle10.ForeColor = Color.Black;
-            dataGridViewCellStyle10.SelectionBackColor = Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            dgv_Teachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = Color.White;
-            dataGridViewCellStyle11.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle11.ForeColor = Color.Black;
-            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle11.SelectionForeColor = Color.White;
-            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
-            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle11;
-            dgv_Teachers.EnableHeadersVisualStyles = false;
-            dgv_Teachers.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dgv_Teachers.GridColor = Color.Black;
-            dgv_Teachers.Location = new Point(299, 159);
-            dgv_Teachers.Name = "dgv_Teachers";
-            dgv_Teachers.ReadOnly = true;
-            dgv_Teachers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle12.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle12.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            dgv_Teachers.RowHeadersVisible = false;
-            dgv_Teachers.RowHeadersWidth = 20;
-            dgv_Teachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dgv_Teachers.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgv_Teachers.Size = new Size(418, 242);
-            dgv_Teachers.TabIndex = 66;
-            dgv_Teachers.UseCustomBackColor = true;
-            dgv_Teachers.UseCustomForeColor = true;
-            dgv_Teachers.UseStyleColors = true;
-            // 
-            // lbl_Assign
-            // 
-            lbl_Assign.AutoSize = true;
-            lbl_Assign.Font = new Font("Poppins", 14F);
-            lbl_Assign.Location = new Point(299, 121);
-            lbl_Assign.Name = "lbl_Assign";
-            lbl_Assign.Size = new Size(178, 34);
-            lbl_Assign.TabIndex = 67;
-            lbl_Assign.Text = "Assign Instructor:";
-            // 
-            // btn_ConfirmAdd
-            // 
-            btn_ConfirmAdd.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_ConfirmAdd.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
-            btn_ConfirmAdd.Depth = 0;
-            btn_ConfirmAdd.Font = new Font("Poppins", 9F);
-            btn_ConfirmAdd.HighEmphasis = true;
-            btn_ConfirmAdd.Icon = null;
-            btn_ConfirmAdd.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_ConfirmAdd.Location = new Point(631, 417);
-            btn_ConfirmAdd.Margin = new Padding(4, 6, 4, 6);
-            btn_ConfirmAdd.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btn_ConfirmAdd.Name = "btn_ConfirmAdd";
-            btn_ConfirmAdd.NoAccentTextColor = Color.Empty;
-            btn_ConfirmAdd.Size = new Size(86, 36);
-            btn_ConfirmAdd.TabIndex = 68;
-            btn_ConfirmAdd.Text = "Confirm";
-            btn_ConfirmAdd.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btn_ConfirmAdd.UseAccentColor = true;
-            btn_ConfirmAdd.UseVisualStyleBackColor = true;
-            // 
-            // btn_Back
-            // 
-            btn_Back.AutoSizeMode = AutoSizeMode.GrowAndShrink;
-            btn_Back.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
-            btn_Back.Depth = 0;
-            btn_Back.Font = new Font("Poppins", 9F);
-            btn_Back.HighEmphasis = true;
-            btn_Back.Icon = null;
-            btn_Back.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_Back.Location = new Point(32, 417);
-            btn_Back.Margin = new Padding(4, 6, 4, 6);
-            btn_Back.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
-            btn_Back.Name = "btn_Back";
-            btn_Back.NoAccentTextColor = Color.Empty;
-            btn_Back.Size = new Size(64, 36);
-            btn_Back.TabIndex = 69;
-            btn_Back.Text = "Back";
-            btn_Back.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
-            btn_Back.UseAccentColor = false;
-            btn_Back.UseVisualStyleBackColor = true;
-            // 
-            // tb_CourseDepartment
-            // 
-            tb_CourseDepartment.AnimateReadOnly = false;
-            tb_CourseDepartment.AutoCompleteMode = AutoCompleteMode.None;
-            tb_CourseDepartment.AutoCompleteSource = AutoCompleteSource.None;
-            tb_CourseDepartment.BackgroundImageLayout = ImageLayout.None;
-            tb_CourseDepartment.CharacterCasing = CharacterCasing.Normal;
-            tb_CourseDepartment.Depth = 0;
-            tb_CourseDepartment.Font = new Font("Poppins", 12F);
-            tb_CourseDepartment.HideSelection = true;
-            tb_CourseDepartment.Hint = "Course Department";
-            tb_CourseDepartment.LeadingIcon = null;
-            tb_CourseDepartment.Location = new Point(32, 198);
-            tb_CourseDepartment.Margin = new Padding(3, 4, 3, 4);
-            tb_CourseDepartment.MaxLength = 100;
-            tb_CourseDepartment.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
-            tb_CourseDepartment.Name = "tb_CourseDepartment";
-            tb_CourseDepartment.PasswordChar = '\0';
-            tb_CourseDepartment.PrefixSuffixText = null;
-            tb_CourseDepartment.ReadOnly = false;
-            tb_CourseDepartment.RightToLeft = RightToLeft.No;
-            tb_CourseDepartment.SelectedText = "";
-            tb_CourseDepartment.SelectionLength = 0;
-            tb_CourseDepartment.SelectionStart = 0;
-            tb_CourseDepartment.ShortcutsEnabled = true;
-            tb_CourseDepartment.Size = new Size(250, 48);
-            tb_CourseDepartment.TabIndex = 65;
-            tb_CourseDepartment.TabStop = false;
-            tb_CourseDepartment.TextAlign = HorizontalAlignment.Left;
-            tb_CourseDepartment.TrailingIcon = null;
-            tb_CourseDepartment.UseSystemPasswordChar = false;
-            // 
             // CourseAdd
             // 
             AutoScaleDimensions = new SizeF(7F, 22F);
@@ -404,7 +405,7 @@
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseCode;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseName;
         private Label lbl_Name;
-        private ReaLTaiizor.Controls.PoisonComboBox cb_Gender;
+        private ReaLTaiizor.Controls.PoisonComboBox cb_Credits;
         private Label lbl_CourseCredits;
         private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit tb_CourseDescription;
         private Label lbl_Assign;
