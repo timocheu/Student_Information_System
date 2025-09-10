@@ -72,6 +72,7 @@ namespace Student_Information_System.Forms
 
             var refreshedUser = db.Users
                 .Where(predicate)
+                .OrderByDescending(u => u.UserId)
                 .Select(u => new
                 {
                     u.UserId,
