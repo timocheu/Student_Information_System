@@ -98,7 +98,7 @@
             btn_UpdateUserDetail.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             btn_UpdateUserDetail.Density = ReaLTaiizor.Controls.MaterialButton.MaterialButtonDensity.Dense;
             btn_UpdateUserDetail.Depth = 0;
-            btn_UpdateUserDetail.Font = new Font("Microsoft Sans Serif", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btn_UpdateUserDetail.Font = new Font("Poppins", 9F);
             btn_UpdateUserDetail.HighEmphasis = true;
             btn_UpdateUserDetail.Icon = null;
             btn_UpdateUserDetail.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
@@ -129,7 +129,7 @@
             tb_Lastname.LeadingIcon = null;
             tb_Lastname.Location = new Point(299, 74);
             tb_Lastname.Margin = new Padding(3, 4, 3, 4);
-            tb_Lastname.MaxLength = 32767;
+            tb_Lastname.MaxLength = 45;
             tb_Lastname.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Lastname.Name = "tb_Lastname";
             tb_Lastname.PasswordChar = '\0';
@@ -173,7 +173,7 @@
             tb_Specialization.LeadingIcon = null;
             tb_Specialization.Location = new Point(0, 80);
             tb_Specialization.Margin = new Padding(3, 4, 3, 4);
-            tb_Specialization.MaxLength = 32767;
+            tb_Specialization.MaxLength = 50;
             tb_Specialization.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Specialization.Name = "tb_Specialization";
             tb_Specialization.PasswordChar = '\0';
@@ -205,7 +205,7 @@
             tb_Department.LeadingIcon = null;
             tb_Department.Location = new Point(0, 15);
             tb_Department.Margin = new Padding(3, 4, 3, 4);
-            tb_Department.MaxLength = 32767;
+            tb_Department.MaxLength = 50;
             tb_Department.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Department.Name = "tb_Department";
             tb_Department.PasswordChar = '\0';
@@ -237,7 +237,7 @@
             tb_Firstname.LeadingIcon = null;
             tb_Firstname.Location = new Point(32, 74);
             tb_Firstname.Margin = new Padding(3, 4, 3, 4);
-            tb_Firstname.MaxLength = 32767;
+            tb_Firstname.MaxLength = 45;
             tb_Firstname.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Firstname.Name = "tb_Firstname";
             tb_Firstname.PasswordChar = '\0';
@@ -323,7 +323,7 @@
             tb_Address.LeadingIcon = null;
             tb_Address.Location = new Point(32, 325);
             tb_Address.Margin = new Padding(3, 4, 3, 4);
-            tb_Address.MaxLength = 32767;
+            tb_Address.MaxLength = 100;
             tb_Address.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Address.Name = "tb_Address";
             tb_Address.PasswordChar = '\0';
@@ -366,7 +366,7 @@
             tb_Phone.LeadingIcon = null;
             tb_Phone.Location = new Point(299, 246);
             tb_Phone.Margin = new Padding(3, 4, 3, 4);
-            tb_Phone.MaxLength = 32767;
+            tb_Phone.MaxLength = 45;
             tb_Phone.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Phone.Name = "tb_Phone";
             tb_Phone.PasswordChar = '\0';
@@ -398,7 +398,7 @@
             tb_Email.LeadingIcon = null;
             tb_Email.Location = new Point(32, 246);
             tb_Email.Margin = new Padding(3, 4, 3, 4);
-            tb_Email.MaxLength = 32767;
+            tb_Email.MaxLength = 45;
             tb_Email.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
             tb_Email.Name = "tb_Email";
             tb_Email.PasswordChar = '\0';
