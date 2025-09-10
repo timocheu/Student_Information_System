@@ -16,6 +16,7 @@ namespace Student_Information_System.Forms
             // 1. Display teachers
             loadTeachers();
             // 2. Make the department of course, same as teacher's deparment
+            dgv_Teachers.CellClick += Dgv_Teachers_CellClick;
             // 4. Search for teacher's department or name
         }
 
@@ -31,7 +32,21 @@ namespace Student_Information_System.Forms
                     u.Teacher!.Department,
                     u.Teacher.Specialization,
                 })
-                .ToList() ;
+                .ToList();
+        }
+
+        private void Dgv_Teachers_CellClick(object? sender, DataGridViewCellEventArgs e)
+        {
+            if (dgv_Teachers.SelectedRows.Count == 1)
+            {
+                string department = (string) dgv_Teachers.SelectedRows[0].Cells["Department"].Value;
+
+                tb_CourseDepartment.Text = department;
+            }
+            else
+            {
+                MessageBox.Show("Select a single row first");
+            }
         }
 
         // Dispose
