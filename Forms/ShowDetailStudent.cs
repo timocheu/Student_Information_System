@@ -1,15 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Student_Information_System.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ReaLTaiizor.Controls;
+using Student_Information_System.Models;
+using System.Data;
 
 namespace Student_Information_System.Forms
 {
