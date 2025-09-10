@@ -52,6 +52,7 @@ public partial class SisContext : DbContext
             entity.Property(e => e.Credits).HasColumnName("credits");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.TeacherId).HasColumnName("teacher_id");
+            entity.Property(e => e.Department).HasColumnName("department");
 
             entity.HasOne(d => d.Teacher).WithMany(p => p.Courses).HasForeignKey(d => d.TeacherId);
         });
@@ -108,6 +109,7 @@ public partial class SisContext : DbContext
                 .ValueGeneratedNever()
                 .HasColumnName("user_id");
             entity.Property(e => e.EnrollmentDate).HasColumnName("enrollment_date");
+            entity.Property(e => e.Program).HasColumnName("program");
             entity.Property(e => e.Status).HasColumnName("status");
 
             entity.HasOne(d => d.User).WithOne(p => p.Student)

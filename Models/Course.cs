@@ -16,6 +16,7 @@ public partial class Course
     public int? Credits { get; set; }
 
     public int? TeacherId { get; set; }
+    public int? Department { get; set; }
 
     public virtual ICollection<Grade> Grades { get; set; } = new List<Grade>();
 

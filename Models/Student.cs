@@ -8,6 +8,7 @@ public partial class Student
     public int UserId { get; set; }
 
     public string? EnrollmentDate { get; set; }
+    public string? Program { get; set; }
 
     public int? Status { get; set; }
 
