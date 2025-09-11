@@ -1213,6 +1213,7 @@
             btn_DeleteCourse.Text = "Delete Course";
             btn_DeleteCourse.TextColor = Color.White;
             btn_DeleteCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_DeleteCourse.Click += btn_DeleteCourse_Click;
             // 
             // tab_Logs
             // 

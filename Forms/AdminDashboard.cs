@@ -297,8 +297,26 @@ namespace Student_Information_System.Forms
             totalCourses = refreshedCourses.Count;
 
             lbl_StudentResult.Text = $"{refreshedCourses.Count} Out of {totalCourses}";
-        } 
+        }
 
+        private void btn_DeleteCourse_Click(object sender, EventArgs e)
+        {
+            if (dgv_Courses.SelectedRows.Count > 0)
+            {
+                var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+                if (result == DialogResult.Yes)
+                {
+                    int courseId = (int) dgv_Courses.SelectedRows[0].Cells[0].Value;
+
+                    db.Courses
+                        .Where(c => c.CourseId == courseId)
+                        .ExecuteDelete();
+
+                    RefreshCourse();
+                }
+            }
+        }
         #endregion
+
     }
 }
