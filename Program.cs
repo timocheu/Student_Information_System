@@ -20,7 +20,7 @@ namespace Student_Information_System
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new CourseAdd());
+            Application.Run(new AdminDashboard(3));
         }
 
         static bool IsFontExist(string fontname)

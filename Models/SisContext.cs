@@ -1,4 +1,6 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 using Student_Information_System.Utilities;
 
 namespace Student_Information_System.Models;
@@ -40,17 +42,13 @@ public partial class SisContext : DbContext
         {
             entity.ToTable("Course");
 
-            entity.HasIndex(e => e.CourseCode, "IX_Course_course_code").IsUnique();
-
-            entity.Property(e => e.CourseId)
-                .ValueGeneratedNever()
-                .HasColumnName("course_id");
+            entity.Property(e => e.CourseId).HasColumnName("course_id");
             entity.Property(e => e.CourseCode).HasColumnName("course_code");
             entity.Property(e => e.CourseName).HasColumnName("course_name");
             entity.Property(e => e.Credits).HasColumnName("credits");
+            entity.Property(e => e.Department).HasColumnName("department");
             entity.Property(e => e.Description).HasColumnName("description");
             entity.Property(e => e.TeacherId).HasColumnName("teacher_id");
-            entity.Property(e => e.Department).HasColumnName("department");
 
             entity.HasOne(d => d.Teacher).WithMany(p => p.Courses).HasForeignKey(d => d.TeacherId);
         });

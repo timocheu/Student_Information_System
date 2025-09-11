@@ -16,8 +16,13 @@ namespace Student_Information_System.Forms
         private bool ShowInactiveStudents = false;
         private bool ShowInactiveTeachers = false;
 
+        // Binding source for students
         private BindingSource studentSource = new();
         private int totalStudents = 0;
+
+        // Binding source for students
+        private BindingSource courseSource = new();
+        private int totalCourses = 0;
 
         public AdminDashboard(int userId)
         {
@@ -27,7 +32,9 @@ namespace Student_Information_System.Forms
 
             // Initialize data for students
             RefreshStudents();
+            RefreshCourse();
             dgv_Students.DataSource = studentSource;
+            dgv_Courses.DataSource = courseSource;
         }
 
         private void GetUserInfo(int user_id)
@@ -77,6 +84,7 @@ namespace Student_Information_System.Forms
                 .ToList();
 
             studentSource.DataSource = refreshedUser;
+            totalStudents = refreshedUser.Count;
             lbl_StudentResult.Text = $"{refreshedUser.Count} Out of {totalStudents}";
         }
 
@@ -254,5 +262,43 @@ namespace Student_Information_System.Forms
 
         }
 
+
+        #region Courses
+        private void btn_CreateCourse_Click(object sender, EventArgs e)
+        {
+            CourseAdd CourseAddForm = new CourseAdd();
+            CourseAddForm.FormClosed += (s, args) =>
+            {
+                this.Enabled = true;
+                RefreshCourse();
+            };
+
+            this.Enabled = false;
+            CourseAddForm.Show();
+        }
+
+        private void RefreshCourse()
+        {
+            var refreshedCourses = db.Courses
+                .OrderByDescending(u => u.CourseId)
+                .Select(u => new
+                {
+                    u.CourseId,
+                    u.CourseCode,
+                    u.CourseName,
+                    u.Description,
+                    u.Department,
+                    u.Credits,
+                    u.TeacherId
+                })
+                .ToList();
+
+            courseSource.DataSource = refreshedCourses;
+            totalCourses = refreshedCourses.Count;
+
+            lbl_StudentResult.Text = $"{refreshedCourses.Count} Out of {totalCourses}";
+        } 
+
+        #endregion
     }
 }

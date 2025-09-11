@@ -9,8 +9,10 @@ namespace Student_Information_System.Forms
     public partial class CourseAdd : Form
     {
         private SisContext db = new();
-        Course course = new Course();
-        
+
+        private string courseDepartment = string.Empty;
+        private int courseTeacher;
+
         public CourseAdd()
         {
             InitializeComponent();
@@ -26,10 +28,10 @@ namespace Student_Information_System.Forms
             // set first row as selected
             dgv_Teachers.Rows[0].Selected = true;
 
-            course.Department = (string) dgv_Teachers.SelectedRows[0].Cells["Department"].Value;
-            tb_CourseDepartment.Text = course.Department;
+            courseDepartment = (string) dgv_Teachers.SelectedRows[0].Cells["Department"].Value;
+            tb_CourseDepartment.Text = courseDepartment;
 
-            course.TeacherId = (int) dgv_Teachers.SelectedRows[0].Cells["UserId"].Value;
+            courseTeacher = (int) dgv_Teachers.SelectedRows[0].Cells["UserId"].Value;
         }
 
         private void Tb_SearchInstructor_TextChanged(object? sender, EventArgs e)
@@ -104,10 +106,10 @@ namespace Student_Information_System.Forms
         {
             if (dgv_Teachers.SelectedRows.Count == 1)
             {
-                course.Department = (string) dgv_Teachers.SelectedRows[0].Cells["Department"].Value;
-                course.TeacherId = (int) dgv_Teachers.SelectedRows[0].Cells["UserId"].Value;
+                courseDepartment = (string) dgv_Teachers.SelectedRows[0].Cells["Department"].Value;
+                courseTeacher = (int) dgv_Teachers.SelectedRows[0].Cells["UserId"].Value;
 
-                tb_CourseDepartment.Text = course.Department;
+                tb_CourseDepartment.Text = courseDepartment;
             }
             else
             {
@@ -120,25 +122,31 @@ namespace Student_Information_System.Forms
 
         private void btn_ConfirmAdd_Click(object sender, EventArgs e)
         {
-            course.CourseName = tb_CourseName.Text;
-            course.CourseCode = tb_CourseCode.Text;
-            course.Description = tb_CourseDescription.Text;
-            course.Credits = int.Parse(cbb_Credits.Text);
+            Course course = new Course()
+            {
+                CourseName = tb_CourseName.Text,
+                CourseCode = tb_CourseCode.Text,
+                Description = tb_CourseDescription.Text,
+                Department = courseDepartment,
+                Credits = int.Parse(cbb_Credits.Text),
+                TeacherId = courseTeacher,
+            };
 
             var result = CrownMessageBox.ShowInformation("Is this the correct information?", "Confirm Adding Course", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
-            if (result == DialogResult.OK)
+            if (result == DialogResult.Yes)
             {
                 try
                 {
                     db.Courses.Add(course);
 
                     db.SaveChanges();
-                } 
+                }
                 catch (Exception ex)
                 {
-                    // Log error here
-                    MessageBox.Show($"{ex.GetType}: says {ex.Message}");
-                }
+                    MessageBox.Show("Unable to add!");
+                    MessageBox.Show($"{ex.GetType} says {ex.Message}");
+                }   
+
 
                 this.Close();
             }
