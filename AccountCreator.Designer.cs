@@ -183,7 +183,6 @@
             btn_Test.TabIndex = 13;
             btn_Test.Text = "Test";
             btn_Test.Transparent = false;
-            btn_Test.Click += btn_Test_Click;
             // 
             // cb_Gender
             // 

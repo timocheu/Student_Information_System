@@ -1,6 +1,7 @@
 using Microsoft.Data.Sqlite;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Forms;
+using Student_Information_System.Models;
 using Student_Information_System.UserControls;
 using Student_Information_System.Utilities;
 
@@ -25,21 +26,38 @@ namespace Student_Information_System
                 return;
             }
 
-            string password = tb_Password.Text;
+            string password = tb_Password.Text.Trim();
+            string username = tb_Username.Text;
             tb_Password.Clear();
 
             btn_Login.Enabled = false;
 
             try
             {
-                using var conn = new SqliteConnection(Account.SqliteDbPath());
-                int user_id = await Task.Run(() =>
-                {
-                    conn.Open();
-                    return Account.QueryAccountLogin(conn, tb_Username.Text, password);
-                });
+                bool ExistButWrongPass;
+                bool LimitReached;
+                var user = Account.QueryAccountLogin(username, 
+                    password, 
+                    out ExistButWrongPass, 
+                    out LimitReached);
 
-                if (user_id == -1)
+                if (LimitReached)
+                {
+                    MaterialSnackBar Snackbar = new MaterialSnackBar("Account login attempts reached limit", 3000, "OK", true);
+                    Snackbar.Show(this);
+
+                    return;
+                }
+
+                if (ExistButWrongPass)
+                {
+                    MaterialSnackBar Snackbar = new MaterialSnackBar("The account exist, but wrong password", 3000, "OK", true);
+                    Snackbar.Show(this);
+
+                    return;
+                }
+
+                if (user == null)
                 {
                     MessageBox.Show("Unable to find a matching user login.",
                         "Incorrect Credentials",
@@ -48,25 +66,9 @@ namespace Student_Information_System
                     return;
                 }
 
-                int role = await Task.Run(() =>
+                Form? directedForm = user.Role switch
                 {
-                    using (var cmd = new SqliteCommand("SELECT role FROM User WHERE user_id = @user_id", conn))
-                    {
-                        // Add the user_id
-                        cmd.Parameters.AddWithValue("@user_id", user_id);
-
-                        using (var r = cmd.ExecuteReader())
-                        {
-                            if (r.Read()) return r.GetInt32(0);
-                        }
-                    }
-
-                    return -1;
-                });
-
-                Form? directedForm = role switch
-                {
-                    1 => new AdminDashboard(user_id),
+                    1 => new AdminDashboard(user.UserId),
                     2 => new TeacherDashboard(),
                     3 => new StudentDasboard(),
                     _ => null

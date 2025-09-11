@@ -1,4 +1,5 @@
 ﻿using Microsoft.Data.Sqlite;
+using Microsoft.EntityFrameworkCore;
 using Student_Information_System.Models;
 
 namespace Student_Information_System.Utilities
@@ -13,28 +14,53 @@ namespace Student_Information_System.Utilities
             return $"Data Source={fullPath}";
         }
 
-        public static int QueryAccountLogin(SqliteConnection conn, string username, string password)
+        public static User? QueryAccountLogin(string username, 
+            string password, 
+            out bool ExistButWrongPass,
+            out bool LimitReached)
         {
-            if (conn.State != System.Data.ConnectionState.Open)
+            ExistButWrongPass = false;
+            LimitReached = false;
+
+            using (SisContext db = new())
             {
-                throw new Exception("Unable to query: Connection is close.");
-            }
+                var login = db.UserLogins
+                    .Where(u => u.Username == username)
+                    .Include(u => u.User)
+                    .FirstOrDefault();
 
-            string query = "SELECT * FROM User_login WHERE username = @username";
 
-            using (var cmd = new SqliteCommand(query, conn))
-            {
-                cmd.Parameters.AddWithValue("@username", username);
-                var r = cmd.ExecuteReader();
-
-                // If a row exist, read then Verify the matching hash using salt
-                if (r.Read() &&
-                    Cryptography.VerifyPassword(password, (byte[])r["password_salt"], (byte[])r["password_hash"]))
+                if (login?.LoginAttempt >= 3)
                 {
-                    return r.GetInt32(0);
+                    login.LastLoginAttempt = DateTime.Now.ToString();
+                    db.SaveChanges();
+
+                    LimitReached = true;
+                    return null;
                 }
 
-                return -1;
+                if (login != null)
+                {
+                    if (Cryptography.VerifyPassword(password, login.PasswordSalt, login.PasswordHash))
+                    {
+                        login.LoginAttempt = 0;
+                        login.LastLoginAttempt = DateTime.Now.ToString();
+                        db.SaveChanges();
+
+                        return login.User;
+                    }
+                    else
+                    {
+                        ExistButWrongPass = true;
+
+                        login.LoginAttempt += 1;
+                        login.LastLoginAttempt = DateTime.Now.ToString();
+
+                        db.SaveChanges();
+                    }
+                }
+
+                return null;
             }
         }
 
