@@ -1,13 +1,13 @@
-﻿namespace Student_Information_System.UserControls
+﻿namespace Student_Information_System.Forms
 {
-    partial class EnterPin
+    partial class ForgotPassword
     {
-        /// <summary> 
+        /// <summary>
         /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
+        /// <summary>
         /// Clean up any resources being used.
         /// </summary>
         /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
@@ -20,19 +20,38 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
+        #region Windows Form Designer generated code
 
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
+        /// <summary>
+        /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            hopeForm1 = new ReaLTaiizor.Forms.HopeForm();
             btn_CreateStudent = new ReaLTaiizor.Controls.HopeButton();
             lbl_EnterEmail = new Label();
             lbl_ForgotPassword = new Label();
             tb_Email = new ReaLTaiizor.Controls.HopeTextBox();
             SuspendLayout();
+            // 
+            // hopeForm1
+            // 
+            hopeForm1.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            hopeForm1.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            hopeForm1.ControlBoxColorN = Color.White;
+            hopeForm1.Dock = DockStyle.Top;
+            hopeForm1.Font = new Font("Poppins", 12F);
+            hopeForm1.ForeColor = Color.FromArgb(242, 246, 252);
+            hopeForm1.Image = null;
+            hopeForm1.Location = new Point(0, 0);
+            hopeForm1.MaximizeBox = false;
+            hopeForm1.MinimizeBox = false;
+            hopeForm1.Name = "hopeForm1";
+            hopeForm1.Size = new Size(340, 40);
+            hopeForm1.TabIndex = 0;
+            hopeForm1.Text = "Forgot Password";
+            hopeForm1.ThemeColor = Color.FromArgb(92, 173, 255);
             // 
             // btn_CreateStudent
             // 
@@ -43,7 +62,7 @@
             btn_CreateStudent.Font = new Font("Poppins", 16F);
             btn_CreateStudent.HoverTextColor = Color.FromArgb(48, 49, 51);
             btn_CreateStudent.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_CreateStudent.Location = new Point(50, 161);
+            btn_CreateStudent.Location = new Point(42, 195);
             btn_CreateStudent.Margin = new Padding(30, 3, 3, 3);
             btn_CreateStudent.Name = "btn_CreateStudent";
             btn_CreateStudent.PrimaryColor = Color.FromArgb(118, 74, 245);
@@ -53,23 +72,24 @@
             btn_CreateStudent.Text = "Continue";
             btn_CreateStudent.TextColor = Color.White;
             btn_CreateStudent.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_CreateStudent.Click += btn_CreateStudent_Click;
             // 
             // lbl_EnterEmail
             // 
             lbl_EnterEmail.AutoSize = true;
             lbl_EnterEmail.Font = new Font("Poppins", 12F);
             lbl_EnterEmail.ForeColor = Color.Gray;
-            lbl_EnterEmail.Location = new Point(103, 69);
+            lbl_EnterEmail.Location = new Point(95, 91);
             lbl_EnterEmail.Name = "lbl_EnterEmail";
-            lbl_EnterEmail.Size = new Size(126, 28);
+            lbl_EnterEmail.Size = new Size(140, 28);
             lbl_EnterEmail.TabIndex = 6;
-            lbl_EnterEmail.Text = "Enter your OTP";
+            lbl_EnterEmail.Text = "Enter your email";
             // 
             // lbl_ForgotPassword
             // 
             lbl_ForgotPassword.AutoSize = true;
             lbl_ForgotPassword.Font = new Font("Poppins", 20F);
-            lbl_ForgotPassword.Location = new Point(57, 24);
+            lbl_ForgotPassword.Location = new Point(49, 58);
             lbl_ForgotPassword.Name = "lbl_ForgotPassword";
             lbl_ForgotPassword.Size = new Size(242, 48);
             lbl_ForgotPassword.TabIndex = 5;
@@ -83,8 +103,8 @@
             tb_Email.BorderColorB = Color.FromArgb(220, 223, 230);
             tb_Email.Font = new Font("Poppins", 12F);
             tb_Email.ForeColor = Color.FromArgb(48, 49, 51);
-            tb_Email.Hint = "OTP";
-            tb_Email.Location = new Point(50, 100);
+            tb_Email.Hint = "Email Address";
+            tb_Email.Location = new Point(42, 134);
             tb_Email.MaxLength = 32767;
             tb_Email.Multiline = false;
             tb_Email.Name = "tb_Email";
@@ -98,22 +118,32 @@
             tb_Email.TabStop = false;
             tb_Email.UseSystemPasswordChar = false;
             // 
-            // EnterPin
+            // ForgotPassword
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(340, 261);
             Controls.Add(btn_CreateStudent);
             Controls.Add(lbl_EnterEmail);
             Controls.Add(lbl_ForgotPassword);
             Controls.Add(tb_Email);
-            Name = "EnterPin";
-            Size = new Size(350, 230);
+            Controls.Add(hopeForm1);
+            Font = new Font("Poppins", 9F);
+            FormBorderStyle = FormBorderStyle.None;
+            MaximizeBox = false;
+            MaximumSize = new Size(1920, 1040);
+            MinimizeBox = false;
+            MinimumSize = new Size(190, 40);
+            Name = "ForgotPassword";
+            ShowIcon = false;
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Forgot Password";
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
+        private ReaLTaiizor.Forms.HopeForm hopeForm1;
         private ReaLTaiizor.Controls.HopeButton btn_CreateStudent;
         private Label lbl_EnterEmail;
         private Label lbl_ForgotPassword;

@@ -1,6 +1,7 @@
 using Microsoft.Data.Sqlite;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Forms;
+using Student_Information_System.UserControls;
 using Student_Information_System.Utilities;
 
 namespace Student_Information_System
@@ -126,6 +127,13 @@ namespace Student_Information_System
                 btn_Login_Click(sender, e);
                 e.Handled = true;
             }
+        }
+
+        private void lbl_ForgotPassword_Click(object sender, EventArgs e)
+        {
+            ForgotPassword fg = new();
+
+            fg.Show();
         }
     }
 }

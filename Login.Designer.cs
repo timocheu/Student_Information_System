@@ -41,6 +41,7 @@
             png_LoginForm = new Student_Information_System.UI.SPanel();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
+            lbl_ForgotPassword = new Label();
             ((System.ComponentModel.ISupportInitialize)pb_Mascot).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             png_LoginForm.SuspendLayout();
@@ -68,7 +69,7 @@
             btn_Login.HoverBackColor = Color.Black;
             btn_Login.HoverForeColor = Color.Gray;
             btn_Login.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.High;
-            btn_Login.Location = new Point(61, 339);
+            btn_Login.Location = new Point(61, 346);
             btn_Login.MinimumSize = new Size(144, 47);
             btn_Login.Name = "btn_Login";
             btn_Login.NormalBackColor = Color.WhiteSmoke;
@@ -214,6 +215,7 @@
             // 
             png_LoginForm.BackgroundFillColor = Color.FromArgb(30, 30, 30);
             png_LoginForm.BorderColor = Color.FromArgb(30, 30, 30);
+            png_LoginForm.Controls.Add(lbl_ForgotPassword);
             png_LoginForm.Controls.Add(tb_Username);
             png_LoginForm.Controls.Add(lbl_LoginDescription);
             png_LoginForm.Controls.Add(btn_Login);
@@ -242,6 +244,22 @@
             pictureBox3.Size = new Size(34, 92);
             pictureBox3.TabIndex = 7;
             pictureBox3.TabStop = false;
+            // 
+            // lbl_ForgotPassword
+            // 
+            lbl_ForgotPassword.AutoSize = true;
+            lbl_ForgotPassword.BackColor = Color.FromArgb(30, 30, 30);
+            lbl_ForgotPassword.Cursor = Cursors.Hand;
+            lbl_ForgotPassword.Font = new Font("Poppins", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lbl_ForgotPassword.ForeColor = Color.WhiteSmoke;
+            lbl_ForgotPassword.Location = new Point(61, 305);
+            lbl_ForgotPassword.Margin = new Padding(0);
+            lbl_ForgotPassword.Name = "lbl_ForgotPassword";
+            lbl_ForgotPassword.Size = new Size(151, 28);
+            lbl_ForgotPassword.TabIndex = 5;
+            lbl_ForgotPassword.Text = "Forgot Password?";
+            lbl_ForgotPassword.TextAlign = ContentAlignment.MiddleLeft;
+            lbl_ForgotPassword.Click += lbl_ForgotPassword_Click;
             // 
             // Login
             // 
@@ -287,5 +305,6 @@
         private UI.SPanel png_LoginForm;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
+        private Label lbl_ForgotPassword;
     }
 }
