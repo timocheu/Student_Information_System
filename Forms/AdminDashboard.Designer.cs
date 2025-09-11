@@ -85,7 +85,7 @@
             label1 = new Label();
             lbl_Taken = new Label();
             hopeCheckBox4 = new ReaLTaiizor.Controls.HopeCheckBox();
-            hopeToggle1 = new ReaLTaiizor.Controls.HopeToggle();
+            toggle_CourseTaken = new ReaLTaiizor.Controls.HopeToggle();
             hopeCheckBox5 = new ReaLTaiizor.Controls.HopeCheckBox();
             sPanel2 = new Student_Information_System.UI.SPanel();
             materialTextBoxEdit1 = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -958,6 +958,7 @@
             dgv_Courses.UseCustomBackColor = true;
             dgv_Courses.UseCustomForeColor = true;
             dgv_Courses.UseStyleColors = true;
+            dgv_Courses.CellClick += dgv_Courses_CellClick;
             // 
             // sPanel1
             // 
@@ -969,7 +970,7 @@
             sPanel1.Controls.Add(label1);
             sPanel1.Controls.Add(lbl_Taken);
             sPanel1.Controls.Add(hopeCheckBox4);
-            sPanel1.Controls.Add(hopeToggle1);
+            sPanel1.Controls.Add(toggle_CourseTaken);
             sPanel1.Controls.Add(hopeCheckBox5);
             sPanel1.Location = new Point(742, 8);
             sPanel1.Name = "sPanel1";
@@ -1070,23 +1071,23 @@
             hopeCheckBox4.Text = "Department";
             hopeCheckBox4.UseVisualStyleBackColor = false;
             // 
-            // hopeToggle1
+            // toggle_CourseTaken
             // 
-            hopeToggle1.AutoSize = true;
-            hopeToggle1.BackColor = Color.White;
-            hopeToggle1.BaseColor = Color.White;
-            hopeToggle1.BaseColorA = Color.FromArgb(220, 223, 230);
-            hopeToggle1.BaseColorB = Color.FromArgb(100, 64, 158, 255);
-            hopeToggle1.HeadColorA = Color.FromArgb(220, 223, 230);
-            hopeToggle1.HeadColorB = Color.FromArgb(32, 41, 50);
-            hopeToggle1.HeadColorC = Color.FromArgb(64, 158, 255);
-            hopeToggle1.HeadColorD = Color.FromArgb(64, 158, 255);
-            hopeToggle1.Location = new Point(385, 87);
-            hopeToggle1.Name = "hopeToggle1";
-            hopeToggle1.Size = new Size(48, 20);
-            hopeToggle1.TabIndex = 12;
-            hopeToggle1.Text = "Show Inactive";
-            hopeToggle1.UseVisualStyleBackColor = false;
+            toggle_CourseTaken.AutoSize = true;
+            toggle_CourseTaken.BackColor = Color.White;
+            toggle_CourseTaken.BaseColor = Color.White;
+            toggle_CourseTaken.BaseColorA = Color.FromArgb(220, 223, 230);
+            toggle_CourseTaken.BaseColorB = Color.FromArgb(100, 64, 158, 255);
+            toggle_CourseTaken.HeadColorA = Color.FromArgb(220, 223, 230);
+            toggle_CourseTaken.HeadColorB = Color.FromArgb(32, 41, 50);
+            toggle_CourseTaken.HeadColorC = Color.FromArgb(64, 158, 255);
+            toggle_CourseTaken.HeadColorD = Color.FromArgb(64, 158, 255);
+            toggle_CourseTaken.Location = new Point(385, 87);
+            toggle_CourseTaken.Name = "toggle_CourseTaken";
+            toggle_CourseTaken.Size = new Size(48, 20);
+            toggle_CourseTaken.TabIndex = 12;
+            toggle_CourseTaken.Text = "Show Inactive";
+            toggle_CourseTaken.UseVisualStyleBackColor = false;
             // 
             // hopeCheckBox5
             // 
@@ -1172,6 +1173,7 @@
             btn_AssignCourse.Text = "Assign Student";
             btn_AssignCourse.TextColor = Color.White;
             btn_AssignCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_AssignCourse.Click += btn_AssignCourse_Click;
             // 
             // btn_CreateCourse
             // 
@@ -1373,7 +1375,7 @@
         private Label label1;
         private Label lbl_Taken;
         private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox4;
-        private ReaLTaiizor.Controls.HopeToggle hopeToggle1;
+        private ReaLTaiizor.Controls.HopeToggle toggle_CourseTaken;
         private ReaLTaiizor.Controls.HopeCheckBox hopeCheckBox5;
         private UI.SPanel sPanel2;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit materialTextBoxEdit1;

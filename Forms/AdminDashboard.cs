@@ -35,6 +35,7 @@ namespace Student_Information_System.Forms
             RefreshCourse();
             dgv_Students.DataSource = studentSource;
             dgv_Courses.DataSource = courseSource;
+            dgv_Courses.Rows[0].Selected = true;
         }
 
         private void GetUserInfo(int user_id)
@@ -306,7 +307,7 @@ namespace Student_Information_System.Forms
                 var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
                 if (result == DialogResult.Yes)
                 {
-                    int courseId = (int) dgv_Courses.SelectedRows[0].Cells[0].Value;
+                    int courseId = (int)dgv_Courses.SelectedRows[0].Cells[0].Value;
 
                     db.Courses
                         .Where(c => c.CourseId == courseId)
@@ -315,6 +316,42 @@ namespace Student_Information_System.Forms
                     RefreshCourse();
                 }
             }
+        }
+
+        private void dgv_Courses_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var targetCourse = (int)dgv_Courses.SelectedRows[0].Cells["CourseId"].Value;
+
+            var predicate = PredicateBuilder.New<Student>(false);
+
+            if (toggle_CourseTaken.Checked)
+            {
+                predicate.Or(s => db.CourseTakens
+                .Any(ct => ct.StudentId == s.UserId && ct.CourseId == targetCourse));
+            }
+            else
+            {
+                predicate.Or(s => !db.CourseTakens
+                .Any(ct => ct.StudentId == s.UserId && ct.CourseId == targetCourse));
+            }
+
+            var students = db.Students
+                .AsExpandable()
+                .Where(predicate)
+                .Select(s => new
+                {
+                    s.UserId,
+                    Name = s.User.FirstName + " " + s.User.LastName,
+                    s.Program
+                })
+                .ToList();
+
+            dgv_StudentSelection.DataSource = students;
+        }
+
+        private void btn_AssignCourse_Click(object sender, EventArgs e)
+        {
+
         }
         #endregion
 
