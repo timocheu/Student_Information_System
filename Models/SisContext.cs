@@ -167,6 +167,8 @@ public partial class SisContext : DbContext
             entity.Property(e => e.PasswordHash).HasColumnName("password_hash");
             entity.Property(e => e.PasswordSalt).HasColumnName("password_salt");
             entity.Property(e => e.Username).HasColumnName("username");
+            entity.Property(e => e.LoginAttempt).HasColumnName("login_attempt");
+            entity.Property(e => e.LastLoginAttempt).HasColumnName("last_login_attempt");
 
             entity.HasOne(d => d.User).WithOne(p => p.UserLogin)
                 .HasForeignKey<UserLogin>(d => d.UserId)

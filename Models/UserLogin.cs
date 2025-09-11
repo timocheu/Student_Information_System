@@ -12,6 +12,8 @@ public partial class UserLogin
     public byte[] PasswordHash { get; set; } = null!;
 
     public byte[] PasswordSalt { get; set; } = null!;
+    public int? LoginAttempt { get; set; } = null!;
+    public string? LastLoginAttempt { get; set; } = null!;
 
     public virtual User User { get; set; } = null!;
 }
