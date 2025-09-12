@@ -8,6 +8,7 @@ namespace Student_Information_System.Forms
     public partial class ShowDetailStudent : Form
     {
         SisContext db = new();
+        User _currentStudent;
         private readonly int userID;
         private BindingSource courseSource = new();
 
@@ -22,12 +23,14 @@ namespace Student_Information_System.Forms
 
         private void loadData()
         {
-            var user = db.Users
+            _currentStudent = db.Users
                 .Include(u => u.UserLogin)
-                .FirstOrDefault(u => u.UserId == userID);
+                .Include(u => u.Student)
+                .First(u => u.UserId == userID);
 
-            lbl_StudentID.Text = "Student ID: " + user?.UserLogin?.Username;
-            lbl_StudentName.Text = "Student Name: " + $"{user?.LastName}, {user?.FirstName}";
+            lbl_StudentID.Text = "Student ID: " + _currentStudent?.UserLogin?.Username;
+            lbl_StudentName.Text = "Student Name: " + $"{_currentStudent?.LastName}, {_currentStudent?.FirstName}";
+            lbl_StudentProgram.Text = "Student Program: " + _currentStudent!.Student!.Program;
 
             courseSource.DataSource = db.CourseTakens
                 .Where(ct => ct.StudentId == userID)
@@ -36,20 +39,35 @@ namespace Student_Information_System.Forms
                 .ToList();
         }
 
-        private void btn_AddCourse_Click(object sender, EventArgs e)
-        {
-            var studentCourse = new CourseTaken
-            {
-                StudentId = userID,
-            };
-
-            db.CourseTakens.Add(studentCourse);
-        }
-
         private void btn_SaveChanges_Click(object sender, EventArgs e)
         {
             var result = CrownMessageBox.ShowInformation("Are you sure the details are correct?", "Save Changes", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
-            if (result == DialogResult.Yes) this.Close();
+
+            if (result == DialogResult.Yes)
+            {
+                db.SaveChanges();
+                this.Close();
+            }    
+        }
+
+        private void btn_RemoveCourse_Click(object sender, EventArgs e)
+        {
+            int courseTargetId = (int) dgv_Courses.SelectedRows[0].Cells[0].Value;
+
+            var taken = db.CourseTakens.FirstOrDefault(u => u.StudentId == _currentStudent.UserId && u.CourseId == courseTargetId);
+            if (taken is null)
+            {
+                CrownMessageBox.ShowInformation(
+                    "Error: Course not found", 
+                    "Error finding",
+                    ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+                return;
+            }
+
+            db.CourseTakens.Remove(taken);
+            // Remove from display
+            dgv_Courses.Rows.Remove(dgv_Courses.SelectedRows[0]);
         }
     }
 }

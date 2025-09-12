@@ -33,11 +33,11 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             hope_StudentDetails = new ReaLTaiizor.Forms.HopeForm();
             dgv_Courses = new ReaLTaiizor.Controls.PoisonDataGridView();
-            btn_AddCourse = new ReaLTaiizor.Controls.HopeButton();
             btn_RemoveCourse = new ReaLTaiizor.Controls.HopeButton();
             lbl_StudentName = new Label();
             lbl_StudentID = new Label();
             btn_SaveChanges = new ReaLTaiizor.Controls.HopeButton();
+            lbl_StudentProgram = new Label();
             ((System.ComponentModel.ISupportInitialize)dgv_Courses).BeginInit();
             SuspendLayout();
             // 
@@ -113,27 +113,6 @@
             dgv_Courses.UseCustomForeColor = true;
             dgv_Courses.UseStyleColors = true;
             // 
-            // btn_AddCourse
-            // 
-            btn_AddCourse.BorderColor = Color.Black;
-            btn_AddCourse.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
-            btn_AddCourse.DangerColor = Color.FromArgb(245, 108, 108);
-            btn_AddCourse.DefaultColor = Color.FromArgb(255, 255, 255);
-            btn_AddCourse.Font = new Font("Poppins", 12F);
-            btn_AddCourse.HoverTextColor = Color.FromArgb(48, 49, 51);
-            btn_AddCourse.InfoColor = Color.FromArgb(144, 147, 153);
-            btn_AddCourse.Location = new Point(586, 131);
-            btn_AddCourse.Margin = new Padding(30, 3, 3, 3);
-            btn_AddCourse.Name = "btn_AddCourse";
-            btn_AddCourse.PrimaryColor = Color.FromArgb(118, 74, 245);
-            btn_AddCourse.Size = new Size(130, 40);
-            btn_AddCourse.SuccessColor = Color.FromArgb(103, 194, 58);
-            btn_AddCourse.TabIndex = 5;
-            btn_AddCourse.Text = "Add Course";
-            btn_AddCourse.TextColor = Color.White;
-            btn_AddCourse.WarningColor = Color.FromArgb(230, 162, 60);
-            btn_AddCourse.Click += btn_AddCourse_Click;
-            // 
             // btn_RemoveCourse
             // 
             btn_RemoveCourse.BorderColor = Color.FromArgb(220, 223, 230);
@@ -153,12 +132,13 @@
             btn_RemoveCourse.Text = "Delete Course";
             btn_RemoveCourse.TextColor = Color.White;
             btn_RemoveCourse.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_RemoveCourse.Click += btn_RemoveCourse_Click;
             // 
             // lbl_StudentName
             // 
             lbl_StudentName.AutoSize = true;
             lbl_StudentName.Font = new Font("Poppins", 12F);
-            lbl_StudentName.Location = new Point(33, 143);
+            lbl_StudentName.Location = new Point(33, 118);
             lbl_StudentName.Name = "lbl_StudentName";
             lbl_StudentName.Size = new Size(129, 28);
             lbl_StudentName.TabIndex = 7;
@@ -168,7 +148,7 @@
             // 
             lbl_StudentID.AutoSize = true;
             lbl_StudentID.Font = new Font("Poppins", 12F);
-            lbl_StudentID.Location = new Point(33, 105);
+            lbl_StudentID.Location = new Point(33, 80);
             lbl_StudentID.Name = "lbl_StudentID";
             lbl_StudentID.Size = new Size(96, 28);
             lbl_StudentID.TabIndex = 8;
@@ -195,15 +175,25 @@
             btn_SaveChanges.WarningColor = Color.FromArgb(230, 162, 60);
             btn_SaveChanges.Click += btn_SaveChanges_Click;
             // 
+            // lbl_StudentProgram
+            // 
+            lbl_StudentProgram.AutoSize = true;
+            lbl_StudentProgram.Font = new Font("Poppins", 12F);
+            lbl_StudentProgram.Location = new Point(33, 155);
+            lbl_StudentProgram.Name = "lbl_StudentProgram";
+            lbl_StudentProgram.Size = new Size(150, 28);
+            lbl_StudentProgram.TabIndex = 12;
+            lbl_StudentProgram.Text = "Student Program:";
+            // 
             // ShowDetailStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 650);
+            Controls.Add(lbl_StudentProgram);
             Controls.Add(btn_SaveChanges);
             Controls.Add(lbl_StudentID);
             Controls.Add(lbl_StudentName);
-            Controls.Add(btn_AddCourse);
             Controls.Add(btn_RemoveCourse);
             Controls.Add(dgv_Courses);
             Controls.Add(hope_StudentDetails);
@@ -225,10 +215,10 @@
 
         private ReaLTaiizor.Forms.HopeForm hope_StudentDetails;
         private ReaLTaiizor.Controls.PoisonDataGridView dgv_Courses;
-        private ReaLTaiizor.Controls.HopeButton btn_AddCourse;
         private ReaLTaiizor.Controls.HopeButton btn_RemoveCourse;
         private Label lbl_StudentName;
         private Label lbl_StudentID;
         private ReaLTaiizor.Controls.HopeButton btn_SaveChanges;
+        private Label lbl_StudentProgram;
     }
 }
