@@ -32,6 +32,8 @@ namespace Student_Information_System.Forms
             dgv_Students.DataSource = studentSource;
             dgv_Courses.DataSource = courseSource;
             dgv_Courses.Rows[0].Selected = true;
+
+            pb_ProfilePicture.LoadAsync("https://www.vhv.rs/dpng/d/11-112962_pandas-kawaii-hd-png-download.png");
         }
 
         private void GetUserInfo(int user_id)
