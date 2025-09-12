@@ -351,7 +351,39 @@ namespace Student_Information_System.Forms
 
         private void btn_AssignCourse_Click(object sender, EventArgs e)
         {
+            var targetCourseId = (int)dgv_Courses.SelectedRows[0].Cells["CourseId"].Value;
 
+            if (dgv_Students.SelectedRows.Count > 0)
+            {
+                var result = PoisonMessageBox.Show(this, 
+                    "Are you sure you want to add the courses to the selected students?",
+                    "Confirmation",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning, 200);
+
+                if (result == DialogResult.Yes)
+                {
+                    HashSet<int> ids = dgv_StudentSelection.SelectedRows
+                        .Cast<DataGridViewRow>()
+                        .Select(row => (int)row.Cells[0].Value)
+                        // use hashset for more effecient look up
+                        .ToHashSet<int>();
+
+                    var selectedStudents = ids.Select(studentId => new CourseTaken
+                    {
+                        StudentId = studentId,
+                        CourseId = targetCourseId,
+                    });
+
+                    db.CourseTakens.AddRange(selectedStudents);
+                    db.SaveChanges();
+
+                    dgv_Courses_CellClick(sender, null);
+                }
+            else
+            {
+                MessageBox.Show("Select rows first");
+            }
         }
         #endregion
 

@@ -56,7 +56,6 @@ public partial class SisContext : DbContext
         modelBuilder.Entity<CourseTaken>(entity =>
         {
             entity
-                .HasNoKey()
                 .ToTable("Course_Taken");
 
             entity.Property(e => e.CourseId).HasColumnName("course_id");
@@ -65,6 +64,7 @@ public partial class SisContext : DbContext
             entity.HasOne(d => d.Course).WithMany().HasForeignKey(d => d.CourseId);
 
             entity.HasOne(d => d.Student).WithMany().HasForeignKey(d => d.StudentId);
+            entity.HasKey(d => new { d.StudentId, d.CourseId });
         });
 
         modelBuilder.Entity<Grade>(entity =>
