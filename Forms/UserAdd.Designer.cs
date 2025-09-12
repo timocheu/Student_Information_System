@@ -36,7 +36,7 @@
             lbl_Gender = new Label();
             lbl_bod = new Label();
             lbl_Name = new Label();
-            cb_Gender = new ReaLTaiizor.Controls.PoisonComboBox();
+            cbb_Gender = new ReaLTaiizor.Controls.PoisonComboBox();
             dt_BirthDate = new ReaLTaiizor.Controls.PoisonDateTime();
             tb_Address = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_Phone = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
@@ -49,6 +49,8 @@
             tb_Specialization = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_Department = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnl_UserDetails = new Student_Information_System.UI.SPanel();
+            cbb_Program = new ReaLTaiizor.Controls.PoisonComboBox();
+            lbl_Program = new Label();
             pnl_UserLogin = new Student_Information_System.UI.SPanel();
             tb_UserPassword = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnl_TeacherEnabled.SuspendLayout();
@@ -133,7 +135,7 @@
             btn_Next.HighEmphasis = true;
             btn_Next.Icon = null;
             btn_Next.IconType = ReaLTaiizor.Controls.MaterialButton.MaterialIconType.Rebase;
-            btn_Next.Location = new Point(485, 487);
+            btn_Next.Location = new Point(485, 525);
             btn_Next.Margin = new Padding(4, 6, 4, 6);
             btn_Next.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.HOVER;
             btn_Next.Name = "btn_Next";
@@ -179,21 +181,21 @@
             lbl_Name.TabIndex = 45;
             lbl_Name.Text = "User details";
             // 
-            // cb_Gender
+            // cbb_Gender
             // 
-            cb_Gender.DisplayMember = "Male";
-            cb_Gender.Font = new Font("Poppins", 12F);
-            cb_Gender.FormattingEnabled = true;
-            cb_Gender.ItemHeight = 32;
-            cb_Gender.Items.AddRange(new object[] { "Male", "Female", "Other" });
-            cb_Gender.Location = new Point(299, 181);
-            cb_Gender.Name = "cb_Gender";
-            cb_Gender.PromptText = "Male";
-            cb_Gender.Size = new Size(250, 38);
-            cb_Gender.TabIndex = 44;
-            cb_Gender.Text = "Male";
-            cb_Gender.UseCustomFont = true;
-            cb_Gender.UseSelectable = true;
+            cbb_Gender.DisplayMember = "Male";
+            cbb_Gender.Font = new Font("Poppins", 12F);
+            cbb_Gender.FormattingEnabled = true;
+            cbb_Gender.ItemHeight = 32;
+            cbb_Gender.Items.AddRange(new object[] { "Male", "Female", "Other" });
+            cbb_Gender.Location = new Point(299, 181);
+            cbb_Gender.Name = "cbb_Gender";
+            cbb_Gender.PromptText = "Male";
+            cbb_Gender.Size = new Size(250, 38);
+            cbb_Gender.TabIndex = 44;
+            cbb_Gender.Text = "Male";
+            cbb_Gender.UseCustomFont = true;
+            cbb_Gender.UseSelectable = true;
             // 
             // dt_BirthDate
             // 
@@ -421,9 +423,9 @@
             pnl_TeacherEnabled.Controls.Add(tb_Specialization);
             pnl_TeacherEnabled.Controls.Add(tb_Department);
             pnl_TeacherEnabled.Enabled = false;
-            pnl_TeacherEnabled.Location = new Point(32, 395);
+            pnl_TeacherEnabled.Location = new Point(32, 418);
             pnl_TeacherEnabled.Name = "pnl_TeacherEnabled";
-            pnl_TeacherEnabled.Size = new Size(435, 143);
+            pnl_TeacherEnabled.Size = new Size(250, 143);
             pnl_TeacherEnabled.TabIndex = 56;
             pnl_TeacherEnabled.Visible = false;
             // 
@@ -496,11 +498,13 @@
             pnl_UserDetails.BackColor = Color.Transparent;
             pnl_UserDetails.BackgroundFillColor = Color.White;
             pnl_UserDetails.BorderColor = Color.White;
+            pnl_UserDetails.Controls.Add(cbb_Program);
+            pnl_UserDetails.Controls.Add(lbl_Program);
             pnl_UserDetails.Controls.Add(tb_Lastname);
             pnl_UserDetails.Controls.Add(pnl_TeacherEnabled);
             pnl_UserDetails.Controls.Add(tb_Firstname);
             pnl_UserDetails.Controls.Add(dt_BirthDate);
-            pnl_UserDetails.Controls.Add(cb_Gender);
+            pnl_UserDetails.Controls.Add(cbb_Gender);
             pnl_UserDetails.Controls.Add(btn_Next);
             pnl_UserDetails.Controls.Add(lbl_Name);
             pnl_UserDetails.Controls.Add(lbl_bod);
@@ -510,8 +514,35 @@
             pnl_UserDetails.Controls.Add(tb_Email);
             pnl_UserDetails.Location = new Point(11, 56);
             pnl_UserDetails.Name = "pnl_UserDetails";
-            pnl_UserDetails.Size = new Size(570, 567);
+            pnl_UserDetails.Size = new Size(570, 582);
             pnl_UserDetails.TabIndex = 55;
+            // 
+            // cbb_Program
+            // 
+            cbb_Program.DisplayMember = "Male";
+            cbb_Program.Font = new Font("Poppins", 12F);
+            cbb_Program.FormattingEnabled = true;
+            cbb_Program.ItemHeight = 32;
+            cbb_Program.Items.AddRange(new object[] { "BSCS", "BSIT", "BSCS", "BSN", "BSBA", "BSFM" });
+            cbb_Program.Location = new Point(299, 432);
+            cbb_Program.Name = "cbb_Program";
+            cbb_Program.PromptText = "BSCS";
+            cbb_Program.Size = new Size(250, 38);
+            cbb_Program.TabIndex = 57;
+            cbb_Program.Text = "BSCS";
+            cbb_Program.UseCustomFont = true;
+            cbb_Program.UseSelectable = true;
+            // 
+            // lbl_Program
+            // 
+            lbl_Program.AutoSize = true;
+            lbl_Program.BackColor = Color.White;
+            lbl_Program.Font = new Font("Poppins", 12F);
+            lbl_Program.Location = new Point(299, 401);
+            lbl_Program.Name = "lbl_Program";
+            lbl_Program.Size = new Size(81, 28);
+            lbl_Program.TabIndex = 58;
+            lbl_Program.Text = "Program";
             // 
             // pnl_UserLogin
             // 
@@ -595,7 +626,7 @@
         private Label lbl_Gender;
         private Label lbl_bod;
         private Label lbl_Name;
-        private ReaLTaiizor.Controls.PoisonComboBox cb_Gender;
+        private ReaLTaiizor.Controls.PoisonComboBox cbb_Gender;
         private ReaLTaiizor.Controls.PoisonDateTime dt_BirthDate;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Address;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Phone;
@@ -610,5 +641,7 @@
         private UI.SPanel pnl_UserDetails;
         private UI.SPanel pnl_UserLogin;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_UserPassword;
+        private ReaLTaiizor.Controls.PoisonComboBox cbb_Program;
+        private Label lbl_Program;
     }
 }

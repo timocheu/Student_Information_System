@@ -23,6 +23,9 @@ namespace Student_Information_System.Forms
             {
                 pnl_TeacherEnabled.Enabled = true;
                 pnl_TeacherEnabled.Visible = true;
+
+                lbl_Program.Visible = false;
+                cbb_Program.Visible = false;
             }
 
             hope_UserAdd.Text = IsTeacher ? "Add Teacher" : "Add Student";
@@ -87,7 +90,7 @@ namespace Student_Information_System.Forms
                 LastName = tb_Lastname.Text,
                 Email = tb_Email.Text,
                 DateOfBirth = dt_BirthDate.Text,
-                Gender = cb_Gender.Text,
+                Gender = cbb_Gender.Text,
                 Address = tb_Address.Text,
                 Role = isTeacher ? 2 : 3,
                 Phone = tb_Phone.Text,
@@ -135,6 +138,7 @@ namespace Student_Information_System.Forms
                         {
                             UserId = currentID,
                             EnrollmentDate = DateTime.Now.ToShortDateString(),
+                            Program = cbb_Program.Text,
                             Status = 1
                         };
                     }
