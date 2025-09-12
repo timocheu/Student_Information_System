@@ -36,14 +36,16 @@ namespace Student_Information_System
             {
                 bool ExistButWrongPass;
                 bool LimitReached;
+                string lastAttempt = string.Empty;
                 var user = Account.QueryAccountLogin(username, 
                     password, 
                     out ExistButWrongPass, 
-                    out LimitReached);
+                    out LimitReached,
+                    out lastAttempt);
 
                 if (LimitReached)
                 {
-                    MaterialSnackBar Snackbar = new MaterialSnackBar("Account login attempts reached limit", 3000, "OK", true);
+                    MaterialSnackBar Snackbar = new MaterialSnackBar(lastAttempt, 3000, "OK", true);
                     Snackbar.Show(this);
 
                     return;
@@ -59,10 +61,9 @@ namespace Student_Information_System
 
                 if (user == null)
                 {
-                    MessageBox.Show("Unable to find a matching user login.",
-                        "Incorrect Credentials",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information);
+                    MaterialSnackBar Snackbar = new MaterialSnackBar("Unable to find a matching user login.", 3000, "OK", true);
+                    Snackbar.Show(this);
+
                     return;
                 }
 

@@ -17,10 +17,12 @@ namespace Student_Information_System.Utilities
         public static User? QueryAccountLogin(string username, 
             string password, 
             out bool ExistButWrongPass,
-            out bool LimitReached)
+            out bool LimitReached,
+            out string LastAttempt)
         {
             ExistButWrongPass = false;
             LimitReached = false;
+            LastAttempt = String.Empty;
 
             using (SisContext db = new())
             {
@@ -29,18 +31,24 @@ namespace Student_Information_System.Utilities
                     .Include(u => u.User)
                     .FirstOrDefault();
 
-
-                if (login?.LoginAttempt >= 3)
-                {
-                    login.LastLoginAttempt = DateTime.Now.ToString();
-                    db.SaveChanges();
-
-                    LimitReached = true;
-                    return null;
-                }
-
                 if (login != null)
                 {
+                    if (login.LastLoginAttempt != null)
+                    {
+                        DateTime lastlogin = DateTime.Parse(login.LastLoginAttempt);
+                        TimeSpan diff = DateTime.Now - lastlogin;
+                        //Seconds
+                        if (login?.LoginAttempt >= 3 && diff.Seconds <= 15)
+                        {
+                            login.LastLoginAttempt = DateTime.Now.ToString();
+                            db.SaveChanges();
+
+                            LastAttempt = $"Login after 15 Seconds later.";
+                            LimitReached = true;
+                            return null;
+                        }
+                    }
+
                     if (Cryptography.VerifyPassword(password, login.PasswordSalt, login.PasswordHash))
                     {
                         login.LoginAttempt = 0;
