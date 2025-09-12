@@ -385,7 +385,6 @@
             toggle_InactiveStudent.Text = "Show Inactive";
             toggle_InactiveStudent.UseVisualStyleBackColor = false;
             toggle_InactiveStudent.CheckedChanged += toggle_InactiveStudent_CheckedChanged;
-            toggle_InactiveStudent.MouseCaptureChanged += toggle_InactiveStudent_MouseCaptureChanged;
             // 
             // cb_Name
             // 
@@ -406,7 +405,6 @@
             cb_Name.TabIndex = 16;
             cb_Name.Text = "Name";
             cb_Name.UseVisualStyleBackColor = false;
-            cb_Name.CheckedChanged += hopeCheckBox2_CheckedChanged;
             // 
             // cb_DateOfBirth
             // 

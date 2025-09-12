@@ -12,10 +12,6 @@ namespace Student_Information_System.Forms
         private readonly SisContext db = new SisContext();
         private User? current_User;
 
-        // Toggles
-        private bool ShowInactiveStudents = false;
-        private bool ShowInactiveTeachers = false;
-
         // Binding source for students
         private BindingSource studentSource = new();
         private int totalStudents = 0;
@@ -59,11 +55,12 @@ namespace Student_Information_System.Forms
 
 
         #region Student features
+        private void toggle_InactiveStudent_CheckedChanged(object sender, EventArgs e) => RefreshStudents();
         public void RefreshStudents()
         {
-            var predicate = PredicateBuilder.New<User>(false);
+            var predicate = PredicateBuilder.New<User>(false).And(u => u.Student != null && u.Role == 3);
 
-            if (!ShowInactiveStudents)
+            if (!toggle_InactiveStudent.Checked)
             {
                 predicate = predicate.And(u => u.Student != null && u.Student.Status == 1);
             }
@@ -162,11 +159,7 @@ namespace Student_Information_System.Forms
                 MessageBox.Show("Select a single row first");
             }
         }
-        private void toggle_InactiveStudent_MouseCaptureChanged(object sender, EventArgs e)
-        {
-            ShowInactiveStudents ^= true;
-            RefreshStudents();
-        }
+
         private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
         {
             string filter = tb_SearchStudent.Text.ToLower();
@@ -213,12 +206,13 @@ namespace Student_Information_System.Forms
 
             if (cb_EnrollmentDate.Checked)
             {
-                predicates = predicates.Or(u => u.Student != null && !string.IsNullOrEmpty(u.Student.EnrollmentDate) && u.Student.EnrollmentDate.ToLower().Contains(filter));
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Student.EnrollmentDate) && u.Student.EnrollmentDate.ToLower().Contains(filter));
             }
 
-            if (!ShowInactiveStudents)
+            predicates = predicates.And(u => u.Role == 3 && u.Student != null);
+            if (!toggle_InactiveStudent.Checked)
             {
-                predicates = predicates.And(u => u.Student != null && u.Student.Status == 1);
+                predicates = predicates.And(u => u.Student!.Status == 1);
             }
 
             var filteredStudents = db.Users
@@ -252,17 +246,6 @@ namespace Student_Information_System.Forms
             TeacherAddForm.Show();
         }
         #endregion
-
-        private void toggle_InactiveStudent_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void hopeCheckBox2_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
 
         #region Courses
         private void btn_CreateCourse_Click(object sender, EventArgs e)
