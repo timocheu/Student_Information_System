@@ -305,9 +305,11 @@ namespace Student_Information_System.Forms
 
         private void dgv_Courses_CellClick(object sender, DataGridViewCellEventArgs e) => LoadStudentSelection();
         private void toggle_CourseTaken_CheckedChanged(object sender, EventArgs e) => LoadStudentSelection();
+
+        private int targetCourse = 0;
         private void LoadStudentSelection()
         {
-            var targetCourse = (int)dgv_Courses.SelectedRows[0].Cells["CourseId"].Value;
+            int targetCourse = (int)dgv_Courses.SelectedRows[0].Cells["CourseId"].Value;
 
             var predicate = PredicateBuilder.New<Student>(false);
 
@@ -373,6 +375,59 @@ namespace Student_Information_System.Forms
                     MessageBox.Show("Select rows first");
                 }
             }
+        }
+        private void tb_SearchStudentCourse_TextChanged(object sender, EventArgs e)
+        {
+            string filter = tb_SearchStudentCourse.Text.ToLower();
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                LoadStudentSelection();
+                return;
+            }
+            var predicate = PredicateBuilder.New<Student>(false);
+
+            if (cb_Course_ProgramFilter.Checked)
+            {
+                predicate.Or(s => s.Program!.Contains(filter));
+            }
+
+            if (cb_Course_NameFilter.Checked)
+            {
+                predicate = predicate.Or(s => 
+                    (!string.IsNullOrEmpty(s.User.FirstName) && s.User.FirstName.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(s.User.LastName) && s.User.LastName.ToLower().Contains(filter)));
+            }
+
+            if (cb_Course_ProgramFilter.Checked)
+            {
+                predicate.Or(s => s.User.Gender!.Contains(filter));
+            }
+
+            predicate = predicate.And(s => s.User.Role == 3);
+            if (toggle_CourseTaken.Checked)
+            {
+                predicate.And(s => db.CourseTakens
+                .Any(ct => ct.StudentId == s.UserId && ct.CourseId == targetCourse));
+            }
+            else
+            {
+                predicate.And(s => !db.CourseTakens
+                .Any(ct => ct.StudentId == s.UserId && ct.CourseId == targetCourse));
+            }
+
+            var filteredStudents = db.Students
+                .AsExpandable()
+                .Where(predicate)
+                .Select(s => new
+                {
+                    s.UserId,
+                    Name = s.User.FirstName + " " + s.User.LastName,
+                    s.Program
+                })
+                .ToList();
+
+            dgv_StudentSelection.DataSource = filteredStudents;
         }
         #endregion
 
