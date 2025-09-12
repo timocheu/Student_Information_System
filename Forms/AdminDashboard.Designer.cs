@@ -157,7 +157,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
             tab_Dashboard.Name = "tab_Dashboard";
@@ -177,7 +177,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
             tab_Student.Controls.Add(dgv_Students);
             tab_Student.Controls.Add(pnl_Toggles);
             tab_Student.Controls.Add(pnl_Modifiers);
@@ -508,7 +508,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -614,7 +614,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_ShowInactiveTeacher);
             tab_Teacher.Controls.Add(toggle_InactiveTeacher);
@@ -827,7 +827,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
             tab_Subject.Controls.Add(dgv_StudentSelection);
             tab_Subject.Controls.Add(lbl_Course);
             tab_Subject.Controls.Add(dgv_Courses);
@@ -982,7 +982,7 @@
             materialTextBoxEdit2.AnimateReadOnly = false;
             materialTextBoxEdit2.AutoCompleteMode = AutoCompleteMode.None;
             materialTextBoxEdit2.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit2.BackColor = Color.FromArgb(238, 242, 245);
+            materialTextBoxEdit2.BackColor = Color.FromArgb(41, 50, 63);
             materialTextBoxEdit2.BackgroundImageLayout = ImageLayout.None;
             materialTextBoxEdit2.CharacterCasing = CharacterCasing.Normal;
             materialTextBoxEdit2.Depth = 0;
@@ -1088,6 +1088,7 @@
             toggle_CourseTaken.TabIndex = 12;
             toggle_CourseTaken.Text = "Show Inactive";
             toggle_CourseTaken.UseVisualStyleBackColor = false;
+            toggle_CourseTaken.CheckedChanged += toggle_CourseTaken_CheckedChanged;
             // 
             // hopeCheckBox5
             // 
@@ -1127,7 +1128,7 @@
             materialTextBoxEdit1.AnimateReadOnly = false;
             materialTextBoxEdit1.AutoCompleteMode = AutoCompleteMode.None;
             materialTextBoxEdit1.AutoCompleteSource = AutoCompleteSource.None;
-            materialTextBoxEdit1.BackColor = Color.FromArgb(238, 242, 245);
+            materialTextBoxEdit1.BackColor = Color.FromArgb(41, 50, 63);
             materialTextBoxEdit1.BackgroundImageLayout = ImageLayout.None;
             materialTextBoxEdit1.CharacterCasing = CharacterCasing.Normal;
             materialTextBoxEdit1.Depth = 0;
@@ -1219,7 +1220,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -1229,7 +1230,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -1239,7 +1240,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";

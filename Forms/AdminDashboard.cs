@@ -318,7 +318,9 @@ namespace Student_Information_System.Forms
             }
         }
 
-        private void dgv_Courses_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Courses_CellClick(object sender, DataGridViewCellEventArgs e) => LoadStudentSelection();
+        private void toggle_CourseTaken_CheckedChanged(object sender, EventArgs e) => LoadStudentSelection();
+        private void LoadStudentSelection()
         {
             var targetCourse = (int)dgv_Courses.SelectedRows[0].Cells["CourseId"].Value;
 
@@ -349,13 +351,14 @@ namespace Student_Information_System.Forms
             dgv_StudentSelection.DataSource = students;
         }
 
+
         private void btn_AssignCourse_Click(object sender, EventArgs e)
         {
             var targetCourseId = (int)dgv_Courses.SelectedRows[0].Cells["CourseId"].Value;
 
-            if (dgv_Students.SelectedRows.Count > 0)
+            if (dgv_StudentSelection.SelectedRows.Count > 0)
             {
-                var result = PoisonMessageBox.Show(this, 
+                var result = PoisonMessageBox.Show(this,
                     "Are you sure you want to add the courses to the selected students?",
                     "Confirmation",
                     MessageBoxButtons.YesNo,
@@ -378,11 +381,12 @@ namespace Student_Information_System.Forms
                     db.CourseTakens.AddRange(selectedStudents);
                     db.SaveChanges();
 
-                    dgv_Courses_CellClick(sender, null);
+                    LoadStudentSelection();
                 }
-            else
-            {
-                MessageBox.Show("Select rows first");
+                else
+                {
+                    MessageBox.Show("Select rows first");
+                }
             }
         }
         #endregion
