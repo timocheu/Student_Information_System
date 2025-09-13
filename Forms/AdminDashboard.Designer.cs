@@ -29,38 +29,41 @@
         private void InitializeComponent()
         {
             ReaLTaiizor.Controls.TabPage tab_Control;
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
             ReaLTaiizor.Controls.PoisonDataGridView dgv_Teachers;
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             tab_Dashboard = new TabPage();
             pb_ProfilePicture = new PictureBox();
             lbl_Welcome = new Label();
             tab_Student = new TabPage();
+            lbl_Student_Filter = new Label();
+            pnl_Student_Toggle = new Student_Information_System.UI.SPanel();
+            toggle_InactiveStudent = new ReaLTaiizor.Controls.HopeToggle();
+            lbl_ShowInactiveStudent = new Label();
+            lbl_SearchStudents = new Label();
             dgv_Students = new ReaLTaiizor.Controls.PoisonDataGridView();
             pnl_Student_Toggles = new Student_Information_System.UI.SPanel();
+            cb_Student_Program = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Student_Gender = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Student_EnrollmentDate = new ReaLTaiizor.Controls.HopeCheckBox();
-            lbl_ShowInactiveStudent = new Label();
             cb_Student_Email = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Student_UserId = new ReaLTaiizor.Controls.HopeCheckBox();
-            toggle_InactiveStudent = new ReaLTaiizor.Controls.HopeToggle();
             cb_Student_Name = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Student_DateOfBirth = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Student_Address = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Student_Phone = new ReaLTaiizor.Controls.HopeCheckBox();
             pnl_Student_Modifiers = new Student_Information_System.UI.SPanel();
-            lbl_SearchStudents = new Label();
             btn_ShowCourse = new ReaLTaiizor.Controls.HopeButton();
             tb_SearchStudent = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btn_UpdateStudent = new ReaLTaiizor.Controls.HopeButton();
@@ -68,12 +71,12 @@
             btn_DeleteStudent = new ReaLTaiizor.Controls.HopeButton();
             lbl_StudentResult = new Label();
             tab_Teacher = new TabPage();
+            lbl_SearchTeacher = new Label();
             pnl_Toggle_Teacher = new Student_Information_System.UI.SPanel();
             lbl_Teacher_ShowInactive = new Label();
             toggle_InactiveTeacher = new ReaLTaiizor.Controls.HopeToggle();
             lbl_Teacher_Filter = new Label();
             pnl_Teacher_Modifiers = new Student_Information_System.UI.SPanel();
-            lbl_SearchTeacher = new Label();
             btn_TeacherDetail = new ReaLTaiizor.Controls.HopeButton();
             tb_SearchTeachers = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btn_UpdateTeacher = new ReaLTaiizor.Controls.HopeButton();
@@ -102,7 +105,7 @@
             cb_Course_ProgramFilter = new ReaLTaiizor.Controls.HopeCheckBox();
             toggle_CourseTaken = new ReaLTaiizor.Controls.HopeToggle();
             cb_Course_NameFilter = new ReaLTaiizor.Controls.HopeCheckBox();
-            this.pnl_Course_Modifiers = new Student_Information_System.UI.SPanel();
+            pnl_Course_Modifier = new Student_Information_System.UI.SPanel();
             tb_SearchCourse = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btn_AssignCourse = new ReaLTaiizor.Controls.HopeButton();
             btn_CreateCourse = new ReaLTaiizor.Controls.HopeButton();
@@ -112,15 +115,13 @@
             tab_Settings = new TabPage();
             btn_Logout = new ReaLTaiizor.Controls.NightButton();
             hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
-            pnl_Student_Toggle = new Student_Information_System.UI.SPanel();
-            lbl_Student_Filter = new Label();
-            cb_Student_Program = new ReaLTaiizor.Controls.HopeCheckBox();
             tab_Control = new ReaLTaiizor.Controls.TabPage();
             dgv_Teachers = new ReaLTaiizor.Controls.PoisonDataGridView();
             tab_Control.SuspendLayout();
             tab_Dashboard.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pb_ProfilePicture).BeginInit();
             tab_Student.SuspendLayout();
+            pnl_Student_Toggle.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Students).BeginInit();
             pnl_Student_Toggles.SuspendLayout();
             pnl_Student_Modifiers.SuspendLayout();
@@ -133,9 +134,8 @@
             ((System.ComponentModel.ISupportInitialize)dgv_StudentSelection).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgv_Courses).BeginInit();
             pnl_CourseStudentFeature.SuspendLayout();
-            this.pnl_Course_Modifiers.SuspendLayout();
+            pnl_Course_Modifier.SuspendLayout();
             tab_Settings.SuspendLayout();
-            pnl_Student_Toggle.SuspendLayout();
             SuspendLayout();
             // 
             // tab_Control
@@ -179,7 +179,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
             tab_Dashboard.Controls.Add(pb_ProfilePicture);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
@@ -209,7 +209,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
             tab_Student.Controls.Add(lbl_Student_Filter);
             tab_Student.Controls.Add(pnl_Student_Toggle);
             tab_Student.Controls.Add(lbl_SearchStudents);
@@ -224,6 +224,68 @@
             tab_Student.TabIndex = 1;
             tab_Student.Text = "Student";
             // 
+            // lbl_Student_Filter
+            // 
+            lbl_Student_Filter.AutoSize = true;
+            lbl_Student_Filter.BackColor = Color.FromArgb(238, 242, 245);
+            lbl_Student_Filter.Font = new Font("Poppins", 16F);
+            lbl_Student_Filter.Location = new Point(590, 11);
+            lbl_Student_Filter.Name = "lbl_Student_Filter";
+            lbl_Student_Filter.Size = new Size(84, 39);
+            lbl_Student_Filter.TabIndex = 24;
+            lbl_Student_Filter.Text = "Filters:";
+            // 
+            // pnl_Student_Toggle
+            // 
+            pnl_Student_Toggle.BackgroundFillColor = Color.White;
+            pnl_Student_Toggle.BorderColor = Color.White;
+            pnl_Student_Toggle.Controls.Add(toggle_InactiveStudent);
+            pnl_Student_Toggle.Controls.Add(lbl_ShowInactiveStudent);
+            pnl_Student_Toggle.Location = new Point(960, 0);
+            pnl_Student_Toggle.Name = "pnl_Student_Toggle";
+            pnl_Student_Toggle.Size = new Size(226, 52);
+            pnl_Student_Toggle.TabIndex = 23;
+            // 
+            // toggle_InactiveStudent
+            // 
+            toggle_InactiveStudent.AutoSize = true;
+            toggle_InactiveStudent.BackColor = Color.White;
+            toggle_InactiveStudent.BaseColor = Color.White;
+            toggle_InactiveStudent.BaseColorA = Color.FromArgb(220, 223, 230);
+            toggle_InactiveStudent.BaseColorB = Color.FromArgb(100, 64, 158, 255);
+            toggle_InactiveStudent.HeadColorA = Color.FromArgb(220, 223, 230);
+            toggle_InactiveStudent.HeadColorB = Color.FromArgb(32, 41, 50);
+            toggle_InactiveStudent.HeadColorC = Color.FromArgb(64, 158, 255);
+            toggle_InactiveStudent.HeadColorD = Color.FromArgb(64, 158, 255);
+            toggle_InactiveStudent.Location = new Point(151, 17);
+            toggle_InactiveStudent.Name = "toggle_InactiveStudent";
+            toggle_InactiveStudent.Size = new Size(48, 20);
+            toggle_InactiveStudent.TabIndex = 12;
+            toggle_InactiveStudent.Text = "Show Inactive";
+            toggle_InactiveStudent.UseVisualStyleBackColor = false;
+            toggle_InactiveStudent.CheckedChanged += toggle_InactiveStudent_CheckedChanged;
+            // 
+            // lbl_ShowInactiveStudent
+            // 
+            lbl_ShowInactiveStudent.AutoSize = true;
+            lbl_ShowInactiveStudent.BackColor = Color.White;
+            lbl_ShowInactiveStudent.Font = new Font("Poppins", 12F);
+            lbl_ShowInactiveStudent.Location = new Point(31, 14);
+            lbl_ShowInactiveStudent.Name = "lbl_ShowInactiveStudent";
+            lbl_ShowInactiveStudent.Size = new Size(122, 28);
+            lbl_ShowInactiveStudent.TabIndex = 13;
+            lbl_ShowInactiveStudent.Text = "Show Inactive";
+            // 
+            // lbl_SearchStudents
+            // 
+            lbl_SearchStudents.AutoSize = true;
+            lbl_SearchStudents.BackColor = Color.FromArgb(238, 242, 245);
+            lbl_SearchStudents.Location = new Point(22, 11);
+            lbl_SearchStudents.Name = "lbl_SearchStudents";
+            lbl_SearchStudents.Size = new Size(197, 39);
+            lbl_SearchStudents.TabIndex = 6;
+            lbl_SearchStudents.Text = "Search Students";
+            // 
             // dgv_Students
             // 
             dgv_Students.AllowUserToAddRows = false;
@@ -237,23 +299,23 @@
             dgv_Students.BorderStyle = BorderStyle.None;
             dgv_Students.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Students.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = Color.White;
-            dataGridViewCellStyle13.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle13.ForeColor = Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Students.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = Color.White;
-            dataGridViewCellStyle14.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dgv_Students.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_Students.DefaultCellStyle = dataGridViewCellStyle2;
             dgv_Students.EnableHeadersVisualStyles = false;
             dgv_Students.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Students.GridColor = Color.Black;
@@ -261,14 +323,14 @@
             dgv_Students.Name = "dgv_Students";
             dgv_Students.ReadOnly = true;
             dgv_Students.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle15.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle15.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
-            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle3.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_Students.RowHeadersVisible = false;
             dgv_Students.RowHeadersWidth = 20;
             dgv_Students.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -297,6 +359,26 @@
             pnl_Student_Toggles.Name = "pnl_Student_Toggles";
             pnl_Student_Toggles.Size = new Size(615, 120);
             pnl_Student_Toggles.TabIndex = 14;
+            // 
+            // cb_Student_Program
+            // 
+            cb_Student_Program.AutoSize = true;
+            cb_Student_Program.BackColor = Color.White;
+            cb_Student_Program.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Student_Program.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Student_Program.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Student_Program.Enable = true;
+            cb_Student_Program.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Student_Program.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Student_Program.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Student_Program.Font = new Font("Poppins", 12F);
+            cb_Student_Program.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Student_Program.Location = new Point(327, 80);
+            cb_Student_Program.Name = "cb_Student_Program";
+            cb_Student_Program.Size = new Size(106, 20);
+            cb_Student_Program.TabIndex = 24;
+            cb_Student_Program.Text = "Program";
+            cb_Student_Program.UseVisualStyleBackColor = false;
             // 
             // cb_Student_Gender
             // 
@@ -338,17 +420,6 @@
             cb_Student_EnrollmentDate.Text = "Enrollment Date";
             cb_Student_EnrollmentDate.UseVisualStyleBackColor = false;
             // 
-            // lbl_ShowInactiveStudent
-            // 
-            lbl_ShowInactiveStudent.AutoSize = true;
-            lbl_ShowInactiveStudent.BackColor = Color.White;
-            lbl_ShowInactiveStudent.Font = new Font("Poppins", 12F);
-            lbl_ShowInactiveStudent.Location = new Point(31, 14);
-            lbl_ShowInactiveStudent.Name = "lbl_ShowInactiveStudent";
-            lbl_ShowInactiveStudent.Size = new Size(122, 28);
-            lbl_ShowInactiveStudent.TabIndex = 13;
-            lbl_ShowInactiveStudent.Text = "Show Inactive";
-            // 
             // cb_Student_Email
             // 
             cb_Student_Email.AutoSize = true;
@@ -388,25 +459,6 @@
             cb_Student_UserId.TabIndex = 15;
             cb_Student_UserId.Text = "UserID";
             cb_Student_UserId.UseVisualStyleBackColor = false;
-            // 
-            // toggle_InactiveStudent
-            // 
-            toggle_InactiveStudent.AutoSize = true;
-            toggle_InactiveStudent.BackColor = Color.White;
-            toggle_InactiveStudent.BaseColor = Color.White;
-            toggle_InactiveStudent.BaseColorA = Color.FromArgb(220, 223, 230);
-            toggle_InactiveStudent.BaseColorB = Color.FromArgb(100, 64, 158, 255);
-            toggle_InactiveStudent.HeadColorA = Color.FromArgb(220, 223, 230);
-            toggle_InactiveStudent.HeadColorB = Color.FromArgb(32, 41, 50);
-            toggle_InactiveStudent.HeadColorC = Color.FromArgb(64, 158, 255);
-            toggle_InactiveStudent.HeadColorD = Color.FromArgb(64, 158, 255);
-            toggle_InactiveStudent.Location = new Point(151, 17);
-            toggle_InactiveStudent.Name = "toggle_InactiveStudent";
-            toggle_InactiveStudent.Size = new Size(48, 20);
-            toggle_InactiveStudent.TabIndex = 12;
-            toggle_InactiveStudent.Text = "Show Inactive";
-            toggle_InactiveStudent.UseVisualStyleBackColor = false;
-            toggle_InactiveStudent.CheckedChanged += toggle_InactiveStudent_CheckedChanged;
             // 
             // cb_Student_Name
             // 
@@ -502,16 +554,6 @@
             pnl_Student_Modifiers.Size = new Size(584, 120);
             pnl_Student_Modifiers.TabIndex = 9;
             // 
-            // lbl_SearchStudents
-            // 
-            lbl_SearchStudents.AutoSize = true;
-            lbl_SearchStudents.BackColor = Color.FromArgb(238, 242, 245);
-            lbl_SearchStudents.Location = new Point(22, 11);
-            lbl_SearchStudents.Name = "lbl_SearchStudents";
-            lbl_SearchStudents.Size = new Size(197, 39);
-            lbl_SearchStudents.TabIndex = 6;
-            lbl_SearchStudents.Text = "Search Students";
-            // 
             // btn_ShowCourse
             // 
             btn_ShowCourse.BorderColor = Color.FromArgb(220, 223, 230);
@@ -538,7 +580,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -644,7 +686,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
             tab_Teacher.Controls.Add(lbl_SearchTeacher);
             tab_Teacher.Controls.Add(pnl_Toggle_Teacher);
             tab_Teacher.Controls.Add(lbl_Teacher_Filter);
@@ -658,6 +700,15 @@
             tab_Teacher.Size = new Size(1192, 602);
             tab_Teacher.TabIndex = 2;
             tab_Teacher.Text = "Teacher";
+            // 
+            // lbl_SearchTeacher
+            // 
+            lbl_SearchTeacher.AutoSize = true;
+            lbl_SearchTeacher.Location = new Point(22, 10);
+            lbl_SearchTeacher.Name = "lbl_SearchTeacher";
+            lbl_SearchTeacher.Size = new Size(201, 39);
+            lbl_SearchTeacher.TabIndex = 6;
+            lbl_SearchTeacher.Text = "Search Teachers";
             // 
             // pnl_Toggle_Teacher
             // 
@@ -724,15 +775,6 @@
             pnl_Teacher_Modifiers.Size = new Size(584, 120);
             pnl_Teacher_Modifiers.TabIndex = 18;
             // 
-            // lbl_SearchTeacher
-            // 
-            lbl_SearchTeacher.AutoSize = true;
-            lbl_SearchTeacher.Location = new Point(22, 10);
-            lbl_SearchTeacher.Name = "lbl_SearchTeacher";
-            lbl_SearchTeacher.Size = new Size(201, 39);
-            lbl_SearchTeacher.TabIndex = 6;
-            lbl_SearchTeacher.Text = "Search Teachers";
-            // 
             // btn_TeacherDetail
             // 
             btn_TeacherDetail.BorderColor = Color.FromArgb(220, 223, 230);
@@ -758,7 +800,7 @@
             tb_SearchTeachers.AnimateReadOnly = false;
             tb_SearchTeachers.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchTeachers.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchTeachers.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchTeachers.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchTeachers.BackgroundImageLayout = ImageLayout.None;
             tb_SearchTeachers.CharacterCasing = CharacterCasing.Normal;
             tb_SearchTeachers.Depth = 0;
@@ -1078,23 +1120,23 @@
             dgv_Teachers.BorderStyle = BorderStyle.None;
             dgv_Teachers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Teachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = Color.White;
-            dataGridViewCellStyle16.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle16.ForeColor = Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = Color.White;
-            dataGridViewCellStyle16.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv_Teachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = Color.White;
-            dataGridViewCellStyle17.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle17.SelectionForeColor = Color.White;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.False;
-            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle5;
             dgv_Teachers.EnableHeadersVisualStyles = false;
             dgv_Teachers.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Teachers.GridColor = Color.Black;
@@ -1102,14 +1144,14 @@
             dgv_Teachers.Name = "dgv_Teachers";
             dgv_Teachers.ReadOnly = true;
             dgv_Teachers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle18.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle18.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle18.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgv_Teachers.RowHeadersVisible = false;
             dgv_Teachers.RowHeadersWidth = 20;
             dgv_Teachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1134,12 +1176,12 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
             tab_Subject.Controls.Add(dgv_StudentSelection);
             tab_Subject.Controls.Add(lbl_Course);
             tab_Subject.Controls.Add(dgv_Courses);
             tab_Subject.Controls.Add(pnl_CourseStudentFeature);
-            tab_Subject.Controls.Add(this.pnl_Course_Modifiers);
+            tab_Subject.Controls.Add(pnl_Course_Modifier);
             tab_Subject.Location = new Point(204, 4);
             tab_Subject.Name = "tab_Subject";
             tab_Subject.Padding = new Padding(3);
@@ -1160,23 +1202,23 @@
             dgv_StudentSelection.BorderStyle = BorderStyle.None;
             dgv_StudentSelection.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_StudentSelection.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = Color.White;
-            dataGridViewCellStyle19.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle19.ForeColor = Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = Color.White;
-            dataGridViewCellStyle19.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dgv_StudentSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgv_StudentSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgv_StudentSelection.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = Color.White;
-            dataGridViewCellStyle20.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle20.ForeColor = Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle20.SelectionForeColor = Color.White;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dgv_StudentSelection.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgv_StudentSelection.DefaultCellStyle = dataGridViewCellStyle8;
             dgv_StudentSelection.EnableHeadersVisualStyles = false;
             dgv_StudentSelection.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_StudentSelection.GridColor = Color.Black;
@@ -1184,14 +1226,14 @@
             dgv_StudentSelection.Name = "dgv_StudentSelection";
             dgv_StudentSelection.ReadOnly = true;
             dgv_StudentSelection.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle21.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle21.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle21.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            dgv_StudentSelection.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle9.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgv_StudentSelection.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgv_StudentSelection.RowHeadersVisible = false;
             dgv_StudentSelection.RowHeadersWidth = 20;
             dgv_StudentSelection.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1224,23 +1266,23 @@
             dgv_Courses.BorderStyle = BorderStyle.None;
             dgv_Courses.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Courses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = Color.White;
-            dataGridViewCellStyle22.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle22.ForeColor = Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = Color.White;
-            dataGridViewCellStyle22.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
-            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dgv_Courses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = Color.White;
-            dataGridViewCellStyle23.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = Color.Black;
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle23.SelectionForeColor = Color.White;
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
-            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.White;
+            dataGridViewCellStyle11.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle11.SelectionForeColor = Color.White;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle11;
             dgv_Courses.EnableHeadersVisualStyles = false;
             dgv_Courses.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Courses.GridColor = Color.Black;
@@ -1248,14 +1290,14 @@
             dgv_Courses.Name = "dgv_Courses";
             dgv_Courses.ReadOnly = true;
             dgv_Courses.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle24.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle24.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
-            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle12.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             dgv_Courses.RowHeadersVisible = false;
             dgv_Courses.RowHeadersWidth = 20;
             dgv_Courses.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1288,7 +1330,7 @@
             tb_SearchStudentCourse.AnimateReadOnly = false;
             tb_SearchStudentCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudentCourse.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudentCourse.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudentCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudentCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudentCourse.Depth = 0;
@@ -1406,25 +1448,25 @@
             cb_Course_NameFilter.Text = "Name";
             cb_Course_NameFilter.UseVisualStyleBackColor = false;
             // 
-            // pnl_Course_Modifiers
+            // pnl_Course_Modifier
             // 
-            this.pnl_Course_Modifiers.BackgroundFillColor = Color.White;
-            this.pnl_Course_Modifiers.BorderColor = Color.White;
-            this.pnl_Course_Modifiers.Controls.Add(tb_SearchCourse);
-            this.pnl_Course_Modifiers.Controls.Add(btn_AssignCourse);
-            this.pnl_Course_Modifiers.Controls.Add(btn_CreateCourse);
-            this.pnl_Course_Modifiers.Controls.Add(btn_DeleteCourse);
-            this.pnl_Course_Modifiers.Location = new Point(2, 50);
-            this.pnl_Course_Modifiers.Name = "pnl_Course_Modifiers";
-            this.pnl_Course_Modifiers.Size = new Size(737, 94);
-            this.pnl_Course_Modifiers.TabIndex = 16;
+            pnl_Course_Modifier.BackgroundFillColor = Color.White;
+            pnl_Course_Modifier.BorderColor = Color.White;
+            pnl_Course_Modifier.Controls.Add(tb_SearchCourse);
+            pnl_Course_Modifier.Controls.Add(btn_AssignCourse);
+            pnl_Course_Modifier.Controls.Add(btn_CreateCourse);
+            pnl_Course_Modifier.Controls.Add(btn_DeleteCourse);
+            pnl_Course_Modifier.Location = new Point(2, 50);
+            pnl_Course_Modifier.Name = "pnl_Course_Modifier";
+            pnl_Course_Modifier.Size = new Size(737, 94);
+            pnl_Course_Modifier.TabIndex = 16;
             // 
             // tb_SearchCourse
             // 
             tb_SearchCourse.AnimateReadOnly = false;
             tb_SearchCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchCourse.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchCourse.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchCourse.Depth = 0;
@@ -1516,7 +1558,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -1526,7 +1568,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -1536,7 +1578,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";
@@ -1584,48 +1626,6 @@
             hope_AdminDashboard.Text = "Admin Dashboard";
             hope_AdminDashboard.ThemeColor = Color.FromArgb(30, 30, 30);
             // 
-            // pnl_Student_Toggle
-            // 
-            pnl_Student_Toggle.BackgroundFillColor = Color.White;
-            pnl_Student_Toggle.BorderColor = Color.White;
-            pnl_Student_Toggle.Controls.Add(toggle_InactiveStudent);
-            pnl_Student_Toggle.Controls.Add(lbl_ShowInactiveStudent);
-            pnl_Student_Toggle.Location = new Point(960, 0);
-            pnl_Student_Toggle.Name = "pnl_Student_Toggle";
-            pnl_Student_Toggle.Size = new Size(226, 52);
-            pnl_Student_Toggle.TabIndex = 23;
-            // 
-            // lbl_Student_Filter
-            // 
-            lbl_Student_Filter.AutoSize = true;
-            lbl_Student_Filter.BackColor = Color.FromArgb(238, 242, 245);
-            lbl_Student_Filter.Font = new Font("Poppins", 16F);
-            lbl_Student_Filter.Location = new Point(590, 11);
-            lbl_Student_Filter.Name = "lbl_Student_Filter";
-            lbl_Student_Filter.Size = new Size(84, 39);
-            lbl_Student_Filter.TabIndex = 24;
-            lbl_Student_Filter.Text = "Filters:";
-            // 
-            // cb_Student_Program
-            // 
-            cb_Student_Program.AutoSize = true;
-            cb_Student_Program.BackColor = Color.White;
-            cb_Student_Program.CheckedColor = Color.FromArgb(64, 158, 255);
-            cb_Student_Program.DisabledColor = Color.FromArgb(196, 198, 202);
-            cb_Student_Program.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            cb_Student_Program.Enable = true;
-            cb_Student_Program.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            cb_Student_Program.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            cb_Student_Program.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            cb_Student_Program.Font = new Font("Poppins", 12F);
-            cb_Student_Program.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Student_Program.Location = new Point(327, 80);
-            cb_Student_Program.Name = "cb_Student_Program";
-            cb_Student_Program.Size = new Size(106, 20);
-            cb_Student_Program.TabIndex = 24;
-            cb_Student_Program.Text = "Program";
-            cb_Student_Program.UseVisualStyleBackColor = false;
-            // 
             // AdminDashboard
             // 
             AutoScaleMode = AutoScaleMode.None;
@@ -1648,6 +1648,8 @@
             ((System.ComponentModel.ISupportInitialize)pb_ProfilePicture).EndInit();
             tab_Student.ResumeLayout(false);
             tab_Student.PerformLayout();
+            pnl_Student_Toggle.ResumeLayout(false);
+            pnl_Student_Toggle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Students).EndInit();
             pnl_Student_Toggles.ResumeLayout(false);
             pnl_Student_Toggles.PerformLayout();
@@ -1666,10 +1668,8 @@
             ((System.ComponentModel.ISupportInitialize)dgv_Courses).EndInit();
             pnl_CourseStudentFeature.ResumeLayout(false);
             pnl_CourseStudentFeature.PerformLayout();
-            this.pnl_Course_Modifiers.ResumeLayout(false);
+            pnl_Course_Modifier.ResumeLayout(false);
             tab_Settings.ResumeLayout(false);
-            pnl_Student_Toggle.ResumeLayout(false);
-            pnl_Student_Toggle.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1716,7 +1716,7 @@
         private ReaLTaiizor.Controls.HopeCheckBox cb_Course_ProgramFilter;
         private ReaLTaiizor.Controls.HopeToggle toggle_CourseTaken;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Course_NameFilter;
-        private UI.SPanel sPanel2;
+        private UI.SPanel pnl_Course_Modifier;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_SearchCourse;
         private ReaLTaiizor.Controls.HopeButton btn_AssignCourse;
         private ReaLTaiizor.Controls.HopeButton btn_CreateCourse;
