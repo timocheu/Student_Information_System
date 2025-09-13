@@ -23,6 +23,8 @@ namespace Student_Information_System.Forms
             // Set user
             user = db.Users
                 .Include(u => u.UserLogin)
+                .Include(u => u.Teacher)
+                .Include(u => u.Student)
                 .FirstOrDefault(u => u.UserId == userID) ?? new User();
 
             InitializeComponent();
@@ -34,6 +36,11 @@ namespace Student_Information_System.Forms
 
                 tb_Department.Text = user.Teacher?.Department;
                 tb_Specialization.Text = user.Teacher?.Specialization;
+            }
+            else
+            {
+                tb_Program.Visible = true;
+                tb_Program.Text = user.Student?.Program;
             }
 
             // Set ui text details
@@ -79,9 +86,28 @@ namespace Student_Information_System.Forms
                 user.Gender = cb_Gender.Text.Trim();
                 user.DateOfBirth = dt_BirthDate.Text.Trim();
 
+                // Set corresponding datas
+                if (isTeacher)
+                {
+                    user.Teacher.Department = tb_Department.Text.Trim();
+                    user.Teacher.Specialization = tb_Specialization.Text.Trim();
+                }
+                else
+                {
+                    user.Student.Program = tb_Program.Text.Trim();
+                }
+
                 db.SaveChanges();
 
-                parentReference.RefreshStudents();
+                // Refresh
+                if (isTeacher)
+                {
+                    parentReference.RefreshTeachers();
+                }
+                else
+                {
+                    parentReference.RefreshStudents();
+                }
             }
         }
 
@@ -95,8 +121,6 @@ namespace Student_Information_System.Forms
             if (result == DialogResult.Yes)
             {
                 db.SaveChanges();
-
-                parentReference.RefreshStudents();
             }
         }
     }

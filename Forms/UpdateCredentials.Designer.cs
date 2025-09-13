@@ -30,6 +30,7 @@
         {
             hope_UpdateCredentials = new ReaLTaiizor.Forms.HopeForm();
             pnl_UserDetails = new Student_Information_System.UI.SPanel();
+            tb_Program = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             btn_UpdateUserDetail = new ReaLTaiizor.Controls.MaterialButton();
             tb_Lastname = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             pnl_TeacherEnabled = new Panel();
@@ -76,6 +77,7 @@
             pnl_UserDetails.BackColor = Color.Transparent;
             pnl_UserDetails.BackgroundFillColor = Color.White;
             pnl_UserDetails.BorderColor = Color.White;
+            pnl_UserDetails.Controls.Add(tb_Program);
             pnl_UserDetails.Controls.Add(btn_UpdateUserDetail);
             pnl_UserDetails.Controls.Add(tb_Lastname);
             pnl_UserDetails.Controls.Add(pnl_TeacherEnabled);
@@ -92,6 +94,39 @@
             pnl_UserDetails.Name = "pnl_UserDetails";
             pnl_UserDetails.Size = new Size(570, 567);
             pnl_UserDetails.TabIndex = 56;
+            // 
+            // tb_Program
+            // 
+            tb_Program.AnimateReadOnly = false;
+            tb_Program.AutoCompleteMode = AutoCompleteMode.None;
+            tb_Program.AutoCompleteSource = AutoCompleteSource.None;
+            tb_Program.BackgroundImageLayout = ImageLayout.None;
+            tb_Program.CharacterCasing = CharacterCasing.Normal;
+            tb_Program.Depth = 0;
+            tb_Program.Font = new Font("Poppins", 12F);
+            tb_Program.HideSelection = true;
+            tb_Program.Hint = "Program";
+            tb_Program.LeadingIcon = null;
+            tb_Program.Location = new Point(300, 410);
+            tb_Program.Margin = new Padding(3, 4, 3, 4);
+            tb_Program.MaxLength = 50;
+            tb_Program.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_Program.Name = "tb_Program";
+            tb_Program.PasswordChar = '\0';
+            tb_Program.PrefixSuffixText = null;
+            tb_Program.ReadOnly = false;
+            tb_Program.RightToLeft = RightToLeft.No;
+            tb_Program.SelectedText = "";
+            tb_Program.SelectionLength = 0;
+            tb_Program.SelectionStart = 0;
+            tb_Program.ShortcutsEnabled = true;
+            tb_Program.Size = new Size(250, 48);
+            tb_Program.TabIndex = 58;
+            tb_Program.TabStop = false;
+            tb_Program.TextAlign = HorizontalAlignment.Left;
+            tb_Program.TrailingIcon = null;
+            tb_Program.UseSystemPasswordChar = false;
+            tb_Program.Visible = false;
             // 
             // btn_UpdateUserDetail
             // 
@@ -155,7 +190,7 @@
             pnl_TeacherEnabled.Enabled = false;
             pnl_TeacherEnabled.Location = new Point(32, 395);
             pnl_TeacherEnabled.Name = "pnl_TeacherEnabled";
-            pnl_TeacherEnabled.Size = new Size(418, 143);
+            pnl_TeacherEnabled.Size = new Size(262, 143);
             pnl_TeacherEnabled.TabIndex = 56;
             pnl_TeacherEnabled.Visible = false;
             // 
@@ -184,7 +219,7 @@
             tb_Specialization.SelectionLength = 0;
             tb_Specialization.SelectionStart = 0;
             tb_Specialization.ShortcutsEnabled = true;
-            tb_Specialization.Size = new Size(394, 48);
+            tb_Specialization.Size = new Size(250, 48);
             tb_Specialization.TabIndex = 43;
             tb_Specialization.TabStop = false;
             tb_Specialization.TextAlign = HorizontalAlignment.Left;
@@ -216,7 +251,7 @@
             tb_Department.SelectionLength = 0;
             tb_Department.SelectionStart = 0;
             tb_Department.ShortcutsEnabled = true;
-            tb_Department.Size = new Size(394, 48);
+            tb_Department.Size = new Size(250, 48);
             tb_Department.TabIndex = 42;
             tb_Department.TabStop = false;
             tb_Department.TextAlign = HorizontalAlignment.Left;
@@ -575,5 +610,6 @@
         private Label lbl_UserLogin;
         private ReaLTaiizor.Controls.MaterialButton btn_UpdateUserLogin;
         private ReaLTaiizor.Controls.MaterialButton btn_UpdateUserDetail;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_Program;
     }
 }
