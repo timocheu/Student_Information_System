@@ -16,7 +16,11 @@ namespace Student_Information_System.Forms
         private BindingSource studentSource = new();
         private int totalStudents = 0;
 
-        // Binding source for students
+        // Binding source for teachers
+        private BindingSource teacherSource = new();
+        private int totalTeachers = 0;
+
+        // Binding source for course
         private BindingSource courseSource = new();
         private int totalCourses = 0;
 
@@ -28,8 +32,11 @@ namespace Student_Information_System.Forms
 
             // Initialize data for students
             RefreshStudents();
+            RefreshTeachers();
             RefreshCourse();
+
             dgv_Students.DataSource = studentSource;
+            dgv_Teachers.DataSource = teacherSource;
             dgv_Courses.DataSource = courseSource;
             dgv_Courses.Rows[0].Selected = true;
 
@@ -67,7 +74,8 @@ namespace Student_Information_System.Forms
                 predicate = predicate.And(u => u.Student != null && u.Student.Status == 1);
             }
 
-            var refreshedUser = db.Users
+            var refreshedStudents = db.Users
+                .AsExpandable()
                 .Where(predicate)
                 .OrderByDescending(u => u.UserId)
                 .Select(u => new
@@ -79,13 +87,14 @@ namespace Student_Information_System.Forms
                     u.DateOfBirth,
                     u.Email,
                     u.Phone,
+                    u.Student!.Program,
                     Enrollment_date = u.Student!.EnrollmentDate,
                 })
                 .ToList();
 
-            studentSource.DataSource = refreshedUser;
-            totalStudents = refreshedUser.Count;
-            lbl_StudentResult.Text = $"{refreshedUser.Count} Out of {totalStudents}";
+            studentSource.DataSource = refreshedStudents;
+            totalStudents = refreshedStudents.Count;
+            lbl_StudentResult.Text = $"{refreshedStudents.Count} Out of {totalStudents}";
         }
 
         private void btn_AddStudent_Click(object sender, EventArgs e)
@@ -134,7 +143,11 @@ namespace Student_Information_System.Forms
                 int userID = (int)dgv_Students.SelectedRows[0].Cells[0].Value;
 
                 Form form = new UpdateCredentials(IsTeacher: false, userID, this);
-                form.FormClosed += (s, args) => this.Enabled = true;
+                form.FormClosed += (s, args) =>
+                {
+                    this.Enabled = true;
+                    RefreshStudents();
+                };
 
                 this.Enabled = false;
                 form.Show();
@@ -239,14 +252,192 @@ namespace Student_Information_System.Forms
         #endregion
 
         #region Teacher features
-        private void btn_AddTeacher_Click(object sender, EventArgs e)
+        private void toggle_InactiveTeacher_CheckedChanged(object sender, EventArgs e) => RefreshTeachers();
+        public void RefreshTeachers()
         {
-            Form TeacherAddForm = new UserAdd(IsTeacher: true);
-            TeacherAddForm.FormClosed += (s, args) => this.Enabled = true;
+            var predicate = PredicateBuilder.New<User>(false).And(u => u.Teacher != null && u.Role == 2);
+
+            if (!toggle_InactiveTeacher.Checked)
+            {
+                predicate = predicate.And(u => u.Teacher != null && u.Teacher.Status == 1);
+            }
+
+            var refreshedTeachers = db.Users
+                .Where(predicate)
+                .OrderByDescending(u => u.UserId)
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.FirstName,
+                    u.LastName,
+                    u.Gender,
+                    u.Email,
+                    u.Phone,
+                    u.Teacher!.Specialization,
+                    u.Teacher.Department,
+                    u.Teacher.HireDate,
+                })
+                .ToList();
+
+            teacherSource.DataSource = refreshedTeachers;
+            totalTeachers = refreshedTeachers.Count;
+            lbl_TeacherResults.Text = $"{refreshedTeachers.Count} Out of {totalTeachers}";
+        }
+        private void btn_CreateTeacher_Click(object sender, EventArgs e)
+        {
+            UserAdd TeacherAddForm = new UserAdd(IsTeacher: true);
+            TeacherAddForm.FormClosed += (s, args) =>
+            {
+                this.Enabled = true;
+                RefreshTeachers();
+            };
 
             this.Enabled = false;
             TeacherAddForm.Show();
         }
+
+        private void btn_UpdateTeacher_Click(object sender, EventArgs e)
+        {
+            if (dgv_Teachers.SelectedRows.Count == 1)
+            {
+                int userID = (int)dgv_Teachers.SelectedRows[0].Cells[0].Value;
+
+                Form form = new UpdateCredentials(IsTeacher: true, userID, this);
+                form.FormClosed += (s, args) =>
+                {
+                    this.Enabled = true;
+                    RefreshTeachers();
+                };
+
+                this.Enabled = false;
+                form.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a single row first");
+            }
+        }
+
+        private void btn_DeleteTeacher_Click(object sender, EventArgs e)
+        {
+            if (dgv_Teachers.SelectedRows.Count > 0)
+            {
+                var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+                if (result == DialogResult.Yes)
+                {
+                    HashSet<int> ids = dgv_Teachers.SelectedRows
+                        .Cast<DataGridViewRow>()
+                        .Select(row => (int)row.Cells[0].Value)
+                        // use hashset for more effecient look up
+                        .ToHashSet<int>();
+
+                    db.Teachers
+                        .Where(s => ids.Contains(s.UserId))
+                        .ExecuteUpdateAsync(s => s.SetProperty(
+                            s => s.Status,
+                            s => 0));
+
+                    RefreshStudents();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Select rows first");
+            }
+        }
+
+        private void btn_TeacherDetail_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void tb_SearchTeachers_TextChanged(object sender, EventArgs e)
+        {
+            string filter = tb_SearchTeachers.Text.ToLower();
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                RefreshTeachers();
+                return;
+            }
+
+            var predicates = PredicateBuilder.New<User>(false);
+
+            if (cb_Teacher_UserId.Checked)
+            {
+                predicates = predicates
+                    .Or(u => u.UserId.ToString().Contains(filter));
+            }
+
+            if (cb_Teacher_Name.Checked)
+            {
+                predicates = predicates
+                    .Or(u => (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
+                    (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)));
+            }
+
+            if (cb_Teacher_DateOfBirth.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter));
+            }
+
+            if (cb_Teacher_Gender.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower() == filter);
+            }
+
+            if (cb_Teacher_Email.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter));
+            }
+
+            if (cb_Teacher_Phone.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter));
+            }
+
+            if (cb_Teacher_HireDate.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Teacher!.HireDate) && u.Teacher.HireDate.ToLower().Contains(filter));
+            }
+
+            if (cb_Teacher_Department.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Teacher!.Department) && u.Teacher.Department.ToLower().Contains(filter));
+            }
+
+            if (cb_Teacher_Specialization.Checked)
+            {
+                predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Teacher!.Specialization) && u.Teacher.Specialization.ToLower().Contains(filter));
+            }
+
+            predicates = predicates.And(u => u.Role == 2 && u.Teacher != null);
+            if (!toggle_InactiveTeacher.Checked)
+            {
+                predicates = predicates.And(u => u.Teacher!.Status == 1);
+            }
+
+            var filteredTeachers = db.Users
+                .AsExpandable()
+                .Where(predicates)
+                .Select(u => new
+                {
+                    u.UserId,
+                    u.FirstName,
+                    u.LastName,
+                    u.Gender,
+                    u.Email,
+                    u.Phone,
+                    u.Teacher!.Specialization,
+                    u.Teacher.Department,
+                    u.Teacher.HireDate,
+                })
+                .ToList();
+
+            teacherSource.DataSource = filteredTeachers;
+            totalTeachers = filteredTeachers.Count;
+            lbl_StudentResult.Text = $"{filteredTeachers.Count} Out of {totalTeachers}";
+        }
+
         #endregion
 
         #region Courses
@@ -394,7 +585,7 @@ namespace Student_Information_System.Forms
 
             if (cb_Course_NameFilter.Checked)
             {
-                predicate = predicate.Or(s => 
+                predicate = predicate.Or(s =>
                     (!string.IsNullOrEmpty(s.User.FirstName) && s.User.FirstName.ToLower().Contains(filter)) ||
                     (!string.IsNullOrEmpty(s.User.LastName) && s.User.LastName.ToLower().Contains(filter)));
             }
