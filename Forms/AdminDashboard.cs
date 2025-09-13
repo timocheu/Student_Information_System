@@ -177,7 +177,7 @@ namespace Student_Information_System.Forms
 
         private void tb_SearchStudent_TextChanged(object sender, EventArgs e)
         {
-            string filter = tb_SearchStudent.Text.ToLower();
+            string filter = tb_SearchStudent.Text.ToLower().Trim();
 
             if (string.IsNullOrEmpty(filter))
             {
@@ -243,6 +243,7 @@ namespace Student_Information_System.Forms
                     u.Email,
                     u.Phone,
                     Enrollment_date = u.Student!.EnrollmentDate,
+                    u.Student.Program,
                 })
                 .ToList();
 
@@ -352,7 +353,7 @@ namespace Student_Information_System.Forms
         }
         private void tb_SearchTeachers_TextChanged(object sender, EventArgs e)
         {
-            string filter = tb_SearchTeachers.Text.ToLower();
+            string filter = tb_SearchTeachers.Text.ToLower().Trim();
 
             if (string.IsNullOrEmpty(filter))
             {
@@ -622,5 +623,9 @@ namespace Student_Information_System.Forms
         }
         #endregion
 
+        private void tb_SearchCourse_TextChanged(object sender, EventArgs e)
+        {
+            string filter = tb_SearchCourse.Text.ToLower().Trim();
+        }
     }
 }
