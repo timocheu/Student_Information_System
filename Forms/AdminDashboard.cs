@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
 using System.Data;
+using System.Reflection.PortableExecutable;
 
 namespace Student_Information_System.Forms
 {
@@ -22,7 +23,6 @@ namespace Student_Information_System.Forms
 
         // Binding source for course
         private BindingSource courseSource = new();
-        private int totalCourses = 0;
 
         public AdminDashboard(int userId)
         {
@@ -472,9 +472,6 @@ namespace Student_Information_System.Forms
                 .ToList();
 
             courseSource.DataSource = refreshedCourses;
-            totalCourses = refreshedCourses.Count;
-
-            lbl_StudentResult.Text = $"{refreshedCourses.Count} Out of {totalCourses}";
         }
 
         private void btn_DeleteCourse_Click(object sender, EventArgs e)
@@ -626,6 +623,29 @@ namespace Student_Information_System.Forms
         private void tb_SearchCourse_TextChanged(object sender, EventArgs e)
         {
             string filter = tb_SearchCourse.Text.ToLower().Trim();
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                RefreshCourse();
+                return;
+            }
+
+            var filteredCourse = db.Courses
+                .Where(c => c.CourseId.ToString().Contains(filter) ||
+                    c.CourseName.ToLower().Contains(filter))
+                .Select(c => new
+                {
+                    c.CourseId,
+                    c.CourseCode,
+                    c.CourseName,
+                    c.Description,
+                    c.Department,
+                    c.Credits,
+                    c.TeacherId
+                })
+                .ToList();
+
+            courseSource.DataSource = filteredCourse;
         }
     }
 }
