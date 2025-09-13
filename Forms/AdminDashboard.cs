@@ -173,40 +173,40 @@ namespace Student_Information_System.Forms
             }
             var predicates = PredicateBuilder.New<User>(false);
 
-            if (cb_UserId.Checked)
+            if (cb_Student_UserId.Checked)
             {
                 predicates = predicates
                     .Or(u => u.UserId.ToString().Contains(filter));
             }
 
-            if (cb_Name.Checked)
+            if (cb_Student_Name.Checked)
             {
                 predicates = predicates
                     .Or(u => (!string.IsNullOrEmpty(u.FirstName) && u.FirstName.ToLower().Contains(filter)) ||
                     (!string.IsNullOrEmpty(u.LastName) && u.LastName.ToLower().Contains(filter)));
             }
 
-            if (cb_DateOfBirth.Checked)
+            if (cb_Student_DateOfBirth.Checked)
             {
                 predicates = predicates.Or(u => !string.IsNullOrEmpty(u.DateOfBirth) && u.DateOfBirth.ToLower().Contains(filter));
             }
 
-            if (cb_Gender.Checked)
+            if (cb_Student_Gender.Checked)
             {
                 predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Gender) && u.Gender.ToLower() == filter);
             }
 
-            if (cb_Email.Checked)
+            if (cb_Student_Email.Checked)
             {
                 predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Email) && u.Email.ToLower().Contains(filter));
             }
 
-            if (cb_Phone.Checked)
+            if (cb_Student_Phone.Checked)
             {
                 predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Phone) && u.Phone.ToLower().Contains(filter));
             }
 
-            if (cb_EnrollmentDate.Checked)
+            if (cb_Student_EnrollmentDate.Checked)
             {
                 predicates = predicates.Or(u => !string.IsNullOrEmpty(u.Student.EnrollmentDate) && u.Student.EnrollmentDate.ToLower().Contains(filter));
             }
