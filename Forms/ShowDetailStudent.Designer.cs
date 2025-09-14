@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             hope_StudentDetails = new ReaLTaiizor.Forms.HopeForm();
             dgv_Courses = new ReaLTaiizor.Controls.PoisonDataGridView();
             btn_RemoveCourse = new ReaLTaiizor.Controls.HopeButton();
@@ -38,6 +38,7 @@
             lbl_StudentID = new Label();
             btn_SaveChanges = new ReaLTaiizor.Controls.HopeButton();
             lbl_StudentProgram = new Label();
+            btn_Back = new ReaLTaiizor.Controls.HopeButton();
             ((System.ComponentModel.ISupportInitialize)dgv_Courses).BeginInit();
             SuspendLayout();
             // 
@@ -71,23 +72,23 @@
             dgv_Courses.BorderStyle = BorderStyle.None;
             dgv_Courses.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Courses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle1.ForeColor = Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv_Courses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.White;
-            dataGridViewCellStyle2.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle2.ForeColor = Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle2.SelectionForeColor = Color.White;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle5;
             dgv_Courses.EnableHeadersVisualStyles = false;
             dgv_Courses.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Courses.GridColor = Color.Black;
@@ -95,14 +96,14 @@
             dgv_Courses.Name = "dgv_Courses";
             dgv_Courses.ReadOnly = true;
             dgv_Courses.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle3.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgv_Courses.RowHeadersVisible = false;
             dgv_Courses.RowHeadersWidth = 20;
             dgv_Courses.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -185,11 +186,33 @@
             lbl_StudentProgram.TabIndex = 12;
             lbl_StudentProgram.Text = "Student Program:";
             // 
+            // btn_Back
+            // 
+            btn_Back.BorderColor = Color.Black;
+            btn_Back.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_Back.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_Back.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_Back.Font = new Font("Poppins", 12F);
+            btn_Back.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_Back.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_Back.Location = new Point(32, 550);
+            btn_Back.Margin = new Padding(30, 3, 3, 3);
+            btn_Back.Name = "btn_Back";
+            btn_Back.PrimaryColor = Color.DarkSlateGray;
+            btn_Back.Size = new Size(97, 40);
+            btn_Back.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_Back.TabIndex = 13;
+            btn_Back.Text = "Back";
+            btn_Back.TextColor = Color.White;
+            btn_Back.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_Back.Click += hopeButton1_Click;
+            // 
             // ShowDetailStudent
             // 
             AutoScaleDimensions = new SizeF(7F, 22F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(900, 650);
+            Controls.Add(btn_Back);
             Controls.Add(lbl_StudentProgram);
             Controls.Add(btn_SaveChanges);
             Controls.Add(lbl_StudentID);
@@ -220,5 +243,6 @@
         private Label lbl_StudentID;
         private ReaLTaiizor.Controls.HopeButton btn_SaveChanges;
         private Label lbl_StudentProgram;
+        private ReaLTaiizor.Controls.HopeButton btn_Back;
     }
 }

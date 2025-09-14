@@ -47,18 +47,18 @@ namespace Student_Information_System.Forms
             {
                 db.SaveChanges();
                 this.Close();
-            }    
+            }
         }
 
         private void btn_RemoveCourse_Click(object sender, EventArgs e)
         {
-            int courseTargetId = (int) dgv_Courses.SelectedRows[0].Cells[0].Value;
+            int courseTargetId = (int)dgv_Courses.SelectedRows[0].Cells[0].Value;
 
             var taken = db.CourseTakens.FirstOrDefault(u => u.StudentId == _currentStudent.UserId && u.CourseId == courseTargetId);
             if (taken is null)
             {
                 CrownMessageBox.ShowInformation(
-                    "Error: Course not found", 
+                    "Error: Course not found",
                     "Error finding",
                     ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
 
@@ -68,6 +68,11 @@ namespace Student_Information_System.Forms
             db.CourseTakens.Remove(taken);
             // Remove from display
             dgv_Courses.Rows.Remove(dgv_Courses.SelectedRows[0]);
+        }
+
+        private void hopeButton1_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

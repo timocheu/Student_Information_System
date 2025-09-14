@@ -349,7 +349,24 @@ namespace Student_Information_System.Forms
 
         private void btn_TeacherDetail_Click(object sender, EventArgs e)
         {
+            if (dgv_Teachers.SelectedRows.Count > 0)
+            {
+                int targetTeacherID = (int)dgv_Teachers.SelectedRows[0].Cells[0].Value;
 
+                ShowDetailTeacher form = new ShowDetailTeacher(targetTeacherID);
+                form.FormClosed += (s, args) =>
+                {
+                    this.Enabled = true;
+                    RefreshTeachers();
+                };
+
+                this.Enabled = false;
+                form.Show();
+            }
+            else
+            {
+                PoisonMessageBox.Show(this, "Please select a target row first.", "Missing target", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+            }
         }
         private void tb_SearchTeachers_TextChanged(object sender, EventArgs e)
         {
