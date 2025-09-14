@@ -605,11 +605,6 @@ namespace Student_Information_System.Forms
                     (!string.IsNullOrEmpty(s.User.LastName) && s.User.LastName.ToLower().Contains(filter)));
             }
 
-            if (cb_Course_ProgramFilter.Checked)
-            {
-                predicate.Or(s => s.User.Gender!.Contains(filter));
-            }
-
             predicate = predicate.And(s => s.User.Role == 3);
             if (toggle_CourseTaken.Checked)
             {

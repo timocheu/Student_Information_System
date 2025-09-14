@@ -100,7 +100,6 @@
             dgv_Courses = new ReaLTaiizor.Controls.PoisonDataGridView();
             pnl_CourseStudentFeature = new Student_Information_System.UI.SPanel();
             tb_SearchStudentCourse = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            cb_Course_GenderFilter = new ReaLTaiizor.Controls.HopeCheckBox();
             lbl_Taken = new Label();
             cb_Course_ProgramFilter = new ReaLTaiizor.Controls.HopeCheckBox();
             toggle_CourseTaken = new ReaLTaiizor.Controls.HopeToggle();
@@ -178,7 +177,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
             tab_Dashboard.Controls.Add(pb_ProfilePicture);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
@@ -208,7 +207,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
             tab_Student.Controls.Add(lbl_Student_Filter);
             tab_Student.Controls.Add(pnl_Student_Toggle);
             tab_Student.Controls.Add(lbl_SearchStudents);
@@ -579,7 +578,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -685,7 +684,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_SearchTeacher);
             tab_Teacher.Controls.Add(pnl_Toggle_Teacher);
@@ -856,7 +855,7 @@
             tb_SearchTeachers.AnimateReadOnly = false;
             tb_SearchTeachers.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchTeachers.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchTeachers.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchTeachers.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchTeachers.BackgroundImageLayout = ImageLayout.None;
             tb_SearchTeachers.CharacterCasing = CharacterCasing.Normal;
             tb_SearchTeachers.Depth = 0;
@@ -1181,7 +1180,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
             tab_Subject.Controls.Add(dgv_StudentSelection);
             tab_Subject.Controls.Add(lbl_Course);
             tab_Subject.Controls.Add(dgv_Courses);
@@ -1320,7 +1319,6 @@
             pnl_CourseStudentFeature.BackgroundFillColor = Color.White;
             pnl_CourseStudentFeature.BorderColor = Color.White;
             pnl_CourseStudentFeature.Controls.Add(tb_SearchStudentCourse);
-            pnl_CourseStudentFeature.Controls.Add(cb_Course_GenderFilter);
             pnl_CourseStudentFeature.Controls.Add(lbl_Taken);
             pnl_CourseStudentFeature.Controls.Add(cb_Course_ProgramFilter);
             pnl_CourseStudentFeature.Controls.Add(toggle_CourseTaken);
@@ -1335,7 +1333,7 @@
             tb_SearchStudentCourse.AnimateReadOnly = false;
             tb_SearchStudentCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudentCourse.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudentCourse.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudentCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudentCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudentCourse.Depth = 0;
@@ -1362,26 +1360,6 @@
             tb_SearchStudentCourse.TrailingIcon = null;
             tb_SearchStudentCourse.UseSystemPasswordChar = false;
             tb_SearchStudentCourse.TextChanged += tb_SearchStudentCourse_TextChanged;
-            // 
-            // cb_Course_GenderFilter
-            // 
-            cb_Course_GenderFilter.AutoSize = true;
-            cb_Course_GenderFilter.BackColor = Color.White;
-            cb_Course_GenderFilter.CheckedColor = Color.FromArgb(64, 158, 255);
-            cb_Course_GenderFilter.DisabledColor = Color.FromArgb(196, 198, 202);
-            cb_Course_GenderFilter.DisabledStringColor = Color.FromArgb(186, 187, 189);
-            cb_Course_GenderFilter.Enable = true;
-            cb_Course_GenderFilter.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
-            cb_Course_GenderFilter.EnabledStringColor = Color.FromArgb(153, 153, 153);
-            cb_Course_GenderFilter.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
-            cb_Course_GenderFilter.Font = new Font("Poppins", 12F);
-            cb_Course_GenderFilter.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Course_GenderFilter.Location = new Point(240, 35);
-            cb_Course_GenderFilter.Name = "cb_Course_GenderFilter";
-            cb_Course_GenderFilter.Size = new Size(96, 20);
-            cb_Course_GenderFilter.TabIndex = 23;
-            cb_Course_GenderFilter.Text = "Gender";
-            cb_Course_GenderFilter.UseVisualStyleBackColor = false;
             // 
             // lbl_Taken
             // 
@@ -1471,7 +1449,7 @@
             tb_SearchCourse.AnimateReadOnly = false;
             tb_SearchCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchCourse.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchCourse.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchCourse.Depth = 0;
@@ -1564,7 +1542,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -1574,7 +1552,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -1584,7 +1562,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";
@@ -1715,7 +1693,6 @@
         private ReaLTaiizor.Controls.HopeButton btn_ShowCourse;
         private ReaLTaiizor.Controls.PoisonDataGridView dgv_Courses;
         private UI.SPanel pnl_CourseStudentFeature;
-        private ReaLTaiizor.Controls.HopeCheckBox cb_Course_GenderFilter;
         private Label label1;
         private Label lbl_Taken;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Course_ProgramFilter;
