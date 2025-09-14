@@ -630,8 +630,28 @@ namespace Student_Information_System.Forms
 
             dgv_StudentSelection.DataSource = filteredStudents;
         }
-        #endregion
+        private void btn_UpdateCourse_Click(object sender, EventArgs e)
+        {
+            if (dgv_Courses.SelectedRows.Count == 1)
+            {
+                int courseID = (int)dgv_Courses.SelectedRows[0].Cells[0].Value;
 
+                Form updateForm = new UpdateCourse(courseID);
+                updateForm.FormClosed += (s, args) =>
+                {
+                    this.Enabled = true;
+                    RefreshCourse();
+                };
+
+                this.Enabled = false;
+                updateForm.Show();
+            }
+            else
+            {
+                MessageBox.Show("Select a single row first");
+            }
+
+        }
         private void tb_SearchCourse_TextChanged(object sender, EventArgs e)
         {
             string filter = tb_SearchCourse.Text.ToLower().Trim();
@@ -659,5 +679,13 @@ namespace Student_Information_System.Forms
 
             courseSource.DataSource = filteredCourse;
         }
+        #endregion
+
+
+        private void lbl_Taken_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

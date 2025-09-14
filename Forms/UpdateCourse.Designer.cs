@@ -1,6 +1,6 @@
 ﻿namespace Student_Information_System.Forms
 {
-    partial class CourseAdd
+    partial class UpdateCourse
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            hope_CourseAdd = new ReaLTaiizor.Forms.HopeForm();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            hope_UpdateCourse = new ReaLTaiizor.Forms.HopeForm();
             pnl_UserDetails = new Student_Information_System.UI.SPanel();
+            lbl_TeacherID = new Label();
             lbl_Filters = new Label();
             cb_Specialization = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_UserID = new ReaLTaiizor.Controls.HopeCheckBox();
@@ -48,34 +49,34 @@
             btn_UpdateUserDetail = new ReaLTaiizor.Controls.MaterialButton();
             tb_CourseCode = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tb_CourseName = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
-            lbl_Name = new Label();
             lbl_CourseCredits = new Label();
+            lbl_Name = new Label();
             pnl_UserDetails.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Teachers).BeginInit();
             SuspendLayout();
             // 
-            // hope_CourseAdd
+            // hope_UpdateCourse
             // 
-            hope_CourseAdd.ControlBoxColorH = Color.FromArgb(228, 231, 237);
-            hope_CourseAdd.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
-            hope_CourseAdd.ControlBoxColorN = Color.White;
-            hope_CourseAdd.Dock = DockStyle.Top;
-            hope_CourseAdd.Font = new Font("Poppins", 14.25F);
-            hope_CourseAdd.ForeColor = Color.FromArgb(242, 246, 252);
-            hope_CourseAdd.Image = Properties.Resources.FormIcon;
-            hope_CourseAdd.Location = new Point(0, 0);
-            hope_CourseAdd.MaximizeBox = false;
-            hope_CourseAdd.Name = "hope_CourseAdd";
-            hope_CourseAdd.Size = new Size(800, 40);
-            hope_CourseAdd.TabIndex = 3;
-            hope_CourseAdd.Text = "Add Course";
-            hope_CourseAdd.ThemeColor = Color.Chocolate;
+            hope_UpdateCourse.ControlBoxColorH = Color.FromArgb(228, 231, 237);
+            hope_UpdateCourse.ControlBoxColorHC = Color.FromArgb(245, 108, 108);
+            hope_UpdateCourse.ControlBoxColorN = Color.White;
+            hope_UpdateCourse.Dock = DockStyle.Top;
+            hope_UpdateCourse.Font = new Font("Poppins", 14.25F);
+            hope_UpdateCourse.ForeColor = Color.FromArgb(242, 246, 252);
+            hope_UpdateCourse.Image = Properties.Resources.FormIcon;
+            hope_UpdateCourse.Location = new Point(0, 0);
+            hope_UpdateCourse.Name = "hope_UpdateCourse";
+            hope_UpdateCourse.Size = new Size(800, 40);
+            hope_UpdateCourse.TabIndex = 4;
+            hope_UpdateCourse.Text = "Update Course";
+            hope_UpdateCourse.ThemeColor = Color.SeaGreen;
             // 
             // pnl_UserDetails
             // 
             pnl_UserDetails.BackColor = Color.Transparent;
             pnl_UserDetails.BackgroundFillColor = Color.White;
             pnl_UserDetails.BorderColor = Color.White;
+            pnl_UserDetails.Controls.Add(lbl_TeacherID);
             pnl_UserDetails.Controls.Add(lbl_Filters);
             pnl_UserDetails.Controls.Add(cb_Specialization);
             pnl_UserDetails.Controls.Add(cb_UserID);
@@ -91,12 +92,22 @@
             pnl_UserDetails.Controls.Add(btn_UpdateUserDetail);
             pnl_UserDetails.Controls.Add(tb_CourseCode);
             pnl_UserDetails.Controls.Add(tb_CourseName);
-            pnl_UserDetails.Controls.Add(lbl_Name);
             pnl_UserDetails.Controls.Add(lbl_CourseCredits);
-            pnl_UserDetails.Location = new Point(28, 55);
+            pnl_UserDetails.Location = new Point(21, 80);
             pnl_UserDetails.Name = "pnl_UserDetails";
             pnl_UserDetails.Size = new Size(745, 480);
-            pnl_UserDetails.TabIndex = 57;
+            pnl_UserDetails.TabIndex = 58;
+            // 
+            // lbl_TeacherID
+            // 
+            lbl_TeacherID.AutoSize = true;
+            lbl_TeacherID.BackColor = Color.White;
+            lbl_TeacherID.Font = new Font("Poppins", 12F);
+            lbl_TeacherID.Location = new Point(32, 38);
+            lbl_TeacherID.Name = "lbl_TeacherID";
+            lbl_TeacherID.Size = new Size(104, 28);
+            lbl_TeacherID.TabIndex = 76;
+            lbl_TeacherID.Text = "Teacher ID: ";
             // 
             // lbl_Filters
             // 
@@ -210,6 +221,7 @@
             tb_SearchInstructor.TabIndex = 70;
             tb_SearchInstructor.TabStop = false;
             tb_SearchInstructor.UseSystemPasswordChar = false;
+            tb_SearchInstructor.TextChanged += tb_SearchInstructor_TextChanged;
             // 
             // btn_Back
             // 
@@ -231,7 +243,6 @@
             btn_Back.Type = ReaLTaiizor.Controls.MaterialButton.MaterialButtonType.Contained;
             btn_Back.UseAccentColor = false;
             btn_Back.UseVisualStyleBackColor = true;
-            btn_Back.Click += btn_Back_Click;
             // 
             // btn_ConfirmAdd
             // 
@@ -268,23 +279,23 @@
             dgv_Teachers.BorderStyle = BorderStyle.None;
             dgv_Teachers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Teachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dataGridViewCellStyle4.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle4.ForeColor = Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Teachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.White;
-            dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle5.ForeColor = Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle5.SelectionForeColor = Color.White;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
-            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle2;
             dgv_Teachers.EnableHeadersVisualStyles = false;
             dgv_Teachers.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Teachers.GridColor = Color.Black;
@@ -292,14 +303,14 @@
             dgv_Teachers.Name = "dgv_Teachers";
             dgv_Teachers.ReadOnly = true;
             dgv_Teachers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle3.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_Teachers.RowHeadersVisible = false;
             dgv_Teachers.RowHeadersWidth = 20;
             dgv_Teachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -309,6 +320,7 @@
             dgv_Teachers.UseCustomBackColor = true;
             dgv_Teachers.UseCustomForeColor = true;
             dgv_Teachers.UseStyleColors = true;
+            dgv_Teachers.CellClick += dgv_Teachers_CellClick;
             // 
             // tb_CourseDepartment
             // 
@@ -469,17 +481,6 @@
             tb_CourseName.TrailingIcon = null;
             tb_CourseName.UseSystemPasswordChar = false;
             // 
-            // lbl_Name
-            // 
-            lbl_Name.AutoSize = true;
-            lbl_Name.BackColor = Color.White;
-            lbl_Name.Font = new Font("Poppins", 16F);
-            lbl_Name.Location = new Point(32, 27);
-            lbl_Name.Name = "lbl_Name";
-            lbl_Name.Size = new Size(174, 39);
-            lbl_Name.TabIndex = 45;
-            lbl_Name.Text = "Course details";
-            // 
             // lbl_CourseCredits
             // 
             lbl_CourseCredits.AutoSize = true;
@@ -490,48 +491,59 @@
             lbl_CourseCredits.TabIndex = 62;
             lbl_CourseCredits.Text = "Course Credits: ";
             // 
-            // CourseAdd
+            // lbl_Name
             // 
-            AutoScaleDimensions = new SizeF(7F, 22F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 565);
+            lbl_Name.AutoSize = true;
+            lbl_Name.BackColor = SystemColors.Control;
+            lbl_Name.Font = new Font("Poppins", 16F);
+            lbl_Name.Location = new Point(38, 48);
+            lbl_Name.Name = "lbl_Name";
+            lbl_Name.Size = new Size(174, 39);
+            lbl_Name.TabIndex = 45;
+            lbl_Name.Text = "Course details";
+            // 
+            // UpdateCourse
+            // 
+            AutoScaleMode = AutoScaleMode.None;
+            ClientSize = new Size(800, 582);
             Controls.Add(pnl_UserDetails);
-            Controls.Add(hope_CourseAdd);
+            Controls.Add(hope_UpdateCourse);
+            Controls.Add(lbl_Name);
             Font = new Font("Poppins", 9F);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
-            MaximizeBox = false;
-            MaximumSize = new Size(1920, 1525);
+            MaximumSize = new Size(1920, 1040);
             MinimumSize = new Size(190, 40);
-            Name = "CourseAdd";
+            Name = "UpdateCourse";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "CourseAdd";
+            Text = "UpdateCourse";
             pnl_UserDetails.ResumeLayout(false);
             pnl_UserDetails.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Teachers).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
-        private ReaLTaiizor.Forms.HopeForm hope_CourseAdd;
+        private ReaLTaiizor.Forms.HopeForm hope_UpdateCourse;
         private UI.SPanel pnl_UserDetails;
+        private Label lbl_Filters;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Specialization;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_UserID;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Name;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Department;
+        private ReaLTaiizor.Controls.HopeTextBox tb_SearchInstructor;
+        private ReaLTaiizor.Controls.MaterialButton btn_Back;
+        private ReaLTaiizor.Controls.MaterialButton btn_ConfirmAdd;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Teachers;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseDepartment;
+        private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit tb_CourseDescription;
+        private ReaLTaiizor.Controls.PoisonComboBox cbb_Credits;
         private ReaLTaiizor.Controls.MaterialButton btn_UpdateUserDetail;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseCode;
         private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseName;
         private Label lbl_Name;
-        private ReaLTaiizor.Controls.PoisonComboBox cbb_Credits;
         private Label lbl_CourseCredits;
-        private ReaLTaiizor.Controls.MaterialMultiLineTextBoxEdit tb_CourseDescription;
-        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Teachers;
-        private ReaLTaiizor.Controls.MaterialButton btn_ConfirmAdd;
-        private ReaLTaiizor.Controls.MaterialButton btn_Back;
-        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_CourseDepartment;
-        private ReaLTaiizor.Controls.HopeTextBox tb_SearchInstructor;
-        private ReaLTaiizor.Controls.HopeCheckBox cb_UserID;
-        private ReaLTaiizor.Controls.HopeCheckBox cb_Name;
-        private ReaLTaiizor.Controls.HopeCheckBox cb_Department;
-        private ReaLTaiizor.Controls.HopeCheckBox cb_Specialization;
-        private Label lbl_Filters;
+        private Label lbl_TeacherID;
     }
 }
