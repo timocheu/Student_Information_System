@@ -478,6 +478,7 @@ namespace Student_Information_System.Forms
             CourseAddForm.Show();
         }
 
+        private void toggle_CourseInactive_CheckedChanged(object sender, EventArgs e) => RefreshCourse();
         private void RefreshCourse()
         {
             var refreshedCourses = db.Courses
@@ -499,19 +500,31 @@ namespace Student_Information_System.Forms
 
         private void btn_DeleteCourse_Click(object sender, EventArgs e)
         {
-            if (dgv_Courses.SelectedRows.Count > 0)
+            if (dgv_Students.SelectedRows.Count > 0)
             {
-                var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected rows?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
+                var result = PoisonMessageBox.Show(this, "Are you sure you want to delete the selected courses?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, 200);
                 if (result == DialogResult.Yes)
                 {
-                    int courseId = (int)dgv_Courses.SelectedRows[0].Cells[0].Value;
+                    HashSet<int> ids = dgv_Courses.SelectedRows
+                        .Cast<DataGridViewRow>()
+                        .Select(row => (int)row.Cells[0].Value)
+                        // use hashset for more effecient look up
+                        .ToHashSet<int>();
 
                     db.Courses
-                        .Where(c => c.CourseId == courseId)
-                        .ExecuteDelete();
+                        .Where(c => ids.Contains(c.CourseId))
+                        .ExecuteUpdateAsync(c => c.SetProperty(
+                            c => c.Status,
+                            c => 0));
 
-                    RefreshCourse();
+                    RefreshStudents();
                 }
+            }
+            else
+            {
+                var result = CrownMessageBox.ShowInformation("Please select courses from the data grid.",
+                    "Missing input",
+                    ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
             }
         }
 
@@ -703,5 +716,6 @@ namespace Student_Information_System.Forms
             }
         }
         #endregion
+
     }
 }
