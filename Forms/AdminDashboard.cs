@@ -23,6 +23,7 @@ namespace Student_Information_System.Forms
 
         // Binding source for course
         private BindingSource courseSource = new();
+        private int totalCourse = 0;
 
         public AdminDashboard(int userId)
         {
@@ -481,8 +482,16 @@ namespace Student_Information_System.Forms
         private void toggle_CourseInactive_CheckedChanged(object sender, EventArgs e) => RefreshCourse();
         private void RefreshCourse()
         {
+            var predicate = PredicateBuilder.New<Course>(false);
+
+            if (!toggle_CourseInactive.Checked)
+            {
+                predicate = predicate.Or(c => c.Status == 1);
+            }
+
             var refreshedCourses = db.Courses
                 .OrderByDescending(u => u.CourseId)
+                .Where(predicate)
                 .Select(u => new
                 {
                     u.CourseId,
@@ -496,6 +505,8 @@ namespace Student_Information_System.Forms
                 .ToList();
 
             courseSource.DataSource = refreshedCourses;
+            totalCourse = refreshedCourses.Count;
+            lbl_CourseResult.Text = $"{refreshedCourses.Count} out of {totalCourse}";
         }
 
         private void btn_DeleteCourse_Click(object sender, EventArgs e)
@@ -697,6 +708,7 @@ namespace Student_Information_System.Forms
                 .ToList();
 
             courseSource.DataSource = filteredCourse;
+            lbl_CourseResult.Text = $"{filteredCourse.Count} out of {totalCourse}";
         }
         #endregion
 

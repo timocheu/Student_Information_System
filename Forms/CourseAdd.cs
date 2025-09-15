@@ -130,6 +130,7 @@ namespace Student_Information_System.Forms
                 Department = courseDepartment,
                 Credits = int.Parse(cbb_Credits.Text),
                 TeacherId = courseTeacher,
+                Status = 1,
             };
 
             var result = CrownMessageBox.ShowInformation("Is this the correct information?", "Confirm Adding Course", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
