@@ -40,12 +40,18 @@ namespace Student_Information_System.Forms
             dgv_Courses.DataSource = courseSource;
             dgv_Courses.Rows[0].Selected = true;
 
-            pb_ProfilePicture.LoadAsync("https://www.vhv.rs/dpng/d/11-112962_pandas-kawaii-hd-png-download.png");
+            // Profile picture load
+            if (current_User.UserLogin.ProfileLink is not null)
+            {
+                pb_ProfilePicture.LoadAsync(current_User.UserLogin.ProfileLink);
+            }
         }
 
         private void GetUserInfo(int user_id)
         {
-            User? current_User = db.Users.FirstOrDefault(u => u.UserId == user_id);
+            User? current_User = db.Users
+                .Include(u => u.UserLogin)
+                .FirstOrDefault(u => u.UserId == user_id);
 
             if (current_User is null)
             {
@@ -682,10 +688,20 @@ namespace Student_Information_System.Forms
         #endregion
 
 
-        private void lbl_Taken_Click(object sender, EventArgs e)
+        #region Account Settings
+
+        private void btn_SaveChangesSettings_Click(object sender, EventArgs e)
         {
+            var res = CrownMessageBox.ShowInformation("Are you sure you want to save changes?", "Account Info", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
 
+            if (res == DialogResult.Yes)
+            {
+                current_User!.UserLogin!.ProfileLink = tb_ProfileLink.Text;
+                db.SaveChanges();
+
+                pb_ProfilePicture.LoadAsync(tb_ProfileLink.Text);
+            }
         }
-
+        #endregion
     }
 }

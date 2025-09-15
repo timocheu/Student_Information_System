@@ -113,6 +113,9 @@
             tab_Logs = new TabPage();
             tab_Reports = new TabPage();
             tab_Settings = new TabPage();
+            btn_SaveChangesSettings = new ReaLTaiizor.Controls.HopeButton();
+            lbl_ProfilePictureLink = new Label();
+            tb_ProfileLink = new ReaLTaiizor.Controls.HopeTextBox();
             btn_Logout = new ReaLTaiizor.Controls.NightButton();
             hope_AdminDashboard = new ReaLTaiizor.Forms.HopeForm();
             tab_Control = new ReaLTaiizor.Controls.TabPage();
@@ -178,7 +181,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
             tab_Dashboard.Controls.Add(pb_ProfilePicture);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
@@ -190,9 +193,10 @@
             // 
             // pb_ProfilePicture
             // 
-            pb_ProfilePicture.Location = new Point(31, 65);
+            pb_ProfilePicture.BorderStyle = BorderStyle.FixedSingle;
+            pb_ProfilePicture.Location = new Point(1074, 23);
             pb_ProfilePicture.Name = "pb_ProfilePicture";
-            pb_ProfilePicture.Size = new Size(60, 60);
+            pb_ProfilePicture.Size = new Size(100, 100);
             pb_ProfilePicture.SizeMode = PictureBoxSizeMode.Zoom;
             pb_ProfilePicture.TabIndex = 5;
             pb_ProfilePicture.TabStop = false;
@@ -208,7 +212,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
             tab_Student.Controls.Add(lbl_Student_Filter);
             tab_Student.Controls.Add(pnl_Student_Toggle);
             tab_Student.Controls.Add(lbl_SearchStudents);
@@ -579,7 +583,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -685,7 +689,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_SearchTeacher);
             tab_Teacher.Controls.Add(pnl_Toggle_Teacher);
@@ -856,7 +860,7 @@
             tb_SearchTeachers.AnimateReadOnly = false;
             tb_SearchTeachers.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchTeachers.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchTeachers.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchTeachers.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchTeachers.BackgroundImageLayout = ImageLayout.None;
             tb_SearchTeachers.CharacterCasing = CharacterCasing.Normal;
             tb_SearchTeachers.Depth = 0;
@@ -1181,7 +1185,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
             tab_Subject.Controls.Add(dgv_StudentSelection);
             tab_Subject.Controls.Add(lbl_Course);
             tab_Subject.Controls.Add(dgv_Courses);
@@ -1335,7 +1339,7 @@
             tb_SearchStudentCourse.AnimateReadOnly = false;
             tb_SearchStudentCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudentCourse.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudentCourse.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudentCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudentCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudentCourse.Depth = 0;
@@ -1394,7 +1398,6 @@
             lbl_Taken.Size = new Size(120, 28);
             lbl_Taken.TabIndex = 13;
             lbl_Taken.Text = "Course Taken";
-            lbl_Taken.Click += lbl_Taken_Click;
             // 
             // cb_Course_ProgramFilter
             // 
@@ -1494,7 +1497,7 @@
             tb_SearchCourse.AnimateReadOnly = false;
             tb_SearchCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchCourse.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchCourse.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchCourse.Depth = 0;
@@ -1566,7 +1569,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -1576,7 +1579,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -1586,7 +1589,10 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.Controls.Add(btn_SaveChangesSettings);
+            tab_Settings.Controls.Add(lbl_ProfilePictureLink);
+            tab_Settings.Controls.Add(tb_ProfileLink);
             tab_Settings.Controls.Add(btn_Logout);
             tab_Settings.Location = new Point(204, 4);
             tab_Settings.Name = "tab_Settings";
@@ -1594,6 +1600,60 @@
             tab_Settings.Size = new Size(1192, 602);
             tab_Settings.TabIndex = 6;
             tab_Settings.Text = "Settings";
+            // 
+            // btn_SaveChangesSettings
+            // 
+            btn_SaveChangesSettings.BorderColor = Color.FromArgb(220, 223, 230);
+            btn_SaveChangesSettings.ButtonType = ReaLTaiizor.Util.HopeButtonType.Primary;
+            btn_SaveChangesSettings.DangerColor = Color.FromArgb(245, 108, 108);
+            btn_SaveChangesSettings.DefaultColor = Color.FromArgb(255, 255, 255);
+            btn_SaveChangesSettings.Font = new Font("Poppins", 12F);
+            btn_SaveChangesSettings.HoverTextColor = Color.FromArgb(48, 49, 51);
+            btn_SaveChangesSettings.InfoColor = Color.FromArgb(144, 147, 153);
+            btn_SaveChangesSettings.Location = new Point(6, 71);
+            btn_SaveChangesSettings.Margin = new Padding(30, 3, 3, 3);
+            btn_SaveChangesSettings.Name = "btn_SaveChangesSettings";
+            btn_SaveChangesSettings.PrimaryColor = Color.SeaGreen;
+            btn_SaveChangesSettings.Size = new Size(130, 40);
+            btn_SaveChangesSettings.SuccessColor = Color.FromArgb(103, 194, 58);
+            btn_SaveChangesSettings.TabIndex = 6;
+            btn_SaveChangesSettings.Text = "Save Changes";
+            btn_SaveChangesSettings.TextColor = Color.White;
+            btn_SaveChangesSettings.WarningColor = Color.FromArgb(230, 162, 60);
+            btn_SaveChangesSettings.Click += btn_SaveChangesSettings_Click;
+            // 
+            // lbl_ProfilePictureLink
+            // 
+            lbl_ProfilePictureLink.AutoSize = true;
+            lbl_ProfilePictureLink.Location = new Point(6, 17);
+            lbl_ProfilePictureLink.Name = "lbl_ProfilePictureLink";
+            lbl_ProfilePictureLink.Size = new Size(215, 39);
+            lbl_ProfilePictureLink.TabIndex = 2;
+            lbl_ProfilePictureLink.Text = "Profile Picture Link:";
+            lbl_ProfilePictureLink.TextAlign = ContentAlignment.BottomCenter;
+            // 
+            // tb_ProfileLink
+            // 
+            tb_ProfileLink.BackColor = Color.White;
+            tb_ProfileLink.BaseColor = Color.FromArgb(238, 242, 245);
+            tb_ProfileLink.BorderColorA = Color.FromArgb(64, 158, 255);
+            tb_ProfileLink.BorderColorB = Color.FromArgb(220, 223, 230);
+            tb_ProfileLink.Font = new Font("Segoe UI", 12F);
+            tb_ProfileLink.ForeColor = Color.FromArgb(48, 49, 51);
+            tb_ProfileLink.Hint = "Profile Link";
+            tb_ProfileLink.Location = new Point(227, 15);
+            tb_ProfileLink.MaxLength = 1500;
+            tb_ProfileLink.Multiline = false;
+            tb_ProfileLink.Name = "tb_ProfileLink";
+            tb_ProfileLink.PasswordChar = '\0';
+            tb_ProfileLink.ScrollBars = ScrollBars.None;
+            tb_ProfileLink.SelectedText = "";
+            tb_ProfileLink.SelectionLength = 0;
+            tb_ProfileLink.SelectionStart = 0;
+            tb_ProfileLink.Size = new Size(268, 38);
+            tb_ProfileLink.TabIndex = 1;
+            tb_ProfileLink.TabStop = false;
+            tb_ProfileLink.UseSystemPasswordChar = false;
             // 
             // btn_Logout
             // 
@@ -1604,7 +1664,7 @@
             btn_Logout.HoverBackColor = Color.FromArgb(50, 242, 93, 89);
             btn_Logout.HoverForeColor = Color.White;
             btn_Logout.InterpolationType = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-            btn_Logout.Location = new Point(6, 6);
+            btn_Logout.Location = new Point(6, 547);
             btn_Logout.MinimumSize = new Size(144, 47);
             btn_Logout.Name = "btn_Logout";
             btn_Logout.NormalBackColor = Color.FromArgb(242, 93, 89);
@@ -1678,6 +1738,7 @@
             pnl_CourseStudentFeature.PerformLayout();
             pnl_Course_Modifier.ResumeLayout(false);
             tab_Settings.ResumeLayout(false);
+            tab_Settings.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -1717,7 +1778,7 @@
         private ReaLTaiizor.Controls.HopeButton btn_ShowCourse;
         private ReaLTaiizor.Controls.PoisonDataGridView dgv_Courses;
         private UI.SPanel pnl_CourseStudentFeature;
-        private Label label1;
+        private Label lbl_ProfilePictureLink;
         private Label lbl_Taken;
         private ReaLTaiizor.Controls.HopeCheckBox cb_Course_ProgramFilter;
         private ReaLTaiizor.Controls.HopeToggle toggle_CourseTaken;
@@ -1759,5 +1820,7 @@
         private ReaLTaiizor.Controls.HopeCheckBox cb_Student_Program;
         private ReaLTaiizor.Controls.PoisonDataGridView dgv_Teachers;
         private ReaLTaiizor.Controls.HopeButton btn_UpdateCourse;
+        private ReaLTaiizor.Controls.HopeTextBox tb_ProfileLink;
+        private ReaLTaiizor.Controls.HopeButton btn_SaveChangesSettings;
     }
 }
