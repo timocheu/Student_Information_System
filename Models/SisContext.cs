@@ -32,6 +32,8 @@ public partial class SisContext : DbContext
 
     public virtual DbSet<UserLogin> UserLogins { get; set; }
 
+    public virtual DbSet<Logs>? Logs { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlite(Account.SqliteDbPath());
@@ -175,6 +177,18 @@ public partial class SisContext : DbContext
             entity.HasOne(d => d.User).WithOne(p => p.UserLogin)
                 .HasForeignKey<UserLogin>(d => d.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+        });
+
+        modelBuilder.Entity<Logs>(entity =>
+        {
+            entity.ToTable("Logs");
+            entity.Property(e => e.id);
+            entity.Property(e => e.UserId);
+            entity.Property(e => e.Timestamp);
+            entity.Property(e => e.Level);
+            entity.Property(e => e.Action);
+            entity.Property(e => e.Message);
+            entity.Property(e => e.Exception);
         });
 
         OnModelCreatingPartial(modelBuilder);
