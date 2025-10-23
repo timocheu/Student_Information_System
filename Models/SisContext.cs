@@ -32,7 +32,7 @@ public partial class SisContext : DbContext
 
     public virtual DbSet<UserLogin> UserLogins { get; set; }
 
-    public virtual DbSet<Logs>? Logs { get; set; }
+    public virtual DbSet<Logs> Logs { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
@@ -182,13 +182,14 @@ public partial class SisContext : DbContext
         modelBuilder.Entity<Logs>(entity =>
         {
             entity.ToTable("Logs");
-            entity.Property(e => e.id);
-            entity.Property(e => e.UserId);
-            entity.Property(e => e.Timestamp);
-            entity.Property(e => e.Level);
-            entity.Property(e => e.Action);
-            entity.Property(e => e.Message);
-            entity.Property(e => e.Exception);
+
+            entity.Property(e => e.id).HasColumnName("id");
+            entity.Property(e => e.UserId).HasColumnName("UserId");
+            entity.Property(e => e.Timestamp).HasColumnName("Timestamp");
+            entity.Property(e => e.Level).HasColumnName("Level");
+            entity.Property(e => e.Action).HasColumnName("Action");
+            entity.Property(e => e.Message).HasColumnName("Message");
+            entity.Property(e => e.Exception).HasColumnName("Exception");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -26,6 +26,14 @@ namespace Student_Information_System.Utilities
 
             using (SisContext db = new())
             {
+                // Create log
+                Logs log = new()
+                {
+                    Timestamp = DateTime.Now.ToString(),
+                    Action = "Login",
+                };
+
+                // query for user
                 var login = db.UserLogins
                     .Where(u => u.Username == username)
                     .Include(u => u.User)
@@ -45,6 +53,11 @@ namespace Student_Information_System.Utilities
 
                             LastAttempt = $"Login after 15 Seconds later.";
                             LimitReached = true;
+
+                            // log
+                            log.Message = "[User tried to login while account is locked.]";
+                            db.Logs.Add(log);
+
                             return null;
                         }
                     }
@@ -53,6 +66,12 @@ namespace Student_Information_System.Utilities
                     {
                         login.LoginAttempt = 0;
                         login.LastLoginAttempt = DateTime.Now.ToString();
+
+                        // log
+                        log.Message = "[User succesfully logged in.]";
+                        db.Logs.Add(log);
+
+                        // Save
                         db.SaveChanges();
 
                         return login.User;
@@ -60,9 +79,12 @@ namespace Student_Information_System.Utilities
                     else
                     {
                         ExistButWrongPass = true;
-
                         login.LoginAttempt += 1;
                         login.LastLoginAttempt = DateTime.Now.ToString();
+
+                        //log
+                        log.Message = "[User tried to login with incorrect password.]";
+                        db.Logs.Add(log);
 
                         db.SaveChanges();
                     }
