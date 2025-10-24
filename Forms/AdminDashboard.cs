@@ -3,6 +3,7 @@ using LinqKit.Core;
 using Microsoft.EntityFrameworkCore;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
+using Student_Information_System.Utilities;
 using System.Data;
 using System.Reflection.PortableExecutable;
 
@@ -11,6 +12,8 @@ namespace Student_Information_System.Forms
     public partial class AdminDashboard : Form
     {
         private readonly SisContext db = new SisContext();
+        private SisContenxtLogger logger;
+
         private User? current_User;
 
         // Binding source for students
@@ -30,6 +33,15 @@ namespace Student_Information_System.Forms
             InitializeComponent();
 
             GetUserInfo(userId);
+            //Initialize Logger
+            string logLevel= current_User.Role switch
+            {
+                1 => "Admin",
+                2 => "Teacher",
+                3 => "Student",
+                _ => String.Empty
+            };
+            logger = new(userId: current_User.UserId, level: logLevel, context: db);
 
             // Initialize data for students
             RefreshStudents();
@@ -67,6 +79,8 @@ namespace Student_Information_System.Forms
             var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm logout", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
 
             if (result == DialogResult.Yes) this.Close();
+
+            logger.Information("Logout", "User successfully logged out.");
         }
 
 
@@ -106,7 +120,7 @@ namespace Student_Information_System.Forms
 
         private void btn_AddStudent_Click(object sender, EventArgs e)
         {
-            UserAdd StudentAddForm = new UserAdd(IsTeacher: false);
+            UserAdd StudentAddForm = new UserAdd(IsTeacher: false, logger: logger);
             StudentAddForm.FormClosed += (s, args) =>
             {
                 this.Enabled = true;
@@ -134,6 +148,9 @@ namespace Student_Information_System.Forms
                         .ExecuteUpdateAsync(s => s.SetProperty(
                             s => s.Status,
                             s => 0));
+
+                    logger.Information("Delete Students", 
+                        $"Succesfully deleted students, affected {dgv_Students.SelectedRows} rows total.");
 
                     RefreshStudents();
                 }
@@ -293,7 +310,7 @@ namespace Student_Information_System.Forms
         }
         private void btn_CreateTeacher_Click(object sender, EventArgs e)
         {
-            UserAdd TeacherAddForm = new UserAdd(IsTeacher: true);
+            UserAdd TeacherAddForm = new UserAdd(IsTeacher: true, logger);
             TeacherAddForm.FormClosed += (s, args) =>
             {
                 this.Enabled = true;

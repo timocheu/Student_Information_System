@@ -1,4 +1,5 @@
-﻿using ReaLTaiizor.Controls;
+﻿using Microsoft.Extensions.Logging;
+using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
 using Student_Information_System.Utilities;
 
@@ -6,6 +7,8 @@ namespace Student_Information_System.Forms
 {
     public partial class UserAdd : Form
     {
+        private SisContenxtLogger logger;
+
         private int currentID = -1;
 
         private bool isTeacher = false;
@@ -13,8 +16,9 @@ namespace Student_Information_System.Forms
 
         private User? _user;
 
-        public UserAdd(bool IsTeacher)
+        public UserAdd(bool IsTeacher, SisContenxtLogger logger)
         {
+            this.logger = logger;
             this.isTeacher = IsTeacher;
             this.currentID = Account.GetLastId();
             InitializeComponent();
@@ -121,32 +125,42 @@ namespace Student_Information_System.Forms
             {
                 using (SisContext db = new SisContext())
                 {
-                    if (isTeacher)
+                    try
                     {
-                        _user.Teacher = new Teacher
+                        if (isTeacher)
                         {
-                            UserId = currentID,
-                            HireDate = DateTime.Now.ToShortDateString(),
-                            Department = tb_Department.Text,
-                            Specialization = tb_Specialization.Text,
-                            Status = 1
-                        };
-                    }
-                    else
-                    {
-                        _user.Student = new Student
-                        {
-                            UserId = currentID,
-                            EnrollmentDate = DateTime.Now.ToShortDateString(),
-                            Program = cbb_Program.Text,
-                            Status = 1
-                        };
-                    }
+                            _user.Teacher = new Teacher
+                            {
+                                UserId = currentID,
+                                HireDate = DateTime.Now.ToShortDateString(),
+                                Department = tb_Department.Text,
+                                Specialization = tb_Specialization.Text,
+                                Status = 1
+                            };
 
-                    db.Users.Add(_user!);
-                    db.SaveChanges();
+                            logger.Information("Added Teacher", $"UserId: {_user.UserId} Name: {_user.LastName}, {_user.FirstName}");
+                        }
+                        else
+                        {
+                            _user.Student = new Student
+                            {
+                                UserId = currentID,
+                                EnrollmentDate = DateTime.Now.ToShortDateString(),
+                                Program = cbb_Program.Text,
+                                Status = 1
+                            };
+                            logger.Information("Added Student", $"UserId: {_user.UserId} Name: {_user.LastName}, {_user.FirstName}");
+                        }
+
+                        db.Users.Add(_user!);
+                        db.SaveChanges();
+                    }
+                    catch (Exception ex)
+                    {
+                        string userType = (isTeacher) ? "Teacher" : "Student";
+                        logger.Error($"Add {userType}", $"Unable to add {userType}", ex);
+                    }
                 }
-
                 this.Close();
             }
         }
