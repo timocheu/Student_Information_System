@@ -153,8 +153,8 @@ namespace Student_Information_System.Forms
                         db.SaveChanges();
 
                         logger.Information(
-                            $"Added {(isTeacher) ? "Teacher" : "Student"}", 
-                            $"UserId: {_user.UserId} Name: {_user.LastName}, {_user.FirstName}");
+                            $"Add {(isTeacher) ? "Teacher" : "Student"}", 
+                            $"Added ", (isTeacher) ? _user.Teacher : _user.Student);
                     }
                     catch (Exception ex)
                     {

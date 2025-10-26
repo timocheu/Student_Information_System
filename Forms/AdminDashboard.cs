@@ -487,7 +487,7 @@ namespace Student_Information_System.Forms
         #region Courses
         private void btn_CreateCourse_Click(object sender, EventArgs e)
         {
-            CourseAdd CourseAddForm = new CourseAdd();
+            CourseAdd CourseAddForm = new CourseAdd(logger);
             CourseAddForm.FormClosed += (s, args) =>
             {
                 this.Enabled = true;
@@ -546,6 +546,9 @@ namespace Student_Information_System.Forms
                         .ExecuteUpdateAsync(c => c.SetProperty(
                             c => c.Status,
                             c => 0));
+
+                    logger.Information("Delete Courses", 
+                        $"Succesfully deleted course, affected {dgv_Courses.SelectedRows} rows total.");
 
                     RefreshStudents();
                 }
@@ -685,7 +688,7 @@ namespace Student_Information_System.Forms
             {
                 int courseID = (int)dgv_Courses.SelectedRows[0].Cells[0].Value;
 
-                Form updateForm = new UpdateCourse(courseID);
+                Form updateForm = new UpdateCourse(courseID, logger);
                 updateForm.FormClosed += (s, args) =>
                 {
                     this.Enabled = true;

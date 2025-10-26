@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace Student_Information_System.Utilities
 {
@@ -21,8 +22,20 @@ namespace Student_Information_System.Utilities
             this.context = context;
         }
 
-        public void Information(string action, string message)
+        public void Information(string action, string message, object obj = null)
         {
+            if (obj is not null) 
+            {
+              string json = JsonSerializer.Serialize(obj);
+
+              if (!message.EndsWith((char) Keys.Space))
+              {
+                message += " ";
+              }
+
+              message += json
+            }
+
             Logs log = new()
             {
                 Timestamp = DateTime.Now.ToString(),

@@ -8,10 +8,14 @@ namespace Student_Information_System.Forms
 {
     public partial class UpdateCourse : Form
     {
+        // Logger
+        private SisContextLogger logger;
+
         private SisContext db = new();
         private Course _currentCourse;
-        public UpdateCourse(int courseID)
+        public UpdateCourse(int courseID, SisContextLogger logger)
         {
+            this.logger = logger;
             _currentCourse = db.Courses
                 .Include(c => c.Teacher)
                 .First(c => c.CourseId == courseID);
@@ -54,16 +58,22 @@ namespace Student_Information_System.Forms
                 _currentCourse.Credits = int.Parse(cbb_Credits.Text);
                 _currentCourse.TeacherId = (int)dgv_Teachers.SelectedRows[0].Cells[0].Value;
 
-                var result = CrownMessageBox.ShowInformation("Is this the correct information?", "Confirm Adding Course", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+                var result = CrownMessageBox.ShowInformation("Is this the correct information?", "Confirm Update Course", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
                 if (result == DialogResult.Yes)
                 {
                     try
                     {
                         db.SaveChanges();
+                        logger.Information(
+                                "Update Course", 
+                                $"Updating CourseId: {_currentCourse.CourseId}");
                     }
                     catch (Exception ex)
                     {
                         MessageBox.Show($"Update failed: {ex.GetType} says {ex.Message}");
+                        logger.Error(
+                                "Update Course", 
+                                $"{ex.GetType} says {ex.Message}");
                     }
 
                     this.Close();

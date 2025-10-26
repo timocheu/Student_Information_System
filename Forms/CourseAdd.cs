@@ -10,7 +10,6 @@ namespace Student_Information_System.Forms
     {
       // Logger
       private SisContextLogger logger;
-
         private SisContext db = new();
 
         private string courseDepartment = string.Empty;
@@ -145,11 +144,14 @@ namespace Student_Information_System.Forms
                     db.Courses.Add(course);
 
                     db.SaveChanges();
+                    logger.Information("Add Course", "Added", course);
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Unable to add!");
                     MessageBox.Show($"{ex.GetType} says {ex.Message}");
+
+                    logger.Error("Add Course", $"{ex.GetType} says {ex.Message}");
                 }   
 
 
