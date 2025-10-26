@@ -745,6 +745,7 @@ namespace Student_Information_System.Forms
             {
                 current_User!.UserLogin!.ProfileLink = tb_ProfileLink.Text;
                 db.SaveChanges();
+                logger.Information("Change Profile", "User changed profile");
 
                 pb_ProfilePicture.LoadAsync(tb_ProfileLink.Text);
             }
