@@ -8,13 +8,17 @@ namespace Student_Information_System.Forms
 {
     public partial class CourseAdd : Form
     {
+      // Logger
+      private SisContextLogger logger;
+
         private SisContext db = new();
 
         private string courseDepartment = string.Empty;
         private int courseTeacher;
 
-        public CourseAdd()
+        public CourseAdd(SisContextLogger logger)
         {
+          this.logger = logger;
             InitializeComponent();
 
             loadTeachers();

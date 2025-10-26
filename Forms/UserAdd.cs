@@ -137,8 +137,6 @@ namespace Student_Information_System.Forms
                                 Specialization = tb_Specialization.Text,
                                 Status = 1
                             };
-
-                            logger.Information("Added Teacher", $"UserId: {_user.UserId} Name: {_user.LastName}, {_user.FirstName}");
                         }
                         else
                         {
@@ -149,16 +147,20 @@ namespace Student_Information_System.Forms
                                 Program = cbb_Program.Text,
                                 Status = 1
                             };
-                            logger.Information("Added Student", $"UserId: {_user.UserId} Name: {_user.LastName}, {_user.FirstName}");
                         }
 
                         db.Users.Add(_user!);
                         db.SaveChanges();
+
+                        logger.Information(
+                            $"Added {(isTeacher) ? "Teacher" : "Student"}", 
+                            $"UserId: {_user.UserId} Name: {_user.LastName}, {_user.FirstName}");
                     }
                     catch (Exception ex)
                     {
-                        string userType = (isTeacher) ? "Teacher" : "Student";
-                        logger.Error($"Add {userType}", $"Unable to add {userType}", ex);
+                        logger.Error(
+                            $"Add {(isTeacher) ? "Teacher" : "Student"}", 
+                            $"Unable to add {userType}", ex);
                     }
                 }
                 this.Close();

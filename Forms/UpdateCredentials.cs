@@ -7,6 +7,8 @@ namespace Student_Information_System.Forms
 {
     public partial class UpdateCredentials : Form
     {
+      // loger
+      private SisContextLogger logger;
         private AdminDashboard parentReference;
         private SisContext db = new();
 
@@ -15,10 +17,15 @@ namespace Student_Information_System.Forms
 
         User user;
 
-        public UpdateCredentials(bool IsTeacher, int userID, AdminDashboard parent)
+        public UpdateCredentials(
+            bool IsTeacher, 
+            int userID, 
+            AdminDashboard parent,
+            SisContextLogger logger)
         {
             this.isTeacher = IsTeacher;
             this.parentReference = parent;
+            this.logger = logger;
 
             // Set user
             user = db.Users
@@ -58,17 +65,24 @@ namespace Student_Information_System.Forms
         }
         private void btn_UpdateUserDetail_Click(object sender, EventArgs e)
         {
-            if (db.Users.Any(u => u.Email == tb_Email.Text && user.Email != tb_Email.Text))
+            if (db.Users
+                .Any(u => u.Email == tb_Email.Text && 
+                  user.Email != tb_Email.Text))
             {
                 var Snackbar = new MaterialSnackBar("Email already exist. Please try other email", 3000, "OK", true);
                 Snackbar.Show(this);
 
+                logger.Warning("Update", $"Tried to update user:[{user.UserId}] but email already existed.");
+
                 return;
             }
-            else if (db.Users.Any(u => u.Phone == tb_Phone.Text && user.Phone != tb_Phone.Text))
+            else if (db.Users
+                .Any(u => u.Phone == tb_Phone.Text && 
+                  user.Phone != tb_Phone.Text))
             {
                 var Snackbar = new MaterialSnackBar("Phone number is taken. Please try other number", 3000, "OK", true);
                 Snackbar.Show(this);
+                logger.Warning("Update", $"Tried to update user:[{user.UserId}] but number already existed.");
 
                 return;
             }
@@ -98,6 +112,10 @@ namespace Student_Information_System.Forms
                 }
 
                 db.SaveChanges();
+                
+                // Log
+                logger.Information($"Update {(isTeacher) ? "Teacher" : "Student"}", 
+                    $"Successfully updated user:[{user.UserId}] details");
 
                 // Refresh
                 if (isTeacher)
@@ -121,6 +139,7 @@ namespace Student_Information_System.Forms
             if (result == DialogResult.Yes)
             {
                 db.SaveChanges();
+                logger.Information($"Update {(isTeacher) ? "Teacher" : "Student"}", $"Successfully updated user:[{user.UserId}] login credentials");
             }
         }
     }

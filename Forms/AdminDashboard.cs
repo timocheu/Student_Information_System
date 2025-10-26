@@ -12,7 +12,7 @@ namespace Student_Information_System.Forms
     public partial class AdminDashboard : Form
     {
         private readonly SisContext db = new SisContext();
-        private SisContenxtLogger logger;
+        private SisContextLogger logger;
 
         private User? current_User;
 
@@ -362,6 +362,9 @@ namespace Student_Information_System.Forms
                             s => s.Status,
                             s => 0));
 
+                    logger.Information("Delete Teachers", 
+                        $"Succesfully deleted students, affected {dgv_Teachers.SelectedRows} rows total.");
+
                     RefreshStudents();
                 }
             }
@@ -479,7 +482,6 @@ namespace Student_Information_System.Forms
             totalTeachers = filteredTeachers.Count;
             lbl_StudentResult.Text = $"{filteredTeachers.Count} Out of {totalTeachers}";
         }
-
         #endregion
 
         #region Courses

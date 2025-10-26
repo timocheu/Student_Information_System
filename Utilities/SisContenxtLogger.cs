@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Student_Information_System.Utilities
 {
-    public class SisContenxtLogger
+    public class SisContextLogger
     {
         private SisContext context;
 
