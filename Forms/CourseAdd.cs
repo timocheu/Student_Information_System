@@ -3,6 +3,7 @@ using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
 using LinqKit;
 using LinqKit.Core;
+using Student_Information_System.Utilities;
 
 namespace Student_Information_System.Forms
 {
@@ -151,7 +152,7 @@ namespace Student_Information_System.Forms
                     MessageBox.Show("Unable to add!");
                     MessageBox.Show($"{ex.GetType} says {ex.Message}");
 
-                    logger.Error("Add Course", $"{ex.GetType} says {ex.Message}");
+                    logger.Error("Add Course", "Unable to add course", ex);
                 }   
 
 

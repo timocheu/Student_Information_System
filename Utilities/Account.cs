@@ -67,10 +67,6 @@ namespace Student_Information_System.Utilities
                         login.LoginAttempt = 0;
                         login.LastLoginAttempt = DateTime.Now.ToString();
 
-                        // log
-                        log.Message = "[User succesfully logged in.]";
-                        db.Logs.Add(log);
-
                         // Save
                         db.SaveChanges();
 

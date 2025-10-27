@@ -15,7 +15,7 @@ namespace Student_Information_System.Utilities
         private int userId;
         private string level;
 
-        public SisContenxtLogger(int userId, string level, SisContext context)
+        public SisContextLogger(int userId, string level, SisContext context)
         {
             this.userId = userId;
             this.level = level;
@@ -33,7 +33,7 @@ namespace Student_Information_System.Utilities
                 message += " ";
               }
 
-              message += json
+                message += json;
             }
 
             Logs log = new()

@@ -16,6 +16,7 @@ namespace Student_Information_System.Forms
         private bool showPass = false;
 
         User user;
+        string userType;
 
         public UpdateCredentials(
             bool IsTeacher, 
@@ -24,6 +25,7 @@ namespace Student_Information_System.Forms
             SisContextLogger logger)
         {
             this.isTeacher = IsTeacher;
+            userType = (IsTeacher) ? "Teacher" : "Student";
             this.parentReference = parent;
             this.logger = logger;
 
@@ -114,7 +116,7 @@ namespace Student_Information_System.Forms
                 db.SaveChanges();
                 
                 // Log
-                logger.Information($"Update {(isTeacher) ? "Teacher" : "Student"}", 
+                logger.Information($"Update {userType}", 
                     $"Successfully updated user:[{user.UserId}] details");
 
                 // Refresh
@@ -139,7 +141,7 @@ namespace Student_Information_System.Forms
             if (result == DialogResult.Yes)
             {
                 db.SaveChanges();
-                logger.Information($"Update {(isTeacher) ? "Teacher" : "Student"}", $"Successfully updated user:[{user.UserId}] login credentials");
+                logger.Information($"Update {userType}", $"Successfully updated user:[{user.UserId}] login credentials");
             }
         }
     }

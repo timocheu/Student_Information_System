@@ -7,7 +7,7 @@ namespace Student_Information_System.Forms
 {
     public partial class UserAdd : Form
     {
-        private SisContenxtLogger logger;
+        private SisContextLogger logger;
 
         private int currentID = -1;
 
@@ -15,11 +15,13 @@ namespace Student_Information_System.Forms
         private bool showPass = false;
 
         private User? _user;
+        private string userType;
 
-        public UserAdd(bool IsTeacher, SisContenxtLogger logger)
+        public UserAdd(bool IsTeacher, SisContextLogger logger)
         {
             this.logger = logger;
             this.isTeacher = IsTeacher;
+            userType = (isTeacher) ? "Teacher" : "Student";
             this.currentID = Account.GetLastId();
             InitializeComponent();
 
@@ -153,13 +155,13 @@ namespace Student_Information_System.Forms
                         db.SaveChanges();
 
                         logger.Information(
-                            $"Add {(isTeacher) ? "Teacher" : "Student"}", 
+                            $"Add {userType}", 
                             $"Added ", (isTeacher) ? _user.Teacher : _user.Student);
                     }
                     catch (Exception ex)
                     {
                         logger.Error(
-                            $"Add {(isTeacher) ? "Teacher" : "Student"}", 
+                            $"Add {userType}", 
                             $"Unable to add {userType}", ex);
                     }
                 }

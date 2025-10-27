@@ -3,6 +3,7 @@ using Student_Information_System.Models;
 using ReaLTaiizor.Controls;
 using LinqKit.Core;
 using LinqKit;
+using Student_Information_System.Utilities;
 
 namespace Student_Information_System.Forms
 {
@@ -73,7 +74,8 @@ namespace Student_Information_System.Forms
                         MessageBox.Show($"Update failed: {ex.GetType} says {ex.Message}");
                         logger.Error(
                                 "Update Course", 
-                                $"{ex.GetType} says {ex.Message}");
+                                "Updating course failed",
+                                ex);
                     }
 
                     this.Close();

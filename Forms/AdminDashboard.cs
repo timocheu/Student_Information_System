@@ -31,7 +31,6 @@ namespace Student_Information_System.Forms
         public AdminDashboard(int userId)
         {
             InitializeComponent();
-
             GetUserInfo(userId);
             //Initialize Logger
             string logLevel= current_User.Role switch
@@ -42,6 +41,7 @@ namespace Student_Information_System.Forms
                 _ => String.Empty
             };
             logger = new(userId: current_User.UserId, level: logLevel, context: db);
+            logger.Information("Login", "Successfully login");
 
             // Initialize data for students
             RefreshStudents();
@@ -150,7 +150,7 @@ namespace Student_Information_System.Forms
                             s => 0));
 
                     logger.Information("Delete Students", 
-                        $"Succesfully deleted students, affected {dgv_Students.SelectedRows} rows total.");
+                        $"Succesfully deleted students, affected {dgv_Students.SelectedRows.Count} rows total.");
 
                     RefreshStudents();
                 }
@@ -166,7 +166,7 @@ namespace Student_Information_System.Forms
             {
                 int userID = (int)dgv_Students.SelectedRows[0].Cells[0].Value;
 
-                Form form = new UpdateCredentials(IsTeacher: false, userID, this);
+                Form form = new UpdateCredentials(IsTeacher: false, userID, this, logger);
                 form.FormClosed += (s, args) =>
                 {
                     this.Enabled = true;
@@ -327,7 +327,7 @@ namespace Student_Information_System.Forms
             {
                 int userID = (int)dgv_Teachers.SelectedRows[0].Cells[0].Value;
 
-                Form form = new UpdateCredentials(IsTeacher: true, userID, this);
+                Form form = new UpdateCredentials(IsTeacher: true, userID, this, logger);
                 form.FormClosed += (s, args) =>
                 {
                     this.Enabled = true;
@@ -363,9 +363,9 @@ namespace Student_Information_System.Forms
                             s => 0));
 
                     logger.Information("Delete Teachers", 
-                        $"Succesfully deleted students, affected {dgv_Teachers.SelectedRows} rows total.");
+                        $"Succesfully deleted students, affected {dgv_Teachers.SelectedRows.Count} rows total.");
 
-                    RefreshStudents();
+                    RefreshTeachers();
                 }
             }
             else
@@ -548,9 +548,9 @@ namespace Student_Information_System.Forms
                             c => 0));
 
                     logger.Information("Delete Courses", 
-                        $"Succesfully deleted course, affected {dgv_Courses.SelectedRows} rows total.");
+                        $"Succesfully deleted course, affected {dgv_Courses.SelectedRows.Count} rows total.");
 
-                    RefreshStudents();
+                    RefreshCourse();
                 }
             }
             else
