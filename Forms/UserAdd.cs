@@ -154,9 +154,29 @@ namespace Student_Information_System.Forms
                         db.Users.Add(_user!);
                         db.SaveChanges();
 
-                        logger.Information(
-                            $"Add {userType}", 
-                            $"Added ", (isTeacher) ? _user.Teacher : _user.Student);
+                        if (isTeacher)
+                        {
+                            logger.Information(
+                                $"Add {userType}", 
+                                $"Added ", new
+                                {
+                                    _user.UserId,
+                                    _user.Teacher?.HireDate,
+                                    _user.Teacher?.Department,
+                                    _user.Teacher?.Specialization,
+                                });
+                        }
+                        else
+                        {
+                            logger.Information(
+                                $"Add {userType}",
+                                $"Added ", new
+                                {
+                                    _user.UserId,
+                                    _user.Student?.EnrollmentDate,
+                                    _user.Student?.Program,
+                                });
+                        }
                     }
                     catch (Exception ex)
                     {

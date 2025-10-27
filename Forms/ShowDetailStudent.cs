@@ -1,23 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
+using Student_Information_System.Utilities;
 using System.Data;
 
 namespace Student_Information_System.Forms
 {
     public partial class ShowDetailStudent : Form
     {
+        private SisContextLogger logger;
+         
         SisContext db = new();
         User _currentStudent;
         private readonly int userID;
         private BindingSource courseSource = new();
 
-        public ShowDetailStudent(int userID)
+        public ShowDetailStudent(int userID, SisContextLogger logger)
         {
             InitializeComponent();
             this.userID = userID;
+            this.logger = logger;
 
-            loadData();
+            loadData(); 
             dgv_Courses.DataSource = courseSource;
         }
 

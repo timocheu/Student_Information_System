@@ -187,7 +187,7 @@ namespace Student_Information_System.Forms
             {
                 int userID = (int)dgv_Students.SelectedRows[0].Cells[0].Value;
 
-                Form form = new ShowDetailStudent(userID);
+                Form form = new ShowDetailStudent(userID, logger);
                 form.FormClosed += (s, args) => this.Enabled = true;
 
                 this.Enabled = false;
@@ -363,7 +363,7 @@ namespace Student_Information_System.Forms
                             s => 0));
 
                     logger.Information("Delete Teachers", 
-                        $"Succesfully deleted students, affected {dgv_Teachers.SelectedRows.Count} rows total.");
+                        $"Succesfully deleted teacher, affected {dgv_Teachers.SelectedRows.Count} rows total.");
 
                     RefreshTeachers();
                 }
@@ -611,20 +611,32 @@ namespace Student_Information_System.Forms
 
                 if (result == DialogResult.Yes)
                 {
-                    HashSet<int> ids = dgv_StudentSelection.SelectedRows
-                        .Cast<DataGridViewRow>()
-                        .Select(row => (int)row.Cells[0].Value)
-                        // use hashset for more effecient look up
-                        .ToHashSet<int>();
-
-                    var selectedStudents = ids.Select(studentId => new CourseTaken
+                    try
                     {
-                        StudentId = studentId,
-                        CourseId = targetCourseId,
-                    });
+                        HashSet<int> ids = dgv_StudentSelection.SelectedRows
+                            .Cast<DataGridViewRow>()
+                            .Select(row => (int)row.Cells[0].Value)
+                            // use hashset for more effecient look up
+                            .ToHashSet<int>();
 
-                    db.CourseTakens.AddRange(selectedStudents);
-                    db.SaveChanges();
+                        var selectedStudents = ids.Select(studentId => new CourseTaken
+                        {
+                            StudentId = studentId,
+                            CourseId = targetCourseId,
+                        });
+
+                        db.CourseTakens.AddRange(selectedStudents);
+                        db.SaveChanges();
+
+                        logger.Information(
+                            "Assing Course",
+                            $"Assign Course to Student: {targetCourseId} -> [{string.Join(", ", ids)}]"
+                            );
+                    }
+                    catch (Exception ex)
+                    {
+                        logger.Error("Assign Course", "Something went wrong assigning", ex);
+                    }
 
                     LoadStudentSelection();
                 }
