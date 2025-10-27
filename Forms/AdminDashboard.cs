@@ -28,12 +28,17 @@ namespace Student_Information_System.Forms
         private BindingSource courseSource = new();
         private int totalCourse = 0;
 
+        // Logging
+        private BindingSource logsSource = new();
+        private int totalLogs = 0;
+        private int DisplayMaxLogs = 0;
+
         public AdminDashboard(int userId)
         {
             InitializeComponent();
             GetUserInfo(userId);
             //Initialize Logger
-            string logLevel= current_User.Role switch
+            string logLevel = current_User.Role switch
             {
                 1 => "Admin",
                 2 => "Teacher",
@@ -47,10 +52,12 @@ namespace Student_Information_System.Forms
             RefreshStudents();
             RefreshTeachers();
             RefreshCourse();
+            RefreshLogs();
 
             dgv_Students.DataSource = studentSource;
             dgv_Teachers.DataSource = teacherSource;
             dgv_Courses.DataSource = courseSource;
+            dgv_Logs.DataSource = logsSource;
             dgv_Courses.Rows[0].Selected = true;
 
             // Profile picture load
@@ -149,7 +156,7 @@ namespace Student_Information_System.Forms
                             s => s.Status,
                             s => 0));
 
-                    logger.Information("Delete Students", 
+                    logger.Information("Delete Students",
                         $"Succesfully deleted students, affected {dgv_Students.SelectedRows.Count} rows total.");
 
                     RefreshStudents();
@@ -362,7 +369,7 @@ namespace Student_Information_System.Forms
                             s => s.Status,
                             s => 0));
 
-                    logger.Information("Delete Teachers", 
+                    logger.Information("Delete Teachers",
                         $"Succesfully deleted teacher, affected {dgv_Teachers.SelectedRows.Count} rows total.");
 
                     RefreshTeachers();
@@ -547,7 +554,7 @@ namespace Student_Information_System.Forms
                             c => c.Status,
                             c => 0));
 
-                    logger.Information("Delete Courses", 
+                    logger.Information("Delete Courses",
                         $"Succesfully deleted course, affected {dgv_Courses.SelectedRows.Count} rows total.");
 
                     RefreshCourse();
@@ -764,5 +771,83 @@ namespace Student_Information_System.Forms
         }
         #endregion
 
+        #region Logs
+
+        #endregion
+
+        private void tb_SearchLogs_TextChanged(object sender, EventArgs e)
+        {
+            string filter = tb_SearchLogs.Text.ToLower();
+
+            if (string.IsNullOrEmpty(filter))
+            {
+                RefreshLogs();
+                return;
+            }
+            var predicate = PredicateBuilder.New<Logs>(false);
+
+            if (cb_Logs_UserId.Checked)
+            {
+                predicate = predicate.Or(l => l.UserId.ToString() == filter);
+            }
+
+            if (cb_Logs_Timestamp.Checked)
+            {
+                predicate = predicate.Or(l => (!string.IsNullOrEmpty(l.Timestamp) && l.Timestamp.ToLower().Contains(filter)));
+            }
+
+            if (cb_Logs_Level.Checked)
+            {
+                predicate = predicate.Or(l => (!string.IsNullOrEmpty(l.Level) && l.Level.ToLower().Contains(filter)));
+            }
+
+            if (cb_Logs_Action.Checked)
+            {
+                predicate = predicate.Or(l => (!string.IsNullOrEmpty(l.Action) && l.Action.ToLower().Contains(filter)));
+            }
+
+            if (cb_Logs_Message.Checked)
+            {
+                predicate = predicate.Or(l => (!string.IsNullOrEmpty(l.Message) && l.Message.ToLower().Contains(filter)));
+            }
+
+            if (cb_Logs_Exception.Checked)
+            {
+                predicate = predicate.Or(l => (!string.IsNullOrEmpty(l.Exception) && l.Exception.ToLower().Contains(filter)));
+            }
+
+            var filteredLogs = db.Logs
+                .AsExpandable()
+                .Where(predicate)
+                .Take(DisplayMaxLogs)
+                .ToList();
+
+            logsSource.DataSource = filteredLogs;
+            lbl_Logs_Total.Text = $"{filteredLogs.Count} out of {totalLogs}";
+        }
+
+        private void RefreshLogs()
+        {
+            if (!int.TryParse(tb_Logs_LimitRows.Text, out DisplayMaxLogs))
+            {
+                DisplayMaxLogs = 50;
+            }
+
+            var refreshedLogs = db.Logs
+                .OrderByDescending(u => u.id)
+                .ToList();
+
+            logsSource.DataSource = refreshedLogs.Take(DisplayMaxLogs);
+            totalLogs = refreshedLogs.Count;
+            lbl_Logs_Total.Text = $"{refreshedLogs.Count} out of {totalLogs}";
+        }
+
+        private void tb_Logs_LimitRows_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true; // Stop the character from being entered
+            }
+        }
     }
 }

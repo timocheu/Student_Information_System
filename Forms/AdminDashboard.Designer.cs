@@ -29,19 +29,22 @@
         private void InitializeComponent()
         {
             ReaLTaiizor.Controls.TabPage tab_Control;
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle21 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle22 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle23 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle24 = new DataGridViewCellStyle();
             tab_Dashboard = new TabPage();
             pb_ProfilePicture = new PictureBox();
             lbl_Welcome = new Label();
@@ -115,6 +118,19 @@
             btn_CreateCourse = new ReaLTaiizor.Controls.HopeButton();
             btn_DeleteCourse = new ReaLTaiizor.Controls.HopeButton();
             tab_Logs = new TabPage();
+            lbl_Logs_LimitRows = new Label();
+            tb_Logs_LimitRows = new ReaLTaiizor.Controls.HopeTextBox();
+            lbl_Logs_Total = new Label();
+            lbl_SearchLogs = new Label();
+            dgv_Logs = new ReaLTaiizor.Controls.PoisonDataGridView();
+            pnl_Logs_Filter = new Student_Information_System.UI.SPanel();
+            cb_Logs_Action = new ReaLTaiizor.Controls.HopeCheckBox();
+            cb_Logs_Timestamp = new ReaLTaiizor.Controls.HopeCheckBox();
+            cb_Logs_UserId = new ReaLTaiizor.Controls.HopeCheckBox();
+            cb_Logs_Level = new ReaLTaiizor.Controls.HopeCheckBox();
+            cb_Logs_Message = new ReaLTaiizor.Controls.HopeCheckBox();
+            cb_Logs_Exception = new ReaLTaiizor.Controls.HopeCheckBox();
+            tb_SearchLogs = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tab_Reports = new TabPage();
             tab_Settings = new TabPage();
             btn_SaveChangesSettings = new ReaLTaiizor.Controls.HopeButton();
@@ -142,6 +158,9 @@
             ((System.ComponentModel.ISupportInitialize)dgv_Courses).BeginInit();
             pnl_CourseStudentFeature.SuspendLayout();
             pnl_Course_Modifier.SuspendLayout();
+            tab_Logs.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Logs).BeginInit();
+            pnl_Logs_Filter.SuspendLayout();
             tab_Settings.SuspendLayout();
             SuspendLayout();
             // 
@@ -186,7 +205,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
             tab_Dashboard.Controls.Add(pb_ProfilePicture);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
@@ -218,7 +237,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
             tab_Student.Controls.Add(lbl_Student_Filter);
             tab_Student.Controls.Add(pnl_Student_Toggle);
             tab_Student.Controls.Add(lbl_SearchStudents);
@@ -289,7 +308,7 @@
             // 
             lbl_SearchStudents.AutoSize = true;
             lbl_SearchStudents.BackColor = Color.FromArgb(238, 242, 245);
-            lbl_SearchStudents.Location = new Point(22, 11);
+            lbl_SearchStudents.Location = new Point(6, 8);
             lbl_SearchStudents.Name = "lbl_SearchStudents";
             lbl_SearchStudents.Size = new Size(197, 39);
             lbl_SearchStudents.TabIndex = 6;
@@ -308,23 +327,23 @@
             dgv_Students.BorderStyle = BorderStyle.None;
             dgv_Students.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Students.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = Color.White;
-            dataGridViewCellStyle13.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle13.ForeColor = Color.Black;
-            dataGridViewCellStyle13.SelectionBackColor = Color.White;
-            dataGridViewCellStyle13.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
-            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dataGridViewCellStyle1.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle1.ForeColor = Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgv_Students.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgv_Students.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = Color.White;
-            dataGridViewCellStyle14.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle14.ForeColor = Color.Black;
-            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle14.SelectionForeColor = Color.White;
-            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
-            dgv_Students.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.White;
+            dataGridViewCellStyle2.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle2.ForeColor = Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle2.SelectionForeColor = Color.White;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgv_Students.DefaultCellStyle = dataGridViewCellStyle2;
             dgv_Students.EnableHeadersVisualStyles = false;
             dgv_Students.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Students.GridColor = Color.Black;
@@ -332,14 +351,14 @@
             dgv_Students.Name = "dgv_Students";
             dgv_Students.ReadOnly = true;
             dgv_Students.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle15.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle15.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle15.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
-            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle3.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle3.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
+            dgv_Students.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             dgv_Students.RowHeadersVisible = false;
             dgv_Students.RowHeadersWidth = 20;
             dgv_Students.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -589,7 +608,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -695,7 +714,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_SearchTeacher);
             tab_Teacher.Controls.Add(pnl_Toggle_Teacher);
@@ -723,23 +742,23 @@
             dgv_Teachers.BorderStyle = BorderStyle.None;
             dgv_Teachers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Teachers.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = Color.White;
-            dataGridViewCellStyle16.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle16.ForeColor = Color.Black;
-            dataGridViewCellStyle16.SelectionBackColor = Color.White;
-            dataGridViewCellStyle16.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle16.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle4.ForeColor = Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgv_Teachers.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = Color.White;
-            dataGridViewCellStyle17.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle17.ForeColor = Color.Black;
-            dataGridViewCellStyle17.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle17.SelectionForeColor = Color.White;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.False;
-            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = Color.White;
+            dataGridViewCellStyle5.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle5.ForeColor = Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle5.SelectionForeColor = Color.White;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgv_Teachers.DefaultCellStyle = dataGridViewCellStyle5;
             dgv_Teachers.EnableHeadersVisualStyles = false;
             dgv_Teachers.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Teachers.GridColor = Color.Black;
@@ -747,14 +766,14 @@
             dgv_Teachers.Name = "dgv_Teachers";
             dgv_Teachers.ReadOnly = true;
             dgv_Teachers.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle18.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle18.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle18.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle18.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.True;
-            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle6.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle6.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle6.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgv_Teachers.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgv_Teachers.RowHeadersVisible = false;
             dgv_Teachers.RowHeadersWidth = 20;
             dgv_Teachers.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -768,7 +787,7 @@
             // lbl_SearchTeacher
             // 
             lbl_SearchTeacher.AutoSize = true;
-            lbl_SearchTeacher.Location = new Point(22, 10);
+            lbl_SearchTeacher.Location = new Point(6, 8);
             lbl_SearchTeacher.Name = "lbl_SearchTeacher";
             lbl_SearchTeacher.Size = new Size(201, 39);
             lbl_SearchTeacher.TabIndex = 6;
@@ -866,7 +885,7 @@
             tb_SearchTeachers.AnimateReadOnly = false;
             tb_SearchTeachers.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchTeachers.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchTeachers.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchTeachers.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchTeachers.BackgroundImageLayout = ImageLayout.None;
             tb_SearchTeachers.CharacterCasing = CharacterCasing.Normal;
             tb_SearchTeachers.Depth = 0;
@@ -1191,7 +1210,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
             tab_Subject.Controls.Add(pnl_Course_ToggleInactive);
             tab_Subject.Controls.Add(lbl_CourseResult);
             tab_Subject.Controls.Add(dgv_StudentSelection);
@@ -1272,23 +1291,23 @@
             dgv_StudentSelection.BorderStyle = BorderStyle.None;
             dgv_StudentSelection.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_StudentSelection.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = Color.White;
-            dataGridViewCellStyle19.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle19.ForeColor = Color.Black;
-            dataGridViewCellStyle19.SelectionBackColor = Color.White;
-            dataGridViewCellStyle19.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dgv_StudentSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dataGridViewCellStyle7.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle7.ForeColor = Color.Black;
+            dataGridViewCellStyle7.SelectionBackColor = Color.White;
+            dataGridViewCellStyle7.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgv_StudentSelection.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgv_StudentSelection.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = Color.White;
-            dataGridViewCellStyle20.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle20.ForeColor = Color.Black;
-            dataGridViewCellStyle20.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle20.SelectionForeColor = Color.White;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dgv_StudentSelection.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.White;
+            dataGridViewCellStyle8.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle8.ForeColor = Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle8.SelectionForeColor = Color.White;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgv_StudentSelection.DefaultCellStyle = dataGridViewCellStyle8;
             dgv_StudentSelection.EnableHeadersVisualStyles = false;
             dgv_StudentSelection.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_StudentSelection.GridColor = Color.Black;
@@ -1296,14 +1315,14 @@
             dgv_StudentSelection.Name = "dgv_StudentSelection";
             dgv_StudentSelection.ReadOnly = true;
             dgv_StudentSelection.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle21.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle21.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle21.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle21.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle21.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle21.WrapMode = DataGridViewTriState.True;
-            dgv_StudentSelection.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle9.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle9.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgv_StudentSelection.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgv_StudentSelection.RowHeadersVisible = false;
             dgv_StudentSelection.RowHeadersWidth = 20;
             dgv_StudentSelection.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1336,23 +1355,23 @@
             dgv_Courses.BorderStyle = BorderStyle.None;
             dgv_Courses.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             dgv_Courses.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle22.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = Color.White;
-            dataGridViewCellStyle22.Font = new Font("Poppins", 9F);
-            dataGridViewCellStyle22.ForeColor = Color.Black;
-            dataGridViewCellStyle22.SelectionBackColor = Color.White;
-            dataGridViewCellStyle22.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle22.WrapMode = DataGridViewTriState.True;
-            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = Color.White;
+            dataGridViewCellStyle10.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle10.ForeColor = Color.Black;
+            dataGridViewCellStyle10.SelectionBackColor = Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             dgv_Courses.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle23.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = Color.White;
-            dataGridViewCellStyle23.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle23.ForeColor = Color.Black;
-            dataGridViewCellStyle23.SelectionBackColor = Color.FromArgb(54, 57, 64);
-            dataGridViewCellStyle23.SelectionForeColor = Color.White;
-            dataGridViewCellStyle23.WrapMode = DataGridViewTriState.False;
-            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle11.BackColor = Color.White;
+            dataGridViewCellStyle11.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle11.ForeColor = Color.Black;
+            dataGridViewCellStyle11.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle11.SelectionForeColor = Color.White;
+            dataGridViewCellStyle11.WrapMode = DataGridViewTriState.False;
+            dgv_Courses.DefaultCellStyle = dataGridViewCellStyle11;
             dgv_Courses.EnableHeadersVisualStyles = false;
             dgv_Courses.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
             dgv_Courses.GridColor = Color.Black;
@@ -1360,14 +1379,14 @@
             dgv_Courses.Name = "dgv_Courses";
             dgv_Courses.ReadOnly = true;
             dgv_Courses.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle24.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = Color.FromArgb(30, 30, 30);
-            dataGridViewCellStyle24.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
-            dataGridViewCellStyle24.ForeColor = Color.FromArgb(255, 255, 255);
-            dataGridViewCellStyle24.SelectionBackColor = Color.FromArgb(187, 134, 252);
-            dataGridViewCellStyle24.SelectionForeColor = Color.Black;
-            dataGridViewCellStyle24.WrapMode = DataGridViewTriState.True;
-            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle12.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle12.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle12.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle12.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle12.WrapMode = DataGridViewTriState.True;
+            dgv_Courses.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
             dgv_Courses.RowHeadersVisible = false;
             dgv_Courses.RowHeadersWidth = 20;
             dgv_Courses.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
@@ -1400,7 +1419,7 @@
             tb_SearchStudentCourse.AnimateReadOnly = false;
             tb_SearchStudentCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudentCourse.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudentCourse.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudentCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudentCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudentCourse.Depth = 0;
@@ -1558,7 +1577,7 @@
             tb_SearchCourse.AnimateReadOnly = false;
             tb_SearchCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchCourse.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchCourse.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchCourse.Depth = 0;
@@ -1630,7 +1649,13 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Logs.Controls.Add(lbl_Logs_LimitRows);
+            tab_Logs.Controls.Add(tb_Logs_LimitRows);
+            tab_Logs.Controls.Add(lbl_Logs_Total);
+            tab_Logs.Controls.Add(lbl_SearchLogs);
+            tab_Logs.Controls.Add(dgv_Logs);
+            tab_Logs.Controls.Add(pnl_Logs_Filter);
             tab_Logs.Location = new Point(204, 4);
             tab_Logs.Name = "tab_Logs";
             tab_Logs.Padding = new Padding(3);
@@ -1638,9 +1663,292 @@
             tab_Logs.TabIndex = 4;
             tab_Logs.Text = "Logs";
             // 
+            // lbl_Logs_LimitRows
+            // 
+            lbl_Logs_LimitRows.AutoSize = true;
+            lbl_Logs_LimitRows.BackColor = Color.FromArgb(238, 242, 245);
+            lbl_Logs_LimitRows.ForeColor = SystemColors.ActiveCaption;
+            lbl_Logs_LimitRows.Location = new Point(642, 118);
+            lbl_Logs_LimitRows.Name = "lbl_Logs_LimitRows";
+            lbl_Logs_LimitRows.Size = new Size(202, 39);
+            lbl_Logs_LimitRows.TabIndex = 15;
+            lbl_Logs_LimitRows.Text = "Max logs display:";
+            // 
+            // tb_Logs_LimitRows
+            // 
+            tb_Logs_LimitRows.BackColor = Color.White;
+            tb_Logs_LimitRows.BaseColor = Color.FromArgb(238, 242, 245);
+            tb_Logs_LimitRows.BorderColorA = Color.FromArgb(64, 158, 255);
+            tb_Logs_LimitRows.BorderColorB = Color.FromArgb(220, 223, 230);
+            tb_Logs_LimitRows.Font = new Font("Segoe UI", 12F);
+            tb_Logs_LimitRows.ForeColor = Color.FromArgb(48, 49, 51);
+            tb_Logs_LimitRows.Hint = "";
+            tb_Logs_LimitRows.Location = new Point(850, 119);
+            tb_Logs_LimitRows.MaxLength = 4;
+            tb_Logs_LimitRows.Multiline = false;
+            tb_Logs_LimitRows.Name = "tb_Logs_LimitRows";
+            tb_Logs_LimitRows.PasswordChar = '\0';
+            tb_Logs_LimitRows.ScrollBars = ScrollBars.None;
+            tb_Logs_LimitRows.SelectedText = "";
+            tb_Logs_LimitRows.SelectionLength = 0;
+            tb_Logs_LimitRows.SelectionStart = 0;
+            tb_Logs_LimitRows.Size = new Size(53, 38);
+            tb_Logs_LimitRows.TabIndex = 14;
+            tb_Logs_LimitRows.TabStop = false;
+            tb_Logs_LimitRows.Text = "50";
+            tb_Logs_LimitRows.UseSystemPasswordChar = false;
+            tb_Logs_LimitRows.KeyPress += tb_Logs_LimitRows_KeyPress;
+            // 
+            // lbl_Logs_Total
+            // 
+            lbl_Logs_Total.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
+            lbl_Logs_Total.AutoSize = true;
+            lbl_Logs_Total.BackColor = Color.Transparent;
+            lbl_Logs_Total.Font = new Font("Poppins", 12F);
+            lbl_Logs_Total.ForeColor = Color.Gray;
+            lbl_Logs_Total.Location = new Point(9, 569);
+            lbl_Logs_Total.Name = "lbl_Logs_Total";
+            lbl_Logs_Total.Size = new Size(160, 28);
+            lbl_Logs_Total.TabIndex = 13;
+            lbl_Logs_Total.Text = "1 to 10 of 100 results";
+            // 
+            // lbl_SearchLogs
+            // 
+            lbl_SearchLogs.AutoSize = true;
+            lbl_SearchLogs.BackColor = Color.FromArgb(238, 242, 245);
+            lbl_SearchLogs.Location = new Point(9, 3);
+            lbl_SearchLogs.Name = "lbl_SearchLogs";
+            lbl_SearchLogs.Size = new Size(150, 39);
+            lbl_SearchLogs.TabIndex = 12;
+            lbl_SearchLogs.Text = "Search Logs";
+            // 
+            // dgv_Logs
+            // 
+            dgv_Logs.AllowUserToAddRows = false;
+            dgv_Logs.AllowUserToDeleteRows = false;
+            dgv_Logs.AllowUserToResizeColumns = false;
+            dgv_Logs.AllowUserToResizeRows = false;
+            dgv_Logs.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgv_Logs.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgv_Logs.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCellsExceptHeaders;
+            dgv_Logs.BackgroundColor = Color.FromArgb(255, 255, 255);
+            dgv_Logs.BorderStyle = BorderStyle.None;
+            dgv_Logs.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgv_Logs.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = Color.White;
+            dataGridViewCellStyle13.Font = new Font("Poppins", 9F);
+            dataGridViewCellStyle13.ForeColor = Color.Black;
+            dataGridViewCellStyle13.SelectionBackColor = Color.White;
+            dataGridViewCellStyle13.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle13.WrapMode = DataGridViewTriState.True;
+            dgv_Logs.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
+            dgv_Logs.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = Color.White;
+            dataGridViewCellStyle14.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle14.ForeColor = Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = Color.FromArgb(54, 57, 64);
+            dataGridViewCellStyle14.SelectionForeColor = Color.White;
+            dataGridViewCellStyle14.WrapMode = DataGridViewTriState.False;
+            dgv_Logs.DefaultCellStyle = dataGridViewCellStyle14;
+            dgv_Logs.EnableHeadersVisualStyles = false;
+            dgv_Logs.Font = new Font("Segoe UI", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dgv_Logs.GridColor = Color.Black;
+            dgv_Logs.Location = new Point(6, 162);
+            dgv_Logs.Name = "dgv_Logs";
+            dgv_Logs.ReadOnly = true;
+            dgv_Logs.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = Color.FromArgb(30, 30, 30);
+            dataGridViewCellStyle15.Font = new Font("Poppins", 11F, FontStyle.Regular, GraphicsUnit.Pixel);
+            dataGridViewCellStyle15.ForeColor = Color.FromArgb(255, 255, 255);
+            dataGridViewCellStyle15.SelectionBackColor = Color.FromArgb(187, 134, 252);
+            dataGridViewCellStyle15.SelectionForeColor = Color.Black;
+            dataGridViewCellStyle15.WrapMode = DataGridViewTriState.True;
+            dgv_Logs.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dgv_Logs.RowHeadersVisible = false;
+            dgv_Logs.RowHeadersWidth = 20;
+            dgv_Logs.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dgv_Logs.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgv_Logs.Size = new Size(1180, 400);
+            dgv_Logs.TabIndex = 10;
+            dgv_Logs.UseCustomBackColor = true;
+            dgv_Logs.UseCustomForeColor = true;
+            dgv_Logs.UseStyleColors = true;
+            // 
+            // pnl_Logs_Filter
+            // 
+            pnl_Logs_Filter.BackgroundFillColor = Color.White;
+            pnl_Logs_Filter.BorderColor = Color.White;
+            pnl_Logs_Filter.Controls.Add(cb_Logs_Action);
+            pnl_Logs_Filter.Controls.Add(cb_Logs_Timestamp);
+            pnl_Logs_Filter.Controls.Add(cb_Logs_UserId);
+            pnl_Logs_Filter.Controls.Add(cb_Logs_Level);
+            pnl_Logs_Filter.Controls.Add(cb_Logs_Message);
+            pnl_Logs_Filter.Controls.Add(cb_Logs_Exception);
+            pnl_Logs_Filter.Controls.Add(tb_SearchLogs);
+            pnl_Logs_Filter.Location = new Point(6, 41);
+            pnl_Logs_Filter.Name = "pnl_Logs_Filter";
+            pnl_Logs_Filter.Size = new Size(630, 120);
+            pnl_Logs_Filter.TabIndex = 11;
+            // 
+            // cb_Logs_Action
+            // 
+            cb_Logs_Action.AutoSize = true;
+            cb_Logs_Action.BackColor = Color.White;
+            cb_Logs_Action.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Action.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_Action.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_Action.Enable = true;
+            cb_Logs_Action.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Action.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_Action.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_Action.Font = new Font("Poppins", 12F);
+            cb_Logs_Action.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_Action.Location = new Point(445, 23);
+            cb_Logs_Action.Name = "cb_Logs_Action";
+            cb_Logs_Action.Size = new Size(88, 20);
+            cb_Logs_Action.TabIndex = 26;
+            cb_Logs_Action.Text = "Action";
+            cb_Logs_Action.UseVisualStyleBackColor = false;
+            // 
+            // cb_Logs_Timestamp
+            // 
+            cb_Logs_Timestamp.AutoSize = true;
+            cb_Logs_Timestamp.BackColor = Color.White;
+            cb_Logs_Timestamp.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Timestamp.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_Timestamp.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_Timestamp.Enable = true;
+            cb_Logs_Timestamp.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Timestamp.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_Timestamp.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_Timestamp.Font = new Font("Poppins", 12F);
+            cb_Logs_Timestamp.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_Timestamp.Location = new Point(310, 24);
+            cb_Logs_Timestamp.Name = "cb_Logs_Timestamp";
+            cb_Logs_Timestamp.Size = new Size(128, 20);
+            cb_Logs_Timestamp.TabIndex = 21;
+            cb_Logs_Timestamp.Text = "Timestamp";
+            cb_Logs_Timestamp.UseVisualStyleBackColor = false;
+            // 
+            // cb_Logs_UserId
+            // 
+            cb_Logs_UserId.AutoSize = true;
+            cb_Logs_UserId.BackColor = Color.White;
+            cb_Logs_UserId.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_UserId.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_UserId.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_UserId.Enable = true;
+            cb_Logs_UserId.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_UserId.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_UserId.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_UserId.Font = new Font("Poppins", 12F);
+            cb_Logs_UserId.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_UserId.Location = new Point(310, 50);
+            cb_Logs_UserId.Name = "cb_Logs_UserId";
+            cb_Logs_UserId.Size = new Size(87, 20);
+            cb_Logs_UserId.TabIndex = 22;
+            cb_Logs_UserId.Text = "UserId";
+            cb_Logs_UserId.UseVisualStyleBackColor = false;
+            // 
+            // cb_Logs_Level
+            // 
+            cb_Logs_Level.AutoSize = true;
+            cb_Logs_Level.BackColor = Color.White;
+            cb_Logs_Level.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Level.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_Level.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_Level.Enable = true;
+            cb_Logs_Level.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Level.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_Level.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_Level.Font = new Font("Poppins", 12F);
+            cb_Logs_Level.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_Level.Location = new Point(310, 78);
+            cb_Logs_Level.Name = "cb_Logs_Level";
+            cb_Logs_Level.Size = new Size(77, 20);
+            cb_Logs_Level.TabIndex = 23;
+            cb_Logs_Level.Text = "Level";
+            cb_Logs_Level.UseVisualStyleBackColor = false;
+            // 
+            // cb_Logs_Message
+            // 
+            cb_Logs_Message.AutoSize = true;
+            cb_Logs_Message.BackColor = Color.White;
+            cb_Logs_Message.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Message.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_Message.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_Message.Enable = true;
+            cb_Logs_Message.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Message.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_Message.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_Message.Font = new Font("Poppins", 12F);
+            cb_Logs_Message.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_Message.Location = new Point(445, 49);
+            cb_Logs_Message.Name = "cb_Logs_Message";
+            cb_Logs_Message.Size = new Size(109, 20);
+            cb_Logs_Message.TabIndex = 25;
+            cb_Logs_Message.Text = "Message";
+            cb_Logs_Message.UseVisualStyleBackColor = false;
+            // 
+            // cb_Logs_Exception
+            // 
+            cb_Logs_Exception.AutoSize = true;
+            cb_Logs_Exception.BackColor = Color.White;
+            cb_Logs_Exception.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Exception.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_Exception.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_Exception.Enable = true;
+            cb_Logs_Exception.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_Exception.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_Exception.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_Exception.Font = new Font("Poppins", 12F);
+            cb_Logs_Exception.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_Exception.Location = new Point(445, 77);
+            cb_Logs_Exception.Name = "cb_Logs_Exception";
+            cb_Logs_Exception.Size = new Size(114, 20);
+            cb_Logs_Exception.TabIndex = 24;
+            cb_Logs_Exception.Text = "Exception";
+            cb_Logs_Exception.UseVisualStyleBackColor = false;
+            // 
+            // tb_SearchLogs
+            // 
+            tb_SearchLogs.AnimateReadOnly = false;
+            tb_SearchLogs.AutoCompleteMode = AutoCompleteMode.None;
+            tb_SearchLogs.AutoCompleteSource = AutoCompleteSource.None;
+            tb_SearchLogs.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchLogs.BackgroundImageLayout = ImageLayout.None;
+            tb_SearchLogs.CharacterCasing = CharacterCasing.Normal;
+            tb_SearchLogs.Depth = 0;
+            tb_SearchLogs.Font = new Font("Poppins", 16F, FontStyle.Regular, GraphicsUnit.Pixel);
+            tb_SearchLogs.HideSelection = true;
+            tb_SearchLogs.Hint = "Search";
+            tb_SearchLogs.LeadingIcon = (Image)resources.GetObject("tb_SearchLogs.LeadingIcon");
+            tb_SearchLogs.Location = new Point(34, 50);
+            tb_SearchLogs.MaxLength = 100;
+            tb_SearchLogs.MouseState = ReaLTaiizor.Helper.MaterialDrawHelper.MaterialMouseState.OUT;
+            tb_SearchLogs.Name = "tb_SearchLogs";
+            tb_SearchLogs.PasswordChar = '\0';
+            tb_SearchLogs.PrefixSuffixText = null;
+            tb_SearchLogs.ReadOnly = false;
+            tb_SearchLogs.RightToLeft = RightToLeft.No;
+            tb_SearchLogs.SelectedText = "";
+            tb_SearchLogs.SelectionLength = 0;
+            tb_SearchLogs.SelectionStart = 0;
+            tb_SearchLogs.ShortcutsEnabled = true;
+            tb_SearchLogs.Size = new Size(241, 48);
+            tb_SearchLogs.TabIndex = 1;
+            tb_SearchLogs.TabStop = false;
+            tb_SearchLogs.TextAlign = HorizontalAlignment.Left;
+            tb_SearchLogs.TrailingIcon = null;
+            tb_SearchLogs.UseSystemPasswordChar = false;
+            tb_SearchLogs.TextChanged += tb_SearchLogs_TextChanged;
+            // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -1650,7 +1958,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
             tab_Settings.Controls.Add(btn_SaveChangesSettings);
             tab_Settings.Controls.Add(lbl_ProfilePictureLink);
             tab_Settings.Controls.Add(tb_ProfileLink);
@@ -1800,6 +2108,11 @@
             pnl_CourseStudentFeature.ResumeLayout(false);
             pnl_CourseStudentFeature.PerformLayout();
             pnl_Course_Modifier.ResumeLayout(false);
+            tab_Logs.ResumeLayout(false);
+            tab_Logs.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgv_Logs).EndInit();
+            pnl_Logs_Filter.ResumeLayout(false);
+            pnl_Logs_Filter.PerformLayout();
             tab_Settings.ResumeLayout(false);
             tab_Settings.PerformLayout();
             ResumeLayout(false);
@@ -1889,5 +2202,18 @@
         private Label lbl_Course_ShowInactive;
         private ReaLTaiizor.Controls.HopeToggle toggle_CourseInactive;
         private Label lbl_CourseResult;
+        private Label lbl_SearchLogs;
+        private ReaLTaiizor.Controls.PoisonDataGridView dgv_Logs;
+        private UI.SPanel pnl_Logs_Filter;
+        private ReaLTaiizor.Controls.MaterialTextBoxEdit tb_SearchLogs;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_Action;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_Timestamp;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_UserId;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_Level;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_Message;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_Exception;
+        private Label lbl_Logs_Total;
+        private Label lbl_Logs_LimitRows;
+        private ReaLTaiizor.Controls.HopeTextBox tb_Logs_LimitRows;
     }
 }
