@@ -124,6 +124,7 @@
             lbl_SearchLogs = new Label();
             dgv_Logs = new ReaLTaiizor.Controls.PoisonDataGridView();
             pnl_Logs_Filter = new Student_Information_System.UI.SPanel();
+            cb_Logs_LogId = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Logs_Action = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Logs_Timestamp = new ReaLTaiizor.Controls.HopeCheckBox();
             cb_Logs_UserId = new ReaLTaiizor.Controls.HopeCheckBox();
@@ -210,7 +211,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
             tab_Dashboard.Controls.Add(pb_ProfilePicture);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
@@ -242,7 +243,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
             tab_Student.Controls.Add(lbl_Student_Filter);
             tab_Student.Controls.Add(pnl_Student_Toggle);
             tab_Student.Controls.Add(lbl_SearchStudents);
@@ -613,7 +614,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -719,7 +720,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_SearchTeacher);
             tab_Teacher.Controls.Add(pnl_Toggle_Teacher);
@@ -890,7 +891,7 @@
             tb_SearchTeachers.AnimateReadOnly = false;
             tb_SearchTeachers.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchTeachers.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchTeachers.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchTeachers.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchTeachers.BackgroundImageLayout = ImageLayout.None;
             tb_SearchTeachers.CharacterCasing = CharacterCasing.Normal;
             tb_SearchTeachers.Depth = 0;
@@ -1215,7 +1216,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
             tab_Subject.Controls.Add(pnl_Course_ToggleInactive);
             tab_Subject.Controls.Add(lbl_CourseResult);
             tab_Subject.Controls.Add(dgv_StudentSelection);
@@ -1424,7 +1425,7 @@
             tb_SearchStudentCourse.AnimateReadOnly = false;
             tb_SearchStudentCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudentCourse.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchStudentCourse.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchStudentCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudentCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudentCourse.Depth = 0;
@@ -1582,7 +1583,7 @@
             tb_SearchCourse.AnimateReadOnly = false;
             tb_SearchCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchCourse.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchCourse.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchCourse.Depth = 0;
@@ -1654,7 +1655,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
             tab_Logs.Controls.Add(lbl_Logs_LimitRows);
             tab_Logs.Controls.Add(tb_Logs_LimitRows);
             tab_Logs.Controls.Add(lbl_Logs_Total);
@@ -1673,7 +1674,7 @@
             lbl_Logs_LimitRows.AutoSize = true;
             lbl_Logs_LimitRows.BackColor = Color.FromArgb(238, 242, 245);
             lbl_Logs_LimitRows.ForeColor = SystemColors.ActiveCaption;
-            lbl_Logs_LimitRows.Location = new Point(642, 118);
+            lbl_Logs_LimitRows.Location = new Point(687, 118);
             lbl_Logs_LimitRows.Name = "lbl_Logs_LimitRows";
             lbl_Logs_LimitRows.Size = new Size(202, 39);
             lbl_Logs_LimitRows.TabIndex = 15;
@@ -1688,7 +1689,7 @@
             tb_Logs_LimitRows.Font = new Font("Segoe UI", 12F);
             tb_Logs_LimitRows.ForeColor = Color.FromArgb(48, 49, 51);
             tb_Logs_LimitRows.Hint = "";
-            tb_Logs_LimitRows.Location = new Point(850, 119);
+            tb_Logs_LimitRows.Location = new Point(895, 119);
             tb_Logs_LimitRows.MaxLength = 4;
             tb_Logs_LimitRows.Multiline = false;
             tb_Logs_LimitRows.Name = "tb_Logs_LimitRows";
@@ -1786,6 +1787,7 @@
             // 
             pnl_Logs_Filter.BackgroundFillColor = Color.White;
             pnl_Logs_Filter.BorderColor = Color.White;
+            pnl_Logs_Filter.Controls.Add(cb_Logs_LogId);
             pnl_Logs_Filter.Controls.Add(cb_Logs_Action);
             pnl_Logs_Filter.Controls.Add(cb_Logs_Timestamp);
             pnl_Logs_Filter.Controls.Add(cb_Logs_UserId);
@@ -1795,8 +1797,28 @@
             pnl_Logs_Filter.Controls.Add(tb_SearchLogs);
             pnl_Logs_Filter.Location = new Point(6, 41);
             pnl_Logs_Filter.Name = "pnl_Logs_Filter";
-            pnl_Logs_Filter.Size = new Size(630, 120);
+            pnl_Logs_Filter.Size = new Size(675, 120);
             pnl_Logs_Filter.TabIndex = 11;
+            // 
+            // cb_Logs_LogId
+            // 
+            cb_Logs_LogId.AutoSize = true;
+            cb_Logs_LogId.BackColor = Color.White;
+            cb_Logs_LogId.CheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_LogId.DisabledColor = Color.FromArgb(196, 198, 202);
+            cb_Logs_LogId.DisabledStringColor = Color.FromArgb(186, 187, 189);
+            cb_Logs_LogId.Enable = true;
+            cb_Logs_LogId.EnabledCheckedColor = Color.FromArgb(64, 158, 255);
+            cb_Logs_LogId.EnabledStringColor = Color.FromArgb(153, 153, 153);
+            cb_Logs_LogId.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
+            cb_Logs_LogId.Font = new Font("Poppins", 12F);
+            cb_Logs_LogId.ForeColor = Color.FromArgb(48, 49, 51);
+            cb_Logs_LogId.Location = new Point(296, 25);
+            cb_Logs_LogId.Name = "cb_Logs_LogId";
+            cb_Logs_LogId.Size = new Size(84, 20);
+            cb_Logs_LogId.TabIndex = 27;
+            cb_Logs_LogId.Text = "Log Id";
+            cb_Logs_LogId.UseVisualStyleBackColor = false;
             // 
             // cb_Logs_Action
             // 
@@ -1811,7 +1833,7 @@
             cb_Logs_Action.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             cb_Logs_Action.Font = new Font("Poppins", 12F);
             cb_Logs_Action.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Logs_Action.Location = new Point(445, 23);
+            cb_Logs_Action.Location = new Point(527, 24);
             cb_Logs_Action.Name = "cb_Logs_Action";
             cb_Logs_Action.Size = new Size(88, 20);
             cb_Logs_Action.TabIndex = 26;
@@ -1831,7 +1853,7 @@
             cb_Logs_Timestamp.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             cb_Logs_Timestamp.Font = new Font("Poppins", 12F);
             cb_Logs_Timestamp.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Logs_Timestamp.Location = new Point(310, 24);
+            cb_Logs_Timestamp.Location = new Point(392, 25);
             cb_Logs_Timestamp.Name = "cb_Logs_Timestamp";
             cb_Logs_Timestamp.Size = new Size(128, 20);
             cb_Logs_Timestamp.TabIndex = 21;
@@ -1851,11 +1873,11 @@
             cb_Logs_UserId.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             cb_Logs_UserId.Font = new Font("Poppins", 12F);
             cb_Logs_UserId.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Logs_UserId.Location = new Point(310, 50);
+            cb_Logs_UserId.Location = new Point(392, 51);
             cb_Logs_UserId.Name = "cb_Logs_UserId";
-            cb_Logs_UserId.Size = new Size(87, 20);
+            cb_Logs_UserId.Size = new Size(91, 20);
             cb_Logs_UserId.TabIndex = 22;
-            cb_Logs_UserId.Text = "UserId";
+            cb_Logs_UserId.Text = "User Id";
             cb_Logs_UserId.UseVisualStyleBackColor = false;
             // 
             // cb_Logs_Level
@@ -1871,7 +1893,7 @@
             cb_Logs_Level.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             cb_Logs_Level.Font = new Font("Poppins", 12F);
             cb_Logs_Level.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Logs_Level.Location = new Point(310, 78);
+            cb_Logs_Level.Location = new Point(392, 79);
             cb_Logs_Level.Name = "cb_Logs_Level";
             cb_Logs_Level.Size = new Size(77, 20);
             cb_Logs_Level.TabIndex = 23;
@@ -1891,7 +1913,7 @@
             cb_Logs_Message.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             cb_Logs_Message.Font = new Font("Poppins", 12F);
             cb_Logs_Message.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Logs_Message.Location = new Point(445, 49);
+            cb_Logs_Message.Location = new Point(527, 50);
             cb_Logs_Message.Name = "cb_Logs_Message";
             cb_Logs_Message.Size = new Size(109, 20);
             cb_Logs_Message.TabIndex = 25;
@@ -1911,7 +1933,7 @@
             cb_Logs_Exception.EnabledUncheckedColor = Color.FromArgb(156, 158, 161);
             cb_Logs_Exception.Font = new Font("Poppins", 12F);
             cb_Logs_Exception.ForeColor = Color.FromArgb(48, 49, 51);
-            cb_Logs_Exception.Location = new Point(445, 77);
+            cb_Logs_Exception.Location = new Point(527, 78);
             cb_Logs_Exception.Name = "cb_Logs_Exception";
             cb_Logs_Exception.Size = new Size(114, 20);
             cb_Logs_Exception.TabIndex = 24;
@@ -1923,7 +1945,7 @@
             tb_SearchLogs.AnimateReadOnly = false;
             tb_SearchLogs.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchLogs.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchLogs.BackColor = Color.FromArgb(238, 242, 245);
+            tb_SearchLogs.BackColor = Color.FromArgb(41, 50, 63);
             tb_SearchLogs.BackgroundImageLayout = ImageLayout.None;
             tb_SearchLogs.CharacterCasing = CharacterCasing.Normal;
             tb_SearchLogs.Depth = 0;
@@ -1953,7 +1975,7 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
             tab_Reports.Controls.Add(lbl_GenerateStudentsPerSubjects);
             tab_Reports.Controls.Add(lbl_GenerateSubjects);
             tab_Reports.Controls.Add(lbl_GenerateActiveTeachers);
@@ -2019,7 +2041,7 @@
             // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
             tab_Settings.Controls.Add(btn_SaveChangesSettings);
             tab_Settings.Controls.Add(lbl_ProfilePictureLink);
             tab_Settings.Controls.Add(tb_ProfileLink);
@@ -2282,5 +2304,6 @@
         private Label lbl_GenerateStudentsPerSubjects;
         private Label lbl_GenerateSubjects;
         private Label lbl_GenerateActiveTeachers;
+        private ReaLTaiizor.Controls.HopeCheckBox cb_Logs_LogId;
     }
 }

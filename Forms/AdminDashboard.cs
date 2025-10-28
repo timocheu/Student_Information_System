@@ -790,6 +790,11 @@ namespace Student_Information_System.Forms
             }
             var predicate = PredicateBuilder.New<Logs>(false);
 
+            if (cb_Logs_LogId.Checked)
+            {
+                predicate = predicate.Or(l => l.id.ToString() == filter);
+            }
+
             if (cb_Logs_UserId.Checked)
             {
                 predicate = predicate.Or(l => l.UserId.ToString() == filter);
