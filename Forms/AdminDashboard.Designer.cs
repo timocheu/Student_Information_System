@@ -132,6 +132,11 @@
             cb_Logs_Exception = new ReaLTaiizor.Controls.HopeCheckBox();
             tb_SearchLogs = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tab_Reports = new TabPage();
+            lbl_GenerateStudentsPerSubjects = new Label();
+            lbl_GenerateStudentsPerTeacher = new Label();
+            lbl_GenerateSubjects = new Label();
+            lbl_GenerateActiveTeachers = new Label();
+            lbl_GenerateActiveStudents = new Label();
             tab_Settings = new TabPage();
             btn_SaveChangesSettings = new ReaLTaiizor.Controls.HopeButton();
             lbl_ProfilePictureLink = new Label();
@@ -161,6 +166,7 @@
             tab_Logs.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgv_Logs).BeginInit();
             pnl_Logs_Filter.SuspendLayout();
+            tab_Reports.SuspendLayout();
             tab_Settings.SuspendLayout();
             SuspendLayout();
             // 
@@ -205,7 +211,7 @@
             // 
             // tab_Dashboard
             // 
-            tab_Dashboard.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Dashboard.BackColor = Color.FromArgb(238, 242, 245);
             tab_Dashboard.Controls.Add(pb_ProfilePicture);
             tab_Dashboard.Controls.Add(lbl_Welcome);
             tab_Dashboard.Location = new Point(204, 4);
@@ -237,7 +243,7 @@
             // 
             // tab_Student
             // 
-            tab_Student.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Student.BackColor = Color.FromArgb(238, 242, 245);
             tab_Student.Controls.Add(lbl_Student_Filter);
             tab_Student.Controls.Add(pnl_Student_Toggle);
             tab_Student.Controls.Add(lbl_SearchStudents);
@@ -608,7 +614,7 @@
             tb_SearchStudent.AnimateReadOnly = false;
             tb_SearchStudent.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudent.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudent.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudent.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudent.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudent.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudent.Depth = 0;
@@ -714,7 +720,7 @@
             // 
             // tab_Teacher
             // 
-            tab_Teacher.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Teacher.BackColor = Color.FromArgb(238, 242, 245);
             tab_Teacher.Controls.Add(dgv_Teachers);
             tab_Teacher.Controls.Add(lbl_SearchTeacher);
             tab_Teacher.Controls.Add(pnl_Toggle_Teacher);
@@ -885,7 +891,7 @@
             tb_SearchTeachers.AnimateReadOnly = false;
             tb_SearchTeachers.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchTeachers.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchTeachers.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchTeachers.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchTeachers.BackgroundImageLayout = ImageLayout.None;
             tb_SearchTeachers.CharacterCasing = CharacterCasing.Normal;
             tb_SearchTeachers.Depth = 0;
@@ -1210,7 +1216,7 @@
             // 
             // tab_Subject
             // 
-            tab_Subject.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Subject.BackColor = Color.FromArgb(238, 242, 245);
             tab_Subject.Controls.Add(pnl_Course_ToggleInactive);
             tab_Subject.Controls.Add(lbl_CourseResult);
             tab_Subject.Controls.Add(dgv_StudentSelection);
@@ -1419,7 +1425,7 @@
             tb_SearchStudentCourse.AnimateReadOnly = false;
             tb_SearchStudentCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchStudentCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchStudentCourse.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchStudentCourse.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchStudentCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchStudentCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchStudentCourse.Depth = 0;
@@ -1577,7 +1583,7 @@
             tb_SearchCourse.AnimateReadOnly = false;
             tb_SearchCourse.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchCourse.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchCourse.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchCourse.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchCourse.BackgroundImageLayout = ImageLayout.None;
             tb_SearchCourse.CharacterCasing = CharacterCasing.Normal;
             tb_SearchCourse.Depth = 0;
@@ -1649,7 +1655,7 @@
             // 
             // tab_Logs
             // 
-            tab_Logs.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Logs.BackColor = Color.FromArgb(238, 242, 245);
             tab_Logs.Controls.Add(lbl_Logs_LimitRows);
             tab_Logs.Controls.Add(tb_Logs_LimitRows);
             tab_Logs.Controls.Add(lbl_Logs_Total);
@@ -1918,7 +1924,7 @@
             tb_SearchLogs.AnimateReadOnly = false;
             tb_SearchLogs.AutoCompleteMode = AutoCompleteMode.None;
             tb_SearchLogs.AutoCompleteSource = AutoCompleteSource.None;
-            tb_SearchLogs.BackColor = Color.FromArgb(41, 50, 63);
+            tb_SearchLogs.BackColor = Color.FromArgb(238, 242, 245);
             tb_SearchLogs.BackgroundImageLayout = ImageLayout.None;
             tb_SearchLogs.CharacterCasing = CharacterCasing.Normal;
             tb_SearchLogs.Depth = 0;
@@ -1948,7 +1954,12 @@
             // 
             // tab_Reports
             // 
-            tab_Reports.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
+            tab_Reports.Controls.Add(lbl_GenerateStudentsPerSubjects);
+            tab_Reports.Controls.Add(lbl_GenerateStudentsPerTeacher);
+            tab_Reports.Controls.Add(lbl_GenerateSubjects);
+            tab_Reports.Controls.Add(lbl_GenerateActiveTeachers);
+            tab_Reports.Controls.Add(lbl_GenerateActiveStudents);
             tab_Reports.Location = new Point(204, 4);
             tab_Reports.Name = "tab_Reports";
             tab_Reports.Padding = new Padding(3);
@@ -1956,9 +1967,72 @@
             tab_Reports.TabIndex = 5;
             tab_Reports.Text = "Reports";
             // 
+            // lbl_GenerateStudentsPerSubjects
+            // 
+            lbl_GenerateStudentsPerSubjects.AutoSize = true;
+            lbl_GenerateStudentsPerSubjects.Cursor = Cursors.Hand;
+            lbl_GenerateStudentsPerSubjects.Font = new Font("Poppins", 12F, FontStyle.Underline);
+            lbl_GenerateStudentsPerSubjects.ForeColor = SystemColors.HotTrack;
+            lbl_GenerateStudentsPerSubjects.Location = new Point(15, 110);
+            lbl_GenerateStudentsPerSubjects.Name = "lbl_GenerateStudentsPerSubjects";
+            lbl_GenerateStudentsPerSubjects.Size = new Size(248, 28);
+            lbl_GenerateStudentsPerSubjects.TabIndex = 4;
+            lbl_GenerateStudentsPerSubjects.Text = "Print all students per subjects:";
+            lbl_GenerateStudentsPerSubjects.Click += lbl_GenerateStudentsPerSubjects_Click;
+            // 
+            // lbl_GenerateStudentsPerTeacher
+            // 
+            lbl_GenerateStudentsPerTeacher.AutoSize = true;
+            lbl_GenerateStudentsPerTeacher.Cursor = Cursors.Hand;
+            lbl_GenerateStudentsPerTeacher.Font = new Font("Poppins", 12F, FontStyle.Underline);
+            lbl_GenerateStudentsPerTeacher.ForeColor = SystemColors.HotTrack;
+            lbl_GenerateStudentsPerTeacher.Location = new Point(15, 160);
+            lbl_GenerateStudentsPerTeacher.Name = "lbl_GenerateStudentsPerTeacher";
+            lbl_GenerateStudentsPerTeacher.Size = new Size(252, 28);
+            lbl_GenerateStudentsPerTeacher.TabIndex = 3;
+            lbl_GenerateStudentsPerTeacher.Text = "Print all students per teachers:";
+            // 
+            // lbl_GenerateSubjects
+            // 
+            lbl_GenerateSubjects.AutoSize = true;
+            lbl_GenerateSubjects.Cursor = Cursors.Hand;
+            lbl_GenerateSubjects.Font = new Font("Poppins", 12F, FontStyle.Underline);
+            lbl_GenerateSubjects.ForeColor = SystemColors.HotTrack;
+            lbl_GenerateSubjects.Location = new Point(15, 209);
+            lbl_GenerateSubjects.Name = "lbl_GenerateSubjects";
+            lbl_GenerateSubjects.Size = new Size(144, 28);
+            lbl_GenerateSubjects.TabIndex = 2;
+            lbl_GenerateSubjects.Text = "Print all subjects:";
+            // 
+            // lbl_GenerateActiveTeachers
+            // 
+            lbl_GenerateActiveTeachers.AutoSize = true;
+            lbl_GenerateActiveTeachers.Cursor = Cursors.Hand;
+            lbl_GenerateActiveTeachers.Font = new Font("Poppins", 12F, FontStyle.Underline);
+            lbl_GenerateActiveTeachers.ForeColor = SystemColors.HotTrack;
+            lbl_GenerateActiveTeachers.Location = new Point(15, 63);
+            lbl_GenerateActiveTeachers.Name = "lbl_GenerateActiveTeachers";
+            lbl_GenerateActiveTeachers.Size = new Size(202, 28);
+            lbl_GenerateActiveTeachers.TabIndex = 1;
+            lbl_GenerateActiveTeachers.Text = "Print all active teachers:";
+            lbl_GenerateActiveTeachers.Click += lbl_GenerateActiveTeachers_Click;
+            // 
+            // lbl_GenerateActiveStudents
+            // 
+            lbl_GenerateActiveStudents.AutoSize = true;
+            lbl_GenerateActiveStudents.Cursor = Cursors.Hand;
+            lbl_GenerateActiveStudents.Font = new Font("Poppins", 12F, FontStyle.Underline);
+            lbl_GenerateActiveStudents.ForeColor = SystemColors.HotTrack;
+            lbl_GenerateActiveStudents.Location = new Point(15, 16);
+            lbl_GenerateActiveStudents.Name = "lbl_GenerateActiveStudents";
+            lbl_GenerateActiveStudents.Size = new Size(200, 28);
+            lbl_GenerateActiveStudents.TabIndex = 0;
+            lbl_GenerateActiveStudents.Text = "Print all active students:";
+            lbl_GenerateActiveStudents.Click += lbl_GenerateActiveStudents_Click;
+            // 
             // tab_Settings
             // 
-            tab_Settings.BackColor = Color.FromArgb(41, 50, 63);
+            tab_Settings.BackColor = Color.FromArgb(238, 242, 245);
             tab_Settings.Controls.Add(btn_SaveChangesSettings);
             tab_Settings.Controls.Add(lbl_ProfilePictureLink);
             tab_Settings.Controls.Add(tb_ProfileLink);
@@ -2113,6 +2187,8 @@
             ((System.ComponentModel.ISupportInitialize)dgv_Logs).EndInit();
             pnl_Logs_Filter.ResumeLayout(false);
             pnl_Logs_Filter.PerformLayout();
+            tab_Reports.ResumeLayout(false);
+            tab_Reports.PerformLayout();
             tab_Settings.ResumeLayout(false);
             tab_Settings.PerformLayout();
             ResumeLayout(false);
@@ -2215,5 +2291,10 @@
         private Label lbl_Logs_Total;
         private Label lbl_Logs_LimitRows;
         private ReaLTaiizor.Controls.HopeTextBox tb_Logs_LimitRows;
+        private Label lbl_GenerateActiveStudents;
+        private Label lbl_GenerateStudentsPerSubjects;
+        private Label lbl_GenerateStudentsPerTeacher;
+        private Label lbl_GenerateSubjects;
+        private Label lbl_GenerateActiveTeachers;
     }
 }

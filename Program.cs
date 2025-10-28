@@ -1,5 +1,6 @@
 using Student_Information_System.Forms;
 using System.Drawing.Text;
+using QuestPDF.Infrastructure;
 
 namespace Student_Information_System
 {
@@ -11,6 +12,8 @@ namespace Student_Information_System
         [STAThread]
         static void Main()
         {
+            QuestPDF.Settings.License = LicenseType.Community;
+
             // Configurations
             if (!IsFontExist("Poppins"))
             {

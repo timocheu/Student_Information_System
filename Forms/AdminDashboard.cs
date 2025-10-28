@@ -4,13 +4,17 @@ using Microsoft.EntityFrameworkCore;
 using ReaLTaiizor.Controls;
 using Student_Information_System.Models;
 using Student_Information_System.Utilities;
+using Student_Information_System.ReportGenerator;
 using System.Data;
-using System.Reflection.PortableExecutable;
+
+using QuestPDF.Fluent;
+
 
 namespace Student_Information_System.Forms
 {
     public partial class AdminDashboard : Form
     {
+
         private readonly SisContext db = new SisContext();
         private SisContextLogger logger;
 
@@ -847,6 +851,96 @@ namespace Student_Information_System.Forms
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true; // Stop the character from being entered
+            }
+        }
+
+        private void lbl_GenerateActiveStudents_Click(object sender, EventArgs e)
+        {
+            var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm Generate Report", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    var document = new StudentDocument(db);
+
+                    string date = DateTime.Now.ToString("yyyy-MM-dd");
+                    string file = $"StudentReport-{date}.pdf";
+                    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);
+                    document.GeneratePdf(path);
+
+                    MaterialSnackBar Snackbar = new MaterialSnackBar($"Successfully Generated {file}", 3000, "OK", true);
+                    Snackbar.Show(this);
+                }
+                catch (Exception ex)
+                {
+                    CrownMessageBox.ShowError($"Unable to process {ex.Message}", "Unable to process report");
+                }
+            }
+        }
+
+        private void lbl_GenerateActiveTeachers_Click(object sender, EventArgs e)
+        {
+            var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm Generate Report", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    var document = new TeacherDocument(db);
+
+                    string date = DateTime.Now.ToString("yyyy-MM-dd");
+                    string file = $"ActiveTeachers-{date}.pdf";
+                    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);
+                    document.GeneratePdf(path);
+
+                    MaterialSnackBar Snackbar = new MaterialSnackBar($"Successfully Generated {file}", 3000, "OK", true);
+                    Snackbar.Show(this);
+                }
+                catch (Exception ex)
+                {
+                    CrownMessageBox.ShowError($"Unable to process {ex.Message}", "Unable to process report");
+                }
+            }
+        }
+
+        private void lbl_GenerateStudentsPerSubjects_Click(object sender, EventArgs e)
+        {
+            var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm Generate Report", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    // Group all CourseTakens by CourseId, including related Course and Student
+                    var groupedCourses = db.CourseTakens
+                        .Include(ct => ct.Course)
+                            .ThenInclude(t => t.Teacher.User)
+                        .Include(ct => ct.Student)
+                            .ThenInclude(s => s.Student)
+                        .GroupBy(ct => ct.CourseId)
+                        .ToList();
+
+                    foreach (var courseGroup in groupedCourses)
+                    {
+                        var course = courseGroup.First().Course;
+
+                        var document = new StudentPerSubjectDocument(courseGroup);
+
+                        string date = DateTime.Now.ToString("yyyy-MM-dd");
+                        string file = $"StudentsOf{course.CourseName}-{course.CourseId}-{date}.pdf";
+                        string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);
+
+                        document.GeneratePdf(path);
+
+                        MaterialSnackBar Snackbar = new MaterialSnackBar($"Successfully Generated {file}", 3000, "OK", true);
+                        Snackbar.Show(this);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CrownMessageBox.ShowError($"Unable to process {ex.Message}", "Unable to process report");
+                }
             }
         }
     }
