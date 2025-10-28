@@ -865,7 +865,7 @@ namespace Student_Information_System.Forms
                     var document = new StudentDocument(db);
 
                     string date = DateTime.Now.ToString("yyyy-MM-dd");
-                    string file = $"StudentReport-{date}.pdf";
+                    string file = $"ActiveStudentReport-{date}.pdf";
                     string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);
                     document.GeneratePdf(path);
 
@@ -890,7 +890,7 @@ namespace Student_Information_System.Forms
                     var document = new TeacherDocument(db);
 
                     string date = DateTime.Now.ToString("yyyy-MM-dd");
-                    string file = $"ActiveTeachers-{date}.pdf";
+                    string file = $"ActiveTeachersReport-{date}.pdf";
                     string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);
                     document.GeneratePdf(path);
 
@@ -942,6 +942,32 @@ namespace Student_Information_System.Forms
                     CrownMessageBox.ShowError($"Unable to process {ex.Message}", "Unable to process report");
                 }
             }
+        }
+
+        private void lbl_GenerateSubjects_Click(object sender, EventArgs e)
+        {
+            var result = CrownMessageBox.ShowInformation("Are you sure you want to continue?", "Confirm Generate Report", ReaLTaiizor.Enum.Crown.DialogButton.YesNo);
+
+            if (result == DialogResult.Yes)
+            {
+                try
+                {
+                    var document = new SubjectDocument(db);
+
+                    string date = DateTime.Now.ToString("yyyy-MM-dd");
+                    string file = $"ActiveSubjectsReport-{date}.pdf";
+                    string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), file);
+                    document.GeneratePdf(path);
+
+                    MaterialSnackBar Snackbar = new MaterialSnackBar($"Successfully Generated {file}", 3000, "OK", true);
+                    Snackbar.Show(this);
+                }
+                catch (Exception ex)
+                {
+                    CrownMessageBox.ShowError($"Unable to process {ex.Message}", "Unable to process report");
+                }
+            }
+
         }
     }
 }

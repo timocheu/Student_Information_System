@@ -133,7 +133,6 @@
             tb_SearchLogs = new ReaLTaiizor.Controls.MaterialTextBoxEdit();
             tab_Reports = new TabPage();
             lbl_GenerateStudentsPerSubjects = new Label();
-            lbl_GenerateStudentsPerTeacher = new Label();
             lbl_GenerateSubjects = new Label();
             lbl_GenerateActiveTeachers = new Label();
             lbl_GenerateActiveStudents = new Label();
@@ -1956,7 +1955,6 @@
             // 
             tab_Reports.BackColor = Color.FromArgb(238, 242, 245);
             tab_Reports.Controls.Add(lbl_GenerateStudentsPerSubjects);
-            tab_Reports.Controls.Add(lbl_GenerateStudentsPerTeacher);
             tab_Reports.Controls.Add(lbl_GenerateSubjects);
             tab_Reports.Controls.Add(lbl_GenerateActiveTeachers);
             tab_Reports.Controls.Add(lbl_GenerateActiveStudents);
@@ -1980,29 +1978,18 @@
             lbl_GenerateStudentsPerSubjects.Text = "Print all students per subjects:";
             lbl_GenerateStudentsPerSubjects.Click += lbl_GenerateStudentsPerSubjects_Click;
             // 
-            // lbl_GenerateStudentsPerTeacher
-            // 
-            lbl_GenerateStudentsPerTeacher.AutoSize = true;
-            lbl_GenerateStudentsPerTeacher.Cursor = Cursors.Hand;
-            lbl_GenerateStudentsPerTeacher.Font = new Font("Poppins", 12F, FontStyle.Underline);
-            lbl_GenerateStudentsPerTeacher.ForeColor = SystemColors.HotTrack;
-            lbl_GenerateStudentsPerTeacher.Location = new Point(15, 160);
-            lbl_GenerateStudentsPerTeacher.Name = "lbl_GenerateStudentsPerTeacher";
-            lbl_GenerateStudentsPerTeacher.Size = new Size(252, 28);
-            lbl_GenerateStudentsPerTeacher.TabIndex = 3;
-            lbl_GenerateStudentsPerTeacher.Text = "Print all students per teachers:";
-            // 
             // lbl_GenerateSubjects
             // 
             lbl_GenerateSubjects.AutoSize = true;
             lbl_GenerateSubjects.Cursor = Cursors.Hand;
             lbl_GenerateSubjects.Font = new Font("Poppins", 12F, FontStyle.Underline);
             lbl_GenerateSubjects.ForeColor = SystemColors.HotTrack;
-            lbl_GenerateSubjects.Location = new Point(15, 209);
+            lbl_GenerateSubjects.Location = new Point(15, 161);
             lbl_GenerateSubjects.Name = "lbl_GenerateSubjects";
             lbl_GenerateSubjects.Size = new Size(144, 28);
             lbl_GenerateSubjects.TabIndex = 2;
             lbl_GenerateSubjects.Text = "Print all subjects:";
+            lbl_GenerateSubjects.Click += lbl_GenerateSubjects_Click;
             // 
             // lbl_GenerateActiveTeachers
             // 
@@ -2293,7 +2280,6 @@
         private ReaLTaiizor.Controls.HopeTextBox tb_Logs_LimitRows;
         private Label lbl_GenerateActiveStudents;
         private Label lbl_GenerateStudentsPerSubjects;
-        private Label lbl_GenerateStudentsPerTeacher;
         private Label lbl_GenerateSubjects;
         private Label lbl_GenerateActiveTeachers;
     }
